@@ -92,7 +92,6 @@ export default function NavTab() {
           } 
         }
         >
-
         </Tab.Screen>
         <Tab.Screen name="LeaderBoard" component={LeaderBoard}
         options={{
