@@ -63,6 +63,7 @@ const screenOptions = {
 };
 
 export default function NavTab() {
+  
   return (
       <Tab.Navigator {...{ screenOptions }}>
         <Tab.Screen name="Profile" component={Profile} 
@@ -77,9 +78,10 @@ export default function NavTab() {
   ),
         }}/>
        
-        <Tab.Screen name="Home" component={HomeScreen}
-        options={
-          {tabBarIcon: ({focused})=>(
+        <Tab.Screen 
+          name="Home" 
+          component={HomeScreen}
+          options={{tabBarIcon: ({focused})=>(
             <View style={{alignItems: 'center', justifyContent:'center', top:10}}>
               <Icon name="home" size={45} 
             style={{

@@ -17,8 +17,16 @@ const LeftContentBox = props => <Avatar.Icon style={styles.icon_style} {...props
 const LeftContentOrdering = props => <Avatar.Icon style={styles.icon_style} {...props} icon="numeric" />
 // https://callstack.github.io/react-native-paper/card.html
 
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import TriviaScreen from './TriviaScreen'
+import MathScreen from './MathScreen'
+import NumberOrderingScreen from './NumberOrderingScreen'
+import ColorBoxScreen from './ColorBoxScreen'
 
-export default function HomeScreen() {
+const Stack = createNativeStackNavigator();
+
+
+function GameScreen({navigation}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
@@ -34,7 +42,7 @@ export default function HomeScreen() {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/BBaFnKbM-Trivia-Day--702x336.gif' }} />
           <Card.Actions>
-          <Button onPress={() => props.navigation.navigate('Profile')}>
+          <Button onPress={() => navigation.navigate('TriviaScreen')}>
              Enter Game
           </Button>
           </Card.Actions>
@@ -47,7 +55,7 @@ export default function HomeScreen() {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
           <Card.Actions>
-          <Button>
+          <Button onPress={() => navigation.navigate('MathScreen')}>
             Enter Game
           </Button>
           </Card.Actions>
@@ -61,7 +69,7 @@ export default function HomeScreen() {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://play-lh.googleusercontent.com/ExTusrE6tBOXwC1uzd3EFHYSrlTv1UabD-rMMA2D3Q5WOTNZtAK5LomyqPI5O7LP774' }} />
           <Card.Actions>
-          <Button>
+          <Button onPress={() => navigation.navigate('ColorBoxScreen')}>
             Enter Game
           </Button>
           </Card.Actions>
@@ -75,7 +83,7 @@ export default function HomeScreen() {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://m.media-amazon.com/images/I/418Iix7JQ1L.png' }} />
           <Card.Actions>
-          <Button>
+          <Button onPress={() => navigation.navigate('NumberOrderingScreen')}>
             Enter Game
           </Button>
           </Card.Actions>
@@ -85,6 +93,32 @@ export default function HomeScreen() {
       </SafeAreaView>
       </View>
     );
+  }
+
+  export default function HomeScreen({navigation, route}){
+    if (route.state && route.state.index >0){
+      navigation.setOptions({tabBarVisible: false})
+    }
+
+    return (
+      <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+      >
+          <Stack.Screen
+            name="GameScreen"
+            component={GameScreen}
+            
+          />
+          <Stack.Screen options={{headerShown: false}} name="TriviaScreen" component={TriviaScreen} />
+          <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen" component={NumberOrderingScreen} />
+          <Stack.Screen options={{headerShown: false}} name="MathScreen" component={MathScreen} />
+          <Stack.Screen options={{headerShown: false}} name="ColorBoxScreen" component={ColorBoxScreen} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        </Stack.Navigator>
+    );
+  
   }
   
 

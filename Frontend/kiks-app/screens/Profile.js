@@ -22,7 +22,22 @@ const TestScreen = ({navigation}) => {
   );
 };
 const TestScreen2 = ({navigation, route}) => {
-  return <Text>This is {route.params.name}'s profile</Text>;
+  return (
+    <View>
+      <Text>This is {route.params.name}'s profile</Text>
+      <Button
+      title="Go back to Profile"
+      // onPress={() =>
+      //   navigation.navigate('TestScreen2', {name: 'Jane'})
+      // }
+      onPress={() =>
+        navigation.navigate('Profile')
+      }
+    />
+
+    </View>
+ 
+  );
 };
 
 export default function Profile() {
@@ -32,7 +47,11 @@ export default function Profile() {
       //   <Text>Profile</Text>
       // </View>
     
-      <Stack.Navigator>
+      <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+      >
         <Stack.Screen
           name="Home"
           component={TestScreen}
