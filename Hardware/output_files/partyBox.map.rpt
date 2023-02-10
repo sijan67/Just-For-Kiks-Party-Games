@@ -1,5 +1,5 @@
 Analysis & Synthesis report for partyBox
-Tue Feb 07 10:32:18 2023
+Thu Feb 09 11:18:21 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -17,17 +17,24 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   9. Analysis & Synthesis IP Cores Summary
  10. State Machine - |partyBox|display_count
  11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for sld_signaltap:auto_signaltap_0
- 16. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 17. Signal Tap Logic Analyzer Settings
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Connections to In-System Debugging Instance "auto_signaltap_0"
- 21. Analysis & Synthesis Messages
- 22. Analysis & Synthesis Suppressed Messages
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for sld_signaltap:auto_signaltap_0
+ 17. Parameter Settings for User Entity Instance: video_driver:v1
+ 18. Parameter Settings for User Entity Instance: video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i
+ 19. Parameter Settings for User Entity Instance: video_driver:v1|altera_up_avalon_video_vga_timing:video
+ 20. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 21. Port Connectivity Checks: "video_driver:v1|altera_up_avalon_video_vga_timing:video"
+ 22. Port Connectivity Checks: "video_driver:v1|CLOCK25_PLL:c25_gen"
+ 23. Port Connectivity Checks: "video_driver:v1"
+ 24. Signal Tap Logic Analyzer Settings
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -53,14 +60,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Feb 07 10:32:18 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu Feb 09 11:18:21 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 1050                                        ;
-; Total pins                      ; 103                                         ;
+; Total registers                 ; 1186                                        ;
+; Total pins                      ; 96                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 6,912                                       ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -68,7 +75,7 @@ refer to the applicable agreement for further details.
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
 ; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
 ; Total DLLs                      ; 0                                           ;
 +---------------------------------+---------------------------------------------+
 
@@ -182,7 +189,12 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+-------------+
 ; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                                 ; Library     ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+-------------+
-; partyBox.v                                                         ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v                                                         ;             ;
+; partyBox.sv                                                        ; yes             ; User SystemVerilog HDL File                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv                                                        ;             ;
+; CLOCK25_PLL.v                                                      ; yes             ; User Wizard-Generated File                   ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL.v                                                      ; CLOCK25_PLL ;
+; CLOCK25_PLL/CLOCK25_PLL_0002.v                                     ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL/CLOCK25_PLL_0002.v                                     ; CLOCK25_PLL ;
+; video_driver.sv                                                    ; yes             ; User SystemVerilog HDL File                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/video_driver.sv                                                    ;             ;
+; altera_up_avalon_video_vga_timing.v                                ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/altera_up_avalon_video_vga_timing.v                                ;             ;
+; altera_pll.v                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v                                                          ;             ;
 ; sld_signaltap.vhd                                                  ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap.vhd                                                     ;             ;
 ; sld_signaltap_impl.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd                                                ;             ;
 ; sld_ela_control.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_control.vhd                                                   ;             ;
@@ -239,6 +251,7 @@ refer to the applicable agreement for further details.
 ; db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
 ; db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
 ; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                                      ;             ;
+; partyBox.v                                                         ; yes             ; User Verilog HDL File                        ; partyBox.v                                                                                                                   ;             ;
 +--------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
@@ -247,27 +260,30 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 577            ;
+; Estimate of Logic utilization (ALMs needed) ; 652            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 415            ;
+; Combinational ALUT usage for logic          ; 519            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 90             ;
-;     -- 5 input functions                    ; 109            ;
-;     -- 4 input functions                    ; 39             ;
-;     -- <=3 input functions                  ; 177            ;
+;     -- 6 input functions                    ; 97             ;
+;     -- 5 input functions                    ; 116            ;
+;     -- 4 input functions                    ; 48             ;
+;     -- <=3 input functions                  ; 258            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 1050           ;
+; Dedicated logic registers                   ; 1186           ;
 ;                                             ;                ;
-; I/O pins                                    ; 103            ;
+; I/O pins                                    ; 96             ;
 ; Total MLAB memory bits                      ; 0              ;
 ; Total block memory bits                     ; 6912           ;
 ;                                             ;                ;
 ; Total DSP Blocks                            ; 0              ;
 ;                                             ;                ;
+; Total PLLs                                  ; 1              ;
+;     -- PLLs                                 ; 1              ;
+;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 624            ;
-; Total fan-out                               ; 6071           ;
-; Average fan-out                             ; 3.50           ;
+; Maximum fan-out                             ; 643            ;
+; Total fan-out                               ; 6773           ;
+; Average fan-out                             ; 3.45           ;
 +---------------------------------------------+----------------+
 
 
@@ -276,7 +292,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                  ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |partyBox                                                                                                                               ; 415 (50)            ; 1050 (38)                 ; 6912              ; 0          ; 103  ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
+; |partyBox                                                                                                                               ; 519 (50)            ; 1186 (56)                 ; 6912              ; 0          ; 96   ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 91 (1)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
 ;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
 ;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
@@ -371,6 +387,11 @@ refer to the applicable agreement for further details.
 ;                |lpm_shiftreg:ram_data_shift_out|                                                                                        ; 1 (1)               ; 54 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:ram_data_shift_out                                                                                                               ; lpm_shiftreg                      ; work         ;
 ;                |lpm_shiftreg:status_data_shift_out|                                                                                     ; 1 (1)               ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:status_data_shift_out                                                                                                            ; lpm_shiftreg                      ; work         ;
 ;             |sld_rom_sr:crc_rom_sr|                                                                                                     ; 20 (20)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr                                                                                                                                                                                                          ; sld_rom_sr                        ; work         ;
+;    |video_driver:v1|                                                                                                                    ; 104 (64)            ; 118 (69)                  ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1                                                                                                                                                                                                                                                                                                                            ; video_driver                      ; work         ;
+;       |CLOCK25_PLL:c25_gen|                                                                                                             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen                                                                                                                                                                                                                                                                                                        ; CLOCK25_PLL                       ; CLOCK25_PLL  ;
+;          |CLOCK25_PLL_0002:clock25_pll_inst|                                                                                            ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst                                                                                                                                                                                                                                                                      ; CLOCK25_PLL_0002                  ; CLOCK25_PLL  ;
+;             |altera_pll:altera_pll_i|                                                                                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i                                                                                                                                                                                                                                              ; altera_pll                        ; work         ;
+;       |altera_up_avalon_video_vga_timing:video|                                                                                         ; 40 (40)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|altera_up_avalon_video_vga_timing:video                                                                                                                                                                                                                                                                                    ; altera_up_avalon_video_vga_timing ; work         ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -394,6 +415,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
 ; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
 ; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
+; Altera ; altera_pll   ; 17.0    ; N/A          ; N/A          ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen                                                                                                                                                                                                                                 ; CLOCK25_PLL.v   ;
 +--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
@@ -412,20 +434,35 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
 
 
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; on[1..4]                               ; Merged with on[0]  ;
-; on[6..9]                               ; Merged with on[5]  ;
-; display_count~3                        ; Lost fanout        ;
-; display_count~6                        ; Lost fanout        ;
-; display_count~7                        ; Lost fanout        ;
-; display_count~8                        ; Lost fanout        ;
-; display_count~9                        ; Lost fanout        ;
-; Total Number of Removed Registers = 13 ;                    ;
-+----------------------------------------+--------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                              ;
++------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                          ; Reason for Removal                     ;
++------------------------------------------------------------------------+----------------------------------------+
+; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_blue[0,1]  ; Stuck at GND due to stuck port data_in ;
+; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_green[0,1] ; Stuck at GND due to stuck port data_in ;
+; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[0,1]   ; Stuck at GND due to stuck port data_in ;
+; on[1..4]                                                               ; Merged with on[0]                      ;
+; on[6..9]                                                               ; Merged with on[5]                      ;
+; display_count~3                                                        ; Lost fanout                            ;
+; display_count~6                                                        ; Lost fanout                            ;
+; display_count~7                                                        ; Lost fanout                            ;
+; display_count~8                                                        ; Lost fanout                            ;
+; display_count~9                                                        ; Lost fanout                            ;
+; video_driver:v1|x[6..9]                                                ; Lost fanout                            ;
+; video_driver:v1|y[6..8]                                                ; Lost fanout                            ;
+; Total Number of Removed Registers = 26                                 ;                                        ;
++------------------------------------------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                  ;
++----------------------+--------------------+------------------------------------------------------------------+
+; Register name        ; Reason for Removal ; Registers Removed due to This Register                           ;
++----------------------+--------------------+------------------------------------------------------------------+
+; video_driver:v1|x[9] ; Lost Fanouts       ; video_driver:v1|x[8], video_driver:v1|x[7], video_driver:v1|x[6] ;
+; video_driver:v1|y[8] ; Lost Fanouts       ; video_driver:v1|y[7], video_driver:v1|y[6]                       ;
++----------------------+--------------------+------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -433,12 +470,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1050  ;
-; Number of registers using Synchronous Clear  ; 128   ;
-; Number of registers using Synchronous Load   ; 163   ;
+; Total registers                              ; 1186  ;
+; Number of registers using Synchronous Clear  ; 225   ;
+; Number of registers using Synchronous Load   ; 172   ;
 ; Number of registers using Asynchronous Clear ; 345   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 461   ;
+; Number of registers using Clock Enable       ; 501   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -463,14 +500,19 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |partyBox|on[0]            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |partyBox|display_count    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |partyBox|video_driver:v1|yt[8] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |partyBox|video_driver:v1|x[4]  ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |partyBox|video_driver:v1|xd[1] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |partyBox|on[5]                 ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |partyBox|video_driver:v1|y[1]  ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 0 LEs                ; 27 LEs                 ; Yes        ; |partyBox|video_driver:v1|yd[2] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |partyBox|display_count         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 
 
 +-------------------------------------------------------+
@@ -480,6 +522,288 @@ Encoding Type:  One-Hot
 +-----------------+-------+------+----------------------+
 ; MESSAGE_DISABLE ; 13410 ; -    ; -                    ;
 +-----------------+-------+------+----------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_driver:v1 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; WIDTH          ; 640   ; Signed Integer                      ;
+; HEIGHT         ; 480   ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i ;
++--------------------------------------+------------------------+----------------------------------------------------------------------------+
+; Parameter Name                       ; Value                  ; Type                                                                       ;
++--------------------------------------+------------------------+----------------------------------------------------------------------------+
+; reference_clock_frequency            ; 50.0 MHz               ; String                                                                     ;
+; fractional_vco_multiplier            ; false                  ; String                                                                     ;
+; pll_type                             ; General                ; String                                                                     ;
+; pll_subtype                          ; General                ; String                                                                     ;
+; number_of_clocks                     ; 1                      ; Signed Integer                                                             ;
+; operation_mode                       ; direct                 ; String                                                                     ;
+; deserialization_factor               ; 4                      ; Signed Integer                                                             ;
+; data_rate                            ; 0                      ; Signed Integer                                                             ;
+; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer                                                             ;
+; output_clock_frequency0              ; 25.000000 MHz          ; String                                                                     ;
+; phase_shift0                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle0                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency1              ; 0 MHz                  ; String                                                                     ;
+; phase_shift1                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle1                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency2              ; 0 MHz                  ; String                                                                     ;
+; phase_shift2                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle2                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency3              ; 0 MHz                  ; String                                                                     ;
+; phase_shift3                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle3                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency4              ; 0 MHz                  ; String                                                                     ;
+; phase_shift4                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle4                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency5              ; 0 MHz                  ; String                                                                     ;
+; phase_shift5                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle5                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency6              ; 0 MHz                  ; String                                                                     ;
+; phase_shift6                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle6                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency7              ; 0 MHz                  ; String                                                                     ;
+; phase_shift7                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle7                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency8              ; 0 MHz                  ; String                                                                     ;
+; phase_shift8                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle8                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency9              ; 0 MHz                  ; String                                                                     ;
+; phase_shift9                         ; 0 ps                   ; String                                                                     ;
+; duty_cycle9                          ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency10             ; 0 MHz                  ; String                                                                     ;
+; phase_shift10                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle10                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency11             ; 0 MHz                  ; String                                                                     ;
+; phase_shift11                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle11                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency12             ; 0 MHz                  ; String                                                                     ;
+; phase_shift12                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle12                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency13             ; 0 MHz                  ; String                                                                     ;
+; phase_shift13                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle13                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency14             ; 0 MHz                  ; String                                                                     ;
+; phase_shift14                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle14                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency15             ; 0 MHz                  ; String                                                                     ;
+; phase_shift15                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle15                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency16             ; 0 MHz                  ; String                                                                     ;
+; phase_shift16                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle16                         ; 50                     ; Signed Integer                                                             ;
+; output_clock_frequency17             ; 0 MHz                  ; String                                                                     ;
+; phase_shift17                        ; 0 ps                   ; String                                                                     ;
+; duty_cycle17                         ; 50                     ; Signed Integer                                                             ;
+; clock_name_0                         ;                        ; String                                                                     ;
+; clock_name_1                         ;                        ; String                                                                     ;
+; clock_name_2                         ;                        ; String                                                                     ;
+; clock_name_3                         ;                        ; String                                                                     ;
+; clock_name_4                         ;                        ; String                                                                     ;
+; clock_name_5                         ;                        ; String                                                                     ;
+; clock_name_6                         ;                        ; String                                                                     ;
+; clock_name_7                         ;                        ; String                                                                     ;
+; clock_name_8                         ;                        ; String                                                                     ;
+; clock_name_global_0                  ; false                  ; String                                                                     ;
+; clock_name_global_1                  ; false                  ; String                                                                     ;
+; clock_name_global_2                  ; false                  ; String                                                                     ;
+; clock_name_global_3                  ; false                  ; String                                                                     ;
+; clock_name_global_4                  ; false                  ; String                                                                     ;
+; clock_name_global_5                  ; false                  ; String                                                                     ;
+; clock_name_global_6                  ; false                  ; String                                                                     ;
+; clock_name_global_7                  ; false                  ; String                                                                     ;
+; clock_name_global_8                  ; false                  ; String                                                                     ;
+; m_cnt_hi_div                         ; 1                      ; Signed Integer                                                             ;
+; m_cnt_lo_div                         ; 1                      ; Signed Integer                                                             ;
+; m_cnt_bypass_en                      ; false                  ; String                                                                     ;
+; m_cnt_odd_div_duty_en                ; false                  ; String                                                                     ;
+; n_cnt_hi_div                         ; 1                      ; Signed Integer                                                             ;
+; n_cnt_lo_div                         ; 1                      ; Signed Integer                                                             ;
+; n_cnt_bypass_en                      ; false                  ; String                                                                     ;
+; n_cnt_odd_div_duty_en                ; false                  ; String                                                                     ;
+; c_cnt_hi_div0                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div0                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en0                     ; false                  ; String                                                                     ;
+; c_cnt_in_src0                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en0               ; false                  ; String                                                                     ;
+; c_cnt_prst0                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst0                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div1                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div1                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en1                     ; false                  ; String                                                                     ;
+; c_cnt_in_src1                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en1               ; false                  ; String                                                                     ;
+; c_cnt_prst1                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst1                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div2                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div2                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en2                     ; false                  ; String                                                                     ;
+; c_cnt_in_src2                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en2               ; false                  ; String                                                                     ;
+; c_cnt_prst2                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst2                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div3                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div3                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en3                     ; false                  ; String                                                                     ;
+; c_cnt_in_src3                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en3               ; false                  ; String                                                                     ;
+; c_cnt_prst3                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst3                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div4                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div4                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en4                     ; false                  ; String                                                                     ;
+; c_cnt_in_src4                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en4               ; false                  ; String                                                                     ;
+; c_cnt_prst4                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst4                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div5                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div5                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en5                     ; false                  ; String                                                                     ;
+; c_cnt_in_src5                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en5               ; false                  ; String                                                                     ;
+; c_cnt_prst5                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst5                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div6                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div6                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en6                     ; false                  ; String                                                                     ;
+; c_cnt_in_src6                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en6               ; false                  ; String                                                                     ;
+; c_cnt_prst6                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst6                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div7                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div7                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en7                     ; false                  ; String                                                                     ;
+; c_cnt_in_src7                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en7               ; false                  ; String                                                                     ;
+; c_cnt_prst7                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst7                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div8                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div8                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en8                     ; false                  ; String                                                                     ;
+; c_cnt_in_src8                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en8               ; false                  ; String                                                                     ;
+; c_cnt_prst8                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst8                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div9                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div9                        ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en9                     ; false                  ; String                                                                     ;
+; c_cnt_in_src9                        ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en9               ; false                  ; String                                                                     ;
+; c_cnt_prst9                          ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst9                   ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div10                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div10                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en10                    ; false                  ; String                                                                     ;
+; c_cnt_in_src10                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en10              ; false                  ; String                                                                     ;
+; c_cnt_prst10                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst10                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div11                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div11                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en11                    ; false                  ; String                                                                     ;
+; c_cnt_in_src11                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en11              ; false                  ; String                                                                     ;
+; c_cnt_prst11                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst11                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div12                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div12                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en12                    ; false                  ; String                                                                     ;
+; c_cnt_in_src12                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en12              ; false                  ; String                                                                     ;
+; c_cnt_prst12                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst12                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div13                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div13                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en13                    ; false                  ; String                                                                     ;
+; c_cnt_in_src13                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en13              ; false                  ; String                                                                     ;
+; c_cnt_prst13                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst13                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div14                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div14                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en14                    ; false                  ; String                                                                     ;
+; c_cnt_in_src14                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en14              ; false                  ; String                                                                     ;
+; c_cnt_prst14                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst14                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div15                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div15                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en15                    ; false                  ; String                                                                     ;
+; c_cnt_in_src15                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en15              ; false                  ; String                                                                     ;
+; c_cnt_prst15                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst15                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div16                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div16                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en16                    ; false                  ; String                                                                     ;
+; c_cnt_in_src16                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en16              ; false                  ; String                                                                     ;
+; c_cnt_prst16                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst16                  ; 0                      ; Signed Integer                                                             ;
+; c_cnt_hi_div17                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_lo_div17                       ; 1                      ; Signed Integer                                                             ;
+; c_cnt_bypass_en17                    ; false                  ; String                                                                     ;
+; c_cnt_in_src17                       ; ph_mux_clk             ; String                                                                     ;
+; c_cnt_odd_div_duty_en17              ; false                  ; String                                                                     ;
+; c_cnt_prst17                         ; 1                      ; Signed Integer                                                             ;
+; c_cnt_ph_mux_prst17                  ; 0                      ; Signed Integer                                                             ;
+; pll_vco_div                          ; 1                      ; Signed Integer                                                             ;
+; pll_slf_rst                          ; false                  ; String                                                                     ;
+; pll_bw_sel                           ; low                    ; String                                                                     ;
+; pll_output_clk_frequency             ; 0 MHz                  ; String                                                                     ;
+; pll_cp_current                       ; 0                      ; Signed Integer                                                             ;
+; pll_bwctrl                           ; 0                      ; Signed Integer                                                             ;
+; pll_fractional_division              ; 1                      ; Signed Integer                                                             ;
+; pll_fractional_cout                  ; 24                     ; Signed Integer                                                             ;
+; pll_dsm_out_sel                      ; 1st_order              ; String                                                                     ;
+; mimic_fbclk_type                     ; gclk                   ; String                                                                     ;
+; pll_fbclk_mux_1                      ; glb                    ; String                                                                     ;
+; pll_fbclk_mux_2                      ; fb_1                   ; String                                                                     ;
+; pll_m_cnt_in_src                     ; ph_mux_clk             ; String                                                                     ;
+; pll_vcoph_div                        ; 1                      ; Signed Integer                                                             ;
+; refclk1_frequency                    ; 0 MHz                  ; String                                                                     ;
+; pll_clkin_0_src                      ; clk_0                  ; String                                                                     ;
+; pll_clkin_1_src                      ; clk_0                  ; String                                                                     ;
+; pll_clk_loss_sw_en                   ; false                  ; String                                                                     ;
+; pll_auto_clk_sw_en                   ; false                  ; String                                                                     ;
+; pll_manu_clk_sw_en                   ; false                  ; String                                                                     ;
+; pll_clk_sw_dly                       ; 0                      ; Signed Integer                                                             ;
+; pll_extclk_0_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                                     ;
+; pll_extclk_1_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                                     ;
++--------------------------------------+------------------------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: video_driver:v1|altera_up_avalon_video_vga_timing:video ;
++-------------------------+------------+---------------------------------------------------------------+
+; Parameter Name          ; Value      ; Type                                                          ;
++-------------------------+------------+---------------------------------------------------------------+
+; CW                      ; 9          ; Signed Integer                                                ;
+; H_ACTIVE                ; 640        ; Signed Integer                                                ;
+; H_FRONT_PORCH           ; 16         ; Signed Integer                                                ;
+; H_SYNC                  ; 96         ; Signed Integer                                                ;
+; H_BACK_PORCH            ; 48         ; Signed Integer                                                ;
+; H_TOTAL                 ; 800        ; Signed Integer                                                ;
+; V_ACTIVE                ; 480        ; Signed Integer                                                ;
+; V_FRONT_PORCH           ; 10         ; Signed Integer                                                ;
+; V_SYNC                  ; 2          ; Signed Integer                                                ;
+; V_BACK_PORCH            ; 33         ; Signed Integer                                                ;
+; V_TOTAL                 ; 525        ; Signed Integer                                                ;
+; PW                      ; 10         ; Signed Integer                                                ;
+; PIXEL_COUNTER_INCREMENT ; 0000000001 ; Unsigned Binary                                               ;
+; LW                      ; 10         ; Signed Integer                                                ;
+; LINE_COUNTER_INCREMENT  ; 0000000001 ; Unsigned Binary                                               ;
++-------------------------+------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -548,6 +872,45 @@ Encoding Type:  One-Hot
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_driver:v1|altera_up_avalon_video_vga_timing:video"                                                  ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port                       ; Type   ; Severity ; Details                                                                             ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------+
+; red_to_vga_display[1..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; green_to_vga_display[1..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; blue_to_vga_display[1..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; color_select               ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; end_of_frame               ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vga_c_sync                 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vga_data_enable            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vga_red[9..8]              ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vga_green[9..8]            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vga_blue[9..8]             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vga_color_data             ; Output ; Info     ; Explicitly unconnected                                                              ;
++----------------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_driver:v1|CLOCK25_PLL:c25_gen"                                                  ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; locked ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_driver:v1"                                                                       ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; reset   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; x[9..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; y[8]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Signal Tap Logic Analyzer Settings                                                                                                                                                                                                                                      ;
 +----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
@@ -562,24 +925,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 38                          ;
+; arriav_ff             ; 174                         ;
 ;     ENA               ; 2                           ;
-;     ENA SCLR          ; 29                          ;
-;     plain             ; 7                           ;
-; arriav_lcell_comb     ; 55                          ;
-;     arith             ; 29                          ;
-;         1 data inputs ; 29                          ;
-;     normal            ; 26                          ;
+;     ENA SCLR          ; 60                          ;
+;     ENA SLD           ; 9                           ;
+;     SCLR              ; 66                          ;
+;     plain             ; 37                          ;
+; arriav_lcell_comb     ; 159                         ;
+;     arith             ; 99                          ;
+;         1 data inputs ; 99                          ;
+;     normal            ; 60                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 1                           ;
-;         5 data inputs ; 3                           ;
-;         6 data inputs ; 11                          ;
-; boundary_port         ; 143                         ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 10                          ;
+;         6 data inputs ; 18                          ;
+; boundary_port         ; 136                         ;
+; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.80                        ;
-; Average LUT depth     ; 2.70                        ;
+; Average LUT depth     ; 1.73                        ;
 +-----------------------+-----------------------------+
 
 
@@ -588,7 +955,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -747,15 +1114,91 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Feb 07 10:31:50 2023
+    Info: Processing started: Thu Feb 09 11:17:49 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off partyBox -c partyBox
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file partybox.v
-    Info (12023): Found entity 1: partyBox File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file partybox.sv
+    Info (12023): Found entity 1: partyBox File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file clock25_pll.v
+    Info (12023): Found entity 1: CLOCK25_PLL File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file clock25_pll/clock25_pll_0002.v
+    Info (12023): Found entity 1: CLOCK25_PLL_0002 File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL/CLOCK25_PLL_0002.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file video_driver.sv
+    Info (12023): Found entity 1: video_driver File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/video_driver.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file altera_up_avalon_video_vga_timing.v
+    Info (12023): Found entity 1: altera_up_avalon_video_vga_timing File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/altera_up_avalon_video_vga_timing.v Line: 47
 Info (12127): Elaborating entity "partyBox" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at partyBox.v(73): truncated value with size 32 to match size of target (29) File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 73
-Info (10264): Verilog HDL Case Statement information at partyBox.v(75): all case item expressions in this case statement are onehot File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 75
+Warning (10230): Verilog HDL assignment warning at partyBox.sv(71): truncated value with size 32 to match size of target (29) File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 71
+Info (10264): Verilog HDL Case Statement information at partyBox.sv(73): all case item expressions in this case statement are onehot File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 73
+Info (12128): Elaborating entity "video_driver" for hierarchy "video_driver:v1" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 37
+Info (12128): Elaborating entity "CLOCK25_PLL" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/video_driver.sv Line: 47
+Info (12128): Elaborating entity "CLOCK25_PLL_0002" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL.v Line: 20
+Info (12128): Elaborating entity "altera_pll" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL/CLOCK25_PLL_0002.v Line: 85
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL/CLOCK25_PLL_0002.v Line: 85
+Info (12133): Instantiated megafunction "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL/CLOCK25_PLL_0002.v Line: 85
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
+    Info (12134): Parameter "operation_mode" = "direct"
+    Info (12134): Parameter "number_of_clocks" = "1"
+    Info (12134): Parameter "output_clock_frequency0" = "25.000000 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "0 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "0 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "altera_up_avalon_video_vga_timing" for hierarchy "video_driver:v1|altera_up_avalon_video_vga_timing:video" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/video_driver.sv Line: 147
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ob84.tdf
     Info (12023): Found entity 1: altsyncram_ob84 File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/altsyncram_ob84.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_elc.tdf
@@ -778,7 +1221,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_99c File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/cmpr_99c.tdf Line: 22
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2023.02.07.10:32:08 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2023.02.09.11:18:07 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -802,44 +1245,51 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 19
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 20
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 21
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 22
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
-    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 24
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 20
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 20
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 21
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 21
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 22
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 22
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 26
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
-Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 595 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[11] -entity DE1_SoC was ignored
@@ -1411,67 +1861,77 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
     Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE1_SoC -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE1_SoC -section_id Top was ignored
+Warning (20013): Ignored 24 assignments for entity "dds_and_nios_lab" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity dds_and_nios_lab -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity dds_and_nios_lab -section_id Top was ignored
 Info (144001): Generated suppressed messages file C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/output_files/partyBox.map.smsg
 Info (35024): Successfully connected in-system debug instance "auto_signaltap_0" to all 141 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 46 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 15
-    Warning (15610): No output dependent on input pin "GPIO_1[0]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[1]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[2]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[3]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[4]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[5]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[6]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[7]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[8]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[9]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[10]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[11]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[12]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[13]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[14]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[15]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[16]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[17]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[18]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[19]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[20]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[21]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[22]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[23]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[24]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[25]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[26]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[27]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[28]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[29]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[30]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[31]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[32]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[33]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[34]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-    Warning (15610): No output dependent on input pin "GPIO_1[35]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.v Line: 16
-Info (21057): Implemented 1373 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 54 input pins
-    Info (21059): Implemented 53 output pins
-    Info (21061): Implemented 1211 logic cells
+    Info (16011): Adding 14 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning: RST port on the PLL is not properly connected on instance video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
+    Info: Must be connected
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
+Info (21057): Implemented 1527 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 82 output pins
+    Info (21061): Implemented 1371 logic cells
     Info (21064): Implemented 54 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 657 warnings
-    Info: Peak virtual memory: 4904 megabytes
-    Info: Processing ended: Tue Feb 07 10:32:18 2023
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:50
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 672 warnings
+    Info: Peak virtual memory: 4910 megabytes
+    Info: Processing ended: Thu Feb 09 11:18:21 2023
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:57
 
 
 +------------------------------------------+
