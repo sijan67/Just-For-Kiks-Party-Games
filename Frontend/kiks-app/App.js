@@ -6,9 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import NavTab from './navigation/tabs'
 import { createStackNavigator } from '@react-navigation/stack';
-import EnterGameScreen from './screens/EnterGameScreen';
+import EnterGameScreen from './screens/StartScreen';
 import HomeScreen from './screens/HomeScreen';
 import TriviaScreen from './screens/TriviaScreen';
+import EnterGameCode from './screens/EnterGameCode';
 
 const Stack = createStackNavigator();
 
@@ -21,7 +22,8 @@ export default function App() {
           headerShown: false
         }}
         initialRouteName="Login">
-        <Stack.Screen name="Login" component={EnterGameScreen} />
+        <Stack.Screen name="EnterGameScreen" component={EnterGameScreen} />
+        <Stack.Screen name="EnterGameCode" component={EnterGameCode} />
         <Stack.Screen name="NavTab" component={NavTab} />
         <Stack.Screen name="HomeScreen" component={HomeScreen}/>
       </Stack.Navigator>

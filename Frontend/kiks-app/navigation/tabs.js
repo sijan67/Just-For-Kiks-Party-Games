@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 // import Icon from 'react-native-ionicons'
 // import {IonIcons} from '@expo/vector-icons'
 import Icon from 'react-native-vector-icons/Ionicons';
-import EnterGameScreen from '../screens/EnterGameScreen';
+import EnterGameScreen from '../screens/StartScreen';
 
 const CustomTabBarButton = ({ children, onPress}) =>(
   <TouchableOpacity
