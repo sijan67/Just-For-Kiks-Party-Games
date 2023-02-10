@@ -5,19 +5,27 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import NavTab from './navigation/tabs'
+import { createStackNavigator } from '@react-navigation/stack';
+import EnterGameScreen from './screens/EnterGameScreen';
+import HomeScreen from './screens/HomeScreen';
+import TriviaScreen from './screens/TriviaScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    //   <Text>Just For Kiks Party Games</Text>
-    //   <Text> This is funnnn ^^</Text>
-    //   <StatusBar style="auto" />
-    // </View>
-    
-      
-    <NavigationContainer><NavTab/></NavigationContainer>
 
-   
+    <NavigationContainer>
+      <Stack.Navigator 
+         screenOptions={{
+          headerShown: false
+        }}
+        initialRouteName="Login">
+        <Stack.Screen name="Login" component={EnterGameScreen} />
+        <Stack.Screen name="NavTab" component={NavTab} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
 
   );
 }

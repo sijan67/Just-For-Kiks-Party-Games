@@ -30,7 +30,8 @@
     "react-native-safe-area-context": "^4.4.1",
     "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "~3.18.0",
-    "react-navigation-stack": "^2.10.4"
+    "react-navigation-stack": "^2.10.4",
+    "react-score-indicator": "^2.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

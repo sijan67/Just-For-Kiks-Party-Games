@@ -10,6 +10,7 @@ const Tab = createBottomTabNavigator();
 // import Icon from 'react-native-ionicons'
 // import {IonIcons} from '@expo/vector-icons'
 import Icon from 'react-native-vector-icons/Ionicons';
+import EnterGameScreen from '../screens/EnterGameScreen';
 
 const CustomTabBarButton = ({ children, onPress}) =>(
   <TouchableOpacity
@@ -58,6 +59,7 @@ const screenOptions = {
     elevation: 0,
     borderRadius: 15,
     height: 90, 
+    headerShown: false,
     ...styles.shadow
   },
 };
@@ -65,7 +67,9 @@ const screenOptions = {
 export default function NavTab() {
   
   return (
-      <Tab.Navigator {...{ screenOptions }}>
+      <Tab.Navigator 
+        initialRouteName="Home" {...{ screenOptions }}>
+         
         <Tab.Screen name="Profile" component={Profile} 
           options={{
           tabBarIcon: ({focused})=>(
@@ -75,8 +79,9 @@ export default function NavTab() {
              />
              <Text style={{color: focused?"white":"#0a1d36"}}>Profile</Text>
             </View>    
-  ),
+          ),
         }}/>
+
        
         <Tab.Screen 
           name="Home" 
