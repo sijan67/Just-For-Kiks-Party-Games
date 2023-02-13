@@ -1,0 +1,23 @@
+<html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        axios.get('questions')
+            .then(function (res) {
+                var questions = '';
+                for (var i = 0; i < res.data.length; i++) {
+                    questions += 'Question:' + ' ' + res.data[i].description + '<br/>' + 'Answer:' + ' ' + res.data[i].answer + '<br/>';
+                }
+                document.getElementById('content').innerHTML = questions;
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    });
+</script>
+
+<body>
+    <div id="content"></div>
+</body>
+
+</html>
