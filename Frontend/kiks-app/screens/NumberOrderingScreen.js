@@ -1,22 +1,84 @@
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-import { StyleSheet, Text, View , SafeAreaView, ScrollView, StatusBar,Pressable } from 'react-native';
-import { Avatar, Button, Card } from 'react-native-paper';
-import {useEffect} from "react";
+const App = () => {
+  const [count, setCount] = useState(0);
+  const onPress = () => setCount(prevCount => prevCount + 1);
 
-export default function NumberOrderingScreen({navigation, route}){
-    useEffect(()=>{
-        navigation.setOptions({tabBarVisible: false})
-    }, [] 
-    );
-    return (
-      <View style={{ marginTop: 20, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style ={{fontSize: 42}}> Number ordering Game </Text>
-        <Button style ={{height: 100, width: 100, size: 100}} onPress={() => navigation.popToTop()}>
-            <Text style={{fontSize: 20}}>
-                Go back
-            </Text>
-        </Button>
+  return (
+    <View style={styles.container}>
+      <View style={styles.countContainer}>
+        <Text style={{fontSize: 30}}>Clicks: {count}</Text>
       </View>
-      
-    );
+      <View>
+      </View>
+      <View style ={{ marginLeft: 35, flexDirection:"row"  }}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>8</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>9</Text>
+      </TouchableOpacity>
+      </View>
+      <View style ={{  marginLeft: 35, flexDirection:"row"  }}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>7</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>2</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>6</Text>
+      </TouchableOpacity>
+      </View>
+      <View style ={{ marginLeft: 35,  flexDirection:"row"  }}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>3</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>5</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>4</Text>
+      </TouchableOpacity>
+      </View>
+      <TouchableOpacity style={styles.submitButton}>
+        <Text style={{marginLeft: 30, fontSize: 25, color: 'white'}}>
+          Submit
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    width: 100,
+    height: 100,
+    margin: 3
+  },
+  countContainer: {
+    alignItems: 'center',
+    padding: 10,
+  },
+  submitButton: {
+    backgroundColor: 'black',
+    width: 200,
+    marginLeft: 100,
+    padding: 30,
+    marginTop: 20
+  }
+});
+
+export default App;

@@ -12,9 +12,14 @@ export default function TestScreen({navigation}){
     <View style={styles.mainContainer}>
     <Text style={styles.name}> Hi Sijan,  </Text>
       <Text style={styles.displayText} > Your current room code is </Text>
-      <Text style={styles.roomCode}>  1234 </Text>
+      <View style={styles.roomCodeContainer}>
+        <Text style={styles.roomCode}>  1234 </Text>
+      </View>
+
       <Text style={styles.displayText} > Your team name is </Text>
-      <Text  style={styles.teamName}> Team Triceps </Text>
+      <View style={styles.teamNameContainer}>
+        <Text  style={styles.teamName}> Team Triceps </Text>
+      </View>
       <Button style={styles.buttonStyle} onPress={() =>
         navigation.navigate('EnterGameCode')}>
           <Text style={{color: 'white', fontSize: 20}}>
@@ -43,19 +48,23 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginTop: 40
   },
-  roomCode: {
+  roomCodeContainer: {
     backgroundColor: '#edbec9',
     padding: 10,
-    borderRadius: 3,
+    borderRadius: 15,
     marginTop: 10,
+  },
+  roomCode: {
     fontWeight: '600', 
     fontSize: 20
   },
-  teamName: {
+  teamNameContainer: {
     backgroundColor: '#edd834',
-    padding: 10,
-    borderRadius: 3,
+    padding: 15,
+    borderRadius: 20,
     marginTop: 10,
+  },
+  teamName: {
     fontWeight: '600', 
     fontSize: 20,
     color: 'black'
@@ -66,6 +75,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     padding: 12,
     width: 230
-    
   }
 })
