@@ -78,7 +78,7 @@ export default function EnterGameScreen({navigation, route}){
            An interactive game to play with your close ones
         </Text>
         <Button style={styles.buttonStyle} onPress={() =>
-        navigation.navigate('EnterGameCode') }>
+        navigation.navigate('EnterName') }>
           <Text style={{color: 'black', fontSize: 16}}>
           Enter the world of fun
           </Text>

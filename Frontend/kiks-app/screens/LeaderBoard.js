@@ -15,11 +15,13 @@ this.state = {
 
 export default function LeaderBoard() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' , backgroundColor: '#ffe6e6'}}>
         <Leaderboard 
         data={this.state.data} 
         sortBy='highScore' 
-        labelBy='userName'/>
+        labelBy='userName'
+        style={{padding: 40}}
+        />
       </View>
     );
   }

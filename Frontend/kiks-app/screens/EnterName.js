@@ -50,14 +50,14 @@ const styles = StyleSheet.create({
       },
 })
 
-export default function EnterGameCode({navigation, route}){
+export default function EnterName({navigation, route}){
     const [text, onChangeText] = React.useState('Useless Text');
     const [number, onChangeNumber] = React.useState('');
 
     return (
       <View style={styles.main}>
         <Text style={styles.textStyle}>
-                Enter your room code
+                Enter your name
         </Text>
         <SafeAreaView>
       <TextInput
@@ -67,7 +67,7 @@ export default function EnterGameCode({navigation, route}){
     </SafeAreaView>
 
         <Button style={styles.buttonStyle} onPress={() =>
-        navigation.navigate('NavTab')}>
+        navigation.navigate('EnterGameCode')}>
           <Text style={{color: 'black', fontSize: 20}}>
                 Confirm
           </Text>

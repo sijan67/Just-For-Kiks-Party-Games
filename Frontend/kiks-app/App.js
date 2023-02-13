@@ -10,6 +10,7 @@ import EnterGameScreen from './screens/StartScreen';
 import HomeScreen from './screens/HomeScreen';
 import TriviaScreen from './screens/TriviaScreen';
 import EnterGameCode from './screens/EnterGameCode';
+import EnterName from './screens/EnterName';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         }}
         initialRouteName="Login">
         <Stack.Screen name="EnterGameScreen" component={EnterGameScreen} />
+        <Stack.Screen name="EnterName" component={EnterName} />
         <Stack.Screen name="EnterGameCode" component={EnterGameCode} />
         <Stack.Screen name="NavTab" component={NavTab} />
         <Stack.Screen name="HomeScreen" component={HomeScreen}/>

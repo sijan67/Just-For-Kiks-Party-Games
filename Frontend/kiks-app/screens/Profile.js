@@ -1,66 +1,71 @@
 
-import { Text, View , Button} from 'react-native';
+import { Text, View , StyleSheet} from 'react-native';
 //Navigation import
 import { NavigationContainer  } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-
-import HomeScreen from './HomeScreen'
+import { Avatar, Button, Card } from 'react-native-paper';
 
 const Stack = createNativeStackNavigator();
 
-const TestScreen = ({navigation}) => {
+export default function TestScreen({navigation}){
   return (
-    <Button
-      title="Enter Room"
-      // onPress={() =>
-      //   navigation.navigate('TestScreen2', {name: 'Jane'})
-      // }
-      onPress={() =>
-        navigation.navigate('HomeScreen')
-      }
-    />
-  );
-};
-const TestScreen2 = ({navigation, route}) => {
-  return (
-    <View>
-      <Text>This is {route.params.name}'s profile</Text>
-      <Button
-      title="Go back to Profile"
-      // onPress={() =>
-      //   navigation.navigate('TestScreen2', {name: 'Jane'})
-      // }
-      onPress={() =>
-        navigation.navigate('Profile')
-      }
-    />
-
+    <View style={styles.mainContainer}>
+    <Text style={styles.name}> Hi Sijan,  </Text>
+      <Text style={styles.displayText} > Your current room code is </Text>
+      <Text style={styles.roomCode}>  1234 </Text>
+      <Text style={styles.displayText} > Your team name is </Text>
+      <Text  style={styles.teamName}> Team Triceps </Text>
+      <Button style={styles.buttonStyle} onPress={() =>
+        navigation.navigate('EnterGameCode')}>
+          <Text style={{color: 'white', fontSize: 20}}>
+                Exit Room
+          </Text>
+            
+        </Button>
+      
     </View>
- 
   );
 };
 
-export default function Profile() {
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1, 
+    alignItems: 'center',
+    backgroundColor: '#ffeee6'
+  },
+  name:{
+    marginTop: 100, 
+    fontWeight: '700',
+    fontSize: 40
+  },
+  displayText:{
+    fontWeight: '300', 
+    fontSize: 30,
+    marginTop: 40
+  },
+  roomCode: {
+    backgroundColor: '#edbec9',
+    padding: 10,
+    borderRadius: 3,
+    marginTop: 10,
+    fontWeight: '600', 
+    fontSize: 20
+  },
+  teamName: {
+    backgroundColor: '#edd834',
+    padding: 10,
+    borderRadius: 3,
+    marginTop: 10,
+    fontWeight: '600', 
+    fontSize: 20,
+    color: 'black'
+  },
+  buttonStyle:{
+    marginTop: 100,
+    alignItems: 'center',
+    backgroundColor: 'black',
+    padding: 12,
+    width: 230
     
-    return (
-      // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      //   <Text>Profile</Text>
-      // </View>
-    
-      <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
-      >
-        <Stack.Screen
-          name="Home"
-          component={TestScreen}
-          
-        />
-        <Stack.Screen name="TestScreen2" component={TestScreen2} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      </Stack.Navigator>
-
-    );
   }
-  
+})
