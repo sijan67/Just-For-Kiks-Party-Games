@@ -20,6 +20,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import TriviaScreen from './TriviaScreen'
 import MathScreen from './MathScreen'
 import NumberOrderingScreen from './NumberOrderingScreen'
+import NumberOrderingScreen2 from './NumberOrderingScreen2'
+import NumberOrderingScreen3 from './NumberOrderingScreen3'
+
 
 const Stack = createNativeStackNavigator();
 
@@ -101,6 +104,8 @@ function GameScreen({navigation}) {
           />
           <Stack.Screen options={{headerShown: false}} name="TriviaScreen" component={TriviaScreen} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen" component={NumberOrderingScreen} />
+          <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen2" component={NumberOrderingScreen2} />
+          <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen3" component={NumberOrderingScreen3} />
           <Stack.Screen options={{headerShown: false}} name="MathScreen" component={MathScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>

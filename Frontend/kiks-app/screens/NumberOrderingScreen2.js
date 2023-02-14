@@ -12,7 +12,7 @@ const App = ({navigation}) => {
       </View>
       <View>
       </View>
-      <View style ={{ marginLeft: 35, flexDirection:"row"  }}>
+      <View style ={{ marginLeft: 50, flexDirection:"row"  }}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>1</Text>
       </TouchableOpacity>
@@ -22,8 +22,11 @@ const App = ({navigation}) => {
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>9</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>11</Text>
+      </TouchableOpacity>
       </View>
-      <View style ={{  marginLeft: 35, flexDirection:"row"  }}>
+      <View style ={{  marginLeft: 50, flexDirection:"row"  }}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>7</Text>
       </TouchableOpacity>
@@ -33,8 +36,11 @@ const App = ({navigation}) => {
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>6</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>16</Text>
+      </TouchableOpacity>
       </View>
-      <View style ={{ marginLeft: 35,  flexDirection:"row"  }}>
+      <View style ={{ marginLeft: 50,  flexDirection:"row"  }}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>3</Text>
       </TouchableOpacity>
@@ -44,8 +50,25 @@ const App = ({navigation}) => {
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>4</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>10</Text>
+      </TouchableOpacity>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('NumberOrderingScreen2')} style={styles.submitButton}>
+      <View style ={{ marginLeft: 50,  flexDirection:"row"  }}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>13</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>12</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>15</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
+        <Text>14</Text>
+      </TouchableOpacity>
+      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('NumberOrderingScreen3')} style={styles.submitButton}>
         <Text style={{marginLeft: 30, fontSize: 25, color: 'white'}}>
           Submit
         </Text>
@@ -64,8 +87,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
     margin: 3
   },
   countContainer: {
