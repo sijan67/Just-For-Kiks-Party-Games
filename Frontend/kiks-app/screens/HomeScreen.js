@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View , SafeAreaView, ScrollView, StatusBar,Pressable } from 'react-native';
 import CardView from 'react-native-cardview'
 import { Avatar, Button, Card } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native'; 
-import { TouchableOpacity} from 'react-native';
+
 
 //Navigation import
 // import {createStackNavigator} from '@react-navigation/stack';
@@ -21,7 +20,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import TriviaScreen from './TriviaScreen'
 import MathScreen from './MathScreen'
 import NumberOrderingScreen from './NumberOrderingScreen'
-import ColorBoxScreen from './ColorBoxScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -30,10 +28,11 @@ function GameScreen({navigation}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
-          Enter a Game Room
+          Pick a game of your choice
         </Text>
         <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollView}>
+        <ScrollView 
+          style={styles.scrollView}>
 
         <Card style={styles.card_container}>
           <Card.Title style= {styles.title_style} title="Trivia Game" left={LeftContentTrivia} />
@@ -62,18 +61,7 @@ function GameScreen({navigation}) {
         </Card>
 
 
-        <Card style={styles.card_container}>
-          <Card.Title style= {styles.title_style} title="Color Box Matching" left={LeftContentBox} />
-          <Card.Content>
-            <Text style= {styles.text_style} variant="titleLarge">Match the color orientation shown in VGA </Text>
-          </Card.Content>
-          <Card.Cover source={{ uri: 'https://play-lh.googleusercontent.com/ExTusrE6tBOXwC1uzd3EFHYSrlTv1UabD-rMMA2D3Q5WOTNZtAK5LomyqPI5O7LP774' }} />
-          <Card.Actions>
-          <Button onPress={() => navigation.navigate('ColorBoxScreen')}>
-            Enter Game
-          </Button>
-          </Card.Actions>
-        </Card>
+        
 
 
         <Card style={styles.end_card_container}>
@@ -114,7 +102,6 @@ function GameScreen({navigation}) {
           <Stack.Screen options={{headerShown: false}} name="TriviaScreen" component={TriviaScreen} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen" component={NumberOrderingScreen} />
           <Stack.Screen options={{headerShown: false}} name="MathScreen" component={MathScreen} />
-          <Stack.Screen options={{headerShown: false}} name="ColorBoxScreen" component={ColorBoxScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
     );
