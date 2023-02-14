@@ -29,24 +29,21 @@ module partyBox(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	logic reset;
 	logic [9:0] x;
 	logic [8:0] y;
-	logic [7:0] r, g, b;
+	logic [7:0] red, green, blue;
+	logic [23:0] colour = 23'b111_1111__111_1111__111_1111;
 	
 	video_driver #(.WIDTH(640), .HEIGHT(480))
-		v1 (.CLOCK_50, .reset, .x, .y, .r, .g, .b,
+		v1 (.CLOCK_50, .reset, .x, .y, .red, .green, .blue,
 			 .VGA_R, .VGA_G, .VGA_B, .VGA_BLANK_N,
 			 .VGA_CLK, .VGA_HS, .VGA_SYNC_N, .VGA_VS);
 	
-	always_ff @(posedge CLOCK_50) begin
-		r <= SW[7:0];
-		g <= x[7:0];
-		b <= y[7:0];
-	end
+	assign {red,green,blue} = colour;
 	assign reset = 0;
 
 	reg [9:0] on = 10'b00000_00000;
 	reg [28:0] counter = 25'b0;
 	reg [6:0] display_count = `zero;
-	reg count = 1'b1;
+	reg count = 1'b0;
 	assign LEDR = on;
 	assign HEX0 = display_count;
 	assign HEX1 = `zero;
@@ -56,31 +53,34 @@ module partyBox(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	assign HEX5 = `zero;
 
 	always @(posedge CLOCK_50) begin
-		//if(GPIO_1) begin
+		//if(GPIO_1[0]) begin
 		if(count) begin
-			if(KEY[3] == 0) begin
+			if(~KEY[3]) begin
 				on <= 10'b11111_00000;
 				count <= 1'b0;
-				display_count = `five;
-			end else if(KEY[2] == 0) begin
+				display_count <= `five;
+				colour <= 23'b111_1111__000_0000__000_0000;
+			end else if(~KEY[2]) begin
 				on <= 10'b00000_11111;
 				count <= 1'b0;
-				display_count = `five;
+				display_count <= `five;
+				colour <= 23'b000_0000__000_0000__111_1111;
 			end
 		end else begin
-			counter <= counter + 1;
+			counter = counter + 1;
 			if(counter == 28'd5000_0000) begin
 				case(display_count)
-					`one: 		display_count = `zero;
-					`two: 		display_count = `one;
-					`three: 	display_count = `two;
-					`four: 		display_count = `three;
-					`five: 		display_count = `four;
-					default: 	display_count = `zero;
+					`one: 		display_count <= `zero;
+					`two: 		display_count <= `one;
+					`three: 	display_count <= `two;
+					`four: 		display_count <= `three;
+					`five: 		display_count <= `four;
+					default: 	display_count <= `zero;
 				endcase
 				if(display_count == `zero) begin
 					count <= 1'b1;
 					on <= 10'b0;
+					colour <= 23'b111_1111__111_1111__111_1111;
 				end
 				counter <= 28'b0;
 			end
