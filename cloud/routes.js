@@ -33,12 +33,14 @@ router.get('/questions/:id', async (req, res) => {
 // create a question
 router.post('/questions', async (req, res) => {
     try {
+        const { questionID } = req.body
         const { description } = req.body
-        const { answer } = req.body
+        const { alternatives } = req.body
 
         const question = await Question.create({
+            questionID,
             description,
-            answer
+            alternatives
         })
 
         return res.status(201).json(question)
@@ -51,23 +53,26 @@ router.post('/questions', async (req, res) => {
 router.put('/questions/:id', async (req, res) => {
     try {
         const _id = req.params.id 
-        const { description, answer } = req.body
+        const { questionID, description, alternatives } = req.body
 
         let question = await Question.findOne({_id})
 
         if(!question){
             question = await Question.create({
+                questionID,
                 description,
-                answer
+                alternatives
             })    
             return res.status(201).json(question)
         }else{
-            // updates only the given fields
+            if (questionID) {
+                question.questionID = questionID
+            }
             if (description) {
                 question.description = description
             }
-            if (answer) {
-                question.answer = answer
+            if (alternatives) {
+                question.alternatives = alternatives
             }
             await question.save()
             return res.status(200).json(question)

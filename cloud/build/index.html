@@ -6,7 +6,11 @@
             .then(function (res) {
                 var questions = '';
                 for (var i = 0; i < res.data.length; i++) {
-                    questions += 'Question:' + ' ' + res.data[i].description + '<br/>' + 'Answer:' + ' ' + res.data[i].answer + '<br/>';
+                    questions += res.data[i].questionID + ': ' + 'Question:' + ' ' + res.data[i].description + '<br/>';
+                    for( var j = 0; j < res.data[i].alternatives.length; j++) {
+                        questions += res.data[i].alternatives[j].choice + '. ' + res.data[i].alternatives[j].content + ' ';
+                    }
+                    questions += '<br/> <br/>';
                 }
                 document.getElementById('content').innerHTML = questions;
             })
