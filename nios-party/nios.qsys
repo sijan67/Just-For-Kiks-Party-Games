@@ -9,6 +9,22 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element Buttons
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element Buttons.s1
+   {
+      datum baseAddress
+      {
+         value = "134492288";
+         type = "String";
+      }
+   }
    element JTAG
    {
       datum _sortIndex
@@ -26,7 +42,7 @@
       }
       datum baseAddress
       {
-         value = "134492176";
+         value = "134492352";
          type = "String";
       }
    }
@@ -129,7 +145,7 @@
    {
       datum baseAddress
       {
-         value = "134492160";
+         value = "134492344";
          type = "String";
       }
    }
@@ -153,7 +169,23 @@
    {
       datum baseAddress
       {
-         value = "134492168";
+         value = "134492336";
+         type = "String";
+      }
+   }
+   element Timer
+   {
+      datum _sortIndex
+      {
+         value = "18";
+         type = "int";
+      }
+   }
+   element Timer.s1
+   {
+      datum baseAddress
+      {
+         value = "134492160";
          type = "String";
       }
    }
@@ -163,6 +195,134 @@
       {
          value = "0";
          type = "int";
+      }
+   }
+   element red_leds
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
+   element red_leds.s1
+   {
+      datum baseAddress
+      {
+         value = "134492320";
+         type = "String";
+      }
+   }
+   element seven_seg_0
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element seven_seg_0.s1
+   {
+      datum baseAddress
+      {
+         value = "134492272";
+         type = "String";
+      }
+   }
+   element seven_seg_1
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
+   element seven_seg_1.s1
+   {
+      datum baseAddress
+      {
+         value = "134492256";
+         type = "String";
+      }
+   }
+   element seven_seg_2
+   {
+      datum _sortIndex
+      {
+         value = "14";
+         type = "int";
+      }
+   }
+   element seven_seg_2.s1
+   {
+      datum baseAddress
+      {
+         value = "134492240";
+         type = "String";
+      }
+   }
+   element seven_seg_3
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
+   element seven_seg_3.s1
+   {
+      datum baseAddress
+      {
+         value = "134492224";
+         type = "String";
+      }
+   }
+   element seven_seg_4
+   {
+      datum _sortIndex
+      {
+         value = "16";
+         type = "int";
+      }
+   }
+   element seven_seg_4.s1
+   {
+      datum baseAddress
+      {
+         value = "134492208";
+         type = "String";
+      }
+   }
+   element seven_seg_5
+   {
+      datum _sortIndex
+      {
+         value = "17";
+         type = "int";
+      }
+   }
+   element seven_seg_5.s1
+   {
+      datum baseAddress
+      {
+         value = "134492192";
+         type = "String";
+      }
+   }
+   element switches
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
+   element switches.s1
+   {
+      datum baseAddress
+      {
+         value = "134492304";
+         type = "String";
       }
    }
 }
@@ -179,14 +339,24 @@
  <parameter name="hideFromIPCatalog" value="false" />
  <parameter name="lockedInterfaceDefinition" value="" />
  <parameter name="maxAdditionalLatency" value="1" />
- <parameter name="projectName" value="vga_test.qpf" />
+ <parameter name="projectName" value="partyBox.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="0" />
  <parameter name="testBenchDutName" value="" />
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
+ <interface
+   name="buttons"
+   internal="Buttons.external_connection"
+   type="conduit"
+   dir="end" />
  <interface name="clk" internal="clk_0.clk_in" />
+ <interface
+   name="red_leds"
+   internal="red_leds.external_connection"
+   type="conduit"
+   dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" />
  <interface name="sdram" internal="SDRAM.wire" type="conduit" dir="end" />
  <interface
@@ -194,6 +364,41 @@
    internal="SDRAM_Clk.sdram_clk"
    type="clock"
    dir="start" />
+ <interface
+   name="seven_seg_0"
+   internal="seven_seg_0.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seven_seg_1"
+   internal="seven_seg_1.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seven_seg_2"
+   internal="seven_seg_2.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seven_seg_3"
+   internal="seven_seg_3.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seven_seg_4"
+   internal="seven_seg_4.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="seven_seg_5"
+   internal="seven_seg_5.external_connection"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="switches"
+   internal="switches.external_connection"
+   type="conduit"
+   dir="end" />
  <interface
    name="system_pll_ref_clk"
    internal="SDRAM_Clk.ref_clk"
@@ -215,6 +420,20 @@
    internal="Subsystem_0.vga_pll_ref_reset"
    type="reset"
    dir="end" />
+ <module name="Buttons" kind="altera_avalon_pio" version="18.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="true" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="FALLING" />
+  <parameter name="generateIRQ" value="true" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="4" />
+ </module>
  <module name="JTAG" kind="altera_avalon_jtag_uart" version="18.1" enabled="1">
   <parameter name="allowMultipleConnections" value="false" />
   <parameter name="avalonSpec" value="2.0" />
@@ -250,7 +469,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SDRAM.s1' start='0x4000000' end='0x8000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='SRAM.s1' start='0x8020000' end='0x8034000' type='altera_avalon_onchip_memory2.s1' /><slave name='Subsystem_0_VGA_Char_Buffer.avalon_char_buffer_slave' start='0x8040000' end='0x8042000' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_buffer_slave' /><slave name='NIOSII.debug_mem_slave' start='0x8042800' end='0x8043000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='Subsystem_0_VGA_Char_Buffer.avalon_char_control_slave' start='0x8043000' end='0x8043008' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_control_slave' /><slave name='SysID.control_slave' start='0x8043008' end='0x8043010' type='altera_avalon_sysid_qsys.control_slave' /><slave name='JTAG.avalon_jtag_slave' start='0x8043010' end='0x8043018' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SDRAM.s1' start='0x4000000' end='0x8000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='SRAM.s1' start='0x8020000' end='0x8034000' type='altera_avalon_onchip_memory2.s1' /><slave name='Subsystem_0_VGA_Char_Buffer.avalon_char_buffer_slave' start='0x8040000' end='0x8042000' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_buffer_slave' /><slave name='NIOSII.debug_mem_slave' start='0x8042800' end='0x8043000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='Timer.s1' start='0x8043000' end='0x8043020' type='altera_avalon_timer.s1' /><slave name='seven_seg_5.s1' start='0x8043020' end='0x8043030' type='altera_avalon_pio.s1' /><slave name='seven_seg_4.s1' start='0x8043030' end='0x8043040' type='altera_avalon_pio.s1' /><slave name='seven_seg_3.s1' start='0x8043040' end='0x8043050' type='altera_avalon_pio.s1' /><slave name='seven_seg_2.s1' start='0x8043050' end='0x8043060' type='altera_avalon_pio.s1' /><slave name='seven_seg_1.s1' start='0x8043060' end='0x8043070' type='altera_avalon_pio.s1' /><slave name='seven_seg_0.s1' start='0x8043070' end='0x8043080' type='altera_avalon_pio.s1' /><slave name='Buttons.s1' start='0x8043080' end='0x8043090' type='altera_avalon_pio.s1' /><slave name='switches.s1' start='0x8043090' end='0x80430A0' type='altera_avalon_pio.s1' /><slave name='red_leds.s1' start='0x80430A0' end='0x80430B0' type='altera_avalon_pio.s1' /><slave name='SysID.control_slave' start='0x80430B0' end='0x80430B8' type='altera_avalon_sysid_qsys.control_slave' /><slave name='Subsystem_0_VGA_Char_Buffer.avalon_char_control_slave' start='0x80430B8' end='0x80430C0' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_control_slave' /><slave name='JTAG.avalon_jtag_slave' start='0x80430C0' end='0x80430C8' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -296,7 +515,7 @@
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="1" />
+  <parameter name="internalIrqMaskSystemInfo" value="7" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -512,11 +731,159 @@
    enabled="1">
   <parameter name="id" value="0" />
  </module>
+ <module name="Timer" kind="altera_avalon_timer" version="18.1" enabled="1">
+  <parameter name="alwaysRun" value="false" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="false" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="MSEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="true" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="watchdogPulse" value="2" />
+ </module>
  <module name="clk_0" kind="clock_source" version="18.1" enabled="0">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module name="red_leds" kind="altera_avalon_pio" version="18.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="10" />
+ </module>
+ <module
+   name="seven_seg_0"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
+   name="seven_seg_1"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
+   name="seven_seg_2"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
+   name="seven_seg_3"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
+   name="seven_seg_4"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module
+   name="seven_seg_5"
+   kind="altera_avalon_pio"
+   version="18.1"
+   enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="7" />
+ </module>
+ <module name="switches" kind="altera_avalon_pio" version="18.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="50000000" />
+  <parameter name="direction" value="Input" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="10" />
  </module>
  <connection
    kind="avalon"
@@ -524,7 +891,7 @@
    start="NIOSII.data_master"
    end="JTAG.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08043010" />
+  <parameter name="baseAddress" value="0x080430c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -533,7 +900,7 @@
    start="NIOSII.data_master"
    end="Subsystem_0.char_buffer_control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08043000" />
+  <parameter name="baseAddress" value="0x080430b8" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -551,7 +918,7 @@
    start="NIOSII.data_master"
    end="SysID.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08043008" />
+  <parameter name="baseAddress" value="0x080430b0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -575,6 +942,96 @@
  <connection kind="avalon" version="18.1" start="NIOSII.data_master" end="SRAM.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x08020000" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="red_leds.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x080430a0" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="switches.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043090" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="Buttons.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043080" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="seven_seg_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043070" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="seven_seg_1.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043060" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="seven_seg_2.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043050" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="seven_seg_3.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="seven_seg_4.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043030" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="seven_seg_5.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043020" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="Timer.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08043000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -630,6 +1087,52 @@
  <connection kind="clock" version="18.1" start="SDRAM_Clk.sys_clk" end="SDRAM.clk" />
  <connection kind="clock" version="18.1" start="SDRAM_Clk.sys_clk" end="JTAG.clk" />
  <connection kind="clock" version="18.1" start="SDRAM_Clk.sys_clk" end="SysID.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="red_leds.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="switches.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="Buttons.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="seven_seg_0.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="seven_seg_1.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="seven_seg_2.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="seven_seg_3.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="seven_seg_4.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="SDRAM_Clk.sys_clk"
+   end="seven_seg_5.clk" />
+ <connection kind="clock" version="18.1" start="SDRAM_Clk.sys_clk" end="Timer.clk" />
  <connection kind="clock" version="18.1" start="SDRAM_Clk.sys_clk" end="SRAM.clk1" />
  <connection
    kind="clock"
@@ -643,6 +1146,12 @@
    end="Subsystem_0.sys_clk" />
  <connection kind="interrupt" version="18.1" start="NIOSII.irq" end="JTAG.irq">
   <parameter name="irqNumber" value="0" />
+ </connection>
+ <connection kind="interrupt" version="18.1" start="NIOSII.irq" end="Buttons.irq">
+  <parameter name="irqNumber" value="1" />
+ </connection>
+ <connection kind="interrupt" version="18.1" start="NIOSII.irq" end="Timer.irq">
+  <parameter name="irqNumber" value="2" />
  </connection>
  <connection kind="reset" version="18.1" start="clk_0.clk_reset" end="SDRAM.reset" />
  <connection kind="reset" version="18.1" start="clk_0.clk_reset" end="JTAG.reset" />
@@ -662,6 +1171,56 @@
    version="18.1"
    start="NIOSII.debug_reset_request"
    end="JTAG.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="red_leds.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="switches.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="Buttons.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="seven_seg_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="seven_seg_1.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="seven_seg_2.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="seven_seg_3.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="seven_seg_4.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="seven_seg_5.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="Timer.reset" />
  <connection
    kind="reset"
    version="18.1"
@@ -687,6 +1246,56 @@
    version="18.1"
    start="SDRAM_Clk.reset_source"
    end="NIOSII.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="red_leds.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="switches.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="Buttons.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="seven_seg_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="seven_seg_1.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="seven_seg_2.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="seven_seg_3.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="seven_seg_4.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="seven_seg_5.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="SDRAM_Clk.reset_source"
+   end="Timer.reset" />
  <connection
    kind="reset"
    version="18.1"
