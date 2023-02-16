@@ -1,11 +1,11 @@
 module video_driver
 	#(parameter WIDTH = 640, parameter HEIGHT = 480)
-	(CLOCK_50, reset, x, y, r, g, b, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS); 
+	(CLOCK_50, reset, x, y, red, green, blue, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS); 
 	input CLOCK_50;
 	input reset;
 	output reg [9:0] x;
 	output reg [8:0] y;
-	input [7:0] r, g, b;
+	input [7:0] red, green, blue;
 	output [7:0] VGA_R;
 	output [7:0] VGA_G;
 	output [7:0] VGA_B;
@@ -20,10 +20,10 @@ module video_driver
 	localparam integer BLOCK = X_BLOCK < Y_BLOCK ? X_BLOCK : Y_BLOCK;
 	localparam integer X_SPAN = WIDTH * BLOCK;
 	localparam integer Y_SPAN = HEIGHT * BLOCK;
-	localparam integer X_START = (640 - X_SPAN) / 2;
-	localparam integer Y_START = (480 - Y_SPAN) / 2;
-	localparam integer X_STOP = X_START + X_SPAN;
-	localparam integer Y_STOP = Y_START + Y_SPAN;
+	localparam integer X_START = 0; //(640 - X_SPAN) / 2;
+	localparam integer Y_START = 0; //(480 - Y_SPAN) / 2;
+	localparam integer X_STOP = 640; //X_START + X_SPAN;
+	localparam integer Y_STOP = 480; //Y_START + Y_SPAN;
 	localparam integer BLOCK_STOP = BLOCK - 1;
 	
 	wire read_enable;
@@ -52,8 +52,6 @@ module video_driver
 		if(reset) begin
 			xt <= 0;
 			yt <= 0;
-			xd <= 0;
-			yd <= 0;
 			x <= 0;
 			y <= 0;
 		end else begin
@@ -61,37 +59,23 @@ module video_driver
 			if(read_enable) begin
 				xt <= xt + 1'b1;
 				if(xt >= X_START && xt < X_STOP) begin
-					if(xd == BLOCK_STOP) begin
-						xd <= 10'b0;
-						x <= x + 1'b1;
-					end else begin
-						xd <= xd + 1'b1;
-					end
+					x <= x + 1'b1;
 				end else begin
-					xd <= 10'b0;
 					x <= 10'b0;
 				end
 			end else begin
 				xt <= 10'b0;
-				xd <= 10'b0;
 				x <= 10'b0;
 			end
 			if(end_of_active_frame) begin
 				yt <= 9'b111111111;
-				yd <= 9'b0;
 				y <= 9'b0;
 			end else begin
 				if(read_enable_last & ~read_enable) begin
 					yt <= yt + 1'b1;
 					if(yt >= Y_START && yt < Y_STOP) begin
-						if(yd == BLOCK_STOP) begin
-							yd <= 9'b0;
-							y <= y + 1'b1;
-						end else begin
-							yd <= yd + 1'b1;
-						end
+						y <= y + 1'b1;
 					end else begin
-						yd <= 9'b0;
 						y <= 9'b0;
 					end
 				end
@@ -109,9 +93,9 @@ module video_driver
 	
 	always @(posedge CLOCK_25) begin
 		if(xt >= X_START && xt < X_STOP && yt >= Y_START && yt < Y_STOP) begin
-			rout <= r;
-			gout <= g;
-			bout <= b;
+			rout <= red;
+			gout <= green;
+			bout <= blue;
 		end else begin
 			rout <= 8'b0;
 			gout <= 8'b0;

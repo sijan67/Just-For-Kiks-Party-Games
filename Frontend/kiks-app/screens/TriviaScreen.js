@@ -1,46 +1,45 @@
 
 import { StyleSheet, Text, View , SafeAreaView, ScrollView, StatusBar,Pressable } from 'react-native';
 import { Avatar, Button, Card } from 'react-native-paper';
-import {useEffect} from "react";
+import React, {useState} from "react";
 
-import React, { Component } from 'react'
-import ReactStoreIndicator from 'react-score-indicator'
+import  { Component } from 'react'
+import CircularProgress from 'react-native-circular-progress-indicator'
 
+
+// https://www.npmjs.com/package/react-native-circular-progress-indicator
+//https://github.com/software-mansion/react-native-reanimated/issues/3796
 
 export default function TriviaScreen({navigation, route}) {
     // https://codesandbox.io/examples/package/react-score-indicator
     return (
-        <View>
-            <Text>You did</Text> 
+        <View style={{flex:1 , alignItems: 'center', backgroundColor: 'black'}}>
+          
+          <Text style = {styles.text}> Your Team's Score </Text> 
+          <CircularProgress
+            value={80}
+            radius={120}
+            progressValueColor={'#ecf0f1'}
+            activeStrokeColor={'#f39c12'}
+            activeStrokeSecondaryColor={'#bf1518'}
+            inActiveStrokeColor={'#9b59b6'}
+            inActiveStrokeOpacity={0.5}
+            inActiveStrokeWidth={20}
+            activeStrokeWidth={40}
+            duration = {3000}
+          />
+
+          <StatusBar style = "auto"/>
         </View>
       )
 };
 
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      // paddingTop: StatusBar.currentHeight,
-      paddingTop: 20,
-      marginLeft: 20,
-      marginTop: 5, 
-      marginLeft: 20, 
-      marginRight: 20
-    },
-    scrollView: {
-      // backgroundColor: 'pink',
-      marginHorizontal: 20,
-    },
     text: {
-      fontSize: 42,
-    }, 
-    titleText: {
-        fontSize: 42,
-        color: "#d15732",
-        fontWeight: '500'
-    },
-    App: {
-
+      marginTop : 100,
+      color: 'white',
+      fontSize: 30,
+      marginBottom: 30
     }
-      
 })
