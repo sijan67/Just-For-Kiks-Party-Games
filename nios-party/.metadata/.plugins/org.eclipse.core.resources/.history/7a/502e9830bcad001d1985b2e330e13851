@@ -1,0 +1,92 @@
+/*********************************************************
+ * Example
+ *****************************************************/
+
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
+#include <system.h>
+#include <sys/alt_irq.h>
+#include <altera_avalon_timer_regs.h>
+#include <altera_avalon_pio_regs.h>
+
+// Function Declaration
+void init_timer_interrupt( void );
+static void timer_isr( void * context, alt_u32 id );
+void init_hex_display(void);
+int count = 0;
+int countdown = 0;
+int numbers[] = {
+			0b1000000,
+			0b1111001,
+			0b0100100,
+			0b0110000,
+			0b0011001,
+			0b0010010,
+			0b0000010,
+			0b1111000,
+			0b0000000,
+			0b0010000
+	};
+
+
+int main( void )
+{
+	printf("Hello from NIOS II!\n");
+	printf("This is an interrupt example\n");
+	int btn3;
+	int btn2;
+
+	// Enable the timer
+	init_timer_interrupt();
+	init_hex_display();
+
+	while(1){
+		btn3 = IORD_ALTERA_AVALON_PIO_DATA(KEY_3_BASE);
+
+	}
+
+	return 0;
+}
+
+void init_timer_interrupt( void )
+{
+	// Register the ISR with HAL
+	alt_ic_isr_register(TIMER_IRQ_INTERRUPT_CONTROLLER_ID, TIMER_IRQ, (void *)timer_isr, NULL, 0x0);
+
+	// Start the timer
+	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE,
+			ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |
+			ALTERA_AVALON_TIMER_CONTROL_START_MSK |
+			ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+}
+
+static void timer_isr(void * context, alt_u32 id) {
+	static int count = 0;
+	static int countdown = 0;
+	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0);
+
+	count++;
+	if(countdown < 0) {
+		if(count == 1000) {
+			countdown--;
+			count = 0;
+			IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_0_BASE,numbers[countdown]);
+		}
+	}
+
+
+}
+
+void init_hex_display(void) {
+
+
+	IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_0_BASE,numbers[0]);
+	IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_1_BASE,numbers[0]);
+	IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_2_BASE,numbers[0]);
+	IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_3_BASE,numbers[0]);
+	IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_4_BASE,numbers[0]);
+	IOWR_ALTERA_AVALON_PIO_DATA(SEVEN_SEG_5_BASE,numbers[0]);
+
+}
+
