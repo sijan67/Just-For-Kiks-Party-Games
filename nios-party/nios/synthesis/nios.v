@@ -86,6 +86,12 @@ module nios (
 	wire   [3:0] mm_interconnect_0_niosii_debug_mem_slave_byteenable;                // mm_interconnect_0:NIOSII_debug_mem_slave_byteenable -> NIOSII:debug_mem_slave_byteenable
 	wire         mm_interconnect_0_niosii_debug_mem_slave_write;                     // mm_interconnect_0:NIOSII_debug_mem_slave_write -> NIOSII:debug_mem_slave_write
 	wire  [31:0] mm_interconnect_0_niosii_debug_mem_slave_writedata;                 // mm_interconnect_0:NIOSII_debug_mem_slave_writedata -> NIOSII:debug_mem_slave_writedata
+	wire  [31:0] mm_interconnect_0_subsystem_0_pixel_buffer_slave_readdata;          // Subsystem_0:pixel_buffer_slave_readdata -> mm_interconnect_0:Subsystem_0_pixel_buffer_slave_readdata
+	wire   [1:0] mm_interconnect_0_subsystem_0_pixel_buffer_slave_address;           // mm_interconnect_0:Subsystem_0_pixel_buffer_slave_address -> Subsystem_0:pixel_buffer_slave_address
+	wire         mm_interconnect_0_subsystem_0_pixel_buffer_slave_read;              // mm_interconnect_0:Subsystem_0_pixel_buffer_slave_read -> Subsystem_0:pixel_buffer_slave_read
+	wire   [3:0] mm_interconnect_0_subsystem_0_pixel_buffer_slave_byteenable;        // mm_interconnect_0:Subsystem_0_pixel_buffer_slave_byteenable -> Subsystem_0:pixel_buffer_slave_byteenable
+	wire         mm_interconnect_0_subsystem_0_pixel_buffer_slave_write;             // mm_interconnect_0:Subsystem_0_pixel_buffer_slave_write -> Subsystem_0:pixel_buffer_slave_write
+	wire  [31:0] mm_interconnect_0_subsystem_0_pixel_buffer_slave_writedata;         // mm_interconnect_0:Subsystem_0_pixel_buffer_slave_writedata -> Subsystem_0:pixel_buffer_slave_writedata
 	wire         mm_interconnect_0_sdram_s1_chipselect;                              // mm_interconnect_0:SDRAM_s1_chipselect -> SDRAM:az_cs
 	wire  [15:0] mm_interconnect_0_sdram_s1_readdata;                                // SDRAM:za_data -> mm_interconnect_0:SDRAM_s1_readdata
 	wire         mm_interconnect_0_sdram_s1_waitrequest;                             // SDRAM:za_waitrequest -> mm_interconnect_0:SDRAM_s1_waitrequest
@@ -275,6 +281,12 @@ module nios (
 		.char_buffer_slave_readdata           (mm_interconnect_0_subsystem_0_char_buffer_slave_readdata),           //                          .readdata
 		.char_buffer_slave_waitrequest        (mm_interconnect_0_subsystem_0_char_buffer_slave_waitrequest),        //                          .waitrequest
 		.char_buffer_slave_address            (mm_interconnect_0_subsystem_0_char_buffer_slave_address),            //                          .address
+		.pixel_buffer_slave_address           (mm_interconnect_0_subsystem_0_pixel_buffer_slave_address),           //        pixel_buffer_slave.address
+		.pixel_buffer_slave_byteenable        (mm_interconnect_0_subsystem_0_pixel_buffer_slave_byteenable),        //                          .byteenable
+		.pixel_buffer_slave_read              (mm_interconnect_0_subsystem_0_pixel_buffer_slave_read),              //                          .read
+		.pixel_buffer_slave_write             (mm_interconnect_0_subsystem_0_pixel_buffer_slave_write),             //                          .write
+		.pixel_buffer_slave_writedata         (mm_interconnect_0_subsystem_0_pixel_buffer_slave_writedata),         //                          .writedata
+		.pixel_buffer_slave_readdata          (mm_interconnect_0_subsystem_0_pixel_buffer_slave_readdata),          //                          .readdata
 		.sys_clk_clk                          (sdram_clk_sys_clk_clk),                                              //                   sys_clk.clk
 		.sys_reset_reset_n                    (~sdram_clk_reset_source_reset),                                      //                 sys_reset.reset_n
 		.vga_CLK                              (vga_CLK),                                                            //                       vga.CLK
@@ -498,6 +510,12 @@ module nios (
 		.Subsystem_0_char_buffer_slave_byteenable          (mm_interconnect_0_subsystem_0_char_buffer_slave_byteenable),         //                                            .byteenable
 		.Subsystem_0_char_buffer_slave_waitrequest         (mm_interconnect_0_subsystem_0_char_buffer_slave_waitrequest),        //                                            .waitrequest
 		.Subsystem_0_char_buffer_slave_chipselect          (mm_interconnect_0_subsystem_0_char_buffer_slave_chipselect),         //                                            .chipselect
+		.Subsystem_0_pixel_buffer_slave_address            (mm_interconnect_0_subsystem_0_pixel_buffer_slave_address),           //              Subsystem_0_pixel_buffer_slave.address
+		.Subsystem_0_pixel_buffer_slave_write              (mm_interconnect_0_subsystem_0_pixel_buffer_slave_write),             //                                            .write
+		.Subsystem_0_pixel_buffer_slave_read               (mm_interconnect_0_subsystem_0_pixel_buffer_slave_read),              //                                            .read
+		.Subsystem_0_pixel_buffer_slave_readdata           (mm_interconnect_0_subsystem_0_pixel_buffer_slave_readdata),          //                                            .readdata
+		.Subsystem_0_pixel_buffer_slave_writedata          (mm_interconnect_0_subsystem_0_pixel_buffer_slave_writedata),         //                                            .writedata
+		.Subsystem_0_pixel_buffer_slave_byteenable         (mm_interconnect_0_subsystem_0_pixel_buffer_slave_byteenable),        //                                            .byteenable
 		.switches_s1_address                               (mm_interconnect_0_switches_s1_address),                              //                                 switches_s1.address
 		.switches_s1_readdata                              (mm_interconnect_0_switches_s1_readdata),                             //                                            .readdata
 		.SysID_control_slave_address                       (mm_interconnect_0_sysid_control_slave_address),                      //                         SysID_control_slave.address

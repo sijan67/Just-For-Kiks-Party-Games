@@ -19,6 +19,12 @@ module nios_Subsystem_0 (
 		output wire [7:0]  char_buffer_slave_readdata,           //                          .readdata
 		output wire        char_buffer_slave_waitrequest,        //                          .waitrequest
 		input  wire [12:0] char_buffer_slave_address,            //                          .address
+		input  wire [1:0]  pixel_buffer_slave_address,           //        pixel_buffer_slave.address
+		input  wire [3:0]  pixel_buffer_slave_byteenable,        //                          .byteenable
+		input  wire        pixel_buffer_slave_read,              //                          .read
+		input  wire        pixel_buffer_slave_write,             //                          .write
+		input  wire [31:0] pixel_buffer_slave_writedata,         //                          .writedata
+		output wire [31:0] pixel_buffer_slave_readdata,          //                          .readdata
 		input  wire        sys_clk_clk,                          //                   sys_clk.clk
 		input  wire        sys_reset_reset_n,                    //                 sys_reset.reset_n
 		output wire        vga_CLK,                              //                       vga.CLK
@@ -43,21 +49,16 @@ module nios_Subsystem_0 (
 	wire         vga_char_buffer_avalon_char_source_ready;                            // VGA_Alpha_Blender:foreground_ready -> VGA_Char_Buffer:stream_ready
 	wire         vga_char_buffer_avalon_char_source_startofpacket;                    // VGA_Char_Buffer:stream_startofpacket -> VGA_Alpha_Blender:foreground_startofpacket
 	wire         vga_char_buffer_avalon_char_source_endofpacket;                      // VGA_Char_Buffer:stream_endofpacket -> VGA_Alpha_Blender:foreground_endofpacket
-	wire         vga_pixel_fifo_avalon_dc_buffer_source_valid;                        // VGA_Pixel_FIFO:stream_out_valid -> VGA_Pixel_RGB_Resampler:stream_in_valid
-	wire   [7:0] vga_pixel_fifo_avalon_dc_buffer_source_data;                         // VGA_Pixel_FIFO:stream_out_data -> VGA_Pixel_RGB_Resampler:stream_in_data
-	wire         vga_pixel_fifo_avalon_dc_buffer_source_ready;                        // VGA_Pixel_RGB_Resampler:stream_in_ready -> VGA_Pixel_FIFO:stream_out_ready
-	wire         vga_pixel_fifo_avalon_dc_buffer_source_startofpacket;                // VGA_Pixel_FIFO:stream_out_startofpacket -> VGA_Pixel_RGB_Resampler:stream_in_startofpacket
-	wire         vga_pixel_fifo_avalon_dc_buffer_source_endofpacket;                  // VGA_Pixel_FIFO:stream_out_endofpacket -> VGA_Pixel_RGB_Resampler:stream_in_endofpacket
 	wire         vga_dual_clock_fifo_avalon_dc_buffer_source_valid;                   // VGA_Dual_Clock_FIFO:stream_out_valid -> VGA_Controller:valid
 	wire  [29:0] vga_dual_clock_fifo_avalon_dc_buffer_source_data;                    // VGA_Dual_Clock_FIFO:stream_out_data -> VGA_Controller:data
 	wire         vga_dual_clock_fifo_avalon_dc_buffer_source_ready;                   // VGA_Controller:ready -> VGA_Dual_Clock_FIFO:stream_out_ready
 	wire         vga_dual_clock_fifo_avalon_dc_buffer_source_startofpacket;           // VGA_Dual_Clock_FIFO:stream_out_startofpacket -> VGA_Controller:startofpacket
 	wire         vga_dual_clock_fifo_avalon_dc_buffer_source_endofpacket;             // VGA_Dual_Clock_FIFO:stream_out_endofpacket -> VGA_Controller:endofpacket
-	wire         vga_pixel_dma_avalon_pixel_source_valid;                             // VGA_Pixel_DMA:stream_valid -> VGA_Pixel_FIFO:stream_in_valid
-	wire   [7:0] vga_pixel_dma_avalon_pixel_source_data;                              // VGA_Pixel_DMA:stream_data -> VGA_Pixel_FIFO:stream_in_data
-	wire         vga_pixel_dma_avalon_pixel_source_ready;                             // VGA_Pixel_FIFO:stream_in_ready -> VGA_Pixel_DMA:stream_ready
-	wire         vga_pixel_dma_avalon_pixel_source_startofpacket;                     // VGA_Pixel_DMA:stream_startofpacket -> VGA_Pixel_FIFO:stream_in_startofpacket
-	wire         vga_pixel_dma_avalon_pixel_source_endofpacket;                       // VGA_Pixel_DMA:stream_endofpacket -> VGA_Pixel_FIFO:stream_in_endofpacket
+	wire         vga_pixel_dma_avalon_pixel_source_valid;                             // VGA_Pixel_DMA:stream_valid -> VGA_Pixel_RGB_Resampler:stream_in_valid
+	wire   [7:0] vga_pixel_dma_avalon_pixel_source_data;                              // VGA_Pixel_DMA:stream_data -> VGA_Pixel_RGB_Resampler:stream_in_data
+	wire         vga_pixel_dma_avalon_pixel_source_ready;                             // VGA_Pixel_RGB_Resampler:stream_in_ready -> VGA_Pixel_DMA:stream_ready
+	wire         vga_pixel_dma_avalon_pixel_source_startofpacket;                     // VGA_Pixel_DMA:stream_startofpacket -> VGA_Pixel_RGB_Resampler:stream_in_startofpacket
+	wire         vga_pixel_dma_avalon_pixel_source_endofpacket;                       // VGA_Pixel_DMA:stream_endofpacket -> VGA_Pixel_RGB_Resampler:stream_in_endofpacket
 	wire         vga_pixel_rgb_resampler_avalon_rgb_source_valid;                     // VGA_Pixel_RGB_Resampler:stream_out_valid -> VGA_Alpha_Blender:background_valid
 	wire  [29:0] vga_pixel_rgb_resampler_avalon_rgb_source_data;                      // VGA_Pixel_RGB_Resampler:stream_out_data -> VGA_Alpha_Blender:background_data
 	wire         vga_pixel_rgb_resampler_avalon_rgb_source_ready;                     // VGA_Alpha_Blender:background_ready -> VGA_Pixel_RGB_Resampler:stream_out_ready
@@ -70,15 +71,9 @@ module nios_Subsystem_0 (
 	wire         vga_pixel_dma_avalon_pixel_dma_master_read;                          // VGA_Pixel_DMA:master_read -> mm_interconnect_0:VGA_Pixel_DMA_avalon_pixel_dma_master_read
 	wire         vga_pixel_dma_avalon_pixel_dma_master_readdatavalid;                 // mm_interconnect_0:VGA_Pixel_DMA_avalon_pixel_dma_master_readdatavalid -> VGA_Pixel_DMA:master_readdatavalid
 	wire         vga_pixel_dma_avalon_pixel_dma_master_lock;                          // VGA_Pixel_DMA:master_arbiterlock -> mm_interconnect_0:VGA_Pixel_DMA_avalon_pixel_dma_master_lock
-	wire  [31:0] mm_interconnect_0_vga_pixel_dma_avalon_control_slave_readdata;       // VGA_Pixel_DMA:slave_readdata -> mm_interconnect_0:VGA_Pixel_DMA_avalon_control_slave_readdata
-	wire   [1:0] mm_interconnect_0_vga_pixel_dma_avalon_control_slave_address;        // mm_interconnect_0:VGA_Pixel_DMA_avalon_control_slave_address -> VGA_Pixel_DMA:slave_address
-	wire         mm_interconnect_0_vga_pixel_dma_avalon_control_slave_read;           // mm_interconnect_0:VGA_Pixel_DMA_avalon_control_slave_read -> VGA_Pixel_DMA:slave_read
-	wire   [3:0] mm_interconnect_0_vga_pixel_dma_avalon_control_slave_byteenable;     // mm_interconnect_0:VGA_Pixel_DMA_avalon_control_slave_byteenable -> VGA_Pixel_DMA:slave_byteenable
-	wire         mm_interconnect_0_vga_pixel_dma_avalon_control_slave_write;          // mm_interconnect_0:VGA_Pixel_DMA_avalon_control_slave_write -> VGA_Pixel_DMA:slave_write
-	wire  [31:0] mm_interconnect_0_vga_pixel_dma_avalon_control_slave_writedata;      // mm_interconnect_0:VGA_Pixel_DMA_avalon_control_slave_writedata -> VGA_Pixel_DMA:slave_writedata
 	wire  [31:0] mm_interconnect_0_vga_pixel_rgb_resampler_avalon_rgb_slave_readdata; // VGA_Pixel_RGB_Resampler:slave_readdata -> mm_interconnect_0:VGA_Pixel_RGB_Resampler_avalon_rgb_slave_readdata
 	wire         mm_interconnect_0_vga_pixel_rgb_resampler_avalon_rgb_slave_read;     // mm_interconnect_0:VGA_Pixel_RGB_Resampler_avalon_rgb_slave_read -> VGA_Pixel_RGB_Resampler:slave_read
-	wire         rst_controller_reset_out_reset;                                      // rst_controller:reset_out -> [VGA_Alpha_Blender:reset, VGA_Char_Buffer:reset, VGA_Dual_Clock_FIFO:reset_stream_in, VGA_Pixel_DMA:reset, VGA_Pixel_FIFO:reset_stream_in, VGA_Pixel_FIFO:reset_stream_out, VGA_Pixel_RGB_Resampler:reset, mm_interconnect_0:VGA_Pixel_DMA_reset_reset_bridge_in_reset_reset]
+	wire         rst_controller_reset_out_reset;                                      // rst_controller:reset_out -> [VGA_Alpha_Blender:reset, VGA_Char_Buffer:reset, VGA_Dual_Clock_FIFO:reset_stream_in, VGA_Pixel_DMA:reset, VGA_Pixel_RGB_Resampler:reset, mm_interconnect_0:VGA_Pixel_DMA_reset_reset_bridge_in_reset_reset]
 	wire         rst_controller_001_reset_out_reset;                                  // rst_controller_001:reset_out -> [VGA_Controller:reset, VGA_Dual_Clock_FIFO:reset_stream_out]
 	wire         vga_pll_reset_source_reset;                                          // VGA_PLL:reset_source_reset -> rst_controller_001:reset_in0
 
@@ -170,52 +165,35 @@ module nios_Subsystem_0 (
 	);
 
 	nios_Subsystem_0_VGA_Pixel_DMA vga_pixel_dma (
-		.clk                  (sys_clk_clk),                                                     //                     clk.clk
-		.reset                (rst_controller_reset_out_reset),                                  //                   reset.reset
-		.master_readdatavalid (vga_pixel_dma_avalon_pixel_dma_master_readdatavalid),             // avalon_pixel_dma_master.readdatavalid
-		.master_waitrequest   (vga_pixel_dma_avalon_pixel_dma_master_waitrequest),               //                        .waitrequest
-		.master_address       (vga_pixel_dma_avalon_pixel_dma_master_address),                   //                        .address
-		.master_arbiterlock   (vga_pixel_dma_avalon_pixel_dma_master_lock),                      //                        .lock
-		.master_read          (vga_pixel_dma_avalon_pixel_dma_master_read),                      //                        .read
-		.master_readdata      (vga_pixel_dma_avalon_pixel_dma_master_readdata),                  //                        .readdata
-		.slave_address        (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_address),    //    avalon_control_slave.address
-		.slave_byteenable     (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_byteenable), //                        .byteenable
-		.slave_read           (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_read),       //                        .read
-		.slave_write          (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_write),      //                        .write
-		.slave_writedata      (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_writedata),  //                        .writedata
-		.slave_readdata       (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_readdata),   //                        .readdata
-		.stream_ready         (vga_pixel_dma_avalon_pixel_source_ready),                         //     avalon_pixel_source.ready
-		.stream_startofpacket (vga_pixel_dma_avalon_pixel_source_startofpacket),                 //                        .startofpacket
-		.stream_endofpacket   (vga_pixel_dma_avalon_pixel_source_endofpacket),                   //                        .endofpacket
-		.stream_valid         (vga_pixel_dma_avalon_pixel_source_valid),                         //                        .valid
-		.stream_data          (vga_pixel_dma_avalon_pixel_source_data)                           //                        .data
-	);
-
-	nios_Subsystem_0_VGA_Pixel_FIFO vga_pixel_fifo (
-		.clk_stream_in            (sys_clk_clk),                                          //         clock_stream_in.clk
-		.reset_stream_in          (rst_controller_reset_out_reset),                       //         reset_stream_in.reset
-		.clk_stream_out           (sys_clk_clk),                                          //        clock_stream_out.clk
-		.reset_stream_out         (rst_controller_reset_out_reset),                       //        reset_stream_out.reset
-		.stream_in_ready          (vga_pixel_dma_avalon_pixel_source_ready),              //   avalon_dc_buffer_sink.ready
-		.stream_in_startofpacket  (vga_pixel_dma_avalon_pixel_source_startofpacket),      //                        .startofpacket
-		.stream_in_endofpacket    (vga_pixel_dma_avalon_pixel_source_endofpacket),        //                        .endofpacket
-		.stream_in_valid          (vga_pixel_dma_avalon_pixel_source_valid),              //                        .valid
-		.stream_in_data           (vga_pixel_dma_avalon_pixel_source_data),               //                        .data
-		.stream_out_ready         (vga_pixel_fifo_avalon_dc_buffer_source_ready),         // avalon_dc_buffer_source.ready
-		.stream_out_startofpacket (vga_pixel_fifo_avalon_dc_buffer_source_startofpacket), //                        .startofpacket
-		.stream_out_endofpacket   (vga_pixel_fifo_avalon_dc_buffer_source_endofpacket),   //                        .endofpacket
-		.stream_out_valid         (vga_pixel_fifo_avalon_dc_buffer_source_valid),         //                        .valid
-		.stream_out_data          (vga_pixel_fifo_avalon_dc_buffer_source_data)           //                        .data
+		.clk                  (sys_clk_clk),                                         //                     clk.clk
+		.reset                (rst_controller_reset_out_reset),                      //                   reset.reset
+		.master_readdatavalid (vga_pixel_dma_avalon_pixel_dma_master_readdatavalid), // avalon_pixel_dma_master.readdatavalid
+		.master_waitrequest   (vga_pixel_dma_avalon_pixel_dma_master_waitrequest),   //                        .waitrequest
+		.master_address       (vga_pixel_dma_avalon_pixel_dma_master_address),       //                        .address
+		.master_arbiterlock   (vga_pixel_dma_avalon_pixel_dma_master_lock),          //                        .lock
+		.master_read          (vga_pixel_dma_avalon_pixel_dma_master_read),          //                        .read
+		.master_readdata      (vga_pixel_dma_avalon_pixel_dma_master_readdata),      //                        .readdata
+		.slave_address        (pixel_buffer_slave_address),                          //    avalon_control_slave.address
+		.slave_byteenable     (pixel_buffer_slave_byteenable),                       //                        .byteenable
+		.slave_read           (pixel_buffer_slave_read),                             //                        .read
+		.slave_write          (pixel_buffer_slave_write),                            //                        .write
+		.slave_writedata      (pixel_buffer_slave_writedata),                        //                        .writedata
+		.slave_readdata       (pixel_buffer_slave_readdata),                         //                        .readdata
+		.stream_ready         (vga_pixel_dma_avalon_pixel_source_ready),             //     avalon_pixel_source.ready
+		.stream_startofpacket (vga_pixel_dma_avalon_pixel_source_startofpacket),     //                        .startofpacket
+		.stream_endofpacket   (vga_pixel_dma_avalon_pixel_source_endofpacket),       //                        .endofpacket
+		.stream_valid         (vga_pixel_dma_avalon_pixel_source_valid),             //                        .valid
+		.stream_data          (vga_pixel_dma_avalon_pixel_source_data)               //                        .data
 	);
 
 	nios_Subsystem_0_VGA_Pixel_RGB_Resampler vga_pixel_rgb_resampler (
 		.clk                      (sys_clk_clk),                                                         //               clk.clk
 		.reset                    (rst_controller_reset_out_reset),                                      //             reset.reset
-		.stream_in_startofpacket  (vga_pixel_fifo_avalon_dc_buffer_source_startofpacket),                //   avalon_rgb_sink.startofpacket
-		.stream_in_endofpacket    (vga_pixel_fifo_avalon_dc_buffer_source_endofpacket),                  //                  .endofpacket
-		.stream_in_valid          (vga_pixel_fifo_avalon_dc_buffer_source_valid),                        //                  .valid
-		.stream_in_ready          (vga_pixel_fifo_avalon_dc_buffer_source_ready),                        //                  .ready
-		.stream_in_data           (vga_pixel_fifo_avalon_dc_buffer_source_data),                         //                  .data
+		.stream_in_startofpacket  (vga_pixel_dma_avalon_pixel_source_startofpacket),                     //   avalon_rgb_sink.startofpacket
+		.stream_in_endofpacket    (vga_pixel_dma_avalon_pixel_source_endofpacket),                       //                  .endofpacket
+		.stream_in_valid          (vga_pixel_dma_avalon_pixel_source_valid),                             //                  .valid
+		.stream_in_ready          (vga_pixel_dma_avalon_pixel_source_ready),                             //                  .ready
+		.stream_in_data           (vga_pixel_dma_avalon_pixel_source_data),                              //                  .data
 		.slave_read               (mm_interconnect_0_vga_pixel_rgb_resampler_avalon_rgb_slave_read),     //  avalon_rgb_slave.read
 		.slave_readdata           (mm_interconnect_0_vga_pixel_rgb_resampler_avalon_rgb_slave_readdata), //                  .readdata
 		.stream_out_ready         (vga_pixel_rgb_resampler_avalon_rgb_source_ready),                     // avalon_rgb_source.ready
@@ -234,12 +212,6 @@ module nios_Subsystem_0 (
 		.VGA_Pixel_DMA_avalon_pixel_dma_master_readdata      (vga_pixel_dma_avalon_pixel_dma_master_readdata),                      //                                          .readdata
 		.VGA_Pixel_DMA_avalon_pixel_dma_master_readdatavalid (vga_pixel_dma_avalon_pixel_dma_master_readdatavalid),                 //                                          .readdatavalid
 		.VGA_Pixel_DMA_avalon_pixel_dma_master_lock          (vga_pixel_dma_avalon_pixel_dma_master_lock),                          //                                          .lock
-		.VGA_Pixel_DMA_avalon_control_slave_address          (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_address),        //        VGA_Pixel_DMA_avalon_control_slave.address
-		.VGA_Pixel_DMA_avalon_control_slave_write            (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_write),          //                                          .write
-		.VGA_Pixel_DMA_avalon_control_slave_read             (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_read),           //                                          .read
-		.VGA_Pixel_DMA_avalon_control_slave_readdata         (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_readdata),       //                                          .readdata
-		.VGA_Pixel_DMA_avalon_control_slave_writedata        (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_writedata),      //                                          .writedata
-		.VGA_Pixel_DMA_avalon_control_slave_byteenable       (mm_interconnect_0_vga_pixel_dma_avalon_control_slave_byteenable),     //                                          .byteenable
 		.VGA_Pixel_RGB_Resampler_avalon_rgb_slave_read       (mm_interconnect_0_vga_pixel_rgb_resampler_avalon_rgb_slave_read),     //  VGA_Pixel_RGB_Resampler_avalon_rgb_slave.read
 		.VGA_Pixel_RGB_Resampler_avalon_rgb_slave_readdata   (mm_interconnect_0_vga_pixel_rgb_resampler_avalon_rgb_slave_readdata)  //                                          .readdata
 	);

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>15-Feb-2023 9:18:26 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1676524706249</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>16-Feb-2023 9:32:14 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1676568734951</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\kolto\Desktop\CPEN_391\l2a-01-triviasoc\nios-party\software\party_test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\System.sopcinfo</SopcDesignFile>

@@ -1,5 +1,7 @@
 
 module nios (
+	buttons_export,
+	red_leds_export,
 	sdram_addr,
 	sdram_ba,
 	sdram_cas_n,
@@ -10,6 +12,13 @@ module nios (
 	sdram_ras_n,
 	sdram_we_n,
 	sdram_clk_clk,
+	seven_seg_0_export,
+	seven_seg_1_export,
+	seven_seg_2_export,
+	seven_seg_3_export,
+	seven_seg_4_export,
+	seven_seg_5_export,
+	switches_export,
 	system_pll_ref_clk_clk,
 	system_pll_ref_reset_reset,
 	vga_CLK,
@@ -21,17 +30,10 @@ module nios (
 	vga_G,
 	vga_B,
 	vga_pll_ref_clk_clk,
-	vga_pll_ref_reset_reset,
-	red_leds_export,
-	switches_export,
-	seven_seg_0_export,
-	seven_seg_1_export,
-	seven_seg_2_export,
-	seven_seg_3_export,
-	seven_seg_4_export,
-	seven_seg_5_export,
-	buttons_export);	
+	vga_pll_ref_reset_reset);	
 
+	input	[3:0]	buttons_export;
+	output	[9:0]	red_leds_export;
 	output	[12:0]	sdram_addr;
 	output	[1:0]	sdram_ba;
 	output		sdram_cas_n;
@@ -42,6 +44,13 @@ module nios (
 	output		sdram_ras_n;
 	output		sdram_we_n;
 	output		sdram_clk_clk;
+	output	[6:0]	seven_seg_0_export;
+	output	[6:0]	seven_seg_1_export;
+	output	[6:0]	seven_seg_2_export;
+	output	[6:0]	seven_seg_3_export;
+	output	[6:0]	seven_seg_4_export;
+	output	[6:0]	seven_seg_5_export;
+	input	[9:0]	switches_export;
 	input		system_pll_ref_clk_clk;
 	input		system_pll_ref_reset_reset;
 	output		vga_CLK;
@@ -54,13 +63,4 @@ module nios (
 	output	[7:0]	vga_B;
 	input		vga_pll_ref_clk_clk;
 	input		vga_pll_ref_reset_reset;
-	output	[9:0]	red_leds_export;
-	input	[9:0]	switches_export;
-	output	[6:0]	seven_seg_0_export;
-	output	[6:0]	seven_seg_1_export;
-	output	[6:0]	seven_seg_2_export;
-	output	[6:0]	seven_seg_3_export;
-	output	[6:0]	seven_seg_4_export;
-	output	[6:0]	seven_seg_5_export;
-	input	[3:0]	buttons_export;
 endmodule
