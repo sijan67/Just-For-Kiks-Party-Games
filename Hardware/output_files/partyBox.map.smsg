@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at partyBox.sv(55): always construct contains both blocking and non-blocking assignments File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 55
+Warning (10268): Verilog HDL information at partyBox.sv(57): always construct contains both blocking and non-blocking assignments File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 57

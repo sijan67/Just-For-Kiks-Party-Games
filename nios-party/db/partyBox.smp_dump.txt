@@ -1,19 +1,12 @@
 
-State Machine - |partyBox|nios:u0|nios_Subsystem_0:subsystem_0|nios_Subsystem_0_VGA_Pixel_DMA:vga_pixel_dma|s_pixel_buffer
-Name s_pixel_buffer.STATE_3_MAX_PENDING_READS_STALL s_pixel_buffer.STATE_2_READ_BUFFER s_pixel_buffer.STATE_1_WAIT_FOR_LAST_PIXEL s_pixel_buffer.STATE_0_IDLE 
-s_pixel_buffer.STATE_0_IDLE 0 0 0 0 
-s_pixel_buffer.STATE_1_WAIT_FOR_LAST_PIXEL 0 0 1 1 
-s_pixel_buffer.STATE_2_READ_BUFFER 0 1 0 1 
-s_pixel_buffer.STATE_3_MAX_PENDING_READS_STALL 1 0 0 1 
-
-State Machine - |partyBox|nios:u0|nios_SDRAM:sdram|m_next
+State Machine - |partyBox|test:u0|test_SDRAM:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
 m_next.000000001 0 0 0 0 
 m_next.000001000 0 0 1 1 
 m_next.000010000 0 1 0 1 
 m_next.010000000 1 0 0 1 
 
-State Machine - |partyBox|nios:u0|nios_SDRAM:sdram|m_state
+State Machine - |partyBox|test:u0|test_SDRAM:sdram|m_state
 Name m_state.100000000 m_state.010000000 m_state.001000000 m_state.000100000 m_state.000010000 m_state.000001000 m_state.000000100 m_state.000000010 m_state.000000001 
 m_state.000000001 0 0 0 0 0 0 0 0 0 
 m_state.000000010 0 0 0 0 0 0 0 1 1 
@@ -25,14 +18,14 @@ m_state.001000000 0 0 1 0 0 0 0 0 1
 m_state.010000000 0 1 0 0 0 0 0 0 1 
 m_state.100000000 1 0 0 0 0 0 0 0 1 
 
-State Machine - |partyBox|nios:u0|nios_SDRAM:sdram|i_next
+State Machine - |partyBox|test:u0|test_SDRAM:sdram|i_next
 Name i_next.111 i_next.101 i_next.010 i_next.000 
 i_next.000 0 0 0 0 
 i_next.010 0 0 1 1 
 i_next.101 0 1 0 1 
 i_next.111 1 0 0 1 
 
-State Machine - |partyBox|nios:u0|nios_SDRAM:sdram|i_state
+State Machine - |partyBox|test:u0|test_SDRAM:sdram|i_state
 Name i_state.111 i_state.101 i_state.011 i_state.010 i_state.001 i_state.000 
 i_state.000 0 0 0 0 0 0 
 i_state.001 0 0 0 0 1 1 
@@ -41,7 +34,14 @@ i_state.011 0 0 1 0 0 1
 i_state.101 0 1 0 0 0 1 
 i_state.111 1 0 0 0 0 1 
 
-State Machine - |partyBox|nios:u0|nios_NIOSII:niosii|nios_NIOSII_cpu:cpu|nios_NIOSII_cpu_nios2_oci:the_nios_NIOSII_cpu_nios2_oci|nios_NIOSII_cpu_debug_slave_wrapper:the_nios_NIOSII_cpu_debug_slave_wrapper|nios_NIOSII_cpu_debug_slave_tck:the_nios_NIOSII_cpu_debug_slave_tck|DRsize
+State Machine - |partyBox|test:u0|test_Pixel_Buffer:pixel_buffer|s_pixel_buffer
+Name s_pixel_buffer.STATE_3_MAX_PENDING_READS_STALL s_pixel_buffer.STATE_2_READ_BUFFER s_pixel_buffer.STATE_1_WAIT_FOR_LAST_PIXEL s_pixel_buffer.STATE_0_IDLE 
+s_pixel_buffer.STATE_0_IDLE 0 0 0 0 
+s_pixel_buffer.STATE_1_WAIT_FOR_LAST_PIXEL 0 0 1 1 
+s_pixel_buffer.STATE_2_READ_BUFFER 0 1 0 1 
+s_pixel_buffer.STATE_3_MAX_PENDING_READS_STALL 1 0 0 1 
+
+State Machine - |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_nios2_oci:the_test_CPU_cpu_nios2_oci|test_CPU_cpu_debug_slave_wrapper:the_test_CPU_cpu_debug_slave_wrapper|test_CPU_cpu_debug_slave_tck:the_test_CPU_cpu_debug_slave_tck|DRsize
 Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
 DRsize.000 0 0 0 0 0 0 
 DRsize.001 0 0 0 0 1 1 

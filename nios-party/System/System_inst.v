@@ -12,6 +12,8 @@
 		.seven_seg_3_export (<connected-to-seven_seg_3_export>), // seven_seg_3.export
 		.seven_seg_4_export (<connected-to-seven_seg_4_export>), // seven_seg_4.export
 		.seven_seg_5_export (<connected-to-seven_seg_5_export>), // seven_seg_5.export
-		.switches_export    (<connected-to-switches_export>)     //    switches.export
+		.switches_export    (<connected-to-switches_export>),    //    switches.export
+		.aud_vid_SDAT       (<connected-to-aud_vid_SDAT>),       //     aud_vid.SDAT
+		.aud_vid_SCLK       (<connected-to-aud_vid_SCLK>)        //            .SCLK
 	);
 

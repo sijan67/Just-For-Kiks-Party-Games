@@ -34,7 +34,7 @@ module partyBox(
 );
 
 
-    nios u0 (
+    /*nios u0 (
 		.sdram_addr                 (DRAM_ADDR),                 //                sdram.addr
 		.sdram_ba                   (DRAM_BA),                   //                     .ba
 		.sdram_cas_n                (DRAM_CAS_N),                //                     .cas_n
@@ -67,6 +67,28 @@ module partyBox(
 		.seven_seg_5_export (HEX5),
 		.switches_export    (SW)
 		
+	);*/
+	
+	test u0 (
+		.clk_clk       (CLOCK_50),       //   clk.clk
+		.reset_reset_n (1'b0), // reset.reset_n
+		.sdram_addr    (DRAM_ADDR),    // sdram.addr
+		.sdram_ba      (DRAM_BA),      //      .ba
+		.sdram_cas_n   (DRAM_CAS_N),   //      .cas_n
+		.sdram_cke     (DRAM_CKE),     //      .cke
+		.sdram_cs_n    (DRAM_CS_N),    //      .cs_n
+		.sdram_dq      (DRAM_DQ),      //      .dq
+		.sdram_dqm     ({DRAM_UDQM, DRAM_LDQM}),     //      .dqm
+		.sdram_ras_n   (DRAM_RAS_N),   //      .ras_n
+		.sdram_we_n    (DRAM_WE_N),    //      .we_n
+		.vga_CLK       (VGA_CLK),       //   vga.CLK
+		.vga_HS        (VGA_HS),        //      .HS
+		.vga_VS        (VGA_VS),        //      .VS
+		.vga_BLANK     (VGA_BLANK_N),     //      .BLANK
+		.vga_SYNC      (VGA_SYNC),      //      .SYNC
+		.vga_R         (VGA_R),         //      .R
+		.vga_G         (VGA_G),         //      .G
+		.vga_B         (VGA_B)          //      .B
 	);
 
 

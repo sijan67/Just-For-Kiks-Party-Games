@@ -13,7 +13,9 @@ module System (
 	seven_seg_3_export,
 	seven_seg_4_export,
 	seven_seg_5_export,
-	switches_export);	
+	switches_export,
+	aud_vid_SDAT,
+	aud_vid_SCLK);	
 
 	input		clk_clk;
 	input		key_0_export;
@@ -29,4 +31,6 @@ module System (
 	output	[6:0]	seven_seg_4_export;
 	output	[6:0]	seven_seg_5_export;
 	input	[9:0]	switches_export;
+	inout		aud_vid_SDAT;
+	output		aud_vid_SCLK;
 endmodule

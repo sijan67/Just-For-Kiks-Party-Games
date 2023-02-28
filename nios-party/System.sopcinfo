@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="System" kind="System" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2023.02.15.20:59:58 -->
+ <!-- 2023.02.22.20:14:15 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1676523597</value>
+  <value>1677125655</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -95,6 +95,712 @@
   <visible>true</visible>
   <valid>true</valid>
  </parameter>
+ <module
+   name="Audio_Video"
+   kind="altera_up_avalon_audio_and_video_config"
+   version="18.0"
+   path="Audio_Video">
+  <!-- Describes a single module. Module parameters are
+the requested settings for a module instance. -->
+  <parameter name="device">
+   <type>java.lang.String</type>
+   <value>On-Board Peripherals</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="board">
+   <type>java.lang.String</type>
+   <value>DE1-SoC</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="eai">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="audio_in">
+   <type>java.lang.String</type>
+   <value>Microphone to ADC</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="dac_enable">
+   <type>boolean</type>
+   <value>true</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="mic_bypass">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="line_in_bypass">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="mic_attenuation">
+   <type>java.lang.String</type>
+   <value>-6dB</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="data_format">
+   <type>java.lang.String</type>
+   <value>Left Justified</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_length">
+   <type>int</type>
+   <value>24</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="sampling_rate">
+   <type>java.lang.String</type>
+   <value>48 kHz</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bosr">
+   <type>java.lang.String</type>
+   <value>250fs/256fs</value>
+   <derived>true</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="sr_register">
+   <type>int</type>
+   <value>0</value>
+   <derived>true</derived>
+   <enabled>false</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="video_format">
+   <type>java.lang.String</type>
+   <value>NTSC</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="d5m_resolution">
+   <type>java.lang.String</type>
+   <value>2592 x 1944</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="exposure">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="AUTO_DEVICE_FAMILY">
+   <type>java.lang.String</type>
+   <value>CYCLONEV</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
+  </parameter>
+  <parameter name="AUTO_CLK_CLOCK_RATE">
+   <type>java.lang.Long</type>
+   <value>50000000</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>CLOCK_RATE</sysinfo_type>
+   <sysinfo_arg>clk</sysinfo_arg>
+  </parameter>
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>Cyclone V</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+   <sysinfo_type>DEVICE_FAMILY</sysinfo_type>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <interface name="clk" kind="clock_sink" version="18.1">
+   <!-- The connection points exposed by a module instance for the
+particular module parameters. Connection points and their
+parameters are a RESULT of the module parameters. -->
+   <parameter name="externallyDriven">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="ptfSchematicName">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="deviceFamily">
+    <type>java.lang.String</type>
+    <value>UNKNOWN</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="generateLegacySim">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="clockRateKnown">
+    <type>java.lang.Boolean</type>
+    <value>true</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="clockRate">
+    <type>java.lang.Long</type>
+    <value>50000000</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <type>clock</type>
+   <isStart>false</isStart>
+   <port>
+    <name>clk</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>clk</role>
+   </port>
+  </interface>
+  <interface name="reset" kind="reset_sink" version="18.1">
+   <!-- The connection points exposed by a module instance for the
+particular module parameters. Connection points and their
+parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value>clk</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="synchronousEdges">
+    <type>com.altera.sopcmodel.reset.Reset$Edges</type>
+    <value>DEASSERT</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="deviceFamily">
+    <type>java.lang.String</type>
+    <value>UNKNOWN</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="generateLegacySim">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <type>reset</type>
+   <isStart>false</isStart>
+   <port>
+    <name>reset</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>reset</role>
+   </port>
+  </interface>
+  <interface name="avalon_av_config_slave" kind="avalon_slave" version="18.1">
+   <!-- The connection points exposed by a module instance for the
+particular module parameters. Connection points and their
+parameters are a RESULT of the module parameters. -->
+   <assignment>
+    <name>embeddedsw.configuration.isFlash</name>
+    <value>false</value>
+   </assignment>
+   <assignment>
+    <name>embeddedsw.configuration.isMemoryDevice</name>
+    <value>false</value>
+   </assignment>
+   <assignment>
+    <name>embeddedsw.configuration.isNonVolatileStorage</name>
+    <value>false</value>
+   </assignment>
+   <assignment>
+    <name>embeddedsw.configuration.isPrintableDevice</name>
+    <value>false</value>
+   </assignment>
+   <parameter name="addressAlignment">
+    <type>com.altera.sopcmodel.avalon.AvalonConnectionPoint$AddressAlignment</type>
+    <value>DYNAMIC</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="addressGroup">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="addressSpan">
+    <type>java.math.BigInteger</type>
+    <value>16</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="addressUnits">
+    <type>com.altera.sopcmodel.avalon.EAddrBurstUnits</type>
+    <value>WORDS</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="alwaysBurstMaxBurst">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value>clk</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value>reset</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="bitsPerSymbol">
+    <type>int</type>
+    <value>8</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="bridgedAddressOffset">
+    <type>java.math.BigInteger</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="bridgesToMaster">
+    <type>com.altera.entityinterfaces.IConnectionPoint</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="burstOnBurstBoundariesOnly">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="burstcountUnits">
+    <type>com.altera.sopcmodel.avalon.EAddrBurstUnits</type>
+    <value>WORDS</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="constantBurstBehavior">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="explicitAddressSpan">
+    <type>java.math.BigInteger</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="holdTime">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="interleaveBursts">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="isBigEndian">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="isFlash">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="isMemoryDevice">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="isNonVolatileStorage">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="linewrapBursts">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="maximumPendingReadTransactions">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="maximumPendingWriteTransactions">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="minimumUninterruptedRunLength">
+    <type>int</type>
+    <value>1</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="printableDevice">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="readLatency">
+    <type>int</type>
+    <value>1</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="readWaitStates">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="readWaitTime">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="registerIncomingSignals">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="registerOutgoingSignals">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="setupTime">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="timingUnits">
+    <type>com.altera.sopcmodel.avalon.TimingUnits</type>
+    <value>Cycles</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="transparentBridge">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="wellBehavedWaitrequest">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="writeLatency">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="writeWaitStates">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="writeWaitTime">
+    <type>int</type>
+    <value>0</value>
+    <derived>false</derived>
+    <enabled>false</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="deviceFamily">
+    <type>java.lang.String</type>
+    <value>UNKNOWN</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="generateLegacySim">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <type>avalon</type>
+   <isStart>false</isStart>
+   <port>
+    <name>address</name>
+    <direction>Input</direction>
+    <width>2</width>
+    <role>address</role>
+   </port>
+   <port>
+    <name>byteenable</name>
+    <direction>Input</direction>
+    <width>4</width>
+    <role>byteenable</role>
+   </port>
+   <port>
+    <name>read</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>read</role>
+   </port>
+   <port>
+    <name>write</name>
+    <direction>Input</direction>
+    <width>1</width>
+    <role>write</role>
+   </port>
+   <port>
+    <name>writedata</name>
+    <direction>Input</direction>
+    <width>32</width>
+    <role>writedata</role>
+   </port>
+   <port>
+    <name>readdata</name>
+    <direction>Output</direction>
+    <width>32</width>
+    <role>readdata</role>
+   </port>
+   <port>
+    <name>waitrequest</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>waitrequest</role>
+   </port>
+  </interface>
+  <interface name="external_interface" kind="conduit_end" version="18.1">
+   <!-- The connection points exposed by a module instance for the
+particular module parameters. Connection points and their
+parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="deviceFamily">
+    <type>java.lang.String</type>
+    <value>UNKNOWN</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="generateLegacySim">
+    <type>boolean</type>
+    <value>false</value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <type>conduit</type>
+   <isStart>false</isStart>
+   <port>
+    <name>I2C_SDAT</name>
+    <direction>Bidir</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+   <port>
+    <name>I2C_SCLK</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>export</role>
+   </port>
+  </interface>
+ </module>
  <module name="JTAG" kind="altera_avalon_jtag_uart" version="18.1" path="JTAG">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
@@ -2473,7 +3179,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="dataSlaveMapParam">
    <type>java.lang.String</type>
-   <value><![CDATA[<address-map><slave name='SDRAM.s1' start='0x20000' end='0x34000' type='altera_avalon_onchip_memory2.s1' /><slave name='NIOSII.debug_mem_slave' start='0x40800' end='0x41000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='Timer.s1' start='0x41000' end='0x41020' type='altera_avalon_timer.s1' /><slave name='key_3.s1' start='0x41020' end='0x41030' type='altera_avalon_pio.s1' /><slave name='key_2.s1' start='0x41030' end='0x41040' type='altera_avalon_pio.s1' /><slave name='key_1.s1' start='0x41040' end='0x41050' type='altera_avalon_pio.s1' /><slave name='seven_seg_5.s1' start='0x41050' end='0x41060' type='altera_avalon_pio.s1' /><slave name='seven_seg_4.s1' start='0x41060' end='0x41070' type='altera_avalon_pio.s1' /><slave name='seven_seg_3.s1' start='0x41070' end='0x41080' type='altera_avalon_pio.s1' /><slave name='seven_seg_2.s1' start='0x41080' end='0x41090' type='altera_avalon_pio.s1' /><slave name='seven_seg_1.s1' start='0x41090' end='0x410A0' type='altera_avalon_pio.s1' /><slave name='seven_seg_0.s1' start='0x410A0' end='0x410B0' type='altera_avalon_pio.s1' /><slave name='key_0.s1' start='0x410B0' end='0x410C0' type='altera_avalon_pio.s1' /><slave name='switches.s1' start='0x410C0' end='0x410D0' type='altera_avalon_pio.s1' /><slave name='red_leds.s1' start='0x410D0' end='0x410E0' type='altera_avalon_pio.s1' /><slave name='JTAG.avalon_jtag_slave' start='0x410E0' end='0x410E8' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></value>
+   <value><![CDATA[<address-map><slave name='Audio_Video.avalon_av_config_slave' start='0x0' end='0x10' type='altera_up_avalon_audio_and_video_config.avalon_av_config_slave' /><slave name='SDRAM.s1' start='0x20000' end='0x34000' type='altera_avalon_onchip_memory2.s1' /><slave name='NIOSII.debug_mem_slave' start='0x40800' end='0x41000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='Timer.s1' start='0x41000' end='0x41020' type='altera_avalon_timer.s1' /><slave name='key_3.s1' start='0x41020' end='0x41030' type='altera_avalon_pio.s1' /><slave name='key_2.s1' start='0x41030' end='0x41040' type='altera_avalon_pio.s1' /><slave name='key_1.s1' start='0x41040' end='0x41050' type='altera_avalon_pio.s1' /><slave name='seven_seg_5.s1' start='0x41050' end='0x41060' type='altera_avalon_pio.s1' /><slave name='seven_seg_4.s1' start='0x41060' end='0x41070' type='altera_avalon_pio.s1' /><slave name='seven_seg_3.s1' start='0x41070' end='0x41080' type='altera_avalon_pio.s1' /><slave name='seven_seg_2.s1' start='0x41080' end='0x41090' type='altera_avalon_pio.s1' /><slave name='seven_seg_1.s1' start='0x41090' end='0x410A0' type='altera_avalon_pio.s1' /><slave name='seven_seg_0.s1' start='0x410A0' end='0x410B0' type='altera_avalon_pio.s1' /><slave name='key_0.s1' start='0x410B0' end='0x410C0' type='altera_avalon_pio.s1' /><slave name='switches.s1' start='0x410C0' end='0x410D0' type='altera_avalon_pio.s1' /><slave name='red_leds.s1' start='0x410D0' end='0x410E0' type='altera_avalon_pio.s1' /><slave name='JTAG.avalon_jtag_slave' start='0x410E0' end='0x410E8' type='altera_avalon_jtag_uart.avalon_jtag_slave' /></address-map>]]></value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -3145,6 +3851,14 @@ parameters are a RESULT of the module parameters. -->
     <width>1</width>
     <role>debugaccess</role>
    </port>
+   <memoryBlock>
+    <isBridge>false</isBridge>
+    <moduleName>Audio_Video</moduleName>
+    <slaveName>avalon_av_config_slave</slaveName>
+    <name>Audio_Video.avalon_av_config_slave</name>
+    <baseAddress>0</baseAddress>
+    <span>16</span>
+   </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
     <moduleName>JTAG</moduleName>
@@ -6189,6 +6903,12 @@ parameters are a RESULT of the module parameters. -->
     <moduleName>key_3</moduleName>
     <slaveName>clk</slaveName>
     <name>key_3.clk</name>
+   </clockDomainMember>
+   <clockDomainMember>
+    <isBridge>false</isBridge>
+    <moduleName>Audio_Video</moduleName>
+    <slaveName>clk</slaveName>
+    <name>Audio_Video.clk</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -15934,6 +16654,57 @@ parameters are a RESULT of the module parameters. -->
   </interface>
  </module>
  <connection
+   name="NIOSII.data_master/Audio_Video.avalon_av_config_slave"
+   kind="avalon"
+   version="18.1"
+   start="NIOSII.data_master"
+   end="Audio_Video.avalon_av_config_slave">
+  <parameter name="arbitrationPriority">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="baseAddress">
+   <type>java.math.BigInteger</type>
+   <value>0x0000</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="defaultConnection">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>NIOSII</startModule>
+  <startConnectionPoint>data_master</startConnectionPoint>
+  <endModule>Audio_Video</endModule>
+  <endConnectionPoint>avalon_av_config_slave</endConnectionPoint>
+ </connection>
+ <connection
    name="NIOSII.data_master/JTAG.avalon_jtag_slave"
    kind="avalon"
    version="18.1"
@@ -17257,6 +18028,33 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>clk</endConnectionPoint>
  </connection>
  <connection
+   name="clk_0.clk/Audio_Video.clk"
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="Audio_Video.clk">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>clk_0</startModule>
+  <startConnectionPoint>clk</startConnectionPoint>
+  <endModule>Audio_Video</endModule>
+  <endConnectionPoint>clk</endConnectionPoint>
+ </connection>
+ <connection
    name="clk_0.clk/SDRAM.clk1"
    kind="clock"
    version="18.1"
@@ -17899,6 +18697,33 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
+   name="clk_0.clk_reset/Audio_Video.reset"
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="Audio_Video.reset">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>clk_0</startModule>
+  <startConnectionPoint>clk_reset</startConnectionPoint>
+  <endModule>Audio_Video</endModule>
+  <endConnectionPoint>reset</endConnectionPoint>
+ </connection>
+ <connection
    name="clk_0.clk_reset/SDRAM.reset1"
    kind="reset"
    version="18.1"
@@ -18304,6 +19129,33 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <connection
+   name="NIOSII.debug_reset_request/Audio_Video.reset"
+   kind="reset"
+   version="18.1"
+   start="NIOSII.debug_reset_request"
+   end="Audio_Video.reset">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>NIOSII</startModule>
+  <startConnectionPoint>debug_reset_request</startConnectionPoint>
+  <endModule>Audio_Video</endModule>
+  <endConnectionPoint>reset</endConnectionPoint>
+ </connection>
+ <connection
    name="NIOSII.debug_reset_request/SDRAM.reset1"
    kind="reset"
    version="18.1"
@@ -18332,14 +19184,14 @@ parameters are a RESULT of the module parameters. -->
  </connection>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>altera_avalon_jtag_uart</name>
+  <name>altera_up_avalon_audio_and_video_config</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>JTAG UART Intel FPGA IP</displayName>
-  <version>18.1</version>
+  <displayName>Audio and Video Config</displayName>
+  <version>18.0</version>
  </plugin>
  <plugin>
-  <instanceCount>16</instanceCount>
+  <instanceCount>17</instanceCount>
   <name>clock_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
@@ -18347,7 +19199,7 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <plugin>
-  <instanceCount>16</instanceCount>
+  <instanceCount>17</instanceCount>
   <name>reset_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
@@ -18355,11 +19207,27 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <plugin>
-  <instanceCount>16</instanceCount>
+  <instanceCount>17</instanceCount>
   <name>avalon_slave</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>18.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>13</instanceCount>
+  <name>conduit_end</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Conduit</displayName>
+  <version>18.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>altera_avalon_jtag_uart</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>JTAG UART Intel FPGA IP</displayName>
   <version>18.1</version>
  </plugin>
  <plugin>
@@ -18475,15 +19343,7 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <plugin>
-  <instanceCount>12</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>18.1</version>
- </plugin>
- <plugin>
-  <instanceCount>18</instanceCount>
+  <instanceCount>19</instanceCount>
   <name>avalon</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>
@@ -18491,7 +19351,7 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <plugin>
-  <instanceCount>16</instanceCount>
+  <instanceCount>17</instanceCount>
   <name>clock</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>
@@ -18507,7 +19367,7 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <plugin>
-  <instanceCount>31</instanceCount>
+  <instanceCount>33</instanceCount>
   <name>reset</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>

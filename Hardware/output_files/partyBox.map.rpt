@@ -1,5 +1,5 @@
 Analysis & Synthesis report for partyBox
-Mon Feb 13 18:30:00 2023
+Fri Feb 24 14:22:14 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -60,14 +60,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Feb 13 18:30:00 2023       ;
+; Analysis & Synthesis Status     ; Successful - Fri Feb 24 14:22:14 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 1124                                        ;
-; Total pins                      ; 96                                          ;
+; Total pins                      ; 132                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 6,912                                       ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -271,7 +271,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 1124           ;
 ;                                             ;                ;
-; I/O pins                                    ; 96             ;
+; I/O pins                                    ; 132            ;
 ; Total MLAB memory bits                      ; 0              ;
 ; Total block memory bits                     ; 6912           ;
 ;                                             ;                ;
@@ -282,8 +282,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 628            ;
-; Total fan-out                               ; 6512           ;
-; Average fan-out                             ; 3.49           ;
+; Total fan-out                               ; 6548           ;
+; Average fan-out                             ; 3.38           ;
 +---------------------------------------------+----------------+
 
 
@@ -292,7 +292,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                  ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |partyBox                                                                                                                               ; 488 (55)            ; 1124 (41)                 ; 6912              ; 0          ; 96   ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
+; |partyBox                                                                                                                               ; 488 (55)            ; 1124 (41)                 ; 6912              ; 0          ; 132  ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 91 (1)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
 ;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
 ;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
@@ -950,7 +950,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 6                           ;
 ;         5 data inputs ; 9                           ;
 ;         6 data inputs ; 22                          ;
-; boundary_port         ; 136                         ;
+; boundary_port         ; 172                         ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.60                        ;
@@ -1122,7 +1122,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Feb 13 18:29:37 2023
+    Info: Processing started: Fri Feb 24 14:21:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off partyBox -c partyBox
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -1137,9 +1137,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file video_d
 Info (12021): Found 1 design units, including 1 entities, in source file altera_up_avalon_video_vga_timing.v
     Info (12023): Found entity 1: altera_up_avalon_video_vga_timing File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/altera_up_avalon_video_vga_timing.v Line: 47
 Info (12127): Elaborating entity "partyBox" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at partyBox.sv(70): truncated value with size 32 to match size of target (29) File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 70
-Info (10264): Verilog HDL Case Statement information at partyBox.sv(72): all case item expressions in this case statement are onehot File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 72
-Info (12128): Elaborating entity "video_driver" for hierarchy "video_driver:v1" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 38
+Warning (10230): Verilog HDL assignment warning at partyBox.sv(73): truncated value with size 32 to match size of target (29) File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 73
+Info (10264): Verilog HDL Case Statement information at partyBox.sv(75): all case item expressions in this case statement are onehot File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 75
+Info (12128): Elaborating entity "video_driver" for hierarchy "video_driver:v1" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 40
 Info (12128): Elaborating entity "CLOCK25_PLL" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/video_driver.sv Line: 47
 Info (12128): Elaborating entity "CLOCK25_PLL_0002" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL.v Line: 20
 Info (12128): Elaborating entity "altera_pll" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL/CLOCK25_PLL_0002.v Line: 85
@@ -1229,7 +1229,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_99c File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/cmpr_99c.tdf Line: 22
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2023.02.13.18:29:52 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2023.02.24.14:22:06 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1925,7 +1925,7 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 14 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
     Info: Must be connected
-Warning (21074): Design contains 10 input pin(s) that do not drive logic
+Warning (21074): Design contains 45 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
     Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
@@ -1936,15 +1936,50 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 17
-Info (21057): Implemented 1493 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 18 input pins
+    Warning (15610): No output dependent on input pin "GPIO_1[1]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[2]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[3]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[4]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[5]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[6]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[7]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[8]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[9]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[10]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[11]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[12]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[13]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[14]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[15]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[16]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[17]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[18]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[19]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[20]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[21]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[22]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[23]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[24]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[25]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[26]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[27]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[28]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[29]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[30]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[31]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[32]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[33]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[34]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+    Warning (15610): No output dependent on input pin "GPIO_1[35]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
+Info (21057): Implemented 1529 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 54 input pins
     Info (21059): Implemented 82 output pins
     Info (21061): Implemented 1337 logic cells
     Info (21064): Implemented 54 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 679 warnings
-    Info: Peak virtual memory: 4913 megabytes
-    Info: Processing ended: Mon Feb 13 18:30:00 2023
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 714 warnings
+    Info: Peak virtual memory: 4920 megabytes
+    Info: Processing ended: Fri Feb 24 14:22:14 2023
     Info: Elapsed time: 00:00:23
     Info: Total CPU time (on all processors): 00:00:39
 

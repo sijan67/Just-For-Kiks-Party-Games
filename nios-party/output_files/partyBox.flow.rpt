@@ -1,5 +1,5 @@
 Flow report for partyBox
-Thu Feb 16 11:19:13 2023
+Wed Feb 22 18:39:52 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,19 +40,19 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Feb 16 11:18:55 2023       ;
+; Flow Status                     ; Successful - Wed Feb 22 18:39:36 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 2,338 / 32,070 ( 7 % )                      ;
-; Total registers                 ; 3651                                        ;
+; Logic utilization (in ALMs)     ; 2,375 / 32,070 ( 7 % )                      ;
+; Total registers                 ; 3833                                        ;
 ; Total pins                      ; 136 / 457 ( 30 % )                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 790,848 / 4,065,280 ( 19 % )                ;
-; Total DSP Blocks                ; 9 / 87 ( 10 % )                             ;
+; Total block memory bits         ; 462,976 / 4,065,280 ( 11 % )                ;
+; Total DSP Blocks                ; 3 / 87 ( 3 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/16/2023 11:15:56 ;
+; Start date & time ; 02/22/2023 18:36:42 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; partyBox            ;
 +-------------------+---------------------+
@@ -78,11 +78,11 @@ refer to the applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 1098077516288.167657495513104                          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 237901778902802.167711980112708                        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                      ; --            ; --          ; --         ;
-; MISC_FILE                           ; nios/synthesis/../nios.cmp                             ; --            ; --          ; --         ;
-; MISC_FILE                           ; nios/synthesis/../../nios.qsys                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; test/synthesis/../test.cmp                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; test/synthesis/../../test.qsys                         ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family)                 ; --            ; DE1_SoC     ; Top        ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family)                 ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                 ; --            ; DE1_SoC     ; Top        ;
@@ -92,10 +92,10 @@ refer to the applicable agreement for further details.
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                                           ; --            ; --          ; --         ;
-; SLD_FILE                            ; nios/synthesis/nios.regmap                             ; --            ; --          ; --         ;
-; SLD_FILE                            ; nios/synthesis/nios.debuginfo                          ; --            ; --          ; --         ;
-; SLD_INFO                            ; QSYS_NAME nios HAS_SOPCINFO 1 GENERATION_ID 1676574357 ; --            ; nios        ; --         ;
-; SOPCINFO_FILE                       ; nios/synthesis/../../nios.sopcinfo                     ; --            ; --          ; --         ;
+; SLD_FILE                            ; test/synthesis/test.regmap                             ; --            ; --          ; --         ;
+; SLD_FILE                            ; test/synthesis/test.debuginfo                          ; --            ; --          ; --         ;
+; SLD_INFO                            ; QSYS_NAME test HAS_SOPCINFO 1 GENERATION_ID 1677119761 ; --            ; test        ; --         ;
+; SOPCINFO_FILE                       ; test/synthesis/../../test.sopcinfo                     ; --            ; --          ; --         ;
 ; SYNTHESIS_ONLY_QIP                  ; On                                                     ; --            ; --          ; --         ;
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
 
@@ -105,11 +105,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:07     ; 1.0                     ; 5148 MB             ; 00:01:24                           ;
-; Fitter               ; 00:01:29     ; 1.2                     ; 7103 MB             ; 00:03:16                           ;
-; Assembler            ; 00:00:13     ; 1.0                     ; 4908 MB             ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:17     ; 1.8                     ; 5412 MB             ; 00:00:28                           ;
-; Total                ; 00:03:06     ; --                      ; --                  ; 00:05:17                           ;
+; Analysis & Synthesis ; 00:00:53     ; 1.0                     ; 5121 MB             ; 00:01:10                           ;
+; Fitter               ; 00:01:42     ; 1.2                     ; 7222 MB             ; 00:06:34                           ;
+; Assembler            ; 00:00:10     ; 1.0                     ; 4907 MB             ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:15     ; 2.1                     ; 5435 MB             ; 00:00:28                           ;
+; Total                ; 00:03:00     ; --                      ; --                  ; 00:08:21                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -118,10 +118,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; LAPTOP-F3DFC37R  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; LAPTOP-F3DFC37R  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; LAPTOP-F3DFC37R  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; LAPTOP-F3DFC37R  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-SIOP2AU  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-SIOP2AU  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; DESKTOP-SIOP2AU  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-SIOP2AU  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

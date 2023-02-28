@@ -1,19 +1,21 @@
 	component System is
 		port (
-			clk_clk            : in  std_logic                    := 'X';             -- clk
-			key_0_export       : in  std_logic                    := 'X';             -- export
-			key_1_export       : in  std_logic                    := 'X';             -- export
-			key_2_export       : in  std_logic                    := 'X';             -- export
-			key_3_export       : in  std_logic                    := 'X';             -- export
-			red_leds_export    : out std_logic_vector(9 downto 0);                    -- export
-			reset_reset_n      : in  std_logic                    := 'X';             -- reset_n
-			seven_seg_0_export : out std_logic_vector(6 downto 0);                    -- export
-			seven_seg_1_export : out std_logic_vector(6 downto 0);                    -- export
-			seven_seg_2_export : out std_logic_vector(6 downto 0);                    -- export
-			seven_seg_3_export : out std_logic_vector(6 downto 0);                    -- export
-			seven_seg_4_export : out std_logic_vector(6 downto 0);                    -- export
-			seven_seg_5_export : out std_logic_vector(6 downto 0);                    -- export
-			switches_export    : in  std_logic_vector(9 downto 0) := (others => 'X')  -- export
+			clk_clk            : in    std_logic                    := 'X';             -- clk
+			key_0_export       : in    std_logic                    := 'X';             -- export
+			key_1_export       : in    std_logic                    := 'X';             -- export
+			key_2_export       : in    std_logic                    := 'X';             -- export
+			key_3_export       : in    std_logic                    := 'X';             -- export
+			red_leds_export    : out   std_logic_vector(9 downto 0);                    -- export
+			reset_reset_n      : in    std_logic                    := 'X';             -- reset_n
+			seven_seg_0_export : out   std_logic_vector(6 downto 0);                    -- export
+			seven_seg_1_export : out   std_logic_vector(6 downto 0);                    -- export
+			seven_seg_2_export : out   std_logic_vector(6 downto 0);                    -- export
+			seven_seg_3_export : out   std_logic_vector(6 downto 0);                    -- export
+			seven_seg_4_export : out   std_logic_vector(6 downto 0);                    -- export
+			seven_seg_5_export : out   std_logic_vector(6 downto 0);                    -- export
+			switches_export    : in    std_logic_vector(9 downto 0) := (others => 'X'); -- export
+			aud_vid_SDAT       : inout std_logic                    := 'X';             -- SDAT
+			aud_vid_SCLK       : out   std_logic                                        -- SCLK
 		);
 	end component System;
 
@@ -32,6 +34,8 @@
 			seven_seg_3_export => CONNECTED_TO_seven_seg_3_export, -- seven_seg_3.export
 			seven_seg_4_export => CONNECTED_TO_seven_seg_4_export, -- seven_seg_4.export
 			seven_seg_5_export => CONNECTED_TO_seven_seg_5_export, -- seven_seg_5.export
-			switches_export    => CONNECTED_TO_switches_export     --    switches.export
+			switches_export    => CONNECTED_TO_switches_export,    --    switches.export
+			aud_vid_SDAT       => CONNECTED_TO_aud_vid_SDAT,       --     aud_vid.SDAT
+			aud_vid_SCLK       => CONNECTED_TO_aud_vid_SCLK        --            .SCLK
 		);
 

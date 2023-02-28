@@ -10,7 +10,7 @@
 `define nine 	7'b0010000
 
 module partyBox(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
-					 CLOCK_50, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS);
+					 CLOCK_50, VGA_R, VGA_G, VGA_B, VGA_BLANK_N, VGA_CLK, VGA_HS, VGA_SYNC_N, VGA_VS, GPIO_1);
 	output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5;
 	output logic [9:0] LEDR;
 	input logic [3:0] KEY;
@@ -25,6 +25,8 @@ module partyBox(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	output VGA_HS;
 	output VGA_SYNC_N;
 	output VGA_VS;
+	
+	input [35:0] GPIO_1;
 
 	logic reset;
 	logic [9:0] x;
@@ -53,9 +55,10 @@ module partyBox(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 	assign HEX5 = `zero;
 
 	always @(posedge CLOCK_50) begin
-		//if(GPIO_1[0]) begin
+		
 		if(count) begin
-			if(~KEY[3]) begin
+			//if(~KEY[3]) begin
+			if(~GPIO_1[0]) begin
 				on <= 10'b11111_00000;
 				count <= 1'b0;
 				display_count <= `five;

@@ -1,43 +1,45 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst System.seven_seg_3 -pg 1 -lvl 4 -y 1210
+preplace inst System.seven_seg_3 -pg 1 -lvl 4 -y 1310
 preplace inst System.NIOSII.reset_bridge -pg 1
-preplace inst System.seven_seg_4 -pg 1 -lvl 4 -y 1310
-preplace inst System.SDRAM -pg 1 -lvl 4 -y 1610
-preplace inst System.seven_seg_5 -pg 1 -lvl 4 -y 1410
-preplace inst System.clk_0 -pg 1 -lvl 1 -y 270
-preplace inst System.key_0 -pg 1 -lvl 4 -y 490
-preplace inst System.key_1 -pg 1 -lvl 4 -y 30
-preplace inst System.key_2 -pg 1 -lvl 4 -y 150
-preplace inst System.Timer -pg 1 -lvl 4 -y 370
-preplace inst System.key_3 -pg 1 -lvl 4 -y 1690
+preplace inst System.seven_seg_4 -pg 1 -lvl 4 -y 1410
+preplace inst System.SDRAM -pg 1 -lvl 4 -y 1710
+preplace inst System.seven_seg_5 -pg 1 -lvl 4 -y 1510
+preplace inst System.clk_0 -pg 1 -lvl 1 -y 370
+preplace inst System.key_0 -pg 1 -lvl 4 -y 590
+preplace inst System.key_1 -pg 1 -lvl 4 -y 130
+preplace inst System.key_2 -pg 1 -lvl 4 -y 250
+preplace inst System.Timer -pg 1 -lvl 4 -y 470
+preplace inst System.key_3 -pg 1 -lvl 4 -y 1790
 preplace inst System.NIOSII.cpu -pg 1
-preplace inst System.JTAG -pg 1 -lvl 4 -y 270
+preplace inst System.JTAG -pg 1 -lvl 4 -y 370
 preplace inst System -pg 1 -lvl 1 -y 40 -regy -20
 preplace inst System.NIOSII.clock_bridge -pg 1
-preplace inst System.seven_seg_0 -pg 1 -lvl 4 -y 1510
-preplace inst System.red_leds -pg 1 -lvl 4 -y 910
-preplace inst System.seven_seg_1 -pg 1 -lvl 4 -y 1010
-preplace inst System.switches -pg 1 -lvl 4 -y 810
-preplace inst System.seven_seg_2 -pg 1 -lvl 4 -y 1110
-preplace inst System.NIOSII -pg 1 -lvl 3 -y 340
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_3,(SLAVE)seven_seg_3.external_connection) 1 0 4 NJ 1240 NJ 1240 NJ 1240 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)seven_seg_1.external_connection,(SLAVE)System.seven_seg_1) 1 0 4 NJ 1040 NJ 1040 NJ 1040 NJ
-preplace netloc INTERCONNECT<net_container>System</net_container>(SLAVE)JTAG.reset,(SLAVE)seven_seg_2.reset,(SLAVE)key_2.reset,(SLAVE)NIOSII.reset,(SLAVE)key_1.reset,(SLAVE)SDRAM.reset1,(SLAVE)key_0.reset,(MASTER)NIOSII.debug_reset_request,(SLAVE)seven_seg_4.reset,(SLAVE)red_leds.reset,(MASTER)clk_0.clk_reset,(SLAVE)seven_seg_3.reset,(SLAVE)key_3.reset,(SLAVE)switches.reset,(SLAVE)Timer.reset,(SLAVE)seven_seg_0.reset,(SLAVE)seven_seg_1.reset,(SLAVE)seven_seg_5.reset) 1 1 3 NJ 300 470 560 1060
-preplace netloc FAN_OUT<net_container>System</net_container>(SLAVE)NIOSII.clk,(SLAVE)Timer.clk,(SLAVE)seven_seg_1.clk,(SLAVE)seven_seg_2.clk,(SLAVE)seven_seg_3.clk,(SLAVE)seven_seg_4.clk,(SLAVE)seven_seg_5.clk,(SLAVE)seven_seg_0.clk,(SLAVE)JTAG.clk,(SLAVE)key_1.clk,(SLAVE)SDRAM.clk1,(SLAVE)key_3.clk,(MASTER)clk_0.clk,(SLAVE)key_0.clk,(SLAVE)switches.clk,(SLAVE)key_2.clk,(SLAVE)red_leds.clk) 1 1 3 NJ 280 490 500 1100
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.switches,(SLAVE)switches.external_connection) 1 0 4 NJ 840 NJ 840 NJ 840 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_0,(SLAVE)seven_seg_0.external_connection) 1 0 4 NJ 1540 NJ 1540 NJ 1540 NJ
-preplace netloc FAN_OUT<net_container>System</net_container>(SLAVE)key_3.irq,(SLAVE)key_1.irq,(SLAVE)Timer.irq,(SLAVE)JTAG.irq,(MASTER)NIOSII.irq,(SLAVE)key_2.irq,(SLAVE)key_0.irq) 1 3 1 1120
-preplace netloc INTERCONNECT<net_container>System</net_container>(MASTER)NIOSII.instruction_master,(SLAVE)seven_seg_0.s1,(SLAVE)seven_seg_4.s1,(MASTER)NIOSII.data_master,(SLAVE)seven_seg_5.s1,(SLAVE)JTAG.avalon_jtag_slave,(SLAVE)SDRAM.s1,(SLAVE)red_leds.s1,(SLAVE)Timer.s1,(SLAVE)switches.s1,(SLAVE)key_1.s1,(SLAVE)key_0.s1,(SLAVE)seven_seg_2.s1,(SLAVE)seven_seg_3.s1,(SLAVE)key_2.s1,(SLAVE)seven_seg_1.s1,(SLAVE)key_3.s1,(SLAVE)NIOSII.debug_mem_slave) 1 2 2 510 580 1040
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.key_3,(SLAVE)key_3.external_connection) 1 0 4 NJ 1720 NJ 1720 NJ 1720 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)seven_seg_4.external_connection,(SLAVE)System.seven_seg_4) 1 0 4 NJ 1340 NJ 1340 NJ 1340 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)seven_seg_5.external_connection,(SLAVE)System.seven_seg_5) 1 0 4 NJ 1440 NJ 1440 NJ 1440 NJ
+preplace inst System.seven_seg_0 -pg 1 -lvl 4 -y 1610
+preplace inst System.red_leds -pg 1 -lvl 4 -y 1010
+preplace inst System.Audio_Video -pg 1 -lvl 4 -y 30
+preplace inst System.seven_seg_1 -pg 1 -lvl 4 -y 1110
+preplace inst System.switches -pg 1 -lvl 4 -y 910
+preplace inst System.seven_seg_2 -pg 1 -lvl 4 -y 1210
+preplace inst System.NIOSII -pg 1 -lvl 3 -y 440
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_3,(SLAVE)seven_seg_3.external_connection) 1 0 4 NJ 1340 NJ 1340 NJ 1340 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.switches,(SLAVE)switches.external_connection) 1 0 4 NJ 940 NJ 940 NJ 940 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_0,(SLAVE)seven_seg_0.external_connection) 1 0 4 NJ 1640 NJ 1640 NJ 1640 NJ
+preplace netloc FAN_OUT<net_container>System</net_container>(SLAVE)key_1.irq,(SLAVE)Timer.irq,(SLAVE)JTAG.irq,(MASTER)NIOSII.irq,(SLAVE)key_3.irq,(SLAVE)key_2.irq,(SLAVE)key_0.irq) 1 3 1 1120
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_5,(SLAVE)seven_seg_5.external_connection) 1 0 4 NJ 1540 NJ 1540 NJ 1540 NJ
+preplace netloc INTERCONNECT<net_container>System</net_container>(SLAVE)key_3.reset,(SLAVE)seven_seg_3.reset,(SLAVE)key_1.reset,(SLAVE)seven_seg_1.reset,(SLAVE)JTAG.reset,(SLAVE)SDRAM.reset1,(MASTER)clk_0.clk_reset,(SLAVE)key_0.reset,(SLAVE)seven_seg_4.reset,(SLAVE)seven_seg_5.reset,(SLAVE)seven_seg_0.reset,(SLAVE)seven_seg_2.reset,(MASTER)NIOSII.debug_reset_request,(SLAVE)switches.reset,(SLAVE)red_leds.reset,(SLAVE)Audio_Video.reset,(SLAVE)NIOSII.reset,(SLAVE)key_2.reset,(SLAVE)Timer.reset) 1 1 3 N 400 470 400 1040
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.key_3,(SLAVE)key_3.external_connection) 1 0 4 NJ 1820 NJ 1820 NJ 1820 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.key_1,(SLAVE)key_1.external_connection) 1 0 4 NJ 160 NJ 160 NJ 160 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc INTERCONNECT<net_container>System</net_container>(SLAVE)Timer.s1,(SLAVE)key_1.s1,(SLAVE)NIOSII.debug_mem_slave,(SLAVE)seven_seg_1.s1,(MASTER)NIOSII.instruction_master,(SLAVE)red_leds.s1,(SLAVE)switches.s1,(SLAVE)seven_seg_3.s1,(SLAVE)seven_seg_4.s1,(SLAVE)key_3.s1,(MASTER)NIOSII.data_master,(SLAVE)seven_seg_0.s1,(SLAVE)SDRAM.s1,(SLAVE)Audio_Video.avalon_av_config_slave,(SLAVE)key_0.s1,(SLAVE)JTAG.avalon_jtag_slave,(SLAVE)seven_seg_2.s1,(SLAVE)seven_seg_5.s1,(SLAVE)key_2.s1) 1 2 2 490 580 1080
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_4,(SLAVE)seven_seg_4.external_connection) 1 0 4 NJ 1440 NJ 1440 NJ 1440 NJ
 preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)key_2.external_connection,(SLAVE)System.key_2) 1 0 4 NJ 480 NJ 480 NJ 480 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.key_0,(SLAVE)key_0.external_connection) 1 0 4 NJ 540 NJ 540 NJ 540 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)clk_0.clk_in,(SLAVE)System.clk) 1 0 1 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_2,(SLAVE)seven_seg_2.external_connection) 1 0 4 NJ 1140 NJ 1140 NJ 1140 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)red_leds.external_connection,(SLAVE)System.red_leds) 1 0 4 NJ 940 NJ 940 NJ 940 NJ
-preplace netloc EXPORT<net_container>System</net_container>(SLAVE)key_1.external_connection,(SLAVE)System.key_1) 1 0 4 NJ 60 NJ 60 NJ 60 NJ
-levelinfo -pg 1 0 80 1310
-levelinfo -hier System 90 120 450 800 1150 1300
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)key_2.external_connection,(SLAVE)System.key_2) 1 0 4 NJ 280 NJ 280 NJ 280 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.key_0,(SLAVE)key_0.external_connection) 1 0 4 NJ 640 NJ 640 NJ 640 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_2,(SLAVE)seven_seg_2.external_connection) 1 0 4 NJ 1240 NJ 1240 NJ 1240 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.seven_seg_1,(SLAVE)seven_seg_1.external_connection) 1 0 4 NJ 1140 NJ 1140 NJ 1140 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)System.aud_vid,(SLAVE)Audio_Video.external_interface) 1 0 4 NJ 80 NJ 80 NJ 80 NJ
+preplace netloc EXPORT<net_container>System</net_container>(SLAVE)red_leds.external_connection,(SLAVE)System.red_leds) 1 0 4 NJ 1040 NJ 1040 NJ 1040 NJ
+preplace netloc FAN_OUT<net_container>System</net_container>(SLAVE)seven_seg_4.clk,(SLAVE)key_1.clk,(SLAVE)seven_seg_5.clk,(SLAVE)seven_seg_0.clk,(SLAVE)key_3.clk,(SLAVE)NIOSII.clk,(SLAVE)JTAG.clk,(SLAVE)key_2.clk,(SLAVE)key_0.clk,(MASTER)clk_0.clk,(SLAVE)seven_seg_1.clk,(SLAVE)seven_seg_2.clk,(SLAVE)SDRAM.clk1,(SLAVE)seven_seg_3.clk,(SLAVE)Timer.clk,(SLAVE)red_leds.clk,(SLAVE)switches.clk,(SLAVE)Audio_Video.clk) 1 1 3 N 380 490 380 1060
+levelinfo -pg 1 0 80 1330
+levelinfo -hier System 90 120 450 800 1150 1320
