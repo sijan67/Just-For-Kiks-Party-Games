@@ -1,16 +1,16 @@
-Fitter Status : Successful - Wed Feb 22 18:39:23 2023
+Fitter Status : Successful - Tue Feb 28 12:51:50 2023
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : partyBox
 Top-level Entity Name : partyBox
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 2,375 / 32,070 ( 7 % )
-Total registers : 3833
-Total pins : 136 / 457 ( 30 % )
+Logic utilization (in ALMs) : 2,026 / 32,070 ( 6 % )
+Total registers : 3137
+Total pins : 138 / 457 ( 30 % )
 Total virtual pins : 0
-Total block memory bits : 462,976 / 4,065,280 ( 11 % )
-Total RAM Blocks : 66 / 397 ( 17 % )
+Total block memory bits : 122,192 / 4,065,280 ( 3 % )
+Total RAM Blocks : 24 / 397 ( 6 % )
 Total DSP Blocks : 3 / 87 ( 3 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

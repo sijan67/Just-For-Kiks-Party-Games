@@ -30,7 +30,17 @@ module partyBox(
 	output VGA_CLK,
 	output VGA_HS,
 	output VGA_SYNC_N,
-	output VGA_VS
+	output VGA_VS,
+	
+	output FPGA_I2C_SCLK,
+	inout	 FPGA_I2C_SDAT,
+	
+	input						AUD_ADCDAT;
+	inout						AUD_ADCLRCK;
+	inout						AUD_BCLK;
+	output					AUD_DACDAT;
+	inout						AUD_DACLRCK;
+	output					AUD_XCK;
 );
 
 
@@ -72,6 +82,8 @@ module partyBox(
 	test u0 (
 		.clk_clk       (CLOCK_50),       //   clk.clk
 		.reset_reset_n (1'b0), // reset.reset_n
+		//.av_config_SCLK							(FPGA_I2C_SCLK),
+		//.av_config_SDAT							(FPGA_I2C_SDAT),
 		.sdram_addr    (DRAM_ADDR),    // sdram.addr
 		.sdram_ba      (DRAM_BA),      //      .ba
 		.sdram_cas_n   (DRAM_CAS_N),   //      .cas_n
@@ -81,6 +93,7 @@ module partyBox(
 		.sdram_dqm     ({DRAM_UDQM, DRAM_LDQM}),     //      .dqm
 		.sdram_ras_n   (DRAM_RAS_N),   //      .ras_n
 		.sdram_we_n    (DRAM_WE_N),    //      .we_n
+		.sdram_clk_clk (DRAM_CLK),
 		.vga_CLK       (VGA_CLK),       //   vga.CLK
 		.vga_HS        (VGA_HS),        //      .HS
 		.vga_VS        (VGA_VS),        //      .VS
@@ -89,6 +102,12 @@ module partyBox(
 		.vga_R         (VGA_R),         //      .R
 		.vga_G         (VGA_G),         //      .G
 		.vga_B         (VGA_B)          //      .B
+		.audio_clk_clk								(AUD_XCK),
+		.audio_ADCDAT								(AUD_ADCDAT),
+		.audio_ADCLRCK								(AUD_ADCLRCK),
+		.audio_BCLK									(AUD_BCLK),
+		.audio_DACDAT								(AUD_DACDAT),
+		.audio_DACLRCK								(AUD_DACLRCK)
 	);
 
 

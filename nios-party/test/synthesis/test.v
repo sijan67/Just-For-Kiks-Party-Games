@@ -4,25 +4,32 @@
 
 `timescale 1 ps / 1 ps
 module test (
-		input  wire        clk_clk,       //   clk.clk
-		input  wire        reset_reset_n, // reset.reset_n
-		output wire [12:0] sdram_addr,    // sdram.addr
-		output wire [1:0]  sdram_ba,      //      .ba
-		output wire        sdram_cas_n,   //      .cas_n
-		output wire        sdram_cke,     //      .cke
-		output wire        sdram_cs_n,    //      .cs_n
-		inout  wire [15:0] sdram_dq,      //      .dq
-		output wire [1:0]  sdram_dqm,     //      .dqm
-		output wire        sdram_ras_n,   //      .ras_n
-		output wire        sdram_we_n,    //      .we_n
-		output wire        vga_CLK,       //   vga.CLK
-		output wire        vga_HS,        //      .HS
-		output wire        vga_VS,        //      .VS
-		output wire        vga_BLANK,     //      .BLANK
-		output wire        vga_SYNC,      //      .SYNC
-		output wire [7:0]  vga_R,         //      .R
-		output wire [7:0]  vga_G,         //      .G
-		output wire [7:0]  vga_B          //      .B
+		input  wire        audio_ADCDAT,  //     audio.ADCDAT
+		input  wire        audio_ADCLRCK, //          .ADCLRCK
+		input  wire        audio_BCLK,    //          .BCLK
+		output wire        audio_DACDAT,  //          .DACDAT
+		input  wire        audio_DACLRCK, //          .DACLRCK
+		output wire        audio_clk_clk, // audio_clk.clk
+		input  wire        clk_clk,       //       clk.clk
+		input  wire        reset_reset_n, //     reset.reset_n
+		output wire [12:0] sdram_addr,    //     sdram.addr
+		output wire [1:0]  sdram_ba,      //          .ba
+		output wire        sdram_cas_n,   //          .cas_n
+		output wire        sdram_cke,     //          .cke
+		output wire        sdram_cs_n,    //          .cs_n
+		inout  wire [15:0] sdram_dq,      //          .dq
+		output wire [1:0]  sdram_dqm,     //          .dqm
+		output wire        sdram_ras_n,   //          .ras_n
+		output wire        sdram_we_n,    //          .we_n
+		output wire        sdram_clk_clk, // sdram_clk.clk
+		output wire        vga_CLK,       //       vga.CLK
+		output wire        vga_HS,        //          .HS
+		output wire        vga_VS,        //          .VS
+		output wire        vga_BLANK,     //          .BLANK
+		output wire        vga_SYNC,      //          .SYNC
+		output wire [7:0]  vga_R,         //          .R
+		output wire [7:0]  vga_G,         //          .G
+		output wire [7:0]  vga_B          //          .B
 	);
 
 	wire         alpha_blender_avalon_blended_source_valid;                          // Alpha_Blender:output_valid -> Dual_Clock_FIFO:stream_in_valid
@@ -50,10 +57,9 @@ module test (
 	wire         rgb_resampler_avalon_rgb_source_ready;                              // Alpha_Blender:background_ready -> RGB_Resampler:stream_out_ready
 	wire         rgb_resampler_avalon_rgb_source_startofpacket;                      // RGB_Resampler:stream_out_startofpacket -> Alpha_Blender:background_startofpacket
 	wire         rgb_resampler_avalon_rgb_source_endofpacket;                        // RGB_Resampler:stream_out_endofpacket -> Alpha_Blender:background_endofpacket
-	wire         sys_clk_sdram_clk_clk;                                              // Sys_Clk:sdram_clk_clk -> [SDRAM:clk, mm_interconnect_0:Sys_Clk_sdram_clk_clk, rst_controller_003:clk]
-	wire         sys_clk_sys_clk_clk;                                                // Sys_Clk:sys_clk_clk -> [Alpha_Blender:clk, CPU:clk, Char_Buffer:clk, Dual_Clock_FIFO:clk_stream_in, JTAG:clk, Onchip_Memory:clk, Pixel_Buffer:clk, RGB_Resampler:clk, Video_Clk:ref_clk_clk, irq_mapper:clk, mm_interconnect_0:Sys_Clk_sys_clk_clk, rst_controller:clk, rst_controller_001:clk]
-	wire         video_clk_vga_clk_clk;                                              // Video_Clk:vga_clk_clk -> [Dual_Clock_FIFO:clk_stream_out, VGA_Controller:clk, rst_controller_002:clk]
-	wire         sys_clk_reset_source_reset;                                         // Sys_Clk:reset_source_reset -> [Video_Clk:ref_reset_reset, rst_controller:reset_in1, rst_controller_001:reset_in0, rst_controller_003:reset_in1]
+	wire         sys_clk_sys_clk_clk;                                                // Sys_Clk:sys_clk_clk -> [Alpha_Blender:clk, Audio:clk, Audio_Clk:ref_clk_clk, CPU:clk, Char_Buffer:clk, Dual_Clock_FIFO:clk_stream_in, JTAG:clk, Pixel_Buffer:clk, RGB_Resampler:clk, SDRAM:clk, Video_Clk:ref_clk_clk, irq_mapper:clk, mm_interconnect_0:Sys_Clk_sys_clk_clk, rst_controller:clk, rst_controller_002:clk, timer_0:clk]
+	wire         video_clk_vga_clk_clk;                                              // Video_Clk:vga_clk_clk -> [Dual_Clock_FIFO:clk_stream_out, VGA_Controller:clk, rst_controller_001:clk, rst_controller_004:clk]
+	wire         sys_clk_reset_source_reset;                                         // Sys_Clk:reset_source_reset -> [Audio_Clk:ref_reset_reset, rst_controller_005:reset_in1]
 	wire         pixel_buffer_avalon_pixel_dma_master_waitrequest;                   // mm_interconnect_0:Pixel_Buffer_avalon_pixel_dma_master_waitrequest -> Pixel_Buffer:master_waitrequest
 	wire   [7:0] pixel_buffer_avalon_pixel_dma_master_readdata;                      // mm_interconnect_0:Pixel_Buffer_avalon_pixel_dma_master_readdata -> Pixel_Buffer:master_readdata
 	wire  [31:0] pixel_buffer_avalon_pixel_dma_master_address;                       // Pixel_Buffer:master_address -> mm_interconnect_0:Pixel_Buffer_avalon_pixel_dma_master_address
@@ -63,7 +69,7 @@ module test (
 	wire  [31:0] cpu_data_master_readdata;                                           // mm_interconnect_0:CPU_data_master_readdata -> CPU:d_readdata
 	wire         cpu_data_master_waitrequest;                                        // mm_interconnect_0:CPU_data_master_waitrequest -> CPU:d_waitrequest
 	wire         cpu_data_master_debugaccess;                                        // CPU:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:CPU_data_master_debugaccess
-	wire  [26:0] cpu_data_master_address;                                            // CPU:d_address -> mm_interconnect_0:CPU_data_master_address
+	wire  [27:0] cpu_data_master_address;                                            // CPU:d_address -> mm_interconnect_0:CPU_data_master_address
 	wire   [3:0] cpu_data_master_byteenable;                                         // CPU:d_byteenable -> mm_interconnect_0:CPU_data_master_byteenable
 	wire         cpu_data_master_read;                                               // CPU:d_read -> mm_interconnect_0:CPU_data_master_read
 	wire         cpu_data_master_readdatavalid;                                      // mm_interconnect_0:CPU_data_master_readdatavalid -> CPU:d_readdatavalid
@@ -71,7 +77,7 @@ module test (
 	wire  [31:0] cpu_data_master_writedata;                                          // CPU:d_writedata -> mm_interconnect_0:CPU_data_master_writedata
 	wire  [31:0] cpu_instruction_master_readdata;                                    // mm_interconnect_0:CPU_instruction_master_readdata -> CPU:i_readdata
 	wire         cpu_instruction_master_waitrequest;                                 // mm_interconnect_0:CPU_instruction_master_waitrequest -> CPU:i_waitrequest
-	wire  [26:0] cpu_instruction_master_address;                                     // CPU:i_address -> mm_interconnect_0:CPU_instruction_master_address
+	wire  [27:0] cpu_instruction_master_address;                                     // CPU:i_address -> mm_interconnect_0:CPU_instruction_master_address
 	wire         cpu_instruction_master_read;                                        // CPU:i_read -> mm_interconnect_0:CPU_instruction_master_read
 	wire         cpu_instruction_master_readdatavalid;                               // mm_interconnect_0:CPU_instruction_master_readdatavalid -> CPU:i_readdatavalid
 	wire         mm_interconnect_0_char_buffer_avalon_char_buffer_slave_chipselect;  // mm_interconnect_0:Char_Buffer_avalon_char_buffer_slave_chipselect -> Char_Buffer:buf_chipselect
@@ -89,6 +95,12 @@ module test (
 	wire   [3:0] mm_interconnect_0_char_buffer_avalon_char_control_slave_byteenable; // mm_interconnect_0:Char_Buffer_avalon_char_control_slave_byteenable -> Char_Buffer:ctrl_byteenable
 	wire         mm_interconnect_0_char_buffer_avalon_char_control_slave_write;      // mm_interconnect_0:Char_Buffer_avalon_char_control_slave_write -> Char_Buffer:ctrl_write
 	wire  [31:0] mm_interconnect_0_char_buffer_avalon_char_control_slave_writedata;  // mm_interconnect_0:Char_Buffer_avalon_char_control_slave_writedata -> Char_Buffer:ctrl_writedata
+	wire  [31:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_readdata;       // Pixel_Buffer:slave_readdata -> mm_interconnect_0:Pixel_Buffer_avalon_control_slave_readdata
+	wire   [1:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_address;        // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_address -> Pixel_Buffer:slave_address
+	wire         mm_interconnect_0_pixel_buffer_avalon_control_slave_read;           // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_read -> Pixel_Buffer:slave_read
+	wire   [3:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_byteenable;     // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_byteenable -> Pixel_Buffer:slave_byteenable
+	wire         mm_interconnect_0_pixel_buffer_avalon_control_slave_write;          // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_write -> Pixel_Buffer:slave_write
+	wire  [31:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_writedata;      // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_writedata -> Pixel_Buffer:slave_writedata
 	wire  [31:0] mm_interconnect_0_rgb_resampler_avalon_rgb_slave_readdata;          // RGB_Resampler:slave_readdata -> mm_interconnect_0:RGB_Resampler_avalon_rgb_slave_readdata
 	wire         mm_interconnect_0_rgb_resampler_avalon_rgb_slave_read;              // mm_interconnect_0:RGB_Resampler_avalon_rgb_slave_read -> RGB_Resampler:slave_read
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_readdata;                     // CPU:debug_mem_slave_readdata -> mm_interconnect_0:CPU_debug_mem_slave_readdata
@@ -99,13 +111,6 @@ module test (
 	wire   [3:0] mm_interconnect_0_cpu_debug_mem_slave_byteenable;                   // mm_interconnect_0:CPU_debug_mem_slave_byteenable -> CPU:debug_mem_slave_byteenable
 	wire         mm_interconnect_0_cpu_debug_mem_slave_write;                        // mm_interconnect_0:CPU_debug_mem_slave_write -> CPU:debug_mem_slave_write
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_writedata;                    // mm_interconnect_0:CPU_debug_mem_slave_writedata -> CPU:debug_mem_slave_writedata
-	wire         mm_interconnect_0_onchip_memory_s1_chipselect;                      // mm_interconnect_0:Onchip_Memory_s1_chipselect -> Onchip_Memory:chipselect
-	wire  [31:0] mm_interconnect_0_onchip_memory_s1_readdata;                        // Onchip_Memory:readdata -> mm_interconnect_0:Onchip_Memory_s1_readdata
-	wire  [13:0] mm_interconnect_0_onchip_memory_s1_address;                         // mm_interconnect_0:Onchip_Memory_s1_address -> Onchip_Memory:address
-	wire   [3:0] mm_interconnect_0_onchip_memory_s1_byteenable;                      // mm_interconnect_0:Onchip_Memory_s1_byteenable -> Onchip_Memory:byteenable
-	wire         mm_interconnect_0_onchip_memory_s1_write;                           // mm_interconnect_0:Onchip_Memory_s1_write -> Onchip_Memory:write
-	wire  [31:0] mm_interconnect_0_onchip_memory_s1_writedata;                       // mm_interconnect_0:Onchip_Memory_s1_writedata -> Onchip_Memory:writedata
-	wire         mm_interconnect_0_onchip_memory_s1_clken;                           // mm_interconnect_0:Onchip_Memory_s1_clken -> Onchip_Memory:clken
 	wire         mm_interconnect_0_sdram_s1_chipselect;                              // mm_interconnect_0:SDRAM_s1_chipselect -> SDRAM:az_cs
 	wire  [15:0] mm_interconnect_0_sdram_s1_readdata;                                // SDRAM:za_data -> mm_interconnect_0:SDRAM_s1_readdata
 	wire         mm_interconnect_0_sdram_s1_waitrequest;                             // SDRAM:za_waitrequest -> mm_interconnect_0:SDRAM_s1_waitrequest
@@ -115,12 +120,12 @@ module test (
 	wire         mm_interconnect_0_sdram_s1_readdatavalid;                           // SDRAM:za_valid -> mm_interconnect_0:SDRAM_s1_readdatavalid
 	wire         mm_interconnect_0_sdram_s1_write;                                   // mm_interconnect_0:SDRAM_s1_write -> SDRAM:az_wr_n
 	wire  [15:0] mm_interconnect_0_sdram_s1_writedata;                               // mm_interconnect_0:SDRAM_s1_writedata -> SDRAM:az_data
-	wire  [31:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_readdata;       // Pixel_Buffer:slave_readdata -> mm_interconnect_0:Pixel_Buffer_avalon_control_slave_readdata
-	wire   [1:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_address;        // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_address -> Pixel_Buffer:slave_address
-	wire         mm_interconnect_0_pixel_buffer_avalon_control_slave_read;           // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_read -> Pixel_Buffer:slave_read
-	wire   [3:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_byteenable;     // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_byteenable -> Pixel_Buffer:slave_byteenable
-	wire         mm_interconnect_0_pixel_buffer_avalon_control_slave_write;          // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_write -> Pixel_Buffer:slave_write
-	wire  [31:0] mm_interconnect_0_pixel_buffer_avalon_control_slave_writedata;      // mm_interconnect_0:Pixel_Buffer_avalon_control_slave_writedata -> Pixel_Buffer:slave_writedata
+	wire         mm_interconnect_0_audio_avalon_audio_slave_chipselect;              // mm_interconnect_0:Audio_avalon_audio_slave_chipselect -> Audio:chipselect
+	wire  [31:0] mm_interconnect_0_audio_avalon_audio_slave_readdata;                // Audio:readdata -> mm_interconnect_0:Audio_avalon_audio_slave_readdata
+	wire   [1:0] mm_interconnect_0_audio_avalon_audio_slave_address;                 // mm_interconnect_0:Audio_avalon_audio_slave_address -> Audio:address
+	wire         mm_interconnect_0_audio_avalon_audio_slave_read;                    // mm_interconnect_0:Audio_avalon_audio_slave_read -> Audio:read
+	wire         mm_interconnect_0_audio_avalon_audio_slave_write;                   // mm_interconnect_0:Audio_avalon_audio_slave_write -> Audio:write
+	wire  [31:0] mm_interconnect_0_audio_avalon_audio_slave_writedata;               // mm_interconnect_0:Audio_avalon_audio_slave_writedata -> Audio:writedata
 	wire         mm_interconnect_0_jtag_avalon_jtag_slave_chipselect;                // mm_interconnect_0:JTAG_avalon_jtag_slave_chipselect -> JTAG:av_chipselect
 	wire  [31:0] mm_interconnect_0_jtag_avalon_jtag_slave_readdata;                  // JTAG:av_readdata -> mm_interconnect_0:JTAG_avalon_jtag_slave_readdata
 	wire         mm_interconnect_0_jtag_avalon_jtag_slave_waitrequest;               // JTAG:av_waitrequest -> mm_interconnect_0:JTAG_avalon_jtag_slave_waitrequest
@@ -128,16 +133,24 @@ module test (
 	wire         mm_interconnect_0_jtag_avalon_jtag_slave_read;                      // mm_interconnect_0:JTAG_avalon_jtag_slave_read -> JTAG:av_read_n
 	wire         mm_interconnect_0_jtag_avalon_jtag_slave_write;                     // mm_interconnect_0:JTAG_avalon_jtag_slave_write -> JTAG:av_write_n
 	wire  [31:0] mm_interconnect_0_jtag_avalon_jtag_slave_writedata;                 // mm_interconnect_0:JTAG_avalon_jtag_slave_writedata -> JTAG:av_writedata
-	wire         irq_mapper_receiver0_irq;                                           // JTAG:av_irq -> irq_mapper:receiver0_irq
+	wire         mm_interconnect_0_timer_0_s1_chipselect;                            // mm_interconnect_0:timer_0_s1_chipselect -> timer_0:chipselect
+	wire  [15:0] mm_interconnect_0_timer_0_s1_readdata;                              // timer_0:readdata -> mm_interconnect_0:timer_0_s1_readdata
+	wire   [2:0] mm_interconnect_0_timer_0_s1_address;                               // mm_interconnect_0:timer_0_s1_address -> timer_0:address
+	wire         mm_interconnect_0_timer_0_s1_write;                                 // mm_interconnect_0:timer_0_s1_write -> timer_0:write_n
+	wire  [15:0] mm_interconnect_0_timer_0_s1_writedata;                             // mm_interconnect_0:timer_0_s1_writedata -> timer_0:writedata
+	wire         irq_mapper_receiver0_irq;                                           // Audio:irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                           // timer_0:irq -> irq_mapper:receiver1_irq
+	wire         irq_mapper_receiver2_irq;                                           // JTAG:av_irq -> irq_mapper:receiver2_irq
 	wire  [31:0] cpu_irq_irq;                                                        // irq_mapper:sender_irq -> CPU:irq
-	wire         rst_controller_reset_out_reset;                                     // rst_controller:reset_out -> [Alpha_Blender:reset, Char_Buffer:reset, Dual_Clock_FIFO:reset_stream_in, Onchip_Memory:reset, Pixel_Buffer:reset, RGB_Resampler:reset, mm_interconnect_0:Pixel_Buffer_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
-	wire         rst_controller_reset_out_reset_req;                                 // rst_controller:reset_req -> [Onchip_Memory:reset_req, rst_translator:reset_req_in]
-	wire         cpu_debug_reset_request_reset;                                      // CPU:debug_reset_request -> [rst_controller:reset_in0, rst_controller_002:reset_in0, rst_controller_003:reset_in0]
-	wire         rst_controller_001_reset_out_reset;                                 // rst_controller_001:reset_out -> [CPU:reset_n, JTAG:rst_n, irq_mapper:reset, mm_interconnect_0:CPU_reset_reset_bridge_in_reset_reset, rst_translator_001:in_reset]
-	wire         rst_controller_001_reset_out_reset_req;                             // rst_controller_001:reset_req -> [CPU:reset_req, rst_translator_001:reset_req_in]
-	wire         rst_controller_002_reset_out_reset;                                 // rst_controller_002:reset_out -> [Dual_Clock_FIFO:reset_stream_out, VGA_Controller:reset]
-	wire         video_clk_reset_source_reset;                                       // Video_Clk:reset_source_reset -> rst_controller_002:reset_in1
-	wire         rst_controller_003_reset_out_reset;                                 // rst_controller_003:reset_out -> [SDRAM:reset_n, mm_interconnect_0:SDRAM_reset_reset_bridge_in_reset_reset]
+	wire         rst_controller_reset_out_reset;                                     // rst_controller:reset_out -> [Alpha_Blender:reset, Audio:reset, CPU:reset_n, Char_Buffer:reset, Dual_Clock_FIFO:reset_stream_in, Pixel_Buffer:reset, RGB_Resampler:reset, SDRAM:reset_n, irq_mapper:reset, mm_interconnect_0:Pixel_Buffer_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
+	wire         rst_controller_reset_out_reset_req;                                 // rst_controller:reset_req -> [CPU:reset_req, rst_translator:reset_req_in]
+	wire         cpu_debug_reset_request_reset;                                      // CPU:debug_reset_request -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_003:reset_in1, rst_controller_004:reset_in1, rst_controller_005:reset_in0]
+	wire         rst_controller_001_reset_out_reset;                                 // rst_controller_001:reset_out -> Dual_Clock_FIFO:reset_stream_out
+	wire         rst_controller_002_reset_out_reset;                                 // rst_controller_002:reset_out -> [JTAG:rst_n, mm_interconnect_0:JTAG_reset_reset_bridge_in_reset_reset, timer_0:reset_n]
+	wire         rst_controller_003_reset_out_reset;                                 // rst_controller_003:reset_out -> Sys_Clk:ref_reset_reset
+	wire         rst_controller_004_reset_out_reset;                                 // rst_controller_004:reset_out -> VGA_Controller:reset
+	wire         video_clk_reset_source_reset;                                       // Video_Clk:reset_source_reset -> rst_controller_004:reset_in2
+	wire         rst_controller_005_reset_out_reset;                                 // rst_controller_005:reset_out -> Video_Clk:ref_reset_reset
 
 	test_Alpha_Blender alpha_blender (
 		.clk                      (sys_clk_sys_clk_clk),                               //                    clk.clk
@@ -159,10 +172,34 @@ module test (
 		.output_valid             (alpha_blender_avalon_blended_source_valid)          //                       .valid
 	);
 
+	test_Audio audio (
+		.clk         (sys_clk_sys_clk_clk),                                   //                clk.clk
+		.reset       (rst_controller_reset_out_reset),                        //              reset.reset
+		.address     (mm_interconnect_0_audio_avalon_audio_slave_address),    // avalon_audio_slave.address
+		.chipselect  (mm_interconnect_0_audio_avalon_audio_slave_chipselect), //                   .chipselect
+		.read        (mm_interconnect_0_audio_avalon_audio_slave_read),       //                   .read
+		.write       (mm_interconnect_0_audio_avalon_audio_slave_write),      //                   .write
+		.writedata   (mm_interconnect_0_audio_avalon_audio_slave_writedata),  //                   .writedata
+		.readdata    (mm_interconnect_0_audio_avalon_audio_slave_readdata),   //                   .readdata
+		.irq         (irq_mapper_receiver0_irq),                              //          interrupt.irq
+		.AUD_ADCDAT  (audio_ADCDAT),                                          // external_interface.export
+		.AUD_ADCLRCK (audio_ADCLRCK),                                         //                   .export
+		.AUD_BCLK    (audio_BCLK),                                            //                   .export
+		.AUD_DACDAT  (audio_DACDAT),                                          //                   .export
+		.AUD_DACLRCK (audio_DACLRCK)                                          //                   .export
+	);
+
+	test_Audio_Clk audio_clk (
+		.ref_clk_clk        (sys_clk_sys_clk_clk),        //      ref_clk.clk
+		.ref_reset_reset    (sys_clk_reset_source_reset), //    ref_reset.reset
+		.audio_clk_clk      (audio_clk_clk),              //    audio_clk.clk
+		.reset_source_reset ()                            // reset_source.reset
+	);
+
 	test_CPU cpu (
 		.clk                                 (sys_clk_sys_clk_clk),                               //                       clk.clk
-		.reset_n                             (~rst_controller_001_reset_out_reset),               //                     reset.reset_n
-		.reset_req                           (rst_controller_001_reset_out_reset_req),            //                          .reset_req
+		.reset_n                             (~rst_controller_reset_out_reset),                   //                     reset.reset_n
+		.reset_req                           (rst_controller_reset_out_reset_req),                //                          .reset_req
 		.d_address                           (cpu_data_master_address),                           //               data_master.address
 		.d_byteenable                        (cpu_data_master_byteenable),                        //                          .byteenable
 		.d_read                              (cpu_data_master_read),                              //                          .read
@@ -219,7 +256,7 @@ module test (
 		.clk_stream_in            (sys_clk_sys_clk_clk),                                   //         clock_stream_in.clk
 		.reset_stream_in          (rst_controller_reset_out_reset),                        //         reset_stream_in.reset
 		.clk_stream_out           (video_clk_vga_clk_clk),                                 //        clock_stream_out.clk
-		.reset_stream_out         (rst_controller_002_reset_out_reset),                    //        reset_stream_out.reset
+		.reset_stream_out         (rst_controller_001_reset_out_reset),                    //        reset_stream_out.reset
 		.stream_in_ready          (alpha_blender_avalon_blended_source_ready),             //   avalon_dc_buffer_sink.ready
 		.stream_in_startofpacket  (alpha_blender_avalon_blended_source_startofpacket),     //                        .startofpacket
 		.stream_in_endofpacket    (alpha_blender_avalon_blended_source_endofpacket),       //                        .endofpacket
@@ -234,7 +271,7 @@ module test (
 
 	test_JTAG jtag (
 		.clk            (sys_clk_sys_clk_clk),                                  //               clk.clk
-		.rst_n          (~rst_controller_001_reset_out_reset),                  //             reset.reset_n
+		.rst_n          (~rst_controller_002_reset_out_reset),                  //             reset.reset_n
 		.av_chipselect  (mm_interconnect_0_jtag_avalon_jtag_slave_chipselect),  // avalon_jtag_slave.chipselect
 		.av_address     (mm_interconnect_0_jtag_avalon_jtag_slave_address),     //                  .address
 		.av_read_n      (~mm_interconnect_0_jtag_avalon_jtag_slave_read),       //                  .read_n
@@ -242,21 +279,7 @@ module test (
 		.av_write_n     (~mm_interconnect_0_jtag_avalon_jtag_slave_write),      //                  .write_n
 		.av_writedata   (mm_interconnect_0_jtag_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_avalon_jtag_slave_waitrequest), //                  .waitrequest
-		.av_irq         (irq_mapper_receiver0_irq)                              //               irq.irq
-	);
-
-	test_Onchip_Memory onchip_memory (
-		.clk        (sys_clk_sys_clk_clk),                           //   clk1.clk
-		.address    (mm_interconnect_0_onchip_memory_s1_address),    //     s1.address
-		.clken      (mm_interconnect_0_onchip_memory_s1_clken),      //       .clken
-		.chipselect (mm_interconnect_0_onchip_memory_s1_chipselect), //       .chipselect
-		.write      (mm_interconnect_0_onchip_memory_s1_write),      //       .write
-		.readdata   (mm_interconnect_0_onchip_memory_s1_readdata),   //       .readdata
-		.writedata  (mm_interconnect_0_onchip_memory_s1_writedata),  //       .writedata
-		.byteenable (mm_interconnect_0_onchip_memory_s1_byteenable), //       .byteenable
-		.reset      (rst_controller_reset_out_reset),                // reset1.reset
-		.reset_req  (rst_controller_reset_out_reset_req),            //       .reset_req
-		.freeze     (1'b0)                                           // (terminated)
+		.av_irq         (irq_mapper_receiver2_irq)                              //               irq.irq
 	);
 
 	test_Pixel_Buffer pixel_buffer (
@@ -299,8 +322,8 @@ module test (
 	);
 
 	test_SDRAM sdram (
-		.clk            (sys_clk_sdram_clk_clk),                    //   clk.clk
-		.reset_n        (~rst_controller_003_reset_out_reset),      // reset.reset_n
+		.clk            (sys_clk_sys_clk_clk),                      //   clk.clk
+		.reset_n        (~rst_controller_reset_out_reset),          // reset.reset_n
 		.az_addr        (mm_interconnect_0_sdram_s1_address),       //    s1.address
 		.az_be_n        (~mm_interconnect_0_sdram_s1_byteenable),   //      .byteenable_n
 		.az_cs          (mm_interconnect_0_sdram_s1_chipselect),    //      .chipselect
@@ -322,16 +345,16 @@ module test (
 	);
 
 	test_Sys_Clk sys_clk (
-		.ref_clk_clk        (clk_clk),                    //      ref_clk.clk
-		.ref_reset_reset    (~reset_reset_n),             //    ref_reset.reset
-		.sys_clk_clk        (sys_clk_sys_clk_clk),        //      sys_clk.clk
-		.sdram_clk_clk      (sys_clk_sdram_clk_clk),      //    sdram_clk.clk
-		.reset_source_reset (sys_clk_reset_source_reset)  // reset_source.reset
+		.ref_clk_clk        (clk_clk),                            //      ref_clk.clk
+		.ref_reset_reset    (rst_controller_003_reset_out_reset), //    ref_reset.reset
+		.sys_clk_clk        (sys_clk_sys_clk_clk),                //      sys_clk.clk
+		.sdram_clk_clk      (sdram_clk_clk),                      //    sdram_clk.clk
+		.reset_source_reset (sys_clk_reset_source_reset)          // reset_source.reset
 	);
 
 	test_VGA_Controller vga_controller (
 		.clk           (video_clk_vga_clk_clk),                                 //                clk.clk
-		.reset         (rst_controller_002_reset_out_reset),                    //              reset.reset
+		.reset         (rst_controller_004_reset_out_reset),                    //              reset.reset
 		.data          (dual_clock_fifo_avalon_dc_buffer_source_data),          //    avalon_vga_sink.data
 		.startofpacket (dual_clock_fifo_avalon_dc_buffer_source_startofpacket), //                   .startofpacket
 		.endofpacket   (dual_clock_fifo_avalon_dc_buffer_source_endofpacket),   //                   .endofpacket
@@ -348,18 +371,27 @@ module test (
 	);
 
 	test_Video_Clk video_clk (
-		.ref_clk_clk        (sys_clk_sys_clk_clk),          //      ref_clk.clk
-		.ref_reset_reset    (sys_clk_reset_source_reset),   //    ref_reset.reset
-		.vga_clk_clk        (video_clk_vga_clk_clk),        //      vga_clk.clk
-		.reset_source_reset (video_clk_reset_source_reset)  // reset_source.reset
+		.ref_clk_clk        (sys_clk_sys_clk_clk),                //      ref_clk.clk
+		.ref_reset_reset    (rst_controller_005_reset_out_reset), //    ref_reset.reset
+		.vga_clk_clk        (video_clk_vga_clk_clk),              //      vga_clk.clk
+		.reset_source_reset (video_clk_reset_source_reset)        // reset_source.reset
+	);
+
+	test_timer_0 timer_0 (
+		.clk        (sys_clk_sys_clk_clk),                     //   clk.clk
+		.reset_n    (~rst_controller_002_reset_out_reset),     // reset.reset_n
+		.address    (mm_interconnect_0_timer_0_s1_address),    //    s1.address
+		.writedata  (mm_interconnect_0_timer_0_s1_writedata),  //      .writedata
+		.readdata   (mm_interconnect_0_timer_0_s1_readdata),   //      .readdata
+		.chipselect (mm_interconnect_0_timer_0_s1_chipselect), //      .chipselect
+		.write_n    (~mm_interconnect_0_timer_0_s1_write),     //      .write_n
+		.irq        (irq_mapper_receiver1_irq)                 //   irq.irq
 	);
 
 	test_mm_interconnect_0 mm_interconnect_0 (
-		.Sys_Clk_sdram_clk_clk                              (sys_clk_sdram_clk_clk),                                              //                        Sys_Clk_sdram_clk.clk
 		.Sys_Clk_sys_clk_clk                                (sys_clk_sys_clk_clk),                                                //                          Sys_Clk_sys_clk.clk
-		.CPU_reset_reset_bridge_in_reset_reset              (rst_controller_001_reset_out_reset),                                 //          CPU_reset_reset_bridge_in_reset.reset
+		.JTAG_reset_reset_bridge_in_reset_reset             (rst_controller_002_reset_out_reset),                                 //         JTAG_reset_reset_bridge_in_reset.reset
 		.Pixel_Buffer_reset_reset_bridge_in_reset_reset     (rst_controller_reset_out_reset),                                     // Pixel_Buffer_reset_reset_bridge_in_reset.reset
-		.SDRAM_reset_reset_bridge_in_reset_reset            (rst_controller_003_reset_out_reset),                                 //        SDRAM_reset_reset_bridge_in_reset.reset
 		.CPU_data_master_address                            (cpu_data_master_address),                                            //                          CPU_data_master.address
 		.CPU_data_master_waitrequest                        (cpu_data_master_waitrequest),                                        //                                         .waitrequest
 		.CPU_data_master_byteenable                         (cpu_data_master_byteenable),                                         //                                         .byteenable
@@ -380,6 +412,12 @@ module test (
 		.Pixel_Buffer_avalon_pixel_dma_master_readdata      (pixel_buffer_avalon_pixel_dma_master_readdata),                      //                                         .readdata
 		.Pixel_Buffer_avalon_pixel_dma_master_readdatavalid (pixel_buffer_avalon_pixel_dma_master_readdatavalid),                 //                                         .readdatavalid
 		.Pixel_Buffer_avalon_pixel_dma_master_lock          (pixel_buffer_avalon_pixel_dma_master_lock),                          //                                         .lock
+		.Audio_avalon_audio_slave_address                   (mm_interconnect_0_audio_avalon_audio_slave_address),                 //                 Audio_avalon_audio_slave.address
+		.Audio_avalon_audio_slave_write                     (mm_interconnect_0_audio_avalon_audio_slave_write),                   //                                         .write
+		.Audio_avalon_audio_slave_read                      (mm_interconnect_0_audio_avalon_audio_slave_read),                    //                                         .read
+		.Audio_avalon_audio_slave_readdata                  (mm_interconnect_0_audio_avalon_audio_slave_readdata),                //                                         .readdata
+		.Audio_avalon_audio_slave_writedata                 (mm_interconnect_0_audio_avalon_audio_slave_writedata),               //                                         .writedata
+		.Audio_avalon_audio_slave_chipselect                (mm_interconnect_0_audio_avalon_audio_slave_chipselect),              //                                         .chipselect
 		.Char_Buffer_avalon_char_buffer_slave_address       (mm_interconnect_0_char_buffer_avalon_char_buffer_slave_address),     //     Char_Buffer_avalon_char_buffer_slave.address
 		.Char_Buffer_avalon_char_buffer_slave_write         (mm_interconnect_0_char_buffer_avalon_char_buffer_slave_write),       //                                         .write
 		.Char_Buffer_avalon_char_buffer_slave_read          (mm_interconnect_0_char_buffer_avalon_char_buffer_slave_read),        //                                         .read
@@ -410,13 +448,6 @@ module test (
 		.JTAG_avalon_jtag_slave_writedata                   (mm_interconnect_0_jtag_avalon_jtag_slave_writedata),                 //                                         .writedata
 		.JTAG_avalon_jtag_slave_waitrequest                 (mm_interconnect_0_jtag_avalon_jtag_slave_waitrequest),               //                                         .waitrequest
 		.JTAG_avalon_jtag_slave_chipselect                  (mm_interconnect_0_jtag_avalon_jtag_slave_chipselect),                //                                         .chipselect
-		.Onchip_Memory_s1_address                           (mm_interconnect_0_onchip_memory_s1_address),                         //                         Onchip_Memory_s1.address
-		.Onchip_Memory_s1_write                             (mm_interconnect_0_onchip_memory_s1_write),                           //                                         .write
-		.Onchip_Memory_s1_readdata                          (mm_interconnect_0_onchip_memory_s1_readdata),                        //                                         .readdata
-		.Onchip_Memory_s1_writedata                         (mm_interconnect_0_onchip_memory_s1_writedata),                       //                                         .writedata
-		.Onchip_Memory_s1_byteenable                        (mm_interconnect_0_onchip_memory_s1_byteenable),                      //                                         .byteenable
-		.Onchip_Memory_s1_chipselect                        (mm_interconnect_0_onchip_memory_s1_chipselect),                      //                                         .chipselect
-		.Onchip_Memory_s1_clken                             (mm_interconnect_0_onchip_memory_s1_clken),                           //                                         .clken
 		.Pixel_Buffer_avalon_control_slave_address          (mm_interconnect_0_pixel_buffer_avalon_control_slave_address),        //        Pixel_Buffer_avalon_control_slave.address
 		.Pixel_Buffer_avalon_control_slave_write            (mm_interconnect_0_pixel_buffer_avalon_control_slave_write),          //                                         .write
 		.Pixel_Buffer_avalon_control_slave_read             (mm_interconnect_0_pixel_buffer_avalon_control_slave_read),           //                                         .read
@@ -433,14 +464,21 @@ module test (
 		.SDRAM_s1_byteenable                                (mm_interconnect_0_sdram_s1_byteenable),                              //                                         .byteenable
 		.SDRAM_s1_readdatavalid                             (mm_interconnect_0_sdram_s1_readdatavalid),                           //                                         .readdatavalid
 		.SDRAM_s1_waitrequest                               (mm_interconnect_0_sdram_s1_waitrequest),                             //                                         .waitrequest
-		.SDRAM_s1_chipselect                                (mm_interconnect_0_sdram_s1_chipselect)                               //                                         .chipselect
+		.SDRAM_s1_chipselect                                (mm_interconnect_0_sdram_s1_chipselect),                              //                                         .chipselect
+		.timer_0_s1_address                                 (mm_interconnect_0_timer_0_s1_address),                               //                               timer_0_s1.address
+		.timer_0_s1_write                                   (mm_interconnect_0_timer_0_s1_write),                                 //                                         .write
+		.timer_0_s1_readdata                                (mm_interconnect_0_timer_0_s1_readdata),                              //                                         .readdata
+		.timer_0_s1_writedata                               (mm_interconnect_0_timer_0_s1_writedata),                             //                                         .writedata
+		.timer_0_s1_chipselect                              (mm_interconnect_0_timer_0_s1_chipselect)                             //                                         .chipselect
 	);
 
 	test_irq_mapper irq_mapper (
-		.clk           (sys_clk_sys_clk_clk),                //       clk.clk
-		.reset         (rst_controller_001_reset_out_reset), // clk_reset.reset
-		.receiver0_irq (irq_mapper_receiver0_irq),           // receiver0.irq
-		.sender_irq    (cpu_irq_irq)                         //    sender.irq
+		.clk           (sys_clk_sys_clk_clk),            //       clk.clk
+		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
+		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
+		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
+		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 
 	altera_reset_controller #(
@@ -469,8 +507,8 @@ module test (
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
 	) rst_controller (
-		.reset_in0      (cpu_debug_reset_request_reset),      // reset_in0.reset
-		.reset_in1      (sys_clk_reset_source_reset),         // reset_in1.reset
+		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
+		.reset_in1      (cpu_debug_reset_request_reset),      // reset_in1.reset
 		.clk            (sys_clk_sys_clk_clk),                //       clk.clk
 		.reset_out      (rst_controller_reset_out_reset),     // reset_out.reset
 		.reset_req      (rst_controller_reset_out_reset_req), //          .reset_req
@@ -507,69 +545,6 @@ module test (
 	);
 
 	altera_reset_controller #(
-		.NUM_RESET_INPUTS          (1),
-		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
-		.SYNC_DEPTH                (2),
-		.RESET_REQUEST_PRESENT     (1),
-		.RESET_REQ_WAIT_TIME       (1),
-		.MIN_RST_ASSERTION_TIME    (3),
-		.RESET_REQ_EARLY_DSRT_TIME (1),
-		.USE_RESET_REQUEST_IN0     (0),
-		.USE_RESET_REQUEST_IN1     (0),
-		.USE_RESET_REQUEST_IN2     (0),
-		.USE_RESET_REQUEST_IN3     (0),
-		.USE_RESET_REQUEST_IN4     (0),
-		.USE_RESET_REQUEST_IN5     (0),
-		.USE_RESET_REQUEST_IN6     (0),
-		.USE_RESET_REQUEST_IN7     (0),
-		.USE_RESET_REQUEST_IN8     (0),
-		.USE_RESET_REQUEST_IN9     (0),
-		.USE_RESET_REQUEST_IN10    (0),
-		.USE_RESET_REQUEST_IN11    (0),
-		.USE_RESET_REQUEST_IN12    (0),
-		.USE_RESET_REQUEST_IN13    (0),
-		.USE_RESET_REQUEST_IN14    (0),
-		.USE_RESET_REQUEST_IN15    (0),
-		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller_001 (
-		.reset_in0      (sys_clk_reset_source_reset),             // reset_in0.reset
-		.clk            (sys_clk_sys_clk_clk),                    //       clk.clk
-		.reset_out      (rst_controller_001_reset_out_reset),     // reset_out.reset
-		.reset_req      (rst_controller_001_reset_out_reset_req), //          .reset_req
-		.reset_req_in0  (1'b0),                                   // (terminated)
-		.reset_in1      (1'b0),                                   // (terminated)
-		.reset_req_in1  (1'b0),                                   // (terminated)
-		.reset_in2      (1'b0),                                   // (terminated)
-		.reset_req_in2  (1'b0),                                   // (terminated)
-		.reset_in3      (1'b0),                                   // (terminated)
-		.reset_req_in3  (1'b0),                                   // (terminated)
-		.reset_in4      (1'b0),                                   // (terminated)
-		.reset_req_in4  (1'b0),                                   // (terminated)
-		.reset_in5      (1'b0),                                   // (terminated)
-		.reset_req_in5  (1'b0),                                   // (terminated)
-		.reset_in6      (1'b0),                                   // (terminated)
-		.reset_req_in6  (1'b0),                                   // (terminated)
-		.reset_in7      (1'b0),                                   // (terminated)
-		.reset_req_in7  (1'b0),                                   // (terminated)
-		.reset_in8      (1'b0),                                   // (terminated)
-		.reset_req_in8  (1'b0),                                   // (terminated)
-		.reset_in9      (1'b0),                                   // (terminated)
-		.reset_req_in9  (1'b0),                                   // (terminated)
-		.reset_in10     (1'b0),                                   // (terminated)
-		.reset_req_in10 (1'b0),                                   // (terminated)
-		.reset_in11     (1'b0),                                   // (terminated)
-		.reset_req_in11 (1'b0),                                   // (terminated)
-		.reset_in12     (1'b0),                                   // (terminated)
-		.reset_req_in12 (1'b0),                                   // (terminated)
-		.reset_in13     (1'b0),                                   // (terminated)
-		.reset_req_in13 (1'b0),                                   // (terminated)
-		.reset_in14     (1'b0),                                   // (terminated)
-		.reset_req_in14 (1'b0),                                   // (terminated)
-		.reset_in15     (1'b0),                                   // (terminated)
-		.reset_req_in15 (1'b0)                                    // (terminated)
-	);
-
-	altera_reset_controller #(
 		.NUM_RESET_INPUTS          (2),
 		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
 		.SYNC_DEPTH                (2),
@@ -594,11 +569,11 @@ module test (
 		.USE_RESET_REQUEST_IN14    (0),
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller_002 (
-		.reset_in0      (cpu_debug_reset_request_reset),      // reset_in0.reset
-		.reset_in1      (video_clk_reset_source_reset),       // reset_in1.reset
+	) rst_controller_001 (
+		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
+		.reset_in1      (cpu_debug_reset_request_reset),      // reset_in1.reset
 		.clk            (video_clk_vga_clk_clk),              //       clk.clk
-		.reset_out      (rst_controller_002_reset_out_reset), // reset_out.reset
+		.reset_out      (rst_controller_001_reset_out_reset), // reset_out.reset
 		.reset_req      (),                                   // (terminated)
 		.reset_req_in0  (1'b0),                               // (terminated)
 		.reset_req_in1  (1'b0),                               // (terminated)
@@ -633,7 +608,7 @@ module test (
 	);
 
 	altera_reset_controller #(
-		.NUM_RESET_INPUTS          (2),
+		.NUM_RESET_INPUTS          (1),
 		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
 		.SYNC_DEPTH                (2),
 		.RESET_REQUEST_PRESENT     (0),
@@ -657,11 +632,200 @@ module test (
 		.USE_RESET_REQUEST_IN14    (0),
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
+	) rst_controller_002 (
+		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
+		.clk            (sys_clk_sys_clk_clk),                //       clk.clk
+		.reset_out      (rst_controller_002_reset_out_reset), // reset_out.reset
+		.reset_req      (),                                   // (terminated)
+		.reset_req_in0  (1'b0),                               // (terminated)
+		.reset_in1      (1'b0),                               // (terminated)
+		.reset_req_in1  (1'b0),                               // (terminated)
+		.reset_in2      (1'b0),                               // (terminated)
+		.reset_req_in2  (1'b0),                               // (terminated)
+		.reset_in3      (1'b0),                               // (terminated)
+		.reset_req_in3  (1'b0),                               // (terminated)
+		.reset_in4      (1'b0),                               // (terminated)
+		.reset_req_in4  (1'b0),                               // (terminated)
+		.reset_in5      (1'b0),                               // (terminated)
+		.reset_req_in5  (1'b0),                               // (terminated)
+		.reset_in6      (1'b0),                               // (terminated)
+		.reset_req_in6  (1'b0),                               // (terminated)
+		.reset_in7      (1'b0),                               // (terminated)
+		.reset_req_in7  (1'b0),                               // (terminated)
+		.reset_in8      (1'b0),                               // (terminated)
+		.reset_req_in8  (1'b0),                               // (terminated)
+		.reset_in9      (1'b0),                               // (terminated)
+		.reset_req_in9  (1'b0),                               // (terminated)
+		.reset_in10     (1'b0),                               // (terminated)
+		.reset_req_in10 (1'b0),                               // (terminated)
+		.reset_in11     (1'b0),                               // (terminated)
+		.reset_req_in11 (1'b0),                               // (terminated)
+		.reset_in12     (1'b0),                               // (terminated)
+		.reset_req_in12 (1'b0),                               // (terminated)
+		.reset_in13     (1'b0),                               // (terminated)
+		.reset_req_in13 (1'b0),                               // (terminated)
+		.reset_in14     (1'b0),                               // (terminated)
+		.reset_req_in14 (1'b0),                               // (terminated)
+		.reset_in15     (1'b0),                               // (terminated)
+		.reset_req_in15 (1'b0)                                // (terminated)
+	);
+
+	altera_reset_controller #(
+		.NUM_RESET_INPUTS          (2),
+		.OUTPUT_RESET_SYNC_EDGES   ("none"),
+		.SYNC_DEPTH                (2),
+		.RESET_REQUEST_PRESENT     (0),
+		.RESET_REQ_WAIT_TIME       (1),
+		.MIN_RST_ASSERTION_TIME    (3),
+		.RESET_REQ_EARLY_DSRT_TIME (1),
+		.USE_RESET_REQUEST_IN0     (0),
+		.USE_RESET_REQUEST_IN1     (0),
+		.USE_RESET_REQUEST_IN2     (0),
+		.USE_RESET_REQUEST_IN3     (0),
+		.USE_RESET_REQUEST_IN4     (0),
+		.USE_RESET_REQUEST_IN5     (0),
+		.USE_RESET_REQUEST_IN6     (0),
+		.USE_RESET_REQUEST_IN7     (0),
+		.USE_RESET_REQUEST_IN8     (0),
+		.USE_RESET_REQUEST_IN9     (0),
+		.USE_RESET_REQUEST_IN10    (0),
+		.USE_RESET_REQUEST_IN11    (0),
+		.USE_RESET_REQUEST_IN12    (0),
+		.USE_RESET_REQUEST_IN13    (0),
+		.USE_RESET_REQUEST_IN14    (0),
+		.USE_RESET_REQUEST_IN15    (0),
+		.ADAPT_RESET_REQUEST       (0)
 	) rst_controller_003 (
+		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
+		.reset_in1      (cpu_debug_reset_request_reset),      // reset_in1.reset
+		.clk            (),                                   //       clk.clk
+		.reset_out      (rst_controller_003_reset_out_reset), // reset_out.reset
+		.reset_req      (),                                   // (terminated)
+		.reset_req_in0  (1'b0),                               // (terminated)
+		.reset_req_in1  (1'b0),                               // (terminated)
+		.reset_in2      (1'b0),                               // (terminated)
+		.reset_req_in2  (1'b0),                               // (terminated)
+		.reset_in3      (1'b0),                               // (terminated)
+		.reset_req_in3  (1'b0),                               // (terminated)
+		.reset_in4      (1'b0),                               // (terminated)
+		.reset_req_in4  (1'b0),                               // (terminated)
+		.reset_in5      (1'b0),                               // (terminated)
+		.reset_req_in5  (1'b0),                               // (terminated)
+		.reset_in6      (1'b0),                               // (terminated)
+		.reset_req_in6  (1'b0),                               // (terminated)
+		.reset_in7      (1'b0),                               // (terminated)
+		.reset_req_in7  (1'b0),                               // (terminated)
+		.reset_in8      (1'b0),                               // (terminated)
+		.reset_req_in8  (1'b0),                               // (terminated)
+		.reset_in9      (1'b0),                               // (terminated)
+		.reset_req_in9  (1'b0),                               // (terminated)
+		.reset_in10     (1'b0),                               // (terminated)
+		.reset_req_in10 (1'b0),                               // (terminated)
+		.reset_in11     (1'b0),                               // (terminated)
+		.reset_req_in11 (1'b0),                               // (terminated)
+		.reset_in12     (1'b0),                               // (terminated)
+		.reset_req_in12 (1'b0),                               // (terminated)
+		.reset_in13     (1'b0),                               // (terminated)
+		.reset_req_in13 (1'b0),                               // (terminated)
+		.reset_in14     (1'b0),                               // (terminated)
+		.reset_req_in14 (1'b0),                               // (terminated)
+		.reset_in15     (1'b0),                               // (terminated)
+		.reset_req_in15 (1'b0)                                // (terminated)
+	);
+
+	altera_reset_controller #(
+		.NUM_RESET_INPUTS          (3),
+		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
+		.SYNC_DEPTH                (2),
+		.RESET_REQUEST_PRESENT     (0),
+		.RESET_REQ_WAIT_TIME       (1),
+		.MIN_RST_ASSERTION_TIME    (3),
+		.RESET_REQ_EARLY_DSRT_TIME (1),
+		.USE_RESET_REQUEST_IN0     (0),
+		.USE_RESET_REQUEST_IN1     (0),
+		.USE_RESET_REQUEST_IN2     (0),
+		.USE_RESET_REQUEST_IN3     (0),
+		.USE_RESET_REQUEST_IN4     (0),
+		.USE_RESET_REQUEST_IN5     (0),
+		.USE_RESET_REQUEST_IN6     (0),
+		.USE_RESET_REQUEST_IN7     (0),
+		.USE_RESET_REQUEST_IN8     (0),
+		.USE_RESET_REQUEST_IN9     (0),
+		.USE_RESET_REQUEST_IN10    (0),
+		.USE_RESET_REQUEST_IN11    (0),
+		.USE_RESET_REQUEST_IN12    (0),
+		.USE_RESET_REQUEST_IN13    (0),
+		.USE_RESET_REQUEST_IN14    (0),
+		.USE_RESET_REQUEST_IN15    (0),
+		.ADAPT_RESET_REQUEST       (0)
+	) rst_controller_004 (
+		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
+		.reset_in1      (cpu_debug_reset_request_reset),      // reset_in1.reset
+		.reset_in2      (video_clk_reset_source_reset),       // reset_in2.reset
+		.clk            (video_clk_vga_clk_clk),              //       clk.clk
+		.reset_out      (rst_controller_004_reset_out_reset), // reset_out.reset
+		.reset_req      (),                                   // (terminated)
+		.reset_req_in0  (1'b0),                               // (terminated)
+		.reset_req_in1  (1'b0),                               // (terminated)
+		.reset_req_in2  (1'b0),                               // (terminated)
+		.reset_in3      (1'b0),                               // (terminated)
+		.reset_req_in3  (1'b0),                               // (terminated)
+		.reset_in4      (1'b0),                               // (terminated)
+		.reset_req_in4  (1'b0),                               // (terminated)
+		.reset_in5      (1'b0),                               // (terminated)
+		.reset_req_in5  (1'b0),                               // (terminated)
+		.reset_in6      (1'b0),                               // (terminated)
+		.reset_req_in6  (1'b0),                               // (terminated)
+		.reset_in7      (1'b0),                               // (terminated)
+		.reset_req_in7  (1'b0),                               // (terminated)
+		.reset_in8      (1'b0),                               // (terminated)
+		.reset_req_in8  (1'b0),                               // (terminated)
+		.reset_in9      (1'b0),                               // (terminated)
+		.reset_req_in9  (1'b0),                               // (terminated)
+		.reset_in10     (1'b0),                               // (terminated)
+		.reset_req_in10 (1'b0),                               // (terminated)
+		.reset_in11     (1'b0),                               // (terminated)
+		.reset_req_in11 (1'b0),                               // (terminated)
+		.reset_in12     (1'b0),                               // (terminated)
+		.reset_req_in12 (1'b0),                               // (terminated)
+		.reset_in13     (1'b0),                               // (terminated)
+		.reset_req_in13 (1'b0),                               // (terminated)
+		.reset_in14     (1'b0),                               // (terminated)
+		.reset_req_in14 (1'b0),                               // (terminated)
+		.reset_in15     (1'b0),                               // (terminated)
+		.reset_req_in15 (1'b0)                                // (terminated)
+	);
+
+	altera_reset_controller #(
+		.NUM_RESET_INPUTS          (2),
+		.OUTPUT_RESET_SYNC_EDGES   ("none"),
+		.SYNC_DEPTH                (2),
+		.RESET_REQUEST_PRESENT     (0),
+		.RESET_REQ_WAIT_TIME       (1),
+		.MIN_RST_ASSERTION_TIME    (3),
+		.RESET_REQ_EARLY_DSRT_TIME (1),
+		.USE_RESET_REQUEST_IN0     (0),
+		.USE_RESET_REQUEST_IN1     (0),
+		.USE_RESET_REQUEST_IN2     (0),
+		.USE_RESET_REQUEST_IN3     (0),
+		.USE_RESET_REQUEST_IN4     (0),
+		.USE_RESET_REQUEST_IN5     (0),
+		.USE_RESET_REQUEST_IN6     (0),
+		.USE_RESET_REQUEST_IN7     (0),
+		.USE_RESET_REQUEST_IN8     (0),
+		.USE_RESET_REQUEST_IN9     (0),
+		.USE_RESET_REQUEST_IN10    (0),
+		.USE_RESET_REQUEST_IN11    (0),
+		.USE_RESET_REQUEST_IN12    (0),
+		.USE_RESET_REQUEST_IN13    (0),
+		.USE_RESET_REQUEST_IN14    (0),
+		.USE_RESET_REQUEST_IN15    (0),
+		.ADAPT_RESET_REQUEST       (0)
+	) rst_controller_005 (
 		.reset_in0      (cpu_debug_reset_request_reset),      // reset_in0.reset
 		.reset_in1      (sys_clk_reset_source_reset),         // reset_in1.reset
-		.clk            (sys_clk_sdram_clk_clk),              //       clk.clk
-		.reset_out      (rst_controller_003_reset_out_reset), // reset_out.reset
+		.clk            (),                                   //       clk.clk
+		.reset_out      (rst_controller_005_reset_out_reset), // reset_out.reset
 		.reset_req      (),                                   // (terminated)
 		.reset_req_in0  (1'b0),                               // (terminated)
 		.reset_req_in1  (1'b0),                               // (terminated)
