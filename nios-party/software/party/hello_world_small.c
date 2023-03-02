@@ -81,27 +81,61 @@
 #include "sys/alt_stdio.h"
 #include <stdio.h>
 #include <unistd.h>
+#include <system.h>
 #include "altera_up_avalon_video_pixel_buffer_dma.h"
+#include "altera_up_avalon_video_character_buffer_with_dma.h"
 
 alt_up_pixel_buffer_dma_dev* pixel_buffer;
+alt_up_char_buffer_dev* char_buffer;
 
 int main()
 {
   alt_putstr("Hello from Nios II!\n");
 
-  pixel_buffer = alt_up_pixel_buffer_dma_open_dev(PIXEL_BUFFER_NAME);
-  if(pixel_buffer == NULL) {
-	alt_putstr("Error: could not open pixel buffer device");
-  } else {
-	alt_putstr("Opened pixel buffer device");
-  }
+  pixel_buffer = alt_up_pixel_buffer_dma_open_dev("/dev/Pixel_Buffer");
+    if(pixel_buffer == NULL) {
+  	alt_putstr("Error: could not open pixel buffer device\n");
+    } else {
+  	alt_putstr("Opened pixel buffer device\n");
+    }
 
-  alt_up_pixel_buffer_dma_clear_screen(pixel_buffer, 0);
-  usleep(1000000);
-  alt_putstr("Displaying Colour");
-  alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 100, 50, 149, 99, 0xF800,0);
-  /* Event loop never exits. */
-  while (1);
+
+
+    //alt_up_pixel_buffer_dma_clear_screen(pixel_buffer, 0);
+    //usleep(1000000);
+/*
+    alt_up_char_buffer_clear(char_buffer);
+    usleep(1000000);
+    */
+    alt_putstr("Displaying Colour\n");
+    alt_up_pixel_buffer_dma_draw_box (pixel_buffer, 150, 100, 199, 149, 0x07E0, 0);
+
+    char_buffer = alt_up_char_buffer_open_dev("/dev/Char_Buffer");
+
+      if(char_buffer == NULL) {
+    	alt_putstr("Error: could not open char buffer device\n");
+      } else {
+    	alt_putstr("Opened Char buffer device\n");
+      }
+
+      char text = 'X';
+      char text_top_row[40] = "Question 1:\0";
+      char text_bottom_row[40] = "Character Buffer\0";
+      /* output text message near the middle of the VGA monitor */
+      alt_up_char_buffer_clear(char_buffer);
+      alt_up_char_buffer_draw(char_buffer, text, 0, 0);
+      alt_up_char_buffer_draw(char_buffer, text, 0, 59);
+      alt_up_char_buffer_draw(char_buffer, text, 79, 0);
+      alt_up_char_buffer_draw(char_buffer, text, 79, 59);
+      alt_up_char_buffer_string(char_buffer, text_top_row, 20,20);
+      alt_up_char_buffer_string(char_buffer, text_bottom_row, 40,40);
+      // end program message
+      printf ("Program complete \n");
+
+
+
+
+
 
   return 0;
 }
