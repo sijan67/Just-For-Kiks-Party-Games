@@ -1,8 +1,8 @@
 module partyBox(
-   input CLOCK_50,
-	input CLOCK2_50,
-	input [3:0] KEY,
-	input [9:0] SW,
+   input 		 CLOCK_50,
+	input 		 CLOCK2_50,
+	input  [3:0] KEY,
+	input  [9:0] SW,
 	output [9:0] LEDR,
 	output [6:0] HEX0,
 	output [6:0] HEX1,
@@ -11,36 +11,36 @@ module partyBox(
 	output [6:0] HEX4,
 	output [6:0] HEX5,
 	
-	output [12:0] DRAM_ADDR,
-	output        DRAM_CLK,
-	output DRAM_CKE,		
+	output [12:0]DRAM_ADDR,
+	output       DRAM_CLK,
+	output 		 DRAM_CKE,		
 	output [1:0] DRAM_BA,
-	output	DRAM_CS_N, 
-	output DRAM_CAS_N, 
-	output	DRAM_RAS_N, 
-	output DRAM_WE_N,	
-	inout [15:0]	DRAM_DQ,	
-	output	DRAM_UDQM, 
-	output DRAM_LDQM, 
+	output		 DRAM_CS_N, 
+	output 		 DRAM_CAS_N, 
+	output		 DRAM_RAS_N, 
+	output 		 DRAM_WE_N,	
+	inout  [15:0]DRAM_DQ,	
+	output 		 DRAM_UDQM, 
+	output 		 DRAM_LDQM, 
 
 	output [7:0] VGA_R,
 	output [7:0] VGA_G,
 	output [7:0] VGA_B,
-	output VGA_BLANK_N,
-	output VGA_CLK,
-	output VGA_HS,
-	output VGA_SYNC_N,
-	output VGA_VS,
+	output 		 VGA_BLANK_N,
+	output 		 VGA_CLK,
+	output 		 VGA_HS,
+	output 		 VGA_SYNC_N,
+	output 		 VGA_VS,
 	
-	output FPGA_I2C_SCLK,
-	inout	 FPGA_I2C_SDAT,
+	output 		 FPGA_I2C_SCLK,
+	inout	 		 FPGA_I2C_SDAT,
 	
-	input						AUD_ADCDAT;
-	inout						AUD_ADCLRCK;
-	inout						AUD_BCLK;
-	output					AUD_DACDAT;
-	inout						AUD_DACLRCK;
-	output					AUD_XCK;
+	input	 		 AUD_ADCDAT,
+	inout	 		 AUD_ADCLRCK,
+	inout	 		 AUD_BCLK,
+	output 		 AUD_DACDAT,
+	inout	 		 AUD_DACLRCK,
+	output 		 AUD_XCK
 );
 
 
@@ -81,7 +81,7 @@ module partyBox(
 	
 	test u0 (
 		.clk_clk       (CLOCK_50),       //   clk.clk
-		.reset_reset_n (1'b0), // reset.reset_n
+		.reset_reset_n (KEY[0]), // reset.reset_n
 		//.av_config_SCLK							(FPGA_I2C_SCLK),
 		//.av_config_SDAT							(FPGA_I2C_SDAT),
 		.sdram_addr    (DRAM_ADDR),    // sdram.addr
@@ -101,7 +101,7 @@ module partyBox(
 		.vga_SYNC      (VGA_SYNC),      //      .SYNC
 		.vga_R         (VGA_R),         //      .R
 		.vga_G         (VGA_G),         //      .G
-		.vga_B         (VGA_B)          //      .B
+		.vga_B         (VGA_B),          //      .B
 		.audio_clk_clk								(AUD_XCK),
 		.audio_ADCDAT								(AUD_ADCDAT),
 		.audio_ADCLRCK								(AUD_ADCLRCK),

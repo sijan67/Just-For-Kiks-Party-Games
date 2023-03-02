@@ -1,17 +1,17 @@
-Analysis & Synthesis Status : Successful - Tue Feb 28 12:50:18 2023
+Analysis & Synthesis Status : Successful - Thu Mar 02 09:37:44 2023
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : partyBox
 Top-level Entity Name : partyBox
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 3047
-Total pins : 138
+Total registers : 3784
+Total pins : 144
 Total virtual pins : 0
-Total block memory bits : 122,192
+Total block memory bits : 479,552
 Total DSP Blocks : 3
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0
 Total HSSI PMA TX Serializers : 0
-Total PLLs : 2
+Total PLLs : 3
 Total DLLs : 0

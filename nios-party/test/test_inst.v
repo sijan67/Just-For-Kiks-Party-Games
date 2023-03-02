@@ -4,6 +4,7 @@
 		.audio_BCLK    (<connected-to-audio_BCLK>),    //          .BCLK
 		.audio_DACDAT  (<connected-to-audio_DACDAT>),  //          .DACDAT
 		.audio_DACLRCK (<connected-to-audio_DACLRCK>), //          .DACLRCK
+		.audio_clk_clk (<connected-to-audio_clk_clk>), // audio_clk.clk
 		.clk_clk       (<connected-to-clk_clk>),       //       clk.clk
 		.reset_reset_n (<connected-to-reset_reset_n>), //     reset.reset_n
 		.sdram_addr    (<connected-to-sdram_addr>),    //     sdram.addr
@@ -23,7 +24,6 @@
 		.vga_SYNC      (<connected-to-vga_SYNC>),      //          .SYNC
 		.vga_R         (<connected-to-vga_R>),         //          .R
 		.vga_G         (<connected-to-vga_G>),         //          .G
-		.vga_B         (<connected-to-vga_B>),         //          .B
-		.audio_clk_clk (<connected-to-audio_clk_clk>)  // audio_clk.clk
+		.vga_B         (<connected-to-vga_B>)          //          .B
 	);
 

@@ -5,6 +5,7 @@
 			audio_BCLK    : in    std_logic                     := 'X';             -- BCLK
 			audio_DACDAT  : out   std_logic;                                        -- DACDAT
 			audio_DACLRCK : in    std_logic                     := 'X';             -- DACLRCK
+			audio_clk_clk : out   std_logic;                                        -- clk
 			clk_clk       : in    std_logic                     := 'X';             -- clk
 			reset_reset_n : in    std_logic                     := 'X';             -- reset_n
 			sdram_addr    : out   std_logic_vector(12 downto 0);                    -- addr
@@ -24,8 +25,7 @@
 			vga_SYNC      : out   std_logic;                                        -- SYNC
 			vga_R         : out   std_logic_vector(7 downto 0);                     -- R
 			vga_G         : out   std_logic_vector(7 downto 0);                     -- G
-			vga_B         : out   std_logic_vector(7 downto 0);                     -- B
-			audio_clk_clk : out   std_logic                                         -- clk
+			vga_B         : out   std_logic_vector(7 downto 0)                      -- B
 		);
 	end component test;
 
@@ -36,6 +36,7 @@
 			audio_BCLK    => CONNECTED_TO_audio_BCLK,    --          .BCLK
 			audio_DACDAT  => CONNECTED_TO_audio_DACDAT,  --          .DACDAT
 			audio_DACLRCK => CONNECTED_TO_audio_DACLRCK, --          .DACLRCK
+			audio_clk_clk => CONNECTED_TO_audio_clk_clk, -- audio_clk.clk
 			clk_clk       => CONNECTED_TO_clk_clk,       --       clk.clk
 			reset_reset_n => CONNECTED_TO_reset_reset_n, --     reset.reset_n
 			sdram_addr    => CONNECTED_TO_sdram_addr,    --     sdram.addr
@@ -55,7 +56,6 @@
 			vga_SYNC      => CONNECTED_TO_vga_SYNC,      --          .SYNC
 			vga_R         => CONNECTED_TO_vga_R,         --          .R
 			vga_G         => CONNECTED_TO_vga_G,         --          .G
-			vga_B         => CONNECTED_TO_vga_B,         --          .B
-			audio_clk_clk => CONNECTED_TO_audio_clk_clk  -- audio_clk.clk
+			vga_B         => CONNECTED_TO_vga_B          --          .B
 		);
 
