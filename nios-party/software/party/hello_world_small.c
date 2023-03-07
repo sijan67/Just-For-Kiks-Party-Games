@@ -85,18 +85,49 @@
 #include "altera_up_avalon_video_pixel_buffer_dma.h"
 #include "altera_up_avalon_video_character_buffer_with_dma.h"
 
+void init_room_setup();
+void init_questions_display();
+void button_trigger();
+void init_timer_interrupt( void );
+static void timer_isr( void * context, alt_u32 id );
+
 alt_up_pixel_buffer_dma_dev* pixel_buffer;
 alt_up_char_buffer_dev* char_buffer;
+int team_one_score = 0;
+int team_two_score = 0;
+bool game_state = true;
+char player_list[4][10];
+int global_count = 0;
+int current_count = 0;
 
-int main()
-{
-  alt_putstr("Hello from Nios II!\n");
+#define BLACK   0x0000
+#define BLUE    0x001F
+#define RED     0xF800
+#define GREEN   0x07E0
+#define CYAN    0x07FF
+#define MAGENTA 0xF81F
+#define YELLOW  0xFFE0
+#define WHITE   0xFFFF
 
-  pixel_buffer = alt_up_pixel_buffer_dma_open_dev("/dev/Pixel_Buffer");
+int main() {
+    init_timer_interrupt();
+    init_room_setup();
+    init_question_gameplay();
+
+
+
+
+    return 0;
+}
+
+void init_room_setup() {
+    alt_putstr("Hello from Nios II!\n");
+
+    pixel_buffer = alt_up_pixel_buffer_dma_open_dev("/dev/Pixel_Buffer");
     if(pixel_buffer == NULL) {
-  	alt_putstr("Error: could not open pixel buffer device\n");
+        alt_putstr("Error: could not open pixel buffer device\n");
     } else {
-  	alt_putstr("Opened pixel buffer device\n");
+        alt_putstr("Opened pixel buffer device\n");
     }
 
 
@@ -108,34 +139,91 @@ int main()
     usleep(1000000);
     */
     alt_putstr("Displaying Colour\n");
-    alt_up_pixel_buffer_dma_draw_box (pixel_buffer, 150, 100, 199, 149, 0x07E0, 0);
+    alt_up_pixel_buffer_dma_draw_box (pixel_buffer, 150, 100, 199, 149, RED, 0);
 
     char_buffer = alt_up_char_buffer_open_dev("/dev/Char_Buffer");
 
-      if(char_buffer == NULL) {
-    	alt_putstr("Error: could not open char buffer device\n");
-      } else {
-    	alt_putstr("Opened Char buffer device\n");
-      }
+    if(char_buffer == NULL) {
+        alt_putstr("Error: could not open char buffer device\n");
+    } else {
+        alt_putstr("Opened Char buffer device\n");
+    }
 
-      char text = 'X';
-      char text_top_row[40] = "Question 1:\0";
-      char text_bottom_row[40] = "Character Buffer\0";
-      /* output text message near the middle of the VGA monitor */
-      alt_up_char_buffer_clear(char_buffer);
-      alt_up_char_buffer_draw(char_buffer, text, 0, 0);
-      alt_up_char_buffer_draw(char_buffer, text, 0, 59);
-      alt_up_char_buffer_draw(char_buffer, text, 79, 0);
-      alt_up_char_buffer_draw(char_buffer, text, 79, 59);
-      alt_up_char_buffer_string(char_buffer, text_top_row, 20,20);
-      alt_up_char_buffer_string(char_buffer, text_bottom_row, 40,40);
-      // end program message
-      printf ("Program complete \n");
+    char text = 'X';
+    char text_top_row[40] = "TriviaSoC:\0";
+    char text_bottom_row[40] = "Please enter the Room Code:\0";
+    /* output text message near the middle of the VGA monitor */
+    while(alt_up_char_buffer_clear(char_buffer));
+    alt_up_char_buffer_draw(char_buffer, text, 0, 0);
+    alt_up_char_buffer_draw(char_buffer, text, 0, 59);
+    alt_up_char_buffer_draw(char_buffer, text, 79, 0);
+    alt_up_char_buffer_draw(char_buffer, text, 79, 59);
+    alt_up_char_buffer_string(char_buffer, text_top_row, 20,20);
+    alt_up_char_buffer_string(char_buffer, text_bottom_row, 40,40);
 
+    bool game_start = false;
+    int i = 0;
+    while(!game_start) {
+        if(i < 4) { // & API call from backend to grab name
+            player_list[i] = ""; // Name pulled from backend
+            i++
+        }
+    }
 
+    // Add players into teams (backend should do this)
+    // end program message
+    printf ("Setup Complete \n");
+}
 
+void init_question_gameplay() {
+    while(team_one_score < 1000 || team_two_score < 1000) {
+        // Grab Question from API call
+        char text_top_row[40] = '';
+        alt_up_char_buffer_string(char_buffer, text_top_row, 20,20); // Display question
+        button_trigger();
 
+        // Enable Audio Reading
+        // Send Audio to backend
+        
 
+    }
+}
 
-  return 0;
+void button_trigger() {
+    int button_pressed = 0;
+    // Add timer
+    current_count = global_count;
+    while(button_pressed != 0 || current_count + 10 > global_count) {
+        if(IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE + 3)){
+            //IOWR_ALTERA_AVALON_PIO_DATA(RED_LEDS_BASE, 240);
+            //alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 20, 20, 640, 480, 0xF800,0); // Display Red box
+            button_pressed = 1;
+        } else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTONS_BASE + 2)) {
+            //IOWR_ALTERA_AVALON_PIO_DATA(RED_LEDS_BASE, 15);
+            //alt_up_pixel_buffer_dma_draw_box(pixel_buffer, 20, 20, 640, 480, 0x07E0,0); // Display Green Box
+            button_pressed = 2;
+        }
+    }
+
+    if(button_pressed != 0) {
+        // Display timing end
+    }
+
+}
+
+void init_timer_interrupt( void )
+{
+    // Register the ISR with HAL
+    alt_ic_isr_register(TIMER_IRQ_INTERRUPT_CONTROLLER_ID, TIMER_IRQ, (void *)timer_isr, NULL, 0x0);
+
+    // Start the timer
+    IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE,
+            ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |
+            ALTERA_AVALON_TIMER_CONTROL_START_MSK |
+            ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+}
+
+static void timer_isr(void * context, alt_u32 id) {
+    IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0);
+    global_count++;
 }

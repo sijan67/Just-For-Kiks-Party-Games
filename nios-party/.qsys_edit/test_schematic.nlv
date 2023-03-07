@@ -1,0 +1,47 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst test.VGA_Controller -pg 1 -lvl 7 -y 630
+preplace inst test.Sys_Clk.sys_pll -pg 1
+preplace inst test.Char_Buffer -pg 1 -lvl 4 -y 370
+preplace inst test.Audio -pg 1 -lvl 7 -y 130
+preplace inst test.Video_Clk.video_pll -pg 1
+preplace inst test.Video_Clk -pg 1 -lvl 2 -y 700
+preplace inst test.Sys_Clk.reset_from_locked -pg 1
+preplace inst test.Audio_Clk -pg 1 -lvl 7 -y 50
+preplace inst test.Sys_Clk -pg 1 -lvl 3 -y 590
+preplace inst test.JTAG -pg 1 -lvl 7 -y 250
+preplace inst test.Alpha_Blender -pg 1 -lvl 5 -y 510
+preplace inst test.Pixel_Buffer -pg 1 -lvl 1 -y 450
+preplace inst test.CPU.cpu -pg 1
+preplace inst test.Video_Clk.reset_from_locked -pg 1
+preplace inst test.Audio_Clk.audio_pll -pg 1
+preplace inst test.clk_0 -pg 1 -lvl 2 -y 790
+preplace inst test.RGB_Resampler -pg 1 -lvl 4 -y 510
+preplace inst test.CPU.clock_bridge -pg 1
+preplace inst test.CPU -pg 1 -lvl 2 -y 520
+preplace inst test.timer_0 -pg 1 -lvl 7 -y 350
+preplace inst test.SDRAM -pg 1 -lvl 7 -y 450
+preplace inst test.CPU.reset_bridge -pg 1
+preplace inst test.Dual_Clock_FIFO -pg 1 -lvl 6 -y 530
+preplace inst test.Audio_Clk.reset_from_locked -pg 1
+preplace inst test -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc FAN_OUT<net_container>test</net_container>(SLAVE)timer_0.clk,(SLAVE)Audio_Clk.ref_clk,(MASTER)Sys_Clk.sys_clk,(SLAVE)CPU.clk,(SLAVE)Char_Buffer.clk,(SLAVE)Dual_Clock_FIFO.clock_stream_in,(SLAVE)JTAG.clk,(SLAVE)Alpha_Blender.clk,(SLAVE)Pixel_Buffer.clk,(SLAVE)RGB_Resampler.clk,(SLAVE)SDRAM.clk,(SLAVE)Audio.clk,(SLAVE)Video_Clk.ref_clk) 1 0 7 120 540 500 420 NJ 420 1220 640 1620 620 1960 520 2330
+preplace netloc POINT_TO_POINT<net_container>test</net_container>(SLAVE)Sys_Clk.ref_clk,(MASTER)clk_0.clk) 1 2 1 920
+preplace netloc POINT_TO_POINT<net_container>test</net_container>(MASTER)Char_Buffer.avalon_char_source,(SLAVE)Alpha_Blender.avalon_foreground_sink) 1 4 1 1620
+preplace netloc EXPORT<net_container>test</net_container>(MASTER)Sys_Clk.sdram_clk,(MASTER)test.sdram_clk) 1 3 5 NJ 660 NJ 660 NJ 700 NJ 740 NJ
+preplace netloc POINT_TO_POINT<net_container>test</net_container>(SLAVE)RGB_Resampler.avalon_rgb_sink,(MASTER)Pixel_Buffer.avalon_pixel_source) 1 1 3 NJ 480 NJ 480 1200
+preplace netloc POINT_TO_POINT<net_container>test</net_container>(MASTER)Alpha_Blender.avalon_blended_source,(SLAVE)Dual_Clock_FIFO.avalon_dc_buffer_sink) 1 5 1 N
+preplace netloc EXPORT<net_container>test</net_container>(SLAVE)test.vga,(SLAVE)VGA_Controller.external_interface) 1 0 7 NJ 780 NJ 780 NJ 780 NJ 780 NJ 780 NJ 780 NJ
+preplace netloc FAN_OUT<net_container>test</net_container>(SLAVE)Audio.interrupt,(SLAVE)JTAG.irq,(SLAVE)timer_0.irq,(MASTER)CPU.irq) 1 2 5 860 360 NJ 360 NJ 360 NJ 360 2310
+preplace netloc EXPORT<net_container>test</net_container>(SLAVE)Audio.external_interface,(SLAVE)test.audio) 1 0 7 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ 180 NJ
+preplace netloc INTERCONNECT<net_container>test</net_container>(SLAVE)Pixel_Buffer.avalon_control_slave,(SLAVE)Audio.avalon_audio_slave,(MASTER)Pixel_Buffer.avalon_pixel_dma_master,(SLAVE)Char_Buffer.avalon_char_buffer_slave,(SLAVE)RGB_Resampler.avalon_rgb_slave,(SLAVE)SDRAM.s1,(SLAVE)Char_Buffer.avalon_char_control_slave,(MASTER)CPU.data_master,(SLAVE)JTAG.avalon_jtag_slave,(MASTER)CPU.instruction_master,(SLAVE)timer_0.s1,(SLAVE)CPU.debug_mem_slave) 1 0 7 80 560 480 460 900 690 1180 500 NJ 500 NJ 500 2350
+preplace netloc EXPORT<net_container>test</net_container>(SLAVE)test.sdram,(SLAVE)SDRAM.wire) 1 0 7 NJ 440 NJ 440 NJ 440 NJ 480 NJ 480 NJ 480 NJ
+preplace netloc EXPORT<net_container>test</net_container>(SLAVE)test.reset,(SLAVE)clk_0.clk_in_reset) 1 0 2 NJ 820 NJ
+preplace netloc FAN_OUT<net_container>test</net_container>(SLAVE)VGA_Controller.clk,(SLAVE)Dual_Clock_FIFO.clock_stream_out,(MASTER)Video_Clk.vga_clk) 1 2 5 NJ 730 NJ 730 NJ 730 1980 660 NJ
+preplace netloc EXPORT<net_container>test</net_container>(SLAVE)clk_0.clk_in,(SLAVE)test.clk) 1 0 2 NJ 800 NJ
+preplace netloc INTERCONNECT<net_container>test</net_container>(SLAVE)VGA_Controller.reset,(SLAVE)Dual_Clock_FIFO.reset_stream_out,(SLAVE)timer_0.reset,(SLAVE)RGB_Resampler.reset,(MASTER)CPU.debug_reset_request,(SLAVE)Audio.reset,(MASTER)clk_0.clk_reset,(MASTER)Video_Clk.reset_source,(SLAVE)Dual_Clock_FIFO.reset_stream_in,(SLAVE)Video_Clk.ref_reset,(SLAVE)Char_Buffer.reset,(SLAVE)Pixel_Buffer.reset,(MASTER)Sys_Clk.reset_source,(SLAVE)SDRAM.reset,(SLAVE)Audio_Clk.ref_reset,(SLAVE)Sys_Clk.ref_reset,(SLAVE)CPU.reset,(SLAVE)JTAG.reset,(SLAVE)Alpha_Blender.reset) 1 0 7 100 580 460 660 880 710 1260 620 1600 640 2000 680 2390
+preplace netloc EXPORT<net_container>test</net_container>(MASTER)test.audio_clk,(MASTER)Audio_Clk.audio_clk) 1 7 1 NJ
+preplace netloc POINT_TO_POINT<net_container>test</net_container>(SLAVE)Alpha_Blender.avalon_background_sink,(MASTER)RGB_Resampler.avalon_rgb_source) 1 4 1 1600
+preplace netloc POINT_TO_POINT<net_container>test</net_container>(MASTER)Dual_Clock_FIFO.avalon_dc_buffer_source,(SLAVE)VGA_Controller.avalon_vga_sink) 1 6 1 2350
+levelinfo -pg 1 0 50 2740
+levelinfo -hier test 60 150 620 1000 1290 1650 2030 2490 2650
