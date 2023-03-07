@@ -264,11 +264,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "AUD_BCLK",
+					"name" : "AUD_ADCLRCK",
 					"strict" : false
 				},
 				{
-					"name" : "AUD_ADCLRCK",
+					"name" : "AUD_BCLK",
 					"strict" : false
 				},
 				{
@@ -277,6 +277,14 @@
 				},
 				{
 					"name" : "KEY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[3]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[2]",
 					"strict" : false
 				},
 				{

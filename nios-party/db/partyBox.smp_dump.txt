@@ -6,6 +6,15 @@ s_pixel_buffer.STATE_1_WAIT_FOR_LAST_PIXEL 0 0 1 1
 s_pixel_buffer.STATE_2_READ_BUFFER 0 1 0 1 
 s_pixel_buffer.STATE_3_MAX_PENDING_READS_STALL 1 0 0 1 
 
+State Machine - |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_nios2_oci:the_test_CPU_cpu_nios2_oci|test_CPU_cpu_debug_slave_wrapper:the_test_CPU_cpu_debug_slave_wrapper|test_CPU_cpu_debug_slave_tck:the_test_CPU_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
 State Machine - |partyBox|test:u0|test_SDRAM:sdram|m_state
 Name m_state.100000000 m_state.010000000 m_state.001000000 m_state.000100000 m_state.000010000 m_state.000001000 m_state.000000100 m_state.000000010 m_state.000000001 
 m_state.000000001 0 0 0 0 0 0 0 0 0 
@@ -24,15 +33,6 @@ m_next.000000001 0 0 0 0
 m_next.000001000 0 0 1 1 
 m_next.000010000 0 1 0 1 
 m_next.010000000 1 0 0 1 
-
-State Machine - |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_nios2_oci:the_test_CPU_cpu_nios2_oci|test_CPU_cpu_debug_slave_wrapper:the_test_CPU_cpu_debug_slave_wrapper|test_CPU_cpu_debug_slave_tck:the_test_CPU_cpu_debug_slave_tck|DRsize
-Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
-DRsize.000 0 0 0 0 0 0 
-DRsize.001 0 0 0 0 1 1 
-DRsize.010 0 0 0 1 0 1 
-DRsize.011 0 0 1 0 0 1 
-DRsize.100 0 1 0 0 0 1 
-DRsize.101 1 0 0 0 0 1 
 
 State Machine - |partyBox|test:u0|test_SDRAM:sdram|i_state
 Name i_state.111 i_state.101 i_state.011 i_state.010 i_state.001 i_state.000 

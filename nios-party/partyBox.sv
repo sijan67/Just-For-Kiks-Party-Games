@@ -107,7 +107,9 @@ module partyBox(
 		.audio_ADCLRCK								(AUD_ADCLRCK),
 		.audio_BCLK									(AUD_BCLK),
 		.audio_DACDAT								(AUD_DACDAT),
-		.audio_DACLRCK								(AUD_DACLRCK)
+		.audio_DACLRCK								(AUD_DACLRCK),
+		.button_1_export							(KEY[3]),
+		.button_2_export							(KEY[2])
 	);
 
 

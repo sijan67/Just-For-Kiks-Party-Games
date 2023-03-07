@@ -4,32 +4,34 @@
 
 `timescale 1 ps / 1 ps
 module test (
-		input  wire        audio_ADCDAT,  //     audio.ADCDAT
-		input  wire        audio_ADCLRCK, //          .ADCLRCK
-		input  wire        audio_BCLK,    //          .BCLK
-		output wire        audio_DACDAT,  //          .DACDAT
-		input  wire        audio_DACLRCK, //          .DACLRCK
-		output wire        audio_clk_clk, // audio_clk.clk
-		input  wire        clk_clk,       //       clk.clk
-		input  wire        reset_reset_n, //     reset.reset_n
-		output wire [12:0] sdram_addr,    //     sdram.addr
-		output wire [1:0]  sdram_ba,      //          .ba
-		output wire        sdram_cas_n,   //          .cas_n
-		output wire        sdram_cke,     //          .cke
-		output wire        sdram_cs_n,    //          .cs_n
-		inout  wire [15:0] sdram_dq,      //          .dq
-		output wire [1:0]  sdram_dqm,     //          .dqm
-		output wire        sdram_ras_n,   //          .ras_n
-		output wire        sdram_we_n,    //          .we_n
-		output wire        sdram_clk_clk, // sdram_clk.clk
-		output wire        vga_CLK,       //       vga.CLK
-		output wire        vga_HS,        //          .HS
-		output wire        vga_VS,        //          .VS
-		output wire        vga_BLANK,     //          .BLANK
-		output wire        vga_SYNC,      //          .SYNC
-		output wire [7:0]  vga_R,         //          .R
-		output wire [7:0]  vga_G,         //          .G
-		output wire [7:0]  vga_B          //          .B
+		input  wire        audio_ADCDAT,    //     audio.ADCDAT
+		input  wire        audio_ADCLRCK,   //          .ADCLRCK
+		input  wire        audio_BCLK,      //          .BCLK
+		output wire        audio_DACDAT,    //          .DACDAT
+		input  wire        audio_DACLRCK,   //          .DACLRCK
+		output wire        audio_clk_clk,   // audio_clk.clk
+		input  wire        button_1_export, //  button_1.export
+		input  wire        button_2_export, //  button_2.export
+		input  wire        clk_clk,         //       clk.clk
+		input  wire        reset_reset_n,   //     reset.reset_n
+		output wire [12:0] sdram_addr,      //     sdram.addr
+		output wire [1:0]  sdram_ba,        //          .ba
+		output wire        sdram_cas_n,     //          .cas_n
+		output wire        sdram_cke,       //          .cke
+		output wire        sdram_cs_n,      //          .cs_n
+		inout  wire [15:0] sdram_dq,        //          .dq
+		output wire [1:0]  sdram_dqm,       //          .dqm
+		output wire        sdram_ras_n,     //          .ras_n
+		output wire        sdram_we_n,      //          .we_n
+		output wire        sdram_clk_clk,   // sdram_clk.clk
+		output wire        vga_CLK,         //       vga.CLK
+		output wire        vga_HS,          //          .HS
+		output wire        vga_VS,          //          .VS
+		output wire        vga_BLANK,       //          .BLANK
+		output wire        vga_SYNC,        //          .SYNC
+		output wire [7:0]  vga_R,           //          .R
+		output wire [7:0]  vga_G,           //          .G
+		output wire [7:0]  vga_B            //          .B
 	);
 
 	wire         alpha_blender_avalon_blended_source_valid;                          // Alpha_Blender:output_valid -> Dual_Clock_FIFO:stream_in_valid
@@ -57,7 +59,7 @@ module test (
 	wire         rgb_resampler_avalon_rgb_source_ready;                              // Alpha_Blender:background_ready -> RGB_Resampler:stream_out_ready
 	wire         rgb_resampler_avalon_rgb_source_startofpacket;                      // RGB_Resampler:stream_out_startofpacket -> Alpha_Blender:background_startofpacket
 	wire         rgb_resampler_avalon_rgb_source_endofpacket;                        // RGB_Resampler:stream_out_endofpacket -> Alpha_Blender:background_endofpacket
-	wire         sys_clk_sys_clk_clk;                                                // Sys_Clk:sys_clk_clk -> [Alpha_Blender:clk, Audio:clk, Audio_Clk:ref_clk_clk, CPU:clk, Char_Buffer:clk, Dual_Clock_FIFO:clk_stream_in, JTAG:clk, Onchip_Memory:clk, Pixel_Buffer:clk, RGB_Resampler:clk, SDRAM:clk, Video_Clk:ref_clk_clk, irq_mapper:clk, mm_interconnect_0:Sys_Clk_sys_clk_clk, rst_controller:clk, rst_controller_002:clk, timer_0:clk]
+	wire         sys_clk_sys_clk_clk;                                                // Sys_Clk:sys_clk_clk -> [Alpha_Blender:clk, Audio:clk, Audio_Clk:ref_clk_clk, CPU:clk, Char_Buffer:clk, Dual_Clock_FIFO:clk_stream_in, JTAG:clk, Onchip_Memory:clk, Pixel_Buffer:clk, RGB_Resampler:clk, SDRAM:clk, Video_Clk:ref_clk_clk, button_1:clk, button_2:clk, irq_mapper:clk, mm_interconnect_0:Sys_Clk_sys_clk_clk, rst_controller:clk, rst_controller_002:clk, timer:clk, timer_0:clk]
 	wire         video_clk_vga_clk_clk;                                              // Video_Clk:vga_clk_clk -> [Dual_Clock_FIFO:clk_stream_out, VGA_Controller:clk, rst_controller_001:clk, rst_controller_004:clk]
 	wire         sys_clk_reset_source_reset;                                         // Sys_Clk:reset_source_reset -> [Audio_Clk:ref_reset_reset, rst_controller_005:reset_in1]
 	wire         pixel_buffer_avalon_pixel_dma_master_waitrequest;                   // mm_interconnect_0:Pixel_Buffer_avalon_pixel_dma_master_waitrequest -> Pixel_Buffer:master_waitrequest
@@ -145,15 +147,33 @@ module test (
 	wire   [2:0] mm_interconnect_0_timer_0_s1_address;                               // mm_interconnect_0:timer_0_s1_address -> timer_0:address
 	wire         mm_interconnect_0_timer_0_s1_write;                                 // mm_interconnect_0:timer_0_s1_write -> timer_0:write_n
 	wire  [15:0] mm_interconnect_0_timer_0_s1_writedata;                             // mm_interconnect_0:timer_0_s1_writedata -> timer_0:writedata
+	wire         mm_interconnect_0_button_1_s1_chipselect;                           // mm_interconnect_0:button_1_s1_chipselect -> button_1:chipselect
+	wire  [31:0] mm_interconnect_0_button_1_s1_readdata;                             // button_1:readdata -> mm_interconnect_0:button_1_s1_readdata
+	wire   [1:0] mm_interconnect_0_button_1_s1_address;                              // mm_interconnect_0:button_1_s1_address -> button_1:address
+	wire         mm_interconnect_0_button_1_s1_write;                                // mm_interconnect_0:button_1_s1_write -> button_1:write_n
+	wire  [31:0] mm_interconnect_0_button_1_s1_writedata;                            // mm_interconnect_0:button_1_s1_writedata -> button_1:writedata
+	wire         mm_interconnect_0_button_2_s1_chipselect;                           // mm_interconnect_0:button_2_s1_chipselect -> button_2:chipselect
+	wire  [31:0] mm_interconnect_0_button_2_s1_readdata;                             // button_2:readdata -> mm_interconnect_0:button_2_s1_readdata
+	wire   [1:0] mm_interconnect_0_button_2_s1_address;                              // mm_interconnect_0:button_2_s1_address -> button_2:address
+	wire         mm_interconnect_0_button_2_s1_write;                                // mm_interconnect_0:button_2_s1_write -> button_2:write_n
+	wire  [31:0] mm_interconnect_0_button_2_s1_writedata;                            // mm_interconnect_0:button_2_s1_writedata -> button_2:writedata
+	wire         mm_interconnect_0_timer_s1_chipselect;                              // mm_interconnect_0:timer_s1_chipselect -> timer:chipselect
+	wire  [15:0] mm_interconnect_0_timer_s1_readdata;                                // timer:readdata -> mm_interconnect_0:timer_s1_readdata
+	wire   [2:0] mm_interconnect_0_timer_s1_address;                                 // mm_interconnect_0:timer_s1_address -> timer:address
+	wire         mm_interconnect_0_timer_s1_write;                                   // mm_interconnect_0:timer_s1_write -> timer:write_n
+	wire  [15:0] mm_interconnect_0_timer_s1_writedata;                               // mm_interconnect_0:timer_s1_writedata -> timer:writedata
 	wire         irq_mapper_receiver0_irq;                                           // Audio:irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                           // timer_0:irq -> irq_mapper:receiver1_irq
 	wire         irq_mapper_receiver2_irq;                                           // JTAG:av_irq -> irq_mapper:receiver2_irq
+	wire         irq_mapper_receiver3_irq;                                           // button_2:irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                           // button_1:irq -> irq_mapper:receiver4_irq
+	wire         irq_mapper_receiver5_irq;                                           // timer:irq -> irq_mapper:receiver5_irq
 	wire  [31:0] cpu_irq_irq;                                                        // irq_mapper:sender_irq -> CPU:irq
 	wire         rst_controller_reset_out_reset;                                     // rst_controller:reset_out -> [Alpha_Blender:reset, Audio:reset, CPU:reset_n, Char_Buffer:reset, Dual_Clock_FIFO:reset_stream_in, Onchip_Memory:reset, Pixel_Buffer:reset, RGB_Resampler:reset, SDRAM:reset_n, irq_mapper:reset, mm_interconnect_0:Pixel_Buffer_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                                 // rst_controller:reset_req -> [CPU:reset_req, Onchip_Memory:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                                      // CPU:debug_reset_request -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_003:reset_in1, rst_controller_004:reset_in1, rst_controller_005:reset_in0]
 	wire         rst_controller_001_reset_out_reset;                                 // rst_controller_001:reset_out -> Dual_Clock_FIFO:reset_stream_out
-	wire         rst_controller_002_reset_out_reset;                                 // rst_controller_002:reset_out -> [JTAG:rst_n, mm_interconnect_0:JTAG_reset_reset_bridge_in_reset_reset, timer_0:reset_n]
+	wire         rst_controller_002_reset_out_reset;                                 // rst_controller_002:reset_out -> [JTAG:rst_n, button_1:reset_n, button_2:reset_n, mm_interconnect_0:JTAG_reset_reset_bridge_in_reset_reset, timer:reset_n, timer_0:reset_n]
 	wire         rst_controller_003_reset_out_reset;                                 // rst_controller_003:reset_out -> Sys_Clk:ref_reset_reset
 	wire         rst_controller_004_reset_out_reset;                                 // rst_controller_004:reset_out -> VGA_Controller:reset
 	wire         video_clk_reset_source_reset;                                       // Video_Clk:reset_source_reset -> rst_controller_004:reset_in2
@@ -398,7 +418,42 @@ module test (
 		.reset_source_reset (video_clk_reset_source_reset)        // reset_source.reset
 	);
 
-	test_timer_0 timer_0 (
+	test_button_1 button_1 (
+		.clk        (sys_clk_sys_clk_clk),                      //                 clk.clk
+		.reset_n    (~rst_controller_002_reset_out_reset),      //               reset.reset_n
+		.address    (mm_interconnect_0_button_1_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_button_1_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_button_1_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_button_1_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_button_1_s1_readdata),   //                    .readdata
+		.in_port    (button_1_export),                          // external_connection.export
+		.irq        (irq_mapper_receiver4_irq)                  //                 irq.irq
+	);
+
+	test_button_1 button_2 (
+		.clk        (sys_clk_sys_clk_clk),                      //                 clk.clk
+		.reset_n    (~rst_controller_002_reset_out_reset),      //               reset.reset_n
+		.address    (mm_interconnect_0_button_2_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_button_2_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_button_2_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_button_2_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_button_2_s1_readdata),   //                    .readdata
+		.in_port    (button_2_export),                          // external_connection.export
+		.irq        (irq_mapper_receiver3_irq)                  //                 irq.irq
+	);
+
+	test_timer timer (
+		.clk        (sys_clk_sys_clk_clk),                   //   clk.clk
+		.reset_n    (~rst_controller_002_reset_out_reset),   // reset.reset_n
+		.address    (mm_interconnect_0_timer_s1_address),    //    s1.address
+		.writedata  (mm_interconnect_0_timer_s1_writedata),  //      .writedata
+		.readdata   (mm_interconnect_0_timer_s1_readdata),   //      .readdata
+		.chipselect (mm_interconnect_0_timer_s1_chipselect), //      .chipselect
+		.write_n    (~mm_interconnect_0_timer_s1_write),     //      .write_n
+		.irq        (irq_mapper_receiver5_irq)               //   irq.irq
+	);
+
+	test_timer timer_0 (
 		.clk        (sys_clk_sys_clk_clk),                     //   clk.clk
 		.reset_n    (~rst_controller_002_reset_out_reset),     // reset.reset_n
 		.address    (mm_interconnect_0_timer_0_s1_address),    //    s1.address
@@ -439,6 +494,16 @@ module test (
 		.Audio_avalon_audio_slave_readdata                  (mm_interconnect_0_audio_avalon_audio_slave_readdata),                //                                         .readdata
 		.Audio_avalon_audio_slave_writedata                 (mm_interconnect_0_audio_avalon_audio_slave_writedata),               //                                         .writedata
 		.Audio_avalon_audio_slave_chipselect                (mm_interconnect_0_audio_avalon_audio_slave_chipselect),              //                                         .chipselect
+		.button_1_s1_address                                (mm_interconnect_0_button_1_s1_address),                              //                              button_1_s1.address
+		.button_1_s1_write                                  (mm_interconnect_0_button_1_s1_write),                                //                                         .write
+		.button_1_s1_readdata                               (mm_interconnect_0_button_1_s1_readdata),                             //                                         .readdata
+		.button_1_s1_writedata                              (mm_interconnect_0_button_1_s1_writedata),                            //                                         .writedata
+		.button_1_s1_chipselect                             (mm_interconnect_0_button_1_s1_chipselect),                           //                                         .chipselect
+		.button_2_s1_address                                (mm_interconnect_0_button_2_s1_address),                              //                              button_2_s1.address
+		.button_2_s1_write                                  (mm_interconnect_0_button_2_s1_write),                                //                                         .write
+		.button_2_s1_readdata                               (mm_interconnect_0_button_2_s1_readdata),                             //                                         .readdata
+		.button_2_s1_writedata                              (mm_interconnect_0_button_2_s1_writedata),                            //                                         .writedata
+		.button_2_s1_chipselect                             (mm_interconnect_0_button_2_s1_chipselect),                           //                                         .chipselect
 		.Char_Buffer_avalon_char_buffer_slave_address       (mm_interconnect_0_char_buffer_avalon_char_buffer_slave_address),     //     Char_Buffer_avalon_char_buffer_slave.address
 		.Char_Buffer_avalon_char_buffer_slave_write         (mm_interconnect_0_char_buffer_avalon_char_buffer_slave_write),       //                                         .write
 		.Char_Buffer_avalon_char_buffer_slave_read          (mm_interconnect_0_char_buffer_avalon_char_buffer_slave_read),        //                                         .read
@@ -493,6 +558,11 @@ module test (
 		.SDRAM_s1_readdatavalid                             (mm_interconnect_0_sdram_s1_readdatavalid),                           //                                         .readdatavalid
 		.SDRAM_s1_waitrequest                               (mm_interconnect_0_sdram_s1_waitrequest),                             //                                         .waitrequest
 		.SDRAM_s1_chipselect                                (mm_interconnect_0_sdram_s1_chipselect),                              //                                         .chipselect
+		.timer_s1_address                                   (mm_interconnect_0_timer_s1_address),                                 //                                 timer_s1.address
+		.timer_s1_write                                     (mm_interconnect_0_timer_s1_write),                                   //                                         .write
+		.timer_s1_readdata                                  (mm_interconnect_0_timer_s1_readdata),                                //                                         .readdata
+		.timer_s1_writedata                                 (mm_interconnect_0_timer_s1_writedata),                               //                                         .writedata
+		.timer_s1_chipselect                                (mm_interconnect_0_timer_s1_chipselect),                              //                                         .chipselect
 		.timer_0_s1_address                                 (mm_interconnect_0_timer_0_s1_address),                               //                               timer_0_s1.address
 		.timer_0_s1_write                                   (mm_interconnect_0_timer_0_s1_write),                                 //                                         .write
 		.timer_0_s1_readdata                                (mm_interconnect_0_timer_0_s1_readdata),                              //                                         .readdata
@@ -506,6 +576,9 @@ module test (
 		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
 		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
+		.receiver3_irq (irq_mapper_receiver3_irq),       // receiver3.irq
+		.receiver4_irq (irq_mapper_receiver4_irq),       // receiver4.irq
+		.receiver5_irq (irq_mapper_receiver5_irq),       // receiver5.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 

@@ -6,6 +6,8 @@ module test (
 	audio_DACDAT,
 	audio_DACLRCK,
 	audio_clk_clk,
+	button_1_export,
+	button_2_export,
 	clk_clk,
 	reset_reset_n,
 	sdram_addr,
@@ -33,6 +35,8 @@ module test (
 	output		audio_DACDAT;
 	input		audio_DACLRCK;
 	output		audio_clk_clk;
+	input		button_1_export;
+	input		button_2_export;
 	input		clk_clk;
 	input		reset_reset_n;
 	output	[12:0]	sdram_addr;
