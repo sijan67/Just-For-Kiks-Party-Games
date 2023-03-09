@@ -2,11 +2,21 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
-const Question = require('./models/Question');
-const User = require('./models/User');
+const bodyParser = require('body-parser');
+const { DeepSpeechModel, triviaHotWords } = require('../ML/deepspeechmodel');
 
-mongoose.connect("mongodb://my_user:my_pwd@localhost:27017/mern", { useNewUrlParser: true });
+const QuestionSchema = require('./models/Question');
+const UserSchema = require('./models/User');
 
+const Database = require('./database');
+const db = new Database('mongodb://my_user:my_pwd@localhost:27017/mern');
+const Question = db.model('Question', QuestionSchema);
+const User = db.model('User', UserSchema);
+
+const deepspeech_model = new DeepSpeechModel();
+deepspeech_model.SetHotWords(triviaHotWords);
+
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -133,4 +143,34 @@ app.get('/users/teamname', (req, res) => {
         }
         res.end();
     });
+});
+
+// GET endpoint for getting question by questionID
+app.get('/questions/:questionID', (req, res) => {
+    const questionID = req.params.questionID;
+    Question.findOne({ questionID }, "description").then(question => {
+        if (question !== null) {
+            res.write(question);
+        } else {
+            res.status(404).json({ error: "Question not found" });
+        }
+    }).catch(error => {
+        res.status(500).json({ error: "Server error" });
+    });
+});
+
+
+// POST endpoint for receiving audio file
+app.post('/audio', async (req, res) => {
+    const audioFileData = req.body.audioFile;
+    const questionID = req.body.questionID;
+  
+    // Decode base64-encoded audio file data
+    const audioFileBuffer = Buffer.from(audioFileData, 'base64');
+
+    let transcript = await deepspeech_model.Translate(audioFileBuffer, false); 
+
+    const question = await Question.findOne({ questionID: questionID }).exec();
+    
+    res.write(JSON.stringify(transcript == question.answer));
 });

@@ -7,4 +7,4 @@ const UserSchema = new mongoose.Schema({
     roomcode: String
 })
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = UserSchema;
