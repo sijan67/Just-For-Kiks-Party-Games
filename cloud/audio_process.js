@@ -1,12 +1,11 @@
-import fs from "fs";
-const { MongoClient } = require('mongodb');
-const Database = require('./database.js');
-import DeepSpeechModel, { numberHotWords } from "../ML/deepspeechmodel.js";
+const { triviaHotWords, DeepSpeechModel } = require("../ML/deepspeechmodel");
 
-store_audio = (audio) => {
-    let audioBuffer = fs.readFileSync(audio);
-    
+const dp = new DeepSpeechModel();
+
+async function translateAndLog() {
+    dp.SetHotWords(triviaHotWords);
+    let translation = await dp.Translate('./common_voice_en_21875014.wav', true);
+    console.log(`translated msg is: ${translation}`);
 }
 
-let translation = dp.Translate('./common_voice_en_21875014.wav');
-console.log(`translated msg is: ${translation}`);
+translateAndLog();
