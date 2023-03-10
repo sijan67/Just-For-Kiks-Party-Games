@@ -1,30 +1,39 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const { DeepSpeechModel, triviaHotWords } = require('../ML/deepspeechmodel');
 
-const QuestionSchema = require('./models/Question');
-const UserSchema = require('./models/User');
+// const express = require('express');
+// const path = require('path');
+// const app = express();
+// const mongoose = require('mongoose');
+// const bodyParser = require('body-parser');
+// const { DeepSpeechModel, triviaHotWords } = require('../ML/deepspeechmodel');
 
-const Database = require('./database');
-const db = new Database('mongodb://my_user:my_pwd@localhost:27017/mern');
-const Question = db.model('Question', QuestionSchema);
-const User = db.model('User', UserSchema);
+// const QuestionSchema = require('./models/Question');
+// const UserSchema = require('./models/User');
 
-const deepspeech_model = new DeepSpeechModel();
-deepspeech_model.SetHotWords(triviaHotWords);
+// const Database = require('./database');
+// const db = new Database('mongodb://my_user:my_pwd@localhost:27017/mern');
+// const Question = db.model('Question', QuestionSchema);
+// const User = db.model('User', UserSchema);
 
-app.use(bodyParser.json());
+// const deepspeech_model = new DeepSpeechModel();
+// deepspeech_model.SetHotWords(triviaHotWords);
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.use(bodyParser.json());
 
-app.get('/favicon.ico', (req, res) => {
-    res.sendFile(path.join(`${__dirname}/favicon.ico`));
-});
+const http = require('http');
+const app = require('./app');
+
+const server = http.createServer(app);
+
+server.listen(port);
+
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+
+// app.get('/favicon.ico', (req, res) => {
+//     res.sendFile(path.join(`${__dirname}/favicon.ico`));
+// });
 
 app.get('/questions', (req, res) => {
     Question.find({}, "questionID description alternatives").then(questions => {
@@ -35,12 +44,12 @@ app.get('/questions', (req, res) => {
         }
         res.end();
     });
-}).listen(8000);
+})
 
 app.get('/users', (req, res) => {
     User.find({}, "username teamname teamscore roomcode").then(users => {
         if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users));
+            res.write(JSON.stringify(users[0]));
         } else {
             res.write("No users found");
         }
@@ -115,7 +124,7 @@ app.get('/users', (req, res) => {
 app.get('/users/username', (req, res) => {
     User.find({}, "username").then(users => {
         if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users));
+            res.write(JSON.stringify(users[0]));
         } else {
             res.write("No users found");
         }
@@ -137,13 +146,14 @@ app.get('/users/roomcode', (req, res) => {
 app.get('/users/teamname', (req, res) => {
     User.find({}, "teamname").then(users => {
         if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users));
+            res.write(JSON.stringify(users[0]));
         } else {
             res.write("No users found");
         }
         res.end();
     });
 });
+
 
 // GET endpoint for getting question by questionID
 app.get('/questions/:questionID', (req, res) => {
@@ -174,3 +184,7 @@ app.post('/audio', async (req, res) => {
     
     res.write(JSON.stringify(transcript == question.answer));
 });
+
+
+
+

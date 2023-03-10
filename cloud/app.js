@@ -1,30 +1,40 @@
-const http = require('http');
+const express = require('express');
+const path = require('path');
+const app = express();
+const mongoose = require('mongoose');
 
-const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
-    'Access-Control-Max-Age': 2592000, 
-};
+mongoose.connect("mongodb://my_user:my_pwd@localhost:27017/mern", { useNewUrlParser: true });
 
-http.createServer((req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    if (req.method === 'OPTIONS') {
-        res.writeHead(204, headers);
-        res.end();
-        return;
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    if (req.method === "OPTIONS") {
+        res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+        return res.status(200).json({});
     }
+    next();
+});
 
-    if (['GET', 'POST', 'PUT'].indexOf(req.method) > -1) {
-        req.on('data', chunk => {
-            console.log(chunk.toString());
-        });
+// Routes for handling requests
+app.get('/questions', questionRoutes)
 
-        res.writeHead(200, headers);
-        res.end('success');
-        return;
+app.use((req, res, next) => {
+const error = new Error("Not found");
+error.status = 404;
+next(error);
+});
+
+app.use((error, req, res, next) => {
+res.status(error.status || 500);
+res.json({
+    error: {
+    message: error.message
     }
+});
+});
 
-    res.writeHead(405, headers);
-    res.end(`${req.method} is not allowed for the request.`);
-}).listen(8000);
+module.exports = app;
 

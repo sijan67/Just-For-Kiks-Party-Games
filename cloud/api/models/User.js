@@ -3,8 +3,7 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
     username: String,
     teamname: String,
-    teamscore: String,
-    roomcode: String
+    roomcode: Number
 })
 
-module.exports = UserSchema;
+module.exports = mongoose.model('User',UserSchema);
