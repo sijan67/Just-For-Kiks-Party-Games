@@ -24,7 +24,7 @@ const app = require('./app');
 
 const server = http.createServer(app);
 
-server.listen(port);
+server.listen(8000);
 
 
 // app.get('/', (req, res) => {
@@ -35,27 +35,27 @@ server.listen(port);
 //     res.sendFile(path.join(`${__dirname}/favicon.ico`));
 // });
 
-app.get('/questions', (req, res) => {
-    Question.find({}, "questionID description alternatives").then(questions => {
-        if (questions !== null && questions.length > 0) {
-            res.write(JSON.stringify(questions));
-        } else {
-            res.write("No questions found");
-        }
-        res.end();
-    });
-})
+// app.get('/questions', (req, res) => {
+//     Question.find({}, "questionID description alternatives").then(questions => {
+//         if (questions !== null && questions.length > 0) {
+//             res.write(JSON.stringify(questions));
+//         } else {
+//             res.write("No questions found");
+//         }
+//         res.end();
+//     });
+// })
 
-app.get('/users', (req, res) => {
-    User.find({}, "username teamname teamscore roomcode").then(users => {
-        if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users[0]));
-        } else {
-            res.write("No users found");
-        }
-        res.end();
-    });
-});
+// app.get('/users', (req, res) => {
+//     User.find({}, "username teamname teamscore roomcode").then(users => {
+//         if (users !== null && users.length > 0) {
+//             res.write(JSON.stringify(users[0]));
+//         } else {
+//             res.write("No users found");
+//         }
+//         res.end();
+//     });
+// });
 
 // app.post('/users/name', (req, res) => {
 // 	var data = req.body;
@@ -121,69 +121,21 @@ app.get('/users', (req, res) => {
 //     }
 // });
 
-app.get('/users/username', (req, res) => {
-    User.find({}, "username").then(users => {
-        if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users[0]));
-        } else {
-            res.write("No users found");
-        }
-        res.end();
-    });
-});
-
-app.get('/users/roomcode', (req, res) => {
-    User.find({}, "roomcode").then(users => {
-        if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users));
-        } else {
-            res.write("No users found");
-        }
-        res.end();
-    });
-});
-
-app.get('/users/teamname', (req, res) => {
-    User.find({}, "teamname").then(users => {
-        if (users !== null && users.length > 0) {
-            res.write(JSON.stringify(users[0]));
-        } else {
-            res.write("No users found");
-        }
-        res.end();
-    });
-});
-
-
-// GET endpoint for getting question by questionID
-app.get('/questions/:questionID', (req, res) => {
-    const questionID = req.params.questionID;
-    Question.findOne({ questionID }, "description").then(question => {
-        if (question !== null) {
-            res.write(question);
-        } else {
-            res.status(404).json({ error: "Question not found" });
-        }
-    }).catch(error => {
-        res.status(500).json({ error: "Server error" });
-    });
-});
-
 
 // POST endpoint for receiving audio file
-app.post('/audio', async (req, res) => {
-    const audioFileData = req.body.audioFile;
-    const questionID = req.body.questionID;
+// app.post('/audio', async (req, res) => {
+//     const audioFileData = req.body.audioFile;
+//     const questionID = req.body.questionID;
   
-    // Decode base64-encoded audio file data
-    const audioFileBuffer = Buffer.from(audioFileData, 'base64');
+//     // Decode base64-encoded audio file data
+//     const audioFileBuffer = Buffer.from(audioFileData, 'base64');
 
-    let transcript = await deepspeech_model.Translate(audioFileBuffer, false); 
+//     let transcript = await deepspeech_model.Translate(audioFileBuffer, false); 
 
-    const question = await Question.findOne({ questionID: questionID }).exec();
+//     const question = await Question.findOne({ questionID: questionID }).exec();
     
-    res.write(JSON.stringify(transcript == question.answer));
-});
+//     res.write(JSON.stringify(transcript == question.answer));
+// });
 
 
 

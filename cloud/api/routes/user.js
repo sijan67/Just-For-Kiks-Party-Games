@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const User = require('./api/models/User');
+const User = require('../models/User');
 
 router.get("/", (req, res, next) => {
     User.find()
       .exec()
       .then(docs => {
-        res.status(200).json(JSON.stringify(docs[0]));
+        res.status(200).json(JSON.stringify(docs));
     })
     .catch(err => {
         console.log(err);
@@ -74,3 +74,5 @@ router.get('/:username/teamname', (req, res) => {
         res.end();
     });
 });
+
+module.exports = router;
