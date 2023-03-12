@@ -1,9 +1,10 @@
 const fs = require("fs");
 const DeepSpeech = require("deepspeech");
 const Wav = require("node-wav");
+const path = require('path');
 
-const modelPath = 'models/default_model.pbmm';
-const scorerPath = 'models/default_model.scorer';
+const modelPath = path.join(__dirname, 'models/default_model.pbmm');
+const scorerPath = path.join(__dirname, 'models/default_model.scorer');
 
 const triviaHotWords = {
     'a' : 10,
