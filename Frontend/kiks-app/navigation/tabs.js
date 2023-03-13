@@ -64,13 +64,15 @@ const screenOptions = {
   },
 };
 
-export default function NavTab() {
+export default function NavTab({route}) {
+  const { username } = route.params;
+
   
   return (
       <Tab.Navigator 
-        initialRouteName="Home" {...{ screenOptions }}>
+        initialRouteName="Home" {...{ screenOptions }} initialParams={{ username: username }}>
          
-        <Tab.Screen name="Profile" component={Profile} 
+        <Tab.Screen name="Profile" component={Profile} initialParams={{ username: route.params.username }} 
           options={{
           tabBarIcon: ({focused})=>(
             <View style={{alignItems: 'center', justifyContent:'center', top:10}}>
