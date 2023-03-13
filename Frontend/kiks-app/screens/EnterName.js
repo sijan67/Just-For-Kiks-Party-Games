@@ -51,8 +51,13 @@ const styles = StyleSheet.create({
 })
 
 export default function EnterName({navigation, route}){
-    const [text, onChangeText] = React.useState('Useless Text');
+    const [username, setUsername] = React.useState('Useless Text');
     const [number, onChangeNumber] = React.useState('');
+
+    const handleUsernameChange = (text) => {
+      setUsername(text);
+    };
+
 
     return (
       <View style={styles.main}>
@@ -62,12 +67,12 @@ export default function EnterName({navigation, route}){
         <SafeAreaView>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeText}
+        onChangeText={handleUsernameChange}
       />
     </SafeAreaView>
 
         <Button style={styles.buttonStyle} onPress={() =>
-        navigation.navigate('EnterGameCode')}>
+        navigation.navigate('EnterGameCode', { username: username })}>
           <Text style={{color: 'black', fontSize: 20}}>
                 Confirm
           </Text>

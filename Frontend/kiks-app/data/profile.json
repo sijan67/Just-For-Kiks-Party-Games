@@ -1,0 +1,12 @@
+{ "profile":
+    [
+    {
+        "roomCode":"1234",
+        "teamName":"Team1"
+    }, 
+    {
+        "roomCode":"9182",
+        "teamName":"Team1"
+    }
+]
+}
