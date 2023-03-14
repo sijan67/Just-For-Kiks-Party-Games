@@ -1,10 +1,11 @@
 import { Text, View } from 'react-native';
 import Leaderboard from 'react-native-leaderboard';
+import {useEffect, useState} from 'react';
 
 this.state = {
   data: [
-      {userName: 'Trivia-Soc', highScore: 50},
-      {userName: 'Team Triceps', highScore: 120}
+      {teamname: 'Trivia-Soc', teamscore: "80"},
+      {teamname: 'Team Triceps', teamscore: "120"}
       //...
   ] //can also be an object of objects!: data: {a:{}, b:{}}
 }
@@ -14,14 +15,31 @@ this.state = {
 // but works when restarting the app
 
 export default function LeaderBoard() {
+
+    const [score, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const url = `http://50.112.215.42/leaderboard`;
+
+    useEffect(() => {
+      fetch(url, {mode: 'cors'})
+        .then((resp) => resp.json())
+        .then((json) => setData(json))
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
+    }, []);
+
+
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' , backgroundColor: '#ffe6e6'}}>
         <Leaderboard 
-        data={this.state.data} 
-        sortBy='highScore' 
-        labelBy='userName'
-        style={{padding: 40}}
+        // data={this.state.data} 
+        data = {score}
+        sortBy='teamscore' 
+        labelBy='teamname'
+        style={{padding: 60}}
         />
+        <Text>hi</Text>
       </View>
     );
   }
