@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const questionRoutes = require("./api/routes/question");
 const userRoutes = require("./api/routes/user");
+const audioRoute = require("./api/routes/audio");
 
 mongoose.connect("mongodb://my_user:my_pwd@localhost:27017/mern", { useNewUrlParser: true });
 
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
 // Routes for handling requests
 app.use('/questions', questionRoutes);
 app.use('/users', userRoutes);
+app.use('/audio', audioRoute);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
@@ -43,5 +45,4 @@ app.use((error, req, res, next) => {
     });
 });
 
-module.exports = app;
-
+module.exports = {app, deepspeech_model};
