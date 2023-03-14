@@ -9,6 +9,8 @@
 		.button_2_export (<connected-to-button_2_export>), //  button_2.export
 		.clk_clk         (<connected-to-clk_clk>),         //       clk.clk
 		.reset_reset_n   (<connected-to-reset_reset_n>),   //     reset.reset_n
+		.rs232_RXD       (<connected-to-rs232_RXD>),       //     rs232.RXD
+		.rs232_TXD       (<connected-to-rs232_TXD>),       //          .TXD
 		.sdram_addr      (<connected-to-sdram_addr>),      //     sdram.addr
 		.sdram_ba        (<connected-to-sdram_ba>),        //          .ba
 		.sdram_cas_n     (<connected-to-sdram_cas_n>),     //          .cas_n
@@ -26,6 +28,14 @@
 		.vga_SYNC        (<connected-to-vga_SYNC>),        //          .SYNC
 		.vga_R           (<connected-to-vga_R>),           //          .R
 		.vga_G           (<connected-to-vga_G>),           //          .G
-		.vga_B           (<connected-to-vga_B>)            //          .B
+		.vga_B           (<connected-to-vga_B>),           //          .B
+		.io_acknowledge  (<connected-to-io_acknowledge>),  //        io.acknowledge
+		.io_irq          (<connected-to-io_irq>),          //          .irq
+		.io_address      (<connected-to-io_address>),      //          .address
+		.io_bus_enable   (<connected-to-io_bus_enable>),   //          .bus_enable
+		.io_byte_enable  (<connected-to-io_byte_enable>),  //          .byte_enable
+		.io_rw           (<connected-to-io_rw>),           //          .rw
+		.io_write_data   (<connected-to-io_write_data>),   //          .write_data
+		.io_read_data    (<connected-to-io_read_data>)     //          .read_data
 	);
 

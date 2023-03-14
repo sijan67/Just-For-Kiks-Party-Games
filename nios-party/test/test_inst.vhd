@@ -10,6 +10,8 @@
 			button_2_export : in    std_logic                     := 'X';             -- export
 			clk_clk         : in    std_logic                     := 'X';             -- clk
 			reset_reset_n   : in    std_logic                     := 'X';             -- reset_n
+			rs232_RXD       : in    std_logic                     := 'X';             -- RXD
+			rs232_TXD       : out   std_logic;                                        -- TXD
 			sdram_addr      : out   std_logic_vector(12 downto 0);                    -- addr
 			sdram_ba        : out   std_logic_vector(1 downto 0);                     -- ba
 			sdram_cas_n     : out   std_logic;                                        -- cas_n
@@ -27,7 +29,15 @@
 			vga_SYNC        : out   std_logic;                                        -- SYNC
 			vga_R           : out   std_logic_vector(7 downto 0);                     -- R
 			vga_G           : out   std_logic_vector(7 downto 0);                     -- G
-			vga_B           : out   std_logic_vector(7 downto 0)                      -- B
+			vga_B           : out   std_logic_vector(7 downto 0);                     -- B
+			io_acknowledge  : in    std_logic                     := 'X';             -- acknowledge
+			io_irq          : in    std_logic                     := 'X';             -- irq
+			io_address      : out   std_logic_vector(15 downto 0);                    -- address
+			io_bus_enable   : out   std_logic;                                        -- bus_enable
+			io_byte_enable  : out   std_logic_vector(1 downto 0);                     -- byte_enable
+			io_rw           : out   std_logic;                                        -- rw
+			io_write_data   : out   std_logic_vector(15 downto 0);                    -- write_data
+			io_read_data    : in    std_logic_vector(15 downto 0) := (others => 'X')  -- read_data
 		);
 	end component test;
 
@@ -43,6 +53,8 @@
 			button_2_export => CONNECTED_TO_button_2_export, --  button_2.export
 			clk_clk         => CONNECTED_TO_clk_clk,         --       clk.clk
 			reset_reset_n   => CONNECTED_TO_reset_reset_n,   --     reset.reset_n
+			rs232_RXD       => CONNECTED_TO_rs232_RXD,       --     rs232.RXD
+			rs232_TXD       => CONNECTED_TO_rs232_TXD,       --          .TXD
 			sdram_addr      => CONNECTED_TO_sdram_addr,      --     sdram.addr
 			sdram_ba        => CONNECTED_TO_sdram_ba,        --          .ba
 			sdram_cas_n     => CONNECTED_TO_sdram_cas_n,     --          .cas_n
@@ -60,6 +72,14 @@
 			vga_SYNC        => CONNECTED_TO_vga_SYNC,        --          .SYNC
 			vga_R           => CONNECTED_TO_vga_R,           --          .R
 			vga_G           => CONNECTED_TO_vga_G,           --          .G
-			vga_B           => CONNECTED_TO_vga_B            --          .B
+			vga_B           => CONNECTED_TO_vga_B,           --          .B
+			io_acknowledge  => CONNECTED_TO_io_acknowledge,  --        io.acknowledge
+			io_irq          => CONNECTED_TO_io_irq,          --          .irq
+			io_address      => CONNECTED_TO_io_address,      --          .address
+			io_bus_enable   => CONNECTED_TO_io_bus_enable,   --          .bus_enable
+			io_byte_enable  => CONNECTED_TO_io_byte_enable,  --          .byte_enable
+			io_rw           => CONNECTED_TO_io_rw,           --          .rw
+			io_write_data   => CONNECTED_TO_io_write_data,   --          .write_data
+			io_read_data    => CONNECTED_TO_io_read_data     --          .read_data
 		);
 
