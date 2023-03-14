@@ -5,26 +5,25 @@ const mongoose = require("mongoose");
 const User = require('../models/User');
 
 router.get("/", (req, res, next) => {
-    User.find()
-      .exec()
-      .then(docs => {
-        res.status(200).json(JSON.stringify(docs));
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-          error: err
-        });
+    User.find({}, "username teamname teamscore roomcode").then(users => {
+        if (users !== null && users.length > 0) {
+            res.write(JSON.stringify(users));
+        } else {
+            res.write("No users found");
+        }
+        res.end();
     });
 });
 
+
+
 router.post("/", (req, res, next) => {
-    const User = new User({
+    const newUser = new User({
       username: req.body.username,
       teamname: req.body.teamname,
       roomcode: req.body.roomcode
     });
-    User
+    newUser
       .save()
       .then(result => {
         console.log(result);
@@ -38,22 +37,21 @@ router.post("/", (req, res, next) => {
 });
 
 router.get("/:username", (req, res, next) => {
-    const username = req.params.username;
-    User.findOne({ username }, "username roomcode teamname").then(user => {
-        if (user !== null) {
+    const {username} = req.params;
+    User.find({ username }, "username teamname teamscore roomcode").then(user => {
+        if (user !== null && user.length > 0) {
             res.write(JSON.stringify(user[0]));
         } else {
-            res.status(404).json({ error: "User not found" });
+            res.write("No users found");
         }
-    }).catch(error => {
-        res.status(500).json({ error: "Server error" });
-    });
+        res.end();
+    })
 });
 
 
 router.get('/:username/roomcode', (req, res) => {
-    const username = req.params.username;
-    User.find({}, "roomcode").then(user => {
+    const {username} = req.params;
+    User.find({ username }, "roomcode").then(user => {
         if (user !== null && user.length > 0) {
             res.write(JSON.stringify(user[0]));
         } else {
@@ -64,8 +62,8 @@ router.get('/:username/roomcode', (req, res) => {
 });
 
 router.get('/:username/teamname', (req, res) => {
-    const username = req.params.username;
-    User.find({}, "teamname").then(user => {
+    const {username} = req.params;
+    User.find({username}, "teamname").then(user => {
         if (user !== null && user.length > 0) {
             res.write(JSON.stringify(user[0]));
         } else {

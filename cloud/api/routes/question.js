@@ -16,16 +16,14 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:questionID", (req, res, next) => {
-    const questionID = req.params.questionID;
-    Question.findOne({ questionID: questionID }, "questionID description alternatives").then(questions => {
-        if (questions !== null) {
-            res.write(JSON.stringify(questions[0]));
+    const {questionID} = req.params;
+    Question.find({ questionID }, "questionID description alternatives").then(question => {
+        if (question !== null && question.length > 0) {
+            res.write(JSON.stringify(question[0]));
         } else {
-            res.status(404).json({ error: "Question not found" });
+            res.write("No questions found");
         }
-    }).catch(error => {
-        res.status(500).json({ error: "Server error" });
-    });
+    })
 });
 
 module.exports = router;
