@@ -3,6 +3,8 @@ import { StyleSheet, Text, View ,TextInput, SafeAreaView, ScrollView, StatusBar,
 import { Avatar, Button, Card } from 'react-native-paper';
 import {useEffect} from "react";
 
+
+
 const styles = StyleSheet.create({
     shadow: {
       shadowColor: '#92cff0', 
@@ -54,10 +56,12 @@ export default function EnterGameCode({navigation, route}){
     const [text, onChangeText] = React.useState('Useless Text');
     const [number, onChangeNumber] = React.useState('');
 
+    const { username } = route.params;
+
     return (
       <View style={styles.main}>
         <Text style={styles.textStyle}>
-                Enter your room code
+                Enter your room code , {username}
         </Text>
         <SafeAreaView>
       <TextInput
@@ -67,7 +71,7 @@ export default function EnterGameCode({navigation, route}){
     </SafeAreaView>
 
         <Button style={styles.buttonStyle} onPress={() =>
-        navigation.navigate('NavTab')}>
+        navigation.navigate('NavTab', { username: username })}>
           <Text style={{color: 'black', fontSize: 20}}>
                 Confirm
           </Text>
