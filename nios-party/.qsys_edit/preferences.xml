@@ -10,7 +10,8 @@
    <name preferredWidth="239" />
   </columns>
  </systemtable>
- <library expandedCategories="Library,Project" />
+ <library
+   expandedCategories="Library,Library/University Program/Bridges,Library/University Program,Project" />
  <window width="1920" height="1020" x="0" y="0" />
  <generation path="_PROJECT_NAME_" />
 </preferences>

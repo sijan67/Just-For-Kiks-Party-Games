@@ -1,4 +1,3 @@
-
 // const express = require('express');
 // const path = require('path');
 // const app = express();
@@ -136,7 +135,3 @@ server.listen(8000);
     
 //     res.write(JSON.stringify(transcript == question.answer));
 // });
-
-
-
-
