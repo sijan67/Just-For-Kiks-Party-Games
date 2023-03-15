@@ -21,18 +21,23 @@ router.post("/", (req, res, next) => {
     const newUser = new User({
       username: req.body.username,
       teamname: req.body.teamname,
+      teamscore: req.body.teamscore,
       roomcode: req.body.roomcode
     });
     newUser
-      .save()
-      .then(result => {
-        console.log(result);
+    .save()
+    .then(result => {
+      console.log(result);
+      res.status(201).json({
+        message: "Handling POST requests to /users",
+        createdUser: result
+      });
     })
     .catch(err => {
-        console.log(err);
-        res.status(500).json({
-          error: err
-        });
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
     });
 });
 

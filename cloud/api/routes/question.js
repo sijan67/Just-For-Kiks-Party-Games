@@ -16,7 +16,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/:questionID", (req, res, next) => {
-    const {questionID} = req.params;
+    const questionID = parseInt(req.params);
     Question.find({ questionID }, "questionID description alternatives").then(question => {
         if (question !== null && question.length > 0) {
             res.write(JSON.stringify(question[0]));

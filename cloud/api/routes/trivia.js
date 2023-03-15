@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 
 const User = require('../models/User');
 
-router.get("/:teamname/score", (req, res, next) => {
-    const {teamname} = req.params;
-    User.find({ teamname }, "teamscore").then(team => {
+router.get("/:username/score", (req, res, next) => {
+    const {username} = req.params;
+    User.find({ username }, "teamscore").then(team => {
         if (team !== null && team.length > 0) {
             res.write(JSON.stringify(team[0]));
         } else {

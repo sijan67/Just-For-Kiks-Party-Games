@@ -8,7 +8,7 @@ const userRoutes = require("./api/routes/user");
 const leaderboardRoutes = require("./api/routes/leaderboard");
 const mathRoutes = require("./api/routes/math");
 const triviaRoutes = require("./api/routes/trivia");
-const numberOrderingRoutes = require("./api/routes/numOrdering");
+// const numberOrderingRoutes = require("./api/routes/numOrdering");
 
 mongoose.connect("mongodb://my_user:my_pwd@localhost:27017/mern", { useNewUrlParser: true });
 
@@ -34,7 +34,7 @@ app.use('/users', userRoutes);
 app.use('/leaderboard', leaderboardRoutes);
 app.use('/math', mathRoutes);
 app.use('/trivia', triviaRoutes);
-app.use('/numOrdering', numberOrderingRoutes);
+// app.use('/numOrdering', numberOrderingRoutes);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
