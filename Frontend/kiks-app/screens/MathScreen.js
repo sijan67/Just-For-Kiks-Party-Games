@@ -35,7 +35,8 @@ export default function TriviaScreen({navigation, route}) {
           
           <Text style = {styles.text}> Your Team's Score , {route.params.username}</Text> 
           <CircularProgress
-            value={40}
+            // value={40}
+            value = {data.teamscore}
             radius={120}
             progressValueColor={'#ecf0f1'}
             activeStrokeColor={'#f39c12'}
