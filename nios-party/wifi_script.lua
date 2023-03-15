@@ -1,11 +1,17 @@
 -- This information is used by the Wi-Fi dongle to make a wireless connection to the router in the Lab
-SSID = "ubcvisitor"
-SSID_PASSWORD = ""
+SSID = "TELUS4189-2.4G"
+SSID_PASSWORD = "2Cheese61Pikachu"
 
 -- configure ESP as a station
-wifi.setmode(wifi.STATION)
-wifi.sta.config(SSID,SSID_PASSWORD)
-wifi.sta.autoconnect(1)
+--wifi.setmode(wifi.STATION)
+--wifi.sta.config(SSID,SSID_PASSWORD)
+--wifi.sta.autoconnect(1)
+station_cfg={}
+station_cfg.ssid=SSID
+station_cfg.pwd=SSID_PASSWORD
+station_cfg.save=false
+wifi.sta.config(station_cfg)
+
 
 HOST = "http://50.112.215.42/"
 
@@ -30,7 +36,7 @@ function sendTeamID(url, teamID, callback)
 	end)
 end
 
-function sendAudio(url, audioFile, callback)
+--[[function sendAudio(url, audioFile, callback)
 	local postData = sjson.encode(audioFile)
 	http.post(url, nil, postData, function(code, body, headers)
 		if(code == 200) then
@@ -39,19 +45,19 @@ function sendAudio(url, audioFile, callback)
 			callback(nil)
 		end
 	end)
-end)
+end]]--
 
 function check_wifi()
 	ip = wifi.sta.getip()
 
 	if(ip==nil) then
-		print("Connecting...")
-	else
-		tmr.stop(0)
-		print("Connected to AP!")
 		print(ip)
-		getQuestion(HOST + "users", function(response)
-			print(response)
-		end)
+	else
+		--tmr.stop(0)
+		print("Connected!")
+		print(ip)
+        getQuestion(HOST .. "questions/1", function(response)
+            print(response)
+        end)
 	end
 end
