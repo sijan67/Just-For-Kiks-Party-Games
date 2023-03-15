@@ -27,11 +27,11 @@ import NumberOrderingScreen3 from './NumberOrderingScreen3'
 const Stack = createNativeStackNavigator();
 
 
-function GameScreen({navigation}) {
+function GameScreen({navigation, route}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
-          Pick a game of your choice
+          Pick a game of your choice , {route.params.name}
         </Text>
         <SafeAreaView style={styles.container}>
         <ScrollView 
@@ -44,7 +44,7 @@ function GameScreen({navigation}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/BBaFnKbM-Trivia-Day--702x336.gif' }} />
           <Card.Actions>
-          <Button onPress={() => navigation.navigate('TriviaScreen')}>
+          <Button onPress={() => navigation.navigate('TriviaScreen', { username: route.params.name })}>
              Enter Game
           </Button>
           </Card.Actions>
@@ -57,15 +57,11 @@ function GameScreen({navigation}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
           <Card.Actions>
-          <Button onPress={() => navigation.navigate('MathScreen')}>
+          <Button onPress={() => navigation.navigate('MathScreen' , { username: route.params.name })}>
             Enter Game
           </Button>
           </Card.Actions>
         </Card>
-
-
-        
-
 
         <Card style={styles.end_card_container}>
           <Card.Title style= {styles.title_style} title="Number Ordering" left={LeftContentOrdering} />
@@ -100,6 +96,7 @@ function GameScreen({navigation}) {
           <Stack.Screen
             name="GameScreen"
             component={GameScreen}
+            initialParams={{ name: route.params.name }}
             
           />
           <Stack.Screen options={{headerShown: false}} name="TriviaScreen" component={TriviaScreen} />

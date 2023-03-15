@@ -15,7 +15,7 @@ export default function TriviaScreen({navigation, route}) {
     return (
         <View style={{flex:1 , alignItems: 'center', backgroundColor: 'black'}}>
           
-          <Text style = {styles.text}> Your Team's Score </Text> 
+          <Text style = {styles.text}> Your Team's Score , {route.params.username}</Text> 
           <CircularProgress
             value={40}
             radius={120}
