@@ -21,10 +21,8 @@ export default function TestScreen({navigation,route}){
   // const url = `http://50.112.215.42/users/${username}`;
   const url = `http://50.112.215.42/users/${route.params.username}`;
 
-
-
   useEffect(() => {
-  fetch(url, {mode: 'cors'})
+  fetch(url)
     .then((resp) => resp.json())
     .then((json) => setData(json))
     .catch((error) => console.error(error))
@@ -40,7 +38,7 @@ export default function TestScreen({navigation,route}){
         <ActivityIndicator />
       ) : (
         <View >
-      <Text style={styles.name}>Hi {route.params.username}</Text>
+      <Text style={styles.name}>Hi {route.params.username} </Text>
     </View>
       )}
 

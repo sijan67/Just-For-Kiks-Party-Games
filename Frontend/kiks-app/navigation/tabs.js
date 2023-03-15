@@ -72,7 +72,7 @@ export default function NavTab({route}) {
       <Tab.Navigator 
         initialRouteName="Home" {...{ screenOptions }} >
          
-        <Tab.Screen name="Profile" component={Profile} initialParams={{ username: route.params.username }} 
+        <Tab.Screen name="Profile" component={Profile} initialParams={{ username: route.params.username, response: route.params.data}} 
           options={{
           tabBarIcon: ({focused})=>(
             <View style={{alignItems: 'center', justifyContent:'center', top:10}}>
