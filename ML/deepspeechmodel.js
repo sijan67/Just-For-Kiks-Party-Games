@@ -56,34 +56,34 @@ class DeepSpeechModel {
     };
 
     // Validate the audio
-    async ValidateAudio(audio, isfile) {
+    ValidateAudio(audio, isfile) {
         let audioBuffer;
         if (isfile) {
           let extension = audio.split('.').pop();
           if (extension != 'wav') {
             return false;
           }
-      
-          audioBuffer = await fs.promises.readFile(audio);
+
+          // audioBuffer = await fs.promises.readFile(audio);
+          audioBuffer = fs.readFileSync(audio);
         } else {
           audioBuffer = audio;
         }
-      
+
         let decodedAudio = Wav.decode(audioBuffer);
         if (decodedAudio.sampleRate != this.sampleRate) {
           console.error(`Warning, sample rate of audio file is ${decodedAudio.sampleRate}` +
                         `. Expected a sample rate of ${this.sampleRate}`);
           return null;
         }
-      
         return audioBuffer;
     }
       
     // translate
-    async Translate(audio, isfile) {
+    Translate(audio, isfile) {
         try {
-          const validatedAudio = await this.ValidateAudio(audio, isfile);
-          if (validatedAudio == null) {
+          const validatedAudio = this.ValidateAudio(audio, isfile);
+          if (validatedAudio == null || validatedAudio == false) {
             console.error(`Failed to validate audio.`);
             return;
           }
