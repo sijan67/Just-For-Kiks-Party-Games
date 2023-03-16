@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
 
 const triviaTeamScoreSchema = new mongoose.Schema({
-    teamname: String,
+    teamName: String,
     teamScore: Number,
-    teamid: Number
+    teamID: Number
 })
 
 module.exports = mongoose.model('Trivia', triviaTeamScoreSchema)

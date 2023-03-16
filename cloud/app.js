@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var queryParser = require('express-query-int');
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 
@@ -13,11 +14,11 @@ const triviaRoutes = require("./api/routes/trivia");
 
 const audioRoute = require("./api/routes/audio");
 
-
 mongoose.connect("mongodb://my_user:my_pwd@localhost:27017/mern", { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(queryParser());
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -58,4 +59,4 @@ app.use((error, req, res, next) => {
     });
 });
 
-module.exports = {app, deepspeech_model};
+module.exports = app;

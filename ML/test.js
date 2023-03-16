@@ -2,9 +2,9 @@ const { triviaHotWords, DeepSpeechModel } = require("./deepspeechmodel");
 
 const dp = new DeepSpeechModel();
 
-async function translateAndLog() {
+function translateAndLog() {
     dp.SetHotWords(triviaHotWords);
-    let translation = await dp.Translate('./common_voice_en_21875014.wav', true);
+    let translation = dp.Translate('./test_audio.wav', true);
     console.log(`translated msg is: ${translation}`);
 }
 
