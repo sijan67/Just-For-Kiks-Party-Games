@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Thu Mar 09 10:03:39 PST 2023
+ * Generated: Wed Mar 15 12:57:35 PDT 2023
  */
 
 /*
@@ -61,7 +61,7 @@
  */
 
 #define ALT_MODULE_CLASS_Audio altera_up_avalon_audio
-#define AUDIO_BASE 0x8023090
+#define AUDIO_BASE 0x8033090
 #define AUDIO_IRQ 2
 #define AUDIO_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define AUDIO_NAME "/dev/Audio"
@@ -76,7 +76,7 @@
 
 #define ALT_CPU_ARCHITECTURE "altera_nios2_gen2"
 #define ALT_CPU_BIG_ENDIAN 0
-#define ALT_CPU_BREAK_ADDR 0x08022820
+#define ALT_CPU_BREAK_ADDR 0x08032820
 #define ALT_CPU_CPU_ARCH_NIOS2_R1
 #define ALT_CPU_CPU_FREQ 50000000u
 #define ALT_CPU_CPU_ID_SIZE 1
@@ -117,7 +117,7 @@
  */
 
 #define NIOS2_BIG_ENDIAN 0
-#define NIOS2_BREAK_ADDR 0x08022820
+#define NIOS2_BREAK_ADDR 0x08032820
 #define NIOS2_CPU_ARCH_NIOS2_R1
 #define NIOS2_CPU_FREQ 50000000u
 #define NIOS2_CPU_ID_SIZE 1
@@ -156,7 +156,7 @@
  */
 
 #define ALT_MODULE_CLASS_Char_Buffer_avalon_char_buffer_slave altera_up_avalon_video_character_buffer_with_dma
-#define CHAR_BUFFER_AVALON_CHAR_BUFFER_SLAVE_BASE 0x8020000
+#define CHAR_BUFFER_AVALON_CHAR_BUFFER_SLAVE_BASE 0x8030000
 #define CHAR_BUFFER_AVALON_CHAR_BUFFER_SLAVE_IRQ -1
 #define CHAR_BUFFER_AVALON_CHAR_BUFFER_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define CHAR_BUFFER_AVALON_CHAR_BUFFER_SLAVE_NAME "/dev/Char_Buffer_avalon_char_buffer_slave"
@@ -170,7 +170,7 @@
  */
 
 #define ALT_MODULE_CLASS_Char_Buffer_avalon_char_control_slave altera_up_avalon_video_character_buffer_with_dma
-#define CHAR_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x80230b8
+#define CHAR_BUFFER_AVALON_CHAR_CONTROL_SLAVE_BASE 0x80330b8
 #define CHAR_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ -1
 #define CHAR_BUFFER_AVALON_CHAR_CONTROL_SLAVE_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define CHAR_BUFFER_AVALON_CHAR_CONTROL_SLAVE_NAME "/dev/Char_Buffer_avalon_char_control_slave"
@@ -191,9 +191,24 @@
 #define __ALTERA_NIOS2_GEN2
 #define __ALTERA_UP_AVALON_AUDIO
 #define __ALTERA_UP_AVALON_RS232
+#define __ALTERA_UP_AVALON_TO_EXTERNAL_BUS_BRIDGE
 #define __ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA
 #define __ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA
 #define __ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER
+
+
+/*
+ * IO_Bridge configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_IO_Bridge altera_up_avalon_to_external_bus_bridge
+#define IO_BRIDGE_BASE 0x8000000
+#define IO_BRIDGE_IRQ 7
+#define IO_BRIDGE_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define IO_BRIDGE_NAME "/dev/IO_Bridge"
+#define IO_BRIDGE_SPAN 65536
+#define IO_BRIDGE_TYPE "altera_up_avalon_to_external_bus_bridge"
 
 
 /*
@@ -202,7 +217,7 @@
  */
 
 #define ALT_MODULE_CLASS_JTAG altera_avalon_jtag_uart
-#define JTAG_BASE 0x80230b0
+#define JTAG_BASE 0x80330b0
 #define JTAG_IRQ 1
 #define JTAG_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_NAME "/dev/JTAG"
@@ -222,7 +237,7 @@
 #define ALT_MODULE_CLASS_Onchip_Memory altera_avalon_onchip_memory2
 #define ONCHIP_MEMORY_ALLOW_IN_SYSTEM_MEMORY_CONTENT_EDITOR 0
 #define ONCHIP_MEMORY_ALLOW_MRAM_SIM_CONTENTS_ONLY_FILE 0
-#define ONCHIP_MEMORY_BASE 0x8010000
+#define ONCHIP_MEMORY_BASE 0x8020000
 #define ONCHIP_MEMORY_CONTENTS_INFO ""
 #define ONCHIP_MEMORY_DUAL_PORT 0
 #define ONCHIP_MEMORY_GUI_RAM_BLOCK_TYPE "AUTO"
@@ -249,7 +264,7 @@
  */
 
 #define ALT_MODULE_CLASS_Pixel_Buffer altera_up_avalon_video_pixel_buffer_dma
-#define PIXEL_BUFFER_BASE 0x8023080
+#define PIXEL_BUFFER_BASE 0x8033080
 #define PIXEL_BUFFER_IRQ -1
 #define PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define PIXEL_BUFFER_NAME "/dev/Pixel_Buffer"
@@ -263,7 +278,7 @@
  */
 
 #define ALT_MODULE_CLASS_RGB_Resampler altera_up_avalon_video_rgb_resampler
-#define RGB_RESAMPLER_BASE 0x80230c0
+#define RGB_RESAMPLER_BASE 0x80330c0
 #define RGB_RESAMPLER_IRQ -1
 #define RGB_RESAMPLER_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define RGB_RESAMPLER_NAME "/dev/RGB_Resampler"
@@ -326,19 +341,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/JTAG"
-#define ALT_STDERR_BASE 0x80230b0
+#define ALT_STDERR_BASE 0x80330b0
 #define ALT_STDERR_DEV JTAG
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/JTAG"
-#define ALT_STDIN_BASE 0x80230b0
+#define ALT_STDIN_BASE 0x80330b0
 #define ALT_STDIN_DEV JTAG
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/JTAG"
-#define ALT_STDOUT_BASE 0x80230b0
+#define ALT_STDOUT_BASE 0x80330b0
 #define ALT_STDOUT_DEV JTAG
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -352,7 +367,7 @@
  */
 
 #define ALT_MODULE_CLASS_WIFI_Serial_Port altera_up_avalon_rs232
-#define WIFI_SERIAL_PORT_BASE 0x80230a8
+#define WIFI_SERIAL_PORT_BASE 0x80330a8
 #define WIFI_SERIAL_PORT_IRQ 6
 #define WIFI_SERIAL_PORT_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define WIFI_SERIAL_PORT_NAME "/dev/WIFI_Serial_Port"
@@ -366,7 +381,7 @@
  */
 
 #define ALT_MODULE_CLASS_button_1 altera_avalon_pio
-#define BUTTON_1_BASE 0x8023070
+#define BUTTON_1_BASE 0x8033070
 #define BUTTON_1_BIT_CLEARING_EDGE_REGISTER 0
 #define BUTTON_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define BUTTON_1_CAPTURE 1
@@ -393,7 +408,7 @@
  */
 
 #define ALT_MODULE_CLASS_button_2 altera_avalon_pio
-#define BUTTON_2_BASE 0x8023060
+#define BUTTON_2_BASE 0x8033060
 #define BUTTON_2_BIT_CLEARING_EDGE_REGISTER 0
 #define BUTTON_2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define BUTTON_2_CAPTURE 1
@@ -432,7 +447,7 @@
 
 #define ALT_MODULE_CLASS_timer altera_avalon_timer
 #define TIMER_ALWAYS_RUN 0
-#define TIMER_BASE 0x8023020
+#define TIMER_BASE 0x8033020
 #define TIMER_COUNTER_SIZE 32
 #define TIMER_FIXED_PERIOD 0
 #define TIMER_FREQ 50000000
@@ -458,7 +473,7 @@
 
 #define ALT_MODULE_CLASS_timer_0 altera_avalon_timer
 #define TIMER_0_ALWAYS_RUN 0
-#define TIMER_0_BASE 0x8023040
+#define TIMER_0_BASE 0x8033040
 #define TIMER_0_COUNTER_SIZE 32
 #define TIMER_0_FIXED_PERIOD 0
 #define TIMER_0_FREQ 50000000

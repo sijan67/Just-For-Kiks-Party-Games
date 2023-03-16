@@ -16,81 +16,87 @@
 
 #include <stdio.h>
 #include <system.h>
+#include <stdlib.h>
 #include "altera_up_avalon_rs232.h"
 #include "altera_up_avalon_rs232_regs.h"
 #include "io.h"
 #include "alt_types.h"
 
-// WiFi network information
-#define WIFI_SSID "your_SSID_here"
-#define WIFI_PASSWORD "your_password_here"
+void write_data(char *function);
+void read_data();
 
-// IP server information
-#define SERVER_IP "50.112.215.42"
-#define SERVER_PORT 1234
 
-alt_up_rs232_dev *rs232;
+
+alt_up_rs232_dev *rs232_dev;
+//variable to hold data received from uart
+unsigned char data;
+//parity bit for reading (not using parity atm, but still need the bit)
+unsigned char parity;
+char node_start[] = "node.start()\n";
+char dofile[] = "dofile(\"wifi_script.lua\")\n";
+char check_wifi[] = "check_wifi()\n";
+
+alt_u32 write_FIFO_space;
+alt_u16 read_FIFO_used;
+alt_u8 data_W8;
+alt_u8 data_R8;
+
 
 void send_to_server(const char *data, int len) {
-    alt_32 socket;
-    alt_32 status;
-    alt_32 tx_len;
 
-    // Open a TCP socket
-    socket = lwip_socket(AF_INET, SOCK_STREAM, 0);
-
-    if (socket < 0) {
-        printf("Failed to create socket\n");
-        return;
-    }
-
-    // Connect to the server
-    struct sockaddr_in server_addr;
-    server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(SERVER_PORT);
-    server_addr.sin_addr.s_addr = inet_addr(SERVER_IP);
-
-    status = lwip_connect(socket, (struct sockaddr *)&server_addr, sizeof(server_addr));
-
-    if (status < 0) {
-        printf("Failed to connect to server\n");
-        return;
-    }
-
-    // Send the data to the server
-    tx_len = lwip_write(socket, data, len);
-
-    if (tx_len < 0) {
-        printf("Failed to send data to server\n");
-    }
-
-    // Close the socket
-    lwip_close(socket);
 }
 
 int main() {
-    char buffer[BUFFER_SIZE];
-    int len;
+	printf("TESTING\n");
+	rs232_dev = alt_up_rs232_open_dev(WIFI_SERIAL_PORT_NAME);
 
-    rs232 = alt_up_rs232_open_dev(WIFI_SERIAL_PORT_NAME);
-    if(rs232 == NULL) {
-    	printf("Error: Failed to open WiFi module\n");
-    } else {
-    	printf("Opened WiFi module\n");
-    }
+	if(rs232_dev == NULL) {
+		printf("Failed to open Wifi device\n");
+	} else {
+		printf("Opened Wifi device\n");
+	}
 
-    while (1) {
-        // Read data from RS232
-        len = 0;
-        while (len == 0) {
-            len = alt_up_rs232_get_used_space_in_read_FIFO(WIFI_SERIAL_PORT_BASE);
-        }
-        len = len > BUFFER_SIZE ? BUFFER_SIZE : len;
-        alt_up_rs232_read_data(WIFI_SERIAL_PORT_BASE, buffer, len);
+	alt_up_rs232_enable_read_interrupt(rs232_dev);
 
-        // Send data to the server
-        send_to_server(buffer, len);
-    }
+	write_data(node_start);
+	write_data(dofile);
+	write_data(check_wifi);
+
+	printf("%x", write_FIFO_space);
+
+	read_FIFO_used = alt_up_rs232_get_used_space_in_read_FIFO(rs232_dev);
+	if(read_FIFO_used > 0) {
+		printf("Reading\n");
+		alt_up_rs232_read_data(rs232_dev, &data_R8, &parity);
+		printf("Read %c\n", data_R8);
+	}
+
+	printf("Finished\n");
 
     return 0;
+}
+
+void write_data(char *function) {
+	alt_up_rs232_disable_read_interrupt(rs232_dev);
+	for (int i = 0; function[i] != 0; i++) {
+		data_W8 = function[i];
+		write_FIFO_space = alt_up_rs232_get_available_space_in_write_FIFO(rs232_dev);
+		printf("%x\n", write_FIFO_space);
+		if(write_FIFO_space >= 0x80) {
+			printf("Writing\n");
+			if(alt_up_rs232_write_data(rs232_dev, data_W8) == 0) {
+				printf("Write %c\n", data_W8);
+			}
+
+		}
+	}
+	alt_up_rs232_enable_read_interrupt(rs232_dev);
+}
+
+void read_data() {
+	read_FIFO_used = alt_up_rs232_get_used_space_in_read_FIFO(rs232_dev);
+	while(read_FIFO_used > 0){
+		alt_up_rs232_read_data(rs232_dev, &data, &parity);
+		printf("read %x from RS232 UART\n", data);
+	}
 }

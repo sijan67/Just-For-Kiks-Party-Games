@@ -1,5 +1,5 @@
 Analysis & Synthesis report for partyBox
-Tue Mar 14 21:35:21 2023
+Wed Mar 15 20:06:10 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -458,7 +458,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar 14 21:35:21 2023       ;
+; Analysis & Synthesis Status     ; Successful - Wed Mar 15 20:06:10 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
@@ -570,19 +570,17 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.59        ;
-; Maximum used               ; 6           ;
+; Average used               ; 1.29        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  11.8%      ;
-;     Processor 3            ;  11.8%      ;
-;     Processor 4            ;  11.8%      ;
-;     Processor 5            ;  11.8%      ;
-;     Processor 6            ;  11.8%      ;
+;     Processor 2            ;  10.2%      ;
+;     Processor 3            ;  10.2%      ;
+;     Processor 4            ;   8.6%      ;
 +----------------------------+-------------+
 
 
@@ -658,11 +656,13 @@ refer to the applicable agreement for further details.
 ; test/synthesis/submodules/test_SDRAM.v                                                    ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_SDRAM.v                                                    ; test        ;
 ; test/synthesis/submodules/test_RGB_Resampler.v                                            ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_RGB_Resampler.v                                            ; test        ;
 ; test/synthesis/submodules/test_Pixel_Buffer.v                                             ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_Pixel_Buffer.v                                             ; test        ;
+; test/synthesis/submodules/test_Onchip_Memory.hex                                          ; yes             ; User Hexadecimal (Intel-Format) File         ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_Onchip_Memory.hex                                          ; test        ;
 ; test/synthesis/submodules/test_Onchip_Memory.v                                            ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_Onchip_Memory.v                                            ; test        ;
 ; test/synthesis/submodules/test_JTAG.v                                                     ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_JTAG.v                                                     ; test        ;
 ; test/synthesis/submodules/test_IO_Bridge.v                                                ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_IO_Bridge.v                                                ; test        ;
 ; test/synthesis/submodules/test_Dual_Clock_FIFO.v                                          ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_Dual_Clock_FIFO.v                                          ; test        ;
 ; test/synthesis/submodules/altera_up_video_128_character_rom.v                             ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/altera_up_video_128_character_rom.v                             ; test        ;
+; test/synthesis/submodules/altera_up_video_char_mode_rom_128.mif                           ; yes             ; User Memory Initialization File              ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/altera_up_video_char_mode_rom_128.mif                           ; test        ;
 ; test/synthesis/submodules/test_Char_Buffer.v                                              ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_Char_Buffer.v                                              ; test        ;
 ; test/synthesis/submodules/test_CPU.v                                                      ; yes             ; User Verilog HDL File                        ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU.v                                                      ; test        ;
 ; test/synthesis/submodules/test_CPU_cpu.v                                                  ; yes             ; Encrypted User Verilog HDL File              ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU_cpu.v                                                  ; test        ;
@@ -705,7 +705,7 @@ refer to the applicable agreement for further details.
 ; altram.inc                                                                                ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                                                     ;             ;
 ; altdpram.inc                                                                              ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                                                   ;             ;
 ; db/altsyncram_spj1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_spj1.tdf                                                                    ;             ;
-; db/altsyncram_sgj1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_sgj1.tdf                                                                    ;             ;
+; db/altsyncram_rgj1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_rgj1.tdf                                                                    ;             ;
 ; db/altsyncram_pdj1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_pdj1.tdf                                                                    ;             ;
 ; db/altsyncram_voi1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_voi1.tdf                                                                    ;             ;
 ; altera_mult_add.tdf                                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_mult_add.tdf                                                                            ;             ;
@@ -770,6 +770,7 @@ refer to the applicable agreement for further details.
 ; sld_jtag_hub.vhd                                                                          ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                                                               ;             ;
 ; sld_rom_sr.vhd                                                                            ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                                                 ;             ;
 ; db/altsyncram_40n1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_40n1.tdf                                                                    ;             ;
+; db/altsyncram_sgj1.tdf                                                                    ; yes             ; Auto-Generated Megafunction                  ; db/altsyncram_sgj1.tdf                                                                                                                                ;             ;
 +-------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
@@ -898,7 +899,7 @@ refer to the applicable agreement for further details.
 ;                   |altsyncram_spj1:auto_generated|                                                                                      ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_data_module:test_CPU_cpu_ic_data|altsyncram:the_altsyncram|altsyncram_spj1:auto_generated                                                                                                                                                                                            ; altsyncram_spj1                      ; work         ;
 ;             |test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|                                                                            ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag                                                                                                                                                                                                                                                       ; test_CPU_cpu_ic_tag_module           ; test         ;
 ;                |altsyncram:the_altsyncram|                                                                                              ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram                                                                                                                                                                                                                             ; altsyncram                           ; work         ;
-;                   |altsyncram_sgj1:auto_generated|                                                                                      ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram|altsyncram_sgj1:auto_generated                                                                                                                                                                                              ; altsyncram_sgj1                      ; work         ;
+;                   |altsyncram_rgj1:auto_generated|                                                                                      ; 0 (0)               ; 0 (0)                     ; 3072              ; 0          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram|altsyncram_rgj1:auto_generated                                                                                                                                                                                              ; altsyncram_rgj1                      ; work         ;
 ;             |test_CPU_cpu_mult_cell:the_test_CPU_cpu_mult_cell|                                                                         ; 0 (0)               ; 64 (0)                    ; 0                 ; 3          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_mult_cell:the_test_CPU_cpu_mult_cell                                                                                                                                                                                                                                                    ; test_CPU_cpu_mult_cell               ; test         ;
 ;                |altera_mult_add:the_altmult_add_p1|                                                                                     ; 0 (0)               ; 32 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_mult_cell:the_test_CPU_cpu_mult_cell|altera_mult_add:the_altmult_add_p1                                                                                                                                                                                                                 ; altera_mult_add                      ; work         ;
 ;                   |altera_mult_add_37p2:auto_generated|                                                                                 ; 0 (0)               ; 32 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |partyBox|test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_mult_cell:the_test_CPU_cpu_mult_cell|altera_mult_add:the_altmult_add_p1|altera_mult_add_37p2:auto_generated                                                                                                                                                                             ; altera_mult_add_37p2                 ; work         ;
@@ -1145,7 +1146,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_dc_tag_module:test_CPU_cpu_dc_tag|altsyncram:the_altsyncram|altsyncram_lpi1:auto_generated|ALTSYNCRAM                                                                                                                         ; AUTO ; Simple Dual Port ; 64           ; 19           ; 64           ; 19           ; 1216   ; None                                  ;
 ; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_dc_victim_module:test_CPU_cpu_dc_victim|altsyncram:the_altsyncram|altsyncram_baj1:auto_generated|ALTSYNCRAM                                                                                                                   ; AUTO ; Simple Dual Port ; 8            ; 32           ; 8            ; 32           ; 256    ; None                                  ;
 ; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_data_module:test_CPU_cpu_ic_data|altsyncram:the_altsyncram|altsyncram_spj1:auto_generated|ALTSYNCRAM                                                                                                                       ; AUTO ; Simple Dual Port ; 1024         ; 32           ; 1024         ; 32           ; 32768  ; None                                  ;
-; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram|altsyncram_sgj1:auto_generated|ALTSYNCRAM                                                                                                                         ; AUTO ; Simple Dual Port ; 128          ; 24           ; 128          ; 24           ; 3072   ; None                                  ;
+; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram|altsyncram_rgj1:auto_generated|ALTSYNCRAM                                                                                                                         ; AUTO ; Simple Dual Port ; 128          ; 24           ; 128          ; 24           ; 3072   ; None                                  ;
 ; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_nios2_oci:the_test_CPU_cpu_nios2_oci|test_CPU_cpu_nios2_ocimem:the_test_CPU_cpu_nios2_ocimem|test_CPU_cpu_ociram_sp_ram_module:test_CPU_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_qid1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 256          ; 32           ; --           ; --           ; 8192   ; None                                  ;
 ; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_register_bank_a_module:test_CPU_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_voi1:auto_generated|ALTSYNCRAM                                                                                                       ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024   ; None                                  ;
 ; test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_register_bank_b_module:test_CPU_cpu_register_bank_b|altsyncram:the_altsyncram|altsyncram_voi1:auto_generated|ALTSYNCRAM                                                                                                       ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024   ; None                                  ;
@@ -13261,7 +13262,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:13     ;
+; Top            ; 00:00:15     ;
 ; pzdyqx:nabboc  ; 00:00:00     ;
 +----------------+--------------+
 
@@ -13272,10 +13273,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Mar 14 21:34:11 2023
+    Info: Processing started: Wed Mar 15 20:04:39 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off partyBox -c partyBox
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file test/synthesis/test.v
     Info (12023): Found entity 1: test File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/test.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file test/synthesis/submodules/altera_reset_controller.v
@@ -13661,9 +13662,9 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Info (12128): Elaborating entity "altsyncram_spj1" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_data_module:test_CPU_cpu_ic_data|altsyncram:the_altsyncram|altsyncram_spj1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "test_CPU_cpu_ic_tag_module" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU_cpu.v Line: 7089
 Info (12128): Elaborating entity "altsyncram" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU_cpu.v Line: 129
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sgj1.tdf
-    Info (12023): Found entity 1: altsyncram_sgj1 File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_sgj1.tdf Line: 27
-Info (12128): Elaborating entity "altsyncram_sgj1" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram|altsyncram_sgj1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_rgj1.tdf
+    Info (12023): Found entity 1: altsyncram_rgj1 File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_rgj1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_rgj1" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_ic_tag_module:test_CPU_cpu_ic_tag|altsyncram:the_altsyncram|altsyncram_rgj1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12128): Elaborating entity "test_CPU_cpu_bht_module" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_bht_module:test_CPU_cpu_bht" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU_cpu.v Line: 7287
 Info (12128): Elaborating entity "altsyncram" for hierarchy "test:u0|test_CPU:cpu|test_CPU_cpu:cpu|test_CPU_cpu_bht_module:test_CPU_cpu_bht|altsyncram:the_altsyncram" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU_cpu.v Line: 198
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_pdj1.tdf
@@ -14236,7 +14237,7 @@ Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "test:u
 Warning (12030): Port "q_b" on the entity instantiation of "Char_Buffer_Memory" is connected to a signal of width 16. The formal width of the signal in the module is 8.  The extra bits will be left dangling without any fan-out logic. File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_Char_Buffer.v Line: 360
 Warning (12020): Port "jdo" on the entity instantiation of "the_test_CPU_cpu_nios2_oci_itrace" is connected to a signal of width 38. The formal width of the signal in the module is 16.  The extra bits will be ignored. File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/test/synthesis/submodules/test_CPU_cpu.v Line: 3216
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2023.03.14.21:34:50 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2023.03.15.20:05:35 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -14272,56 +14273,6 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "test:u0|test_Char_Buffer:char_buffer|altsyncram:Char_Buffer_Memory|altsyncram_6dd2:auto_generated|q_a[7]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/db/altsyncram_6dd2.tdf Line: 315
     Warning (14285): Synthesized away the following PLL node(s):
         Warning (14320): Synthesized away node "test:u0|test_Video_Clk:video_clk|test_Video_Clk_video_pll:video_pll|altera_pll:altera_pll_i|outclk_wire[2]" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
-Warning (20013): Ignored 24 assignments for entity "DE1_SoC" -- entity does not exist in design
-    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE1_SoC -section_id Top was ignored
-Warning (20013): Ignored 24 assignments for entity "DE1_SoC" -- entity does not exist in design
-    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE1_SoC -section_id Top was ignored
-    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE1_SoC -section_id Top was ignored
 Warning (20013): Ignored 24 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE1_SoC -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE1_SoC -section_id Top was ignored
@@ -14623,11 +14574,11 @@ Info (21057): Implemented 7845 device resources after synthesis - the final reso
     Info (21064): Implemented 519 RAM segments
     Info (21065): Implemented 5 PLLs
     Info (21062): Implemented 3 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 348 warnings
-    Info: Peak virtual memory: 5180 megabytes
-    Info: Processing ended: Tue Mar 14 21:35:21 2023
-    Info: Elapsed time: 00:01:10
-    Info: Total CPU time (on all processors): 00:01:41
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 298 warnings
+    Info: Peak virtual memory: 5172 megabytes
+    Info: Processing ended: Wed Mar 15 20:06:10 2023
+    Info: Elapsed time: 00:01:31
+    Info: Total CPU time (on all processors): 00:01:51
 
 
 +------------------------------------------+

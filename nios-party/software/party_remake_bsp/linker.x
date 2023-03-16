@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Tue Mar 07 10:14:37 PST 2023
+ * Generated: Wed Mar 15 13:17:01 PDT 2023
  */
 
 /*
@@ -52,12 +52,12 @@ MEMORY
 {
     reset : ORIGIN = 0x4000000, LENGTH = 32
     SDRAM : ORIGIN = 0x4000020, LENGTH = 67108832
-    Onchip_Memory : ORIGIN = 0x8010000, LENGTH = 40960
+    Onchip_Memory : ORIGIN = 0x8020000, LENGTH = 40960
 }
 
 /* Define symbols for each memory base-address */
 __alt_mem_SDRAM = 0x4000000;
-__alt_mem_Onchip_Memory = 0x8010000;
+__alt_mem_Onchip_Memory = 0x8020000;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",

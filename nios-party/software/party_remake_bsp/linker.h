@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Tue Mar 07 10:14:37 PST 2023
+ * Generated: Wed Mar 15 13:17:01 PDT 2023
  */
 
 /*
@@ -65,7 +65,7 @@
  *
  */
 
-#define ONCHIP_MEMORY_REGION_BASE 0x8010000
+#define ONCHIP_MEMORY_REGION_BASE 0x8020000
 #define ONCHIP_MEMORY_REGION_SPAN 40960
 #define RESET_REGION_BASE 0x4000000
 #define RESET_REGION_SPAN 32

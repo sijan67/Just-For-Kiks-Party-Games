@@ -2,10 +2,10 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>7-Mar-2023 10:14:36 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1678212876158</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>15-Mar-2023 1:17:01 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1678911421087</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\kolto\Desktop\CPEN_391\l2a-01-triviasoc\nios-party\software\party_remake_bsp</BspGeneratedLocation>
-        <BspSettingsFile>.\settings.bsp</BspSettingsFile>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\test.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
         <Cpu>CPU</Cpu>
@@ -899,74 +899,86 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
-                <slaveDescriptor>timer</slaveDescriptor>
-                <addressRange>0x00000000 - 0x0000001F</addressRange>
-                <addressSpan>32</addressSpan>
-                <attributes>timer</attributes>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>SDRAM</slaveDescriptor>
                 <addressRange>0x04000000 - 0x07FFFFFF</addressRange>
                 <addressSpan>67108864</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>IO_Bridge</slaveDescriptor>
+                <addressRange>0x08000000 - 0x0800FFFF</addressRange>
+                <addressSpan>65536</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>Onchip_Memory</slaveDescriptor>
-                <addressRange>0x08010000 - 0x08019FFF</addressRange>
+                <addressRange>0x08020000 - 0x08029FFF</addressRange>
                 <addressSpan>40960</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>Char_Buffer_avalon_char_buffer_slave</slaveDescriptor>
-                <addressRange>0x08020000 - 0x08021FFF</addressRange>
+                <addressRange>0x08030000 - 0x08031FFF</addressRange>
                 <addressSpan>8192</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>timer</slaveDescriptor>
+                <addressRange>0x08033020 - 0x0803303F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>timer_0</slaveDescriptor>
-                <addressRange>0x08023020 - 0x0802303F</addressRange>
+                <addressRange>0x08033040 - 0x0803305F</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes>timer</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>button_2</slaveDescriptor>
-                <addressRange>0x08023040 - 0x0802304F</addressRange>
+                <addressRange>0x08033060 - 0x0803306F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>button_1</slaveDescriptor>
-                <addressRange>0x08023050 - 0x0802305F</addressRange>
+                <addressRange>0x08033070 - 0x0803307F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>Pixel_Buffer</slaveDescriptor>
-                <addressRange>0x08023060 - 0x0802306F</addressRange>
+                <addressRange>0x08033080 - 0x0803308F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>Audio</slaveDescriptor>
-                <addressRange>0x08023070 - 0x0802307F</addressRange>
+                <addressRange>0x08033090 - 0x0803309F</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>WIFI_Serial_Port</slaveDescriptor>
+                <addressRange>0x080330A8 - 0x080330AF</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>JTAG</slaveDescriptor>
-                <addressRange>0x08023088 - 0x0802308F</addressRange>
+                <addressRange>0x080330B0 - 0x080330B7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>Char_Buffer_avalon_char_control_slave</slaveDescriptor>
-                <addressRange>0x08023090 - 0x08023097</addressRange>
+                <addressRange>0x080330B8 - 0x080330BF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>RGB_Resampler</slaveDescriptor>
-                <addressRange>0x08023098 - 0x0802309B</addressRange>
+                <addressRange>0x080330C0 - 0x080330C3</addressRange>
                 <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>

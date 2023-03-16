@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Tue Mar 07 10:14:37 PST 2023
+ * Generated: Wed Mar 15 13:17:01 PDT 2023
  */
 
 /*
@@ -62,6 +62,7 @@
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_timer.h"
 #include "altera_up_avalon_audio.h"
+#include "altera_up_avalon_rs232.h"
 #include "altera_up_avalon_video_character_buffer_with_dma.h"
 #include "altera_up_avalon_video_pixel_buffer_dma.h"
 #include "altera_up_avalon_video_rgb_resampler.h"
@@ -75,6 +76,7 @@ ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG, JTAG);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER, timer);
 ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
 ALTERA_UP_AVALON_AUDIO_INSTANCE ( AUDIO, Audio);
+ALTERA_UP_AVALON_RS232_INSTANCE ( WIFI_SERIAL_PORT, WIFI_Serial_Port);
 ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INSTANCE ( CHAR_BUFFER, Char_Buffer);
 ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INSTANCE ( PIXEL_BUFFER, Pixel_Buffer);
 ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INSTANCE ( RGB_RESAMPLER, RGB_Resampler);
@@ -104,6 +106,7 @@ void alt_sys_init( void )
     ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
     ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
+    ALTERA_UP_AVALON_RS232_INIT ( WIFI_SERIAL_PORT, WIFI_Serial_Port);
     ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INIT ( CHAR_BUFFER, Char_Buffer);
     ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INIT ( PIXEL_BUFFER, Pixel_Buffer);
     ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INIT ( RGB_RESAMPLER, RGB_Resampler);

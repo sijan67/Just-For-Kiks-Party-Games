@@ -9,81 +9,81 @@ Program Header:
     LOAD off    0x00001000 vaddr 0x04000000 paddr 0x04000000 align 2**12
          filesz 0x00000020 memsz 0x00000020 flags r-x
     LOAD off    0x00001020 vaddr 0x04000020 paddr 0x04000020 align 2**12
-         filesz 0x00001328 memsz 0x00001328 flags r-x
-    LOAD off    0x00002348 vaddr 0x04001348 paddr 0x040014d0 align 2**12
-         filesz 0x00000188 memsz 0x00000188 flags rw-
-    LOAD off    0x00002658 vaddr 0x04001658 paddr 0x04001658 align 2**12
-         filesz 0x00000000 memsz 0x00000050 flags rw-
+         filesz 0x000011d4 memsz 0x000011d4 flags r-x
+    LOAD off    0x000021f4 vaddr 0x040011f4 paddr 0x0400148c align 2**12
+         filesz 0x00000298 memsz 0x00000298 flags rw-
+    LOAD off    0x00002724 vaddr 0x04001724 paddr 0x04001724 align 2**12
+         filesz 0x00000000 memsz 0x00000010 flags rw-
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .entry        00000020  04000000  04000000  00001000  2**5
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .exceptions   00000000  04000020  04000020  000024d0  2**0
+  1 .exceptions   00000000  04000020  04000020  0000248c  2**0
                   CONTENTS
-  2 .text         0000119c  04000020  04000020  00001020  2**2
+  2 .text         00001148  04000020  04000020  00001020  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .rodata       0000018c  040011bc  040011bc  000021bc  2**2
+  3 .rodata       0000008c  04001168  04001168  00002168  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .rwdata       00000188  04001348  040014d0  00002348  2**2
+  4 .rwdata       00000298  040011f4  0400148c  000021f4  2**2
                   CONTENTS, ALLOC, LOAD, DATA, SMALL_DATA
-  5 .bss          00000050  04001658  04001658  00002658  2**2
+  5 .bss          00000010  04001724  04001724  00002724  2**2
                   ALLOC, SMALL_DATA
-  6 .SDRAM        00000000  040016a8  040016a8  000024d0  2**0
+  6 .SDRAM        00000000  04001734  04001734  0000248c  2**0
                   CONTENTS
-  7 .Onchip_Memory 00000000  08010000  08010000  000024d0  2**0
+  7 .Onchip_Memory 00000000  08020000  08020000  0000248c  2**0
                   CONTENTS
-  8 .comment      00000023  00000000  00000000  000024d0  2**0
+  8 .comment      00000023  00000000  00000000  0000248c  2**0
                   CONTENTS, READONLY
-  9 .debug_aranges 000002e0  00000000  00000000  000024f8  2**3
+  9 .debug_aranges 00000368  00000000  00000000  000024b0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_info   0000384f  00000000  00000000  000027d8  2**0
+ 10 .debug_info   00005071  00000000  00000000  00002818  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_abbrev 000012ab  00000000  00000000  00006027  2**0
+ 11 .debug_abbrev 00001a51  00000000  00000000  00007889  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_line   000018e2  00000000  00000000  000072d2  2**0
+ 12 .debug_line   00001e91  00000000  00000000  000092da  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_frame  000004c0  00000000  00000000  00008bb4  2**2
+ 13 .debug_frame  000005a0  00000000  00000000  0000b16c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00001011  00000000  00000000  00009074  2**0
+ 14 .debug_str    000015e3  00000000  00000000  0000b70c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_loc    00001a09  00000000  00000000  0000a085  2**0
+ 15 .debug_loc    00001921  00000000  00000000  0000ccef  2**0
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_alt_sim_info 00000030  00000000  00000000  0000ba90  2**2
+ 16 .debug_alt_sim_info 00000030  00000000  00000000  0000e610  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_ranges 00000100  00000000  00000000  0000bac0  2**3
+ 17 .debug_ranges 00000270  00000000  00000000  0000e640  2**3
                   CONTENTS, READONLY, DEBUGGING
- 18 .thread_model 00000003  00000000  00000000  0000d1d6  2**0
+ 18 .thread_model 00000003  00000000  00000000  0000fea2  2**0
                   CONTENTS, READONLY
- 19 .cpu          00000003  00000000  00000000  0000d1d9  2**0
+ 19 .cpu          00000003  00000000  00000000  0000fea5  2**0
                   CONTENTS, READONLY
- 20 .qsys         00000001  00000000  00000000  0000d1dc  2**0
+ 20 .qsys         00000001  00000000  00000000  0000fea8  2**0
                   CONTENTS, READONLY
- 21 .simulation_enabled 00000001  00000000  00000000  0000d1dd  2**0
+ 21 .simulation_enabled 00000001  00000000  00000000  0000fea9  2**0
                   CONTENTS, READONLY
- 22 .stderr_dev   00000004  00000000  00000000  0000d1de  2**0
+ 22 .stderr_dev   00000004  00000000  00000000  0000feaa  2**0
                   CONTENTS, READONLY
- 23 .stdin_dev    00000004  00000000  00000000  0000d1e2  2**0
+ 23 .stdin_dev    00000004  00000000  00000000  0000feae  2**0
                   CONTENTS, READONLY
- 24 .stdout_dev   00000004  00000000  00000000  0000d1e6  2**0
+ 24 .stdout_dev   00000004  00000000  00000000  0000feb2  2**0
                   CONTENTS, READONLY
- 25 .sopc_system_name 00000004  00000000  00000000  0000d1ea  2**0
+ 25 .sopc_system_name 00000004  00000000  00000000  0000feb6  2**0
                   CONTENTS, READONLY
- 26 .quartus_project_dir 0000003b  00000000  00000000  0000d1ee  2**0
+ 26 .quartus_project_dir 0000003b  00000000  00000000  0000feba  2**0
                   CONTENTS, READONLY
- 27 .jdi          0000448d  00000000  00000000  0000d229  2**0
+ 27 .jdi          0000448d  00000000  00000000  0000fef5  2**0
                   CONTENTS, READONLY
- 28 .sopcinfo     00088ac0  00000000  00000000  000116b6  2**0
+ 28 .sopcinfo     00099ea9  00000000  00000000  00014382  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 04000000 l    d  .entry	00000000 .entry
 04000020 l    d  .exceptions	00000000 .exceptions
 04000020 l    d  .text	00000000 .text
-040011bc l    d  .rodata	00000000 .rodata
-04001348 l    d  .rwdata	00000000 .rwdata
-04001658 l    d  .bss	00000000 .bss
-040016a8 l    d  .SDRAM	00000000 .SDRAM
-08010000 l    d  .Onchip_Memory	00000000 .Onchip_Memory
+04001168 l    d  .rodata	00000000 .rodata
+040011f4 l    d  .rwdata	00000000 .rwdata
+04001724 l    d  .bss	00000000 .bss
+04001734 l    d  .SDRAM	00000000 .SDRAM
+08020000 l    d  .Onchip_Memory	00000000 .Onchip_Memory
 00000000 l    d  .comment	00000000 .comment
 00000000 l    d  .debug_aranges	00000000 .debug_aranges
 00000000 l    d  .debug_info	00000000 .debug_info
@@ -97,113 +97,117 @@ SYMBOL TABLE:
 00000000 l    df *ABS*	00000000 ../party_remake_bsp//obj/HAL/src/crt0.o
 04000068 l       .text	00000000 alt_after_alt_main
 00000000 l    df *ABS*	00000000 hello_world_small.c
-00000000 l    df *ABS*	00000000 memcpy.c
-00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 printf.c
+00000000 l    df *ABS*	00000000 vfprintf.c
+04000118 l     F .text	0000006c print_repeat
+00000000 l    df *ABS*	00000000 fvwrite_small_dev.c
+00000000 l    df *ABS*	00000000 impure.c
+040011f4 l     O .rwdata	000000e0 impure_data
+00000000 l    df *ABS*	00000000 strlen.c
+00000000 l    df *ABS*	00000000 writer.c
+00000000 l    df *ABS*	00000000 int_errno.c
+00000000 l    df *ABS*	00000000 lib2-divmod.c
 00000000 l    df *ABS*	00000000 alt_load.c
 00000000 l    df *ABS*	00000000 alt_main.c
-00000000 l    df *ABS*	00000000 alt_putstr.c
+00000000 l    df *ABS*	00000000 alt_write.c
 00000000 l    df *ABS*	00000000 alt_sys_init.c
-040003f4 l     F .text	00000008 alt_dev_reg
-04001428 l     O .rwdata	00000030 Audio
-040013e0 l     O .rwdata	00000048 Char_Buffer
-0400138c l     O .rwdata	00000054 Pixel_Buffer
-04001348 l     O .rwdata	00000044 RGB_Resampler
+04000b10 l     F .text	00000008 alt_dev_reg
+040013e0 l     O .rwdata	00000030 Audio
+040013b4 l     O .rwdata	0000002c WIFI_Serial_Port
+0400136c l     O .rwdata	00000048 Char_Buffer
+04001318 l     O .rwdata	00000054 Pixel_Buffer
+040012d4 l     O .rwdata	00000044 RGB_Resampler
 00000000 l    df *ABS*	00000000 altera_avalon_jtag_uart_write.c
+00000000 l    df *ABS*	00000000 altera_up_avalon_rs232.c
 00000000 l    df *ABS*	00000000 altera_up_avalon_video_character_buffer_with_dma.c
-00000000 l    df *ABS*	00000000 altera_up_avalon_video_pixel_buffer_dma.c
 00000000 l    df *ABS*	00000000 alt_dcache_flush_all.c
 00000000 l    df *ABS*	00000000 alt_dev.c
-04001004 l     F .text	00000008 alt_dev_null_write
+04000fcc l     F .text	00000008 alt_dev_null_write
 00000000 l    df *ABS*	00000000 alt_dev_llist_insert.c
 00000000 l    df *ABS*	00000000 alt_errno.c
 00000000 l    df *ABS*	00000000 alt_find_dev.c
 00000000 l    df *ABS*	00000000 alt_icache_flush_all.c
 00000000 l    df *ABS*	00000000 altera_nios2_gen2_irq.c
 00000000 l    df *ABS*	00000000 alt_icache_flush.c
-00000000 l    df *ABS*	00000000 int_errno.c
 00000000 l    df *ABS*	00000000 memcmp.c
 00000000 l    df *ABS*	00000000 strcmp.c
-00000000 l    df *ABS*	00000000 strlen.c
-04000390 g     F .text	0000002c alt_main
-04000bb0 g     F .text	0000015c alt_up_pixel_buffer_dma_draw_vline
-040014d0 g       *ABS*	00000000 __flash_rwdata_start
-040001ec g     F .text	00000038 button_trigger
-040006a0 g     F .text	0000006c alt_up_char_buffer_string
-04000650 g     F .text	00000050 alt_up_char_buffer_draw
-04001680 g     O .bss	00000028 player_list
-040003bc g     F .text	00000038 alt_putstr
-04000734 g     F .text	00000098 alt_up_pixel_buffer_dma_draw
-040010f8 g     F .text	00000008 altera_nios2_gen2_irq_init
-0400072c g     F .text	00000008 alt_up_pixel_buffer_dma_open_dev
+04000a84 g     F .text	0000002c alt_main
+0400148c g       *ABS*	00000000 __flash_rwdata_start
+040000cc g     F .text	0000004c printf
+04000f28 g     F .text	0000006c alt_up_char_buffer_string
+04000de4 g     F .text	00000070 alt_up_rs232_read_fd
+04000ed8 g     F .text	00000050 alt_up_char_buffer_draw
+040010c0 g     F .text	00000008 altera_nios2_gen2_irq_init
 04000000 g     F .entry	0000001c __reset
 04000020 g       *ABS*	00000000 __flash_exceptions_start
-04001658 g     O .bss	00000004 current_count
-0400167c g     O .bss	00000004 errno
-04001668 g     O .bss	00000004 char_buffer
-04001674 g     O .bss	00000004 alt_argv
-040094b0 g       *ABS*	00000000 _gp
-040007cc g     F .text	0000001c alt_up_pixel_buffer_dma_change_back_buffer_address
-04001458 g     O .rwdata	00000030 alt_fd_list
-04001078 g     F .text	00000074 alt_find_dev
-04000268 g     F .text	00000028 memcpy
-0400006c g     F .text	00000180 init_room_setup
-0400070c g     F .text	00000020 alt_up_char_buffer_clear
-0400080c g     F .text	00000010 alt_up_pixel_buffer_dma_check_swap_buffers_status
-04000a74 g     F .text	0000013c alt_up_pixel_buffer_dma_draw_hline
-04001100 g     F .text	00000038 alt_icache_flush
-04000dd8 g     F .text	0000004c helper_plot_pixel
-040014b8 g     O .rwdata	00000004 alt_max_fd
-040014b0 g     O .rwdata	00000001 game_state
-0400081c g     F .text	00000090 alt_up_pixel_buffer_dma_clear_screen
-040016a8 g       *ABS*	00000000 __bss_end
-040008ac g     F .text	000001c8 alt_up_pixel_buffer_dma_draw_box
-04001488 g     O .rwdata	00000028 alt_dev_null
-04000fec g     F .text	00000018 alt_dcache_flush_all
-04000d0c g     F .text	000000cc alt_up_pixel_buffer_dma_draw_rectangle
-040014d0 g       *ABS*	00000000 __ram_rwdata_end
-040014bc g     O .rwdata	00000008 alt_dev_list
-04000e24 g     F .text	000001c8 alt_up_pixel_buffer_dma_draw_line
-04001348 g       *ABS*	00000000 __ram_rodata_end
+04001724 g     O .bss	00000004 errno
+0400172c g     O .bss	00000004 alt_argv
+04009468 g       *ABS*	00000000 _gp
+04001410 g     O .rwdata	00000030 alt_fd_list
+04001040 g     F .text	00000074 alt_find_dev
+04000f94 g     F .text	00000020 alt_up_char_buffer_clear
+04000d98 g     F .text	0000004c alt_up_rs232_read_data
+04000090 g     F .text	0000003c _printf_r
+040008e8 g     F .text	00000064 .hidden __udivsi3
+040010c8 g     F .text	00000038 alt_icache_flush
+04001474 g     O .rwdata	00000004 alt_max_fd
+04000d78 g     F .text	0000000c alt_up_rs232_check_parity
+04001468 g     O .rwdata	00000004 _global_impure_ptr
+04001734 g       *ABS*	00000000 __bss_end
+04001440 g     O .rwdata	00000028 alt_dev_null
+04000fb4 g     F .text	00000018 alt_dcache_flush_all
+0400148c g       *ABS*	00000000 __ram_rwdata_end
+04001478 g     O .rwdata	00000008 alt_dev_list
+04000ab0 g     F .text	00000060 write
+040011f4 g       *ABS*	00000000 __ram_rodata_end
+04000e54 g     F .text	00000028 alt_up_rs232_write_fd
 04000000 g       *ABS*	00000000 __alt_mem_SDRAM
-04001664 g     O .bss	00000004 team_one_score
-040016a8 g       *ABS*	00000000 end
-040005fc g     F .text	0000004c alt_up_char_buffer_init
+0400094c g     F .text	00000058 .hidden __umodsi3
+04001734 g       *ABS*	00000000 end
+04000e84 g     F .text	0000004c alt_up_char_buffer_init
 08000000 g       *ABS*	00000000 __alt_stack_pointer
-040005c8 g     F .text	00000034 altera_avalon_jtag_uart_write
-0400165c g     O .bss	00000004 global_count
+04000cf0 g     F .text	00000034 altera_avalon_jtag_uart_write
+04000184 g     F .text	00000524 ___vfprintf_internal_r
 04000020 g     F .text	0000004c _start
-0400041c g     F .text	000001ac alt_sys_init
-04001348 g       *ABS*	00000000 __ram_rwdata_start
-040011bc g       *ABS*	00000000 __ram_rodata_start
-04001138 g     F .text	00000030 memcmp
-040016a8 g       *ABS*	00000000 __alt_stack_base
-0400100c g     F .text	0000006c alt_dev_llist_insert
-04001658 g       *ABS*	00000000 __bss_start
-04000290 g     F .text	00000020 memset
-0400025c g     F .text	0000000c main
-04001670 g     O .bss	00000004 alt_envp
-040007e8 g     F .text	00000024 alt_up_pixel_buffer_dma_swap_buffers
-04000648 g     F .text	00000008 alt_up_char_buffer_open_dev
-04000224 g     F .text	00000038 init_question_gameplay
-040014b4 g     O .rwdata	00000004 JTAG
-040014cc g     O .rwdata	00000004 alt_errno
-04001168 g     F .text	00000038 strcmp
-040011bc g       *ABS*	00000000 __flash_rodata_start
-040003fc g     F .text	00000020 alt_irq_init
-0400166c g     O .bss	00000004 pixel_buffer
-04001678 g     O .bss	00000004 alt_argc
-040014c4 g     O .rwdata	00000008 alt_fs_list
+04000b38 g     F .text	000001b8 alt_sys_init
+04000d68 g     F .text	00000010 alt_up_rs232_get_available_space_in_write_FIFO
+040011f4 g       *ABS*	00000000 __ram_rwdata_start
+04001168 g       *ABS*	00000000 __ram_rodata_start
+04001100 g     F .text	00000030 memcmp
+04001734 g       *ABS*	00000000 __alt_stack_base
+04000d3c g     F .text	0000001c alt_up_rs232_disable_read_interrupt
+04000fd4 g     F .text	0000006c alt_dev_llist_insert
+040006c4 g     F .text	000000b8 __sfvwrite_small_dev
+04001724 g       *ABS*	00000000 __bss_start
+0400006c g     F .text	00000024 main
+04001728 g     O .bss	00000004 alt_envp
+04000ed0 g     F .text	00000008 alt_up_char_buffer_open_dev
+04001470 g     O .rwdata	00000004 JTAG
+04001488 g     O .rwdata	00000004 alt_errno
+040007f0 g     F .text	00000084 .hidden __divsi3
+04001130 g     F .text	00000038 strcmp
+04001168 g       *ABS*	00000000 __flash_rodata_start
+04000e7c g     F .text	00000008 alt_up_rs232_open_dev
+04000b18 g     F .text	00000020 alt_irq_init
+04000798 g     F .text	00000058 _write_r
+0400146c g     O .rwdata	00000004 _impure_ptr
+04001730 g     O .bss	00000004 alt_argc
+04001480 g     O .rwdata	00000008 alt_fs_list
+04000d24 g     F .text	00000018 alt_up_rs232_enable_read_interrupt
+04000d84 g     F .text	00000014 alt_up_rs232_write_data
 04000020 g       *ABS*	00000000 __ram_exceptions_start
-040014d0 g       *ABS*	00000000 _edata
-040016a8 g       *ABS*	00000000 _end
+0400148c g       *ABS*	00000000 _edata
+04001734 g       *ABS*	00000000 _end
 04000020 g       *ABS*	00000000 __ram_exceptions_end
-08010000 g       *ABS*	00000000 __alt_mem_Onchip_Memory
+08020000 g       *ABS*	00000000 __alt_mem_Onchip_Memory
+04000874 g     F .text	00000074 .hidden __modsi3
 08000000 g       *ABS*	00000000 __alt_data_end
 0400001c g       .entry	00000000 _exit
-040011a0 g     F .text	0000001c strlen
-040010ec g     F .text	0000000c alt_icache_flush_all
-04001660 g     O .bss	00000004 team_two_score
-040002b0 g     F .text	000000e0 alt_load
+0400077c g     F .text	0000001c strlen
+040010b4 g     F .text	0000000c alt_icache_flush_all
+040006a8 g     F .text	0000001c __vfprintf_internal
+04000d58 g     F .text	00000010 alt_up_rs232_get_used_space_in_read_FIFO
+040009a4 g     F .text	000000e0 alt_load
 
 
 
@@ -225,7 +229,7 @@ Disassembly of section .entry:
     addi r2, r2, -NIOS2_ICACHE_LINE_SIZE
  4000008:	10bff804 	addi	r2,r2,-32
     bgt r2, zero, 0b
- 400000c:	00bffd16 	blt	zero,r2,4000004 <__alt_mem_Onchip_Memory+0xfbff0004>
+ 400000c:	00bffd16 	blt	zero,r2,4000004 <__alt_mem_Onchip_Memory+0xfbfe0004>
  * Jump to the _start entry point in the .text section if reset code
  * is allowed or if optimizing for RTL simulation.
  */
@@ -263,7 +267,7 @@ Disassembly of section .text:
  4000028:	10bff804 	addi	r2,r2,-32
 #endif
     bgt r2, zero, 0b
- 400002c:	00bffd16 	blt	zero,r2,4000024 <__alt_mem_Onchip_Memory+0xfbff0024>
+ 400002c:	00bffd16 	blt	zero,r2,4000024 <__alt_mem_Onchip_Memory+0xfbfe0024>
 
     /*
      * Now that the caches are initialized, set up the stack pointer and global pointer.
@@ -276,7 +280,7 @@ Disassembly of section .text:
     movhi gp, %hi(_gp)
  4000038:	06810034 	movhi	gp,1024
     ori gp, gp, %lo(_gp)
- 400003c:	d6a52c14 	ori	gp,gp,38064
+ 400003c:	d6a51a14 	ori	gp,gp,37992
  */
 #ifndef ALT_SIM_OPTIMIZE
     /* Log that the BSS is about to be cleared. */
@@ -285,12 +289,12 @@ Disassembly of section .text:
     movhi r2, %hi(__bss_start)
  4000040:	00810034 	movhi	r2,1024
     ori r2, r2, %lo(__bss_start)
- 4000044:	10859614 	ori	r2,r2,5720
+ 4000044:	1085c914 	ori	r2,r2,5924
 
     movhi r3, %hi(__bss_end)
  4000048:	00c10034 	movhi	r3,1024
     ori r3, r3, %lo(__bss_end)
- 400004c:	18c5aa14 	ori	r3,r3,5800
+ 400004c:	18c5cd14 	ori	r3,r3,5940
 
     beq r2, r3, 1f
  4000050:	10c00326 	beq	r2,r3,4000060 <_start+0x40>
@@ -301,2726 +305,1849 @@ Disassembly of section .text:
     addi r2, r2, 4
  4000058:	10800104 	addi	r2,r2,4
     bltu r2, r3, 0b
- 400005c:	10fffd36 	bltu	r2,r3,4000054 <__alt_mem_Onchip_Memory+0xfbff0054>
+ 400005c:	10fffd36 	bltu	r2,r3,4000054 <__alt_mem_Onchip_Memory+0xfbfe0054>
      * section aren't defined until alt_load() has been called).
      */
     mov   et, zero
 #endif
 
     call alt_load
- 4000060:	40002b00 	call	40002b0 <alt_load>
+ 4000060:	40009a40 	call	40009a4 <alt_load>
 
     /* Log that alt_main is about to be called. */
     ALT_LOG_PUTS(alt_log_msg_alt_main)
 
     /* Call the C entry point. It should never return. */
     call alt_main
- 4000064:	40003900 	call	4000390 <alt_main>
+ 4000064:	4000a840 	call	4000a84 <alt_main>
 
 04000068 <alt_after_alt_main>:
 
     /* Wait in infinite loop in case alt_main does return. */
 alt_after_alt_main:
     br alt_after_alt_main
- 4000068:	003fff06 	br	4000068 <__alt_mem_Onchip_Memory+0xfbff0068>
+ 4000068:	003fff06 	br	4000068 <__alt_mem_Onchip_Memory+0xfbfe0068>
 
-0400006c <init_room_setup>:
-
-    return 0;
+0400006c <main>:
+    global_count++;
 }
-
-void init_room_setup() {
-    alt_putstr("Hello from Nios II!\n");
- 400006c:	01010034 	movhi	r4,1024
-    init_question_gameplay();
-
-    return 0;
-}
-
-void init_room_setup() {
- 4000070:	deffe804 	addi	sp,sp,-96
-    alt_putstr("Hello from Nios II!\n");
- 4000074:	21046f04 	addi	r4,r4,4540
-    init_question_gameplay();
-
-    return 0;
-}
-
-void init_room_setup() {
- 4000078:	dfc01715 	stw	ra,92(sp)
-    alt_putstr("Hello from Nios II!\n");
- 400007c:	40003bc0 	call	40003bc <alt_putstr>
-
-    pixel_buffer = alt_up_pixel_buffer_dma_open_dev("/dev/Pixel_Buffer");
- 4000080:	01010034 	movhi	r4,1024
- 4000084:	21047504 	addi	r4,r4,4564
- 4000088:	400072c0 	call	400072c <alt_up_pixel_buffer_dma_open_dev>
- 400008c:	d0a06f15 	stw	r2,-32324(gp)
-    if(pixel_buffer == NULL) {
- 4000090:	1000031e 	bne	r2,zero,40000a0 <init_room_setup+0x34>
-        alt_putstr("Error: could not open pixel buffer device\n");
- 4000094:	01010034 	movhi	r4,1024
- 4000098:	21047a04 	addi	r4,r4,4584
- 400009c:	00000206 	br	40000a8 <init_room_setup+0x3c>
-    } else {
-        alt_putstr("Opened pixel buffer device\n");
- 40000a0:	01010034 	movhi	r4,1024
- 40000a4:	21048504 	addi	r4,r4,4628
- 40000a8:	40003bc0 	call	40003bc <alt_putstr>
-    //usleep(1000000);
-/*
-    alt_up_char_buffer_clear(char_buffer);
-    usleep(1000000);
-    */
-    alt_putstr("Displaying Colour\n");
- 40000ac:	01010034 	movhi	r4,1024
- 40000b0:	21048c04 	addi	r4,r4,4656
- 40000b4:	40003bc0 	call	40003bc <alt_putstr>
-    alt_up_pixel_buffer_dma_draw_box (pixel_buffer, 150, 100, 199, 149, RED, 0);
- 40000b8:	00be0014 	movui	r2,63488
- 40000bc:	d1206f17 	ldw	r4,-32324(gp)
- 40000c0:	d8800115 	stw	r2,4(sp)
- 40000c4:	00802544 	movi	r2,149
- 40000c8:	d8800015 	stw	r2,0(sp)
- 40000cc:	01c031c4 	movi	r7,199
- 40000d0:	01801904 	movi	r6,100
- 40000d4:	01402584 	movi	r5,150
- 40000d8:	d8000215 	stw	zero,8(sp)
- 40000dc:	40008ac0 	call	40008ac <alt_up_pixel_buffer_dma_draw_box>
-
-    char_buffer = alt_up_char_buffer_open_dev("/dev/Char_Buffer");
- 40000e0:	01010034 	movhi	r4,1024
- 40000e4:	21049104 	addi	r4,r4,4676
- 40000e8:	40006480 	call	4000648 <alt_up_char_buffer_open_dev>
- 40000ec:	d0a06e15 	stw	r2,-32328(gp)
-
-    if(char_buffer == NULL) {
- 40000f0:	1000031e 	bne	r2,zero,4000100 <init_room_setup+0x94>
-        alt_putstr("Error: could not open char buffer device\n");
- 40000f4:	01010034 	movhi	r4,1024
- 40000f8:	21049604 	addi	r4,r4,4696
- 40000fc:	00000206 	br	4000108 <init_room_setup+0x9c>
-    } else {
-        alt_putstr("Opened Char buffer device\n");
- 4000100:	01010034 	movhi	r4,1024
- 4000104:	2104a104 	addi	r4,r4,4740
- 4000108:	40003bc0 	call	40003bc <alt_putstr>
-    }
-
-    char text = 'X';
-    char text_top_row[40] = "TriviaSoC:\0";
- 400010c:	01410034 	movhi	r5,1024
- 4000110:	01800304 	movi	r6,12
- 4000114:	2944a804 	addi	r5,r5,4768
- 4000118:	d9000d04 	addi	r4,sp,52
- 400011c:	40002680 	call	4000268 <memcpy>
- 4000120:	01800704 	movi	r6,28
- 4000124:	000b883a 	mov	r5,zero
- 4000128:	d9001004 	addi	r4,sp,64
- 400012c:	40002900 	call	4000290 <memset>
-    char text_bottom_row[40] = "Please enter the Room Code:\0";
- 4000130:	01410034 	movhi	r5,1024
- 4000134:	01800744 	movi	r6,29
- 4000138:	2944b204 	addi	r5,r5,4808
- 400013c:	d9000304 	addi	r4,sp,12
- 4000140:	40002680 	call	4000268 <memcpy>
- 4000144:	018002c4 	movi	r6,11
- 4000148:	000b883a 	mov	r5,zero
- 400014c:	d9000a44 	addi	r4,sp,41
- 4000150:	40002900 	call	4000290 <memset>
-    /* output text message near the middle of the VGA monitor */
-    while(alt_up_char_buffer_clear(char_buffer));
- 4000154:	d1206e17 	ldw	r4,-32328(gp)
- 4000158:	400070c0 	call	400070c <alt_up_char_buffer_clear>
- 400015c:	103ffd1e 	bne	r2,zero,4000154 <__alt_mem_Onchip_Memory+0xfbff0154>
-    alt_up_char_buffer_draw(char_buffer, text, 0, 0);
- 4000160:	d1206e17 	ldw	r4,-32328(gp)
- 4000164:	000f883a 	mov	r7,zero
- 4000168:	000d883a 	mov	r6,zero
- 400016c:	01401604 	movi	r5,88
- 4000170:	40006500 	call	4000650 <alt_up_char_buffer_draw>
-    alt_up_char_buffer_draw(char_buffer, text, 0, 59);
- 4000174:	d1206e17 	ldw	r4,-32328(gp)
- 4000178:	01c00ec4 	movi	r7,59
- 400017c:	000d883a 	mov	r6,zero
- 4000180:	01401604 	movi	r5,88
- 4000184:	40006500 	call	4000650 <alt_up_char_buffer_draw>
-    alt_up_char_buffer_draw(char_buffer, text, 79, 0);
- 4000188:	d1206e17 	ldw	r4,-32328(gp)
- 400018c:	000f883a 	mov	r7,zero
- 4000190:	018013c4 	movi	r6,79
- 4000194:	01401604 	movi	r5,88
- 4000198:	40006500 	call	4000650 <alt_up_char_buffer_draw>
-    alt_up_char_buffer_draw(char_buffer, text, 79, 59);
- 400019c:	d1206e17 	ldw	r4,-32328(gp)
- 40001a0:	01c00ec4 	movi	r7,59
- 40001a4:	018013c4 	movi	r6,79
- 40001a8:	01401604 	movi	r5,88
- 40001ac:	40006500 	call	4000650 <alt_up_char_buffer_draw>
-    alt_up_char_buffer_string(char_buffer, text_top_row, 20,20);
- 40001b0:	d1206e17 	ldw	r4,-32328(gp)
- 40001b4:	01c00504 	movi	r7,20
- 40001b8:	380d883a 	mov	r6,r7
- 40001bc:	d9400d04 	addi	r5,sp,52
- 40001c0:	40006a00 	call	40006a0 <alt_up_char_buffer_string>
-    alt_up_char_buffer_string(char_buffer, text_bottom_row, 40,40);
- 40001c4:	d1206e17 	ldw	r4,-32328(gp)
- 40001c8:	01c00a04 	movi	r7,40
- 40001cc:	380d883a 	mov	r6,r7
- 40001d0:	d9400304 	addi	r5,sp,12
- 40001d4:	40006a00 	call	40006a0 <alt_up_char_buffer_string>
-
-    bool game_start = false;
-    int i = 0;
- 40001d8:	0005883a 	mov	r2,zero
-    while(!game_start) {
-        if(i < 4) { // & API call from backend to grab name
- 40001dc:	00c000c4 	movi	r3,3
- 40001e0:	18bfff16 	blt	r3,r2,40001e0 <__alt_mem_Onchip_Memory+0xfbff01e0>
-            //player_list[i] = ""; // Name pulled from backend
-            i++;
- 40001e4:	10800044 	addi	r2,r2,1
- 40001e8:	003ffd06 	br	40001e0 <__alt_mem_Onchip_Memory+0xfbff01e0>
-
-040001ec <button_trigger>:
- */
-
-void button_trigger() {
-    int button_pressed = 0;
-
-    current_count = global_count;
- 40001ec:	d0e06b17 	ldw	r3,-32340(gp)
-    while(button_pressed != 0 || current_count + 10 > global_count) {
-    	if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE)) {
- 40001f0:	014200b4 	movhi	r5,2050
-        // Display timing end
-    }
- */
-
-void button_trigger() {
-    int button_pressed = 0;
- 40001f4:	0009883a 	mov	r4,zero
-
-    current_count = global_count;
- 40001f8:	d0e06a15 	stw	r3,-32344(gp)
-    while(button_pressed != 0 || current_count + 10 > global_count) {
-    	if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE)) {
- 40001fc:	294c1404 	addi	r5,r5,12368
-
-void button_trigger() {
-    int button_pressed = 0;
-
-    current_count = global_count;
-    while(button_pressed != 0 || current_count + 10 > global_count) {
- 4000200:	20000426 	beq	r4,zero,4000214 <button_trigger+0x28>
-    	if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE)) {
- 4000204:	28800037 	ldwio	r2,0(r5)
- 4000208:	103ffd26 	beq	r2,zero,4000200 <__alt_mem_Onchip_Memory+0xfbff0200>
-    		button_pressed = 1;
- 400020c:	01000044 	movi	r4,1
- 4000210:	003ffc06 	br	4000204 <__alt_mem_Onchip_Memory+0xfbff0204>
-
-void button_trigger() {
-    int button_pressed = 0;
-
-    current_count = global_count;
-    while(button_pressed != 0 || current_count + 10 > global_count) {
- 4000214:	d0a06a17 	ldw	r2,-32344(gp)
- 4000218:	10800244 	addi	r2,r2,9
- 400021c:	10fff90e 	bge	r2,r3,4000204 <__alt_mem_Onchip_Memory+0xfbff0204>
-    	if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE)) {
-    		button_pressed = 1;
-    	}
-    }
-
-}
- 4000220:	f800283a 	ret
-
-04000224 <init_question_gameplay>:
-    // Add players into teams (backend should do this)
-    // end program message
-    printf ("Setup Complete \n");
-}
-
-void init_question_gameplay() {
- 4000224:	defffe04 	addi	sp,sp,-8
- 4000228:	dc000015 	stw	r16,0(sp)
- 400022c:	dfc00115 	stw	ra,4(sp)
-    while(team_one_score < 1000 || team_two_score < 1000) {
- 4000230:	0400f9c4 	movi	r16,999
- 4000234:	d0a06d17 	ldw	r2,-32332(gp)
- 4000238:	80800216 	blt	r16,r2,4000244 <init_question_gameplay+0x20>
-        // Grab Question from API call
-        //char text_top_row[40] = '';
-        //alt_up_char_buffer_string(char_buffer, text_top_row, 20,20); // Display question
-        button_trigger();
- 400023c:	40001ec0 	call	40001ec <button_trigger>
- 4000240:	003ffc06 	br	4000234 <__alt_mem_Onchip_Memory+0xfbff0234>
-    // end program message
-    printf ("Setup Complete \n");
-}
-
-void init_question_gameplay() {
-    while(team_one_score < 1000 || team_two_score < 1000) {
- 4000244:	d0a06c17 	ldw	r2,-32336(gp)
- 4000248:	80bffc0e 	bge	r16,r2,400023c <__alt_mem_Onchip_Memory+0xfbff023c>
-        // Enable Audio Reading
-        // Send Audio to backend
-
-
-    }
-}
- 400024c:	dfc00117 	ldw	ra,4(sp)
- 4000250:	dc000017 	ldw	r16,0(sp)
- 4000254:	dec00204 	addi	sp,sp,8
- 4000258:	f800283a 	ret
-
-0400025c <main>:
-#define CYAN    0x07FF
-#define MAGENTA 0xF81F
-#define YELLOW  0xFFE0
-#define WHITE   0xFFFF
-
+*/
+#include <stdio.h>
 int main() {
- 400025c:	deffff04 	addi	sp,sp,-4
- 4000260:	dfc00015 	stw	ra,0(sp)
-    //init_timer_interrupt();
-    init_room_setup();
- 4000264:	400006c0 	call	400006c <init_room_setup>
+	printf("Test");
+ 400006c:	01010034 	movhi	r4,1024
+    IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE, 0);
+    global_count++;
+}
+*/
+#include <stdio.h>
+int main() {
+ 4000070:	deffff04 	addi	sp,sp,-4
+	printf("Test");
+ 4000074:	21045a04 	addi	r4,r4,4456
+    IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE, 0);
+    global_count++;
+}
+*/
+#include <stdio.h>
+int main() {
+ 4000078:	dfc00015 	stw	ra,0(sp)
+	printf("Test");
+ 400007c:	40000cc0 	call	40000cc <printf>
+	return 0;
+}
+ 4000080:	0005883a 	mov	r2,zero
+ 4000084:	dfc00017 	ldw	ra,0(sp)
+ 4000088:	dec00104 	addi	sp,sp,4
+ 400008c:	f800283a 	ret
 
-04000268 <memcpy>:
- 4000268:	2005883a 	mov	r2,r4
- 400026c:	2007883a 	mov	r3,r4
- 4000270:	218d883a 	add	r6,r4,r6
- 4000274:	19800526 	beq	r3,r6,400028c <memcpy+0x24>
- 4000278:	29000003 	ldbu	r4,0(r5)
- 400027c:	18c00044 	addi	r3,r3,1
- 4000280:	29400044 	addi	r5,r5,1
- 4000284:	193fffc5 	stb	r4,-1(r3)
- 4000288:	003ffa06 	br	4000274 <__alt_mem_Onchip_Memory+0xfbff0274>
- 400028c:	f800283a 	ret
+04000090 <_printf_r>:
+ 4000090:	defffd04 	addi	sp,sp,-12
+ 4000094:	dfc00015 	stw	ra,0(sp)
+ 4000098:	d9800115 	stw	r6,4(sp)
+ 400009c:	d9c00215 	stw	r7,8(sp)
+ 40000a0:	20c00217 	ldw	r3,8(r4)
+ 40000a4:	01810034 	movhi	r6,1024
+ 40000a8:	3181b104 	addi	r6,r6,1732
+ 40000ac:	19800115 	stw	r6,4(r3)
+ 40000b0:	280d883a 	mov	r6,r5
+ 40000b4:	21400217 	ldw	r5,8(r4)
+ 40000b8:	d9c00104 	addi	r7,sp,4
+ 40000bc:	40001840 	call	4000184 <___vfprintf_internal_r>
+ 40000c0:	dfc00017 	ldw	ra,0(sp)
+ 40000c4:	dec00304 	addi	sp,sp,12
+ 40000c8:	f800283a 	ret
 
-04000290 <memset>:
- 4000290:	2005883a 	mov	r2,r4
- 4000294:	2007883a 	mov	r3,r4
- 4000298:	218d883a 	add	r6,r4,r6
- 400029c:	19800326 	beq	r3,r6,40002ac <memset+0x1c>
- 40002a0:	19400005 	stb	r5,0(r3)
- 40002a4:	18c00044 	addi	r3,r3,1
- 40002a8:	003ffc06 	br	400029c <__alt_mem_Onchip_Memory+0xfbff029c>
- 40002ac:	f800283a 	ret
+040000cc <printf>:
+ 40000cc:	defffc04 	addi	sp,sp,-16
+ 40000d0:	dfc00015 	stw	ra,0(sp)
+ 40000d4:	d9400115 	stw	r5,4(sp)
+ 40000d8:	d9800215 	stw	r6,8(sp)
+ 40000dc:	d9c00315 	stw	r7,12(sp)
+ 40000e0:	00810034 	movhi	r2,1024
+ 40000e4:	10851b04 	addi	r2,r2,5228
+ 40000e8:	10800017 	ldw	r2,0(r2)
+ 40000ec:	01410034 	movhi	r5,1024
+ 40000f0:	2941b104 	addi	r5,r5,1732
+ 40000f4:	10c00217 	ldw	r3,8(r2)
+ 40000f8:	d9800104 	addi	r6,sp,4
+ 40000fc:	19400115 	stw	r5,4(r3)
+ 4000100:	200b883a 	mov	r5,r4
+ 4000104:	11000217 	ldw	r4,8(r2)
+ 4000108:	40006a80 	call	40006a8 <__vfprintf_internal>
+ 400010c:	dfc00017 	ldw	ra,0(sp)
+ 4000110:	dec00404 	addi	sp,sp,16
+ 4000114:	f800283a 	ret
 
-040002b0 <alt_load>:
+04000118 <print_repeat>:
+ 4000118:	defffb04 	addi	sp,sp,-20
+ 400011c:	dc800315 	stw	r18,12(sp)
+ 4000120:	dc400215 	stw	r17,8(sp)
+ 4000124:	dc000115 	stw	r16,4(sp)
+ 4000128:	dfc00415 	stw	ra,16(sp)
+ 400012c:	2025883a 	mov	r18,r4
+ 4000130:	2823883a 	mov	r17,r5
+ 4000134:	d9800005 	stb	r6,0(sp)
+ 4000138:	3821883a 	mov	r16,r7
+ 400013c:	04000a0e 	bge	zero,r16,4000168 <print_repeat+0x50>
+ 4000140:	88800117 	ldw	r2,4(r17)
+ 4000144:	01c00044 	movi	r7,1
+ 4000148:	d80d883a 	mov	r6,sp
+ 400014c:	880b883a 	mov	r5,r17
+ 4000150:	9009883a 	mov	r4,r18
+ 4000154:	103ee83a 	callr	r2
+ 4000158:	843fffc4 	addi	r16,r16,-1
+ 400015c:	103ff726 	beq	r2,zero,400013c <__alt_mem_Onchip_Memory+0xfbfe013c>
+ 4000160:	00bfffc4 	movi	r2,-1
+ 4000164:	00000106 	br	400016c <print_repeat+0x54>
+ 4000168:	0005883a 	mov	r2,zero
+ 400016c:	dfc00417 	ldw	ra,16(sp)
+ 4000170:	dc800317 	ldw	r18,12(sp)
+ 4000174:	dc400217 	ldw	r17,8(sp)
+ 4000178:	dc000117 	ldw	r16,4(sp)
+ 400017c:	dec00504 	addi	sp,sp,20
+ 4000180:	f800283a 	ret
+
+04000184 <___vfprintf_internal_r>:
+ 4000184:	deffe504 	addi	sp,sp,-108
+ 4000188:	d8c00804 	addi	r3,sp,32
+ 400018c:	df001915 	stw	fp,100(sp)
+ 4000190:	ddc01815 	stw	r23,96(sp)
+ 4000194:	dd801715 	stw	r22,92(sp)
+ 4000198:	dd401615 	stw	r21,88(sp)
+ 400019c:	dd001515 	stw	r20,84(sp)
+ 40001a0:	dcc01415 	stw	r19,80(sp)
+ 40001a4:	dc801315 	stw	r18,76(sp)
+ 40001a8:	dc401215 	stw	r17,72(sp)
+ 40001ac:	dc001115 	stw	r16,68(sp)
+ 40001b0:	dfc01a15 	stw	ra,104(sp)
+ 40001b4:	2027883a 	mov	r19,r4
+ 40001b8:	2839883a 	mov	fp,r5
+ 40001bc:	382d883a 	mov	r22,r7
+ 40001c0:	d9800f15 	stw	r6,60(sp)
+ 40001c4:	0021883a 	mov	r16,zero
+ 40001c8:	d8000e15 	stw	zero,56(sp)
+ 40001cc:	002f883a 	mov	r23,zero
+ 40001d0:	002b883a 	mov	r21,zero
+ 40001d4:	0025883a 	mov	r18,zero
+ 40001d8:	0023883a 	mov	r17,zero
+ 40001dc:	d8000c15 	stw	zero,48(sp)
+ 40001e0:	d8000b15 	stw	zero,44(sp)
+ 40001e4:	0029883a 	mov	r20,zero
+ 40001e8:	d8c00915 	stw	r3,36(sp)
+ 40001ec:	d8c00f17 	ldw	r3,60(sp)
+ 40001f0:	19000003 	ldbu	r4,0(r3)
+ 40001f4:	20803fcc 	andi	r2,r4,255
+ 40001f8:	1080201c 	xori	r2,r2,128
+ 40001fc:	10bfe004 	addi	r2,r2,-128
+ 4000200:	10011c26 	beq	r2,zero,4000674 <___vfprintf_internal_r+0x4f0>
+ 4000204:	00c00044 	movi	r3,1
+ 4000208:	a0c01426 	beq	r20,r3,400025c <___vfprintf_internal_r+0xd8>
+ 400020c:	1d000216 	blt	r3,r20,4000218 <___vfprintf_internal_r+0x94>
+ 4000210:	a0000626 	beq	r20,zero,400022c <___vfprintf_internal_r+0xa8>
+ 4000214:	00011306 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 4000218:	01400084 	movi	r5,2
+ 400021c:	a1401d26 	beq	r20,r5,4000294 <___vfprintf_internal_r+0x110>
+ 4000220:	014000c4 	movi	r5,3
+ 4000224:	a1402926 	beq	r20,r5,40002cc <___vfprintf_internal_r+0x148>
+ 4000228:	00010e06 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 400022c:	01400944 	movi	r5,37
+ 4000230:	1140fb26 	beq	r2,r5,4000620 <___vfprintf_internal_r+0x49c>
+ 4000234:	e0800117 	ldw	r2,4(fp)
+ 4000238:	d9000005 	stb	r4,0(sp)
+ 400023c:	01c00044 	movi	r7,1
+ 4000240:	d80d883a 	mov	r6,sp
+ 4000244:	e00b883a 	mov	r5,fp
+ 4000248:	9809883a 	mov	r4,r19
+ 400024c:	103ee83a 	callr	r2
+ 4000250:	1000d61e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 4000254:	84000044 	addi	r16,r16,1
+ 4000258:	00010206 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 400025c:	01400c04 	movi	r5,48
+ 4000260:	1140f826 	beq	r2,r5,4000644 <___vfprintf_internal_r+0x4c0>
+ 4000264:	01400944 	movi	r5,37
+ 4000268:	11400a1e 	bne	r2,r5,4000294 <___vfprintf_internal_r+0x110>
+ 400026c:	d8800005 	stb	r2,0(sp)
+ 4000270:	e0800117 	ldw	r2,4(fp)
+ 4000274:	a00f883a 	mov	r7,r20
+ 4000278:	d80d883a 	mov	r6,sp
+ 400027c:	e00b883a 	mov	r5,fp
+ 4000280:	9809883a 	mov	r4,r19
+ 4000284:	103ee83a 	callr	r2
+ 4000288:	1000c81e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 400028c:	84000044 	addi	r16,r16,1
+ 4000290:	0000f306 	br	4000660 <___vfprintf_internal_r+0x4dc>
+ 4000294:	217ff404 	addi	r5,r4,-48
+ 4000298:	29403fcc 	andi	r5,r5,255
+ 400029c:	00c00244 	movi	r3,9
+ 40002a0:	19400736 	bltu	r3,r5,40002c0 <___vfprintf_internal_r+0x13c>
+ 40002a4:	00bfffc4 	movi	r2,-1
+ 40002a8:	88800226 	beq	r17,r2,40002b4 <___vfprintf_internal_r+0x130>
+ 40002ac:	8c4002a4 	muli	r17,r17,10
+ 40002b0:	00000106 	br	40002b8 <___vfprintf_internal_r+0x134>
+ 40002b4:	0023883a 	mov	r17,zero
+ 40002b8:	2c63883a 	add	r17,r5,r17
+ 40002bc:	0000e206 	br	4000648 <___vfprintf_internal_r+0x4c4>
+ 40002c0:	01400b84 	movi	r5,46
+ 40002c4:	1140e426 	beq	r2,r5,4000658 <___vfprintf_internal_r+0x4d4>
+ 40002c8:	05000084 	movi	r20,2
+ 40002cc:	213ff404 	addi	r4,r4,-48
+ 40002d0:	21003fcc 	andi	r4,r4,255
+ 40002d4:	00c00244 	movi	r3,9
+ 40002d8:	19000736 	bltu	r3,r4,40002f8 <___vfprintf_internal_r+0x174>
+ 40002dc:	00bfffc4 	movi	r2,-1
+ 40002e0:	90800226 	beq	r18,r2,40002ec <___vfprintf_internal_r+0x168>
+ 40002e4:	948002a4 	muli	r18,r18,10
+ 40002e8:	00000106 	br	40002f0 <___vfprintf_internal_r+0x16c>
+ 40002ec:	0025883a 	mov	r18,zero
+ 40002f0:	24a5883a 	add	r18,r4,r18
+ 40002f4:	0000db06 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 40002f8:	00c01b04 	movi	r3,108
+ 40002fc:	10c0d426 	beq	r2,r3,4000650 <___vfprintf_internal_r+0x4cc>
+ 4000300:	013fffc4 	movi	r4,-1
+ 4000304:	91000226 	beq	r18,r4,4000310 <___vfprintf_internal_r+0x18c>
+ 4000308:	d8000b15 	stw	zero,44(sp)
+ 400030c:	00000106 	br	4000314 <___vfprintf_internal_r+0x190>
+ 4000310:	04800044 	movi	r18,1
+ 4000314:	01001a44 	movi	r4,105
+ 4000318:	11001626 	beq	r2,r4,4000374 <___vfprintf_internal_r+0x1f0>
+ 400031c:	20800916 	blt	r4,r2,4000344 <___vfprintf_internal_r+0x1c0>
+ 4000320:	010018c4 	movi	r4,99
+ 4000324:	11008a26 	beq	r2,r4,4000550 <___vfprintf_internal_r+0x3cc>
+ 4000328:	01001904 	movi	r4,100
+ 400032c:	11001126 	beq	r2,r4,4000374 <___vfprintf_internal_r+0x1f0>
+ 4000330:	01001604 	movi	r4,88
+ 4000334:	1100ca1e 	bne	r2,r4,4000660 <___vfprintf_internal_r+0x4dc>
+ 4000338:	00c00044 	movi	r3,1
+ 400033c:	d8c00e15 	stw	r3,56(sp)
+ 4000340:	00001406 	br	4000394 <___vfprintf_internal_r+0x210>
+ 4000344:	01001cc4 	movi	r4,115
+ 4000348:	11009a26 	beq	r2,r4,40005b4 <___vfprintf_internal_r+0x430>
+ 400034c:	20800416 	blt	r4,r2,4000360 <___vfprintf_internal_r+0x1dc>
+ 4000350:	01001bc4 	movi	r4,111
+ 4000354:	1100c21e 	bne	r2,r4,4000660 <___vfprintf_internal_r+0x4dc>
+ 4000358:	05400204 	movi	r21,8
+ 400035c:	00000e06 	br	4000398 <___vfprintf_internal_r+0x214>
+ 4000360:	01001d44 	movi	r4,117
+ 4000364:	11000c26 	beq	r2,r4,4000398 <___vfprintf_internal_r+0x214>
+ 4000368:	01001e04 	movi	r4,120
+ 400036c:	11000926 	beq	r2,r4,4000394 <___vfprintf_internal_r+0x210>
+ 4000370:	0000bb06 	br	4000660 <___vfprintf_internal_r+0x4dc>
+ 4000374:	b5000104 	addi	r20,r22,4
+ 4000378:	b8000726 	beq	r23,zero,4000398 <___vfprintf_internal_r+0x214>
+ 400037c:	dd000d15 	stw	r20,52(sp)
+ 4000380:	b5800017 	ldw	r22,0(r22)
+ 4000384:	b000080e 	bge	r22,zero,40003a8 <___vfprintf_internal_r+0x224>
+ 4000388:	05adc83a 	sub	r22,zero,r22
+ 400038c:	02800044 	movi	r10,1
+ 4000390:	00000606 	br	40003ac <___vfprintf_internal_r+0x228>
+ 4000394:	05400404 	movi	r21,16
+ 4000398:	b0c00104 	addi	r3,r22,4
+ 400039c:	d8c00d15 	stw	r3,52(sp)
+ 40003a0:	b5800017 	ldw	r22,0(r22)
+ 40003a4:	002f883a 	mov	r23,zero
+ 40003a8:	0015883a 	mov	r10,zero
+ 40003ac:	d829883a 	mov	r20,sp
+ 40003b0:	b0001426 	beq	r22,zero,4000404 <___vfprintf_internal_r+0x280>
+ 40003b4:	b009883a 	mov	r4,r22
+ 40003b8:	a80b883a 	mov	r5,r21
+ 40003bc:	da801015 	stw	r10,64(sp)
+ 40003c0:	40008e80 	call	40008e8 <__udivsi3>
+ 40003c4:	1549383a 	mul	r4,r2,r21
+ 40003c8:	00c00244 	movi	r3,9
+ 40003cc:	da801017 	ldw	r10,64(sp)
+ 40003d0:	b12dc83a 	sub	r22,r22,r4
+ 40003d4:	1d800216 	blt	r3,r22,40003e0 <___vfprintf_internal_r+0x25c>
+ 40003d8:	b5800c04 	addi	r22,r22,48
+ 40003dc:	00000506 	br	40003f4 <___vfprintf_internal_r+0x270>
+ 40003e0:	d8c00e17 	ldw	r3,56(sp)
+ 40003e4:	18000226 	beq	r3,zero,40003f0 <___vfprintf_internal_r+0x26c>
+ 40003e8:	b5800dc4 	addi	r22,r22,55
+ 40003ec:	00000106 	br	40003f4 <___vfprintf_internal_r+0x270>
+ 40003f0:	b58015c4 	addi	r22,r22,87
+ 40003f4:	a5800005 	stb	r22,0(r20)
+ 40003f8:	a5000044 	addi	r20,r20,1
+ 40003fc:	102d883a 	mov	r22,r2
+ 4000400:	003feb06 	br	40003b0 <__alt_mem_Onchip_Memory+0xfbfe03b0>
+ 4000404:	a6c7c83a 	sub	r3,r20,sp
+ 4000408:	d8c00a15 	stw	r3,40(sp)
+ 400040c:	90c5c83a 	sub	r2,r18,r3
+ 4000410:	00800a0e 	bge	zero,r2,400043c <___vfprintf_internal_r+0x2b8>
+ 4000414:	a085883a 	add	r2,r20,r2
+ 4000418:	01400c04 	movi	r5,48
+ 400041c:	d8c00917 	ldw	r3,36(sp)
+ 4000420:	a009883a 	mov	r4,r20
+ 4000424:	a0c0032e 	bgeu	r20,r3,4000434 <___vfprintf_internal_r+0x2b0>
+ 4000428:	a5000044 	addi	r20,r20,1
+ 400042c:	21400005 	stb	r5,0(r4)
+ 4000430:	a0bffa1e 	bne	r20,r2,400041c <__alt_mem_Onchip_Memory+0xfbfe041c>
+ 4000434:	a6c7c83a 	sub	r3,r20,sp
+ 4000438:	d8c00a15 	stw	r3,40(sp)
+ 400043c:	d8c00a17 	ldw	r3,40(sp)
+ 4000440:	50d3883a 	add	r9,r10,r3
+ 4000444:	d8c00b17 	ldw	r3,44(sp)
+ 4000448:	8a6dc83a 	sub	r22,r17,r9
+ 400044c:	18001726 	beq	r3,zero,40004ac <___vfprintf_internal_r+0x328>
+ 4000450:	50000a26 	beq	r10,zero,400047c <___vfprintf_internal_r+0x2f8>
+ 4000454:	00800b44 	movi	r2,45
+ 4000458:	d8800805 	stb	r2,32(sp)
+ 400045c:	e0800117 	ldw	r2,4(fp)
+ 4000460:	01c00044 	movi	r7,1
+ 4000464:	d9800804 	addi	r6,sp,32
+ 4000468:	e00b883a 	mov	r5,fp
+ 400046c:	9809883a 	mov	r4,r19
+ 4000470:	103ee83a 	callr	r2
+ 4000474:	10004d1e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 4000478:	84000044 	addi	r16,r16,1
+ 400047c:	0580070e 	bge	zero,r22,400049c <___vfprintf_internal_r+0x318>
+ 4000480:	b00f883a 	mov	r7,r22
+ 4000484:	01800c04 	movi	r6,48
+ 4000488:	e00b883a 	mov	r5,fp
+ 400048c:	9809883a 	mov	r4,r19
+ 4000490:	40001180 	call	4000118 <print_repeat>
+ 4000494:	1000451e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 4000498:	85a1883a 	add	r16,r16,r22
+ 400049c:	d8c00a17 	ldw	r3,40(sp)
+ 40004a0:	a013883a 	mov	r9,r20
+ 40004a4:	1d2dc83a 	sub	r22,r3,r20
+ 40004a8:	00002206 	br	4000534 <___vfprintf_internal_r+0x3b0>
+ 40004ac:	0580090e 	bge	zero,r22,40004d4 <___vfprintf_internal_r+0x350>
+ 40004b0:	b00f883a 	mov	r7,r22
+ 40004b4:	01800804 	movi	r6,32
+ 40004b8:	e00b883a 	mov	r5,fp
+ 40004bc:	9809883a 	mov	r4,r19
+ 40004c0:	da801015 	stw	r10,64(sp)
+ 40004c4:	40001180 	call	4000118 <print_repeat>
+ 40004c8:	da801017 	ldw	r10,64(sp)
+ 40004cc:	1000371e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 40004d0:	85a1883a 	add	r16,r16,r22
+ 40004d4:	503ff126 	beq	r10,zero,400049c <__alt_mem_Onchip_Memory+0xfbfe049c>
+ 40004d8:	00800b44 	movi	r2,45
+ 40004dc:	d8800805 	stb	r2,32(sp)
+ 40004e0:	e0800117 	ldw	r2,4(fp)
+ 40004e4:	01c00044 	movi	r7,1
+ 40004e8:	d9800804 	addi	r6,sp,32
+ 40004ec:	e00b883a 	mov	r5,fp
+ 40004f0:	9809883a 	mov	r4,r19
+ 40004f4:	103ee83a 	callr	r2
+ 40004f8:	10002c1e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 40004fc:	84000044 	addi	r16,r16,1
+ 4000500:	003fe606 	br	400049c <__alt_mem_Onchip_Memory+0xfbfe049c>
+ 4000504:	4a7fffc4 	addi	r9,r9,-1
+ 4000508:	48800003 	ldbu	r2,0(r9)
+ 400050c:	01c00044 	movi	r7,1
+ 4000510:	d9800804 	addi	r6,sp,32
+ 4000514:	d8800805 	stb	r2,32(sp)
+ 4000518:	e0800117 	ldw	r2,4(fp)
+ 400051c:	e00b883a 	mov	r5,fp
+ 4000520:	da401015 	stw	r9,64(sp)
+ 4000524:	9809883a 	mov	r4,r19
+ 4000528:	103ee83a 	callr	r2
+ 400052c:	da401017 	ldw	r9,64(sp)
+ 4000530:	10001e1e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 4000534:	8245c83a 	sub	r2,r16,r9
+ 4000538:	4d89883a 	add	r4,r9,r22
+ 400053c:	a085883a 	add	r2,r20,r2
+ 4000540:	013ff016 	blt	zero,r4,4000504 <__alt_mem_Onchip_Memory+0xfbfe0504>
+ 4000544:	1021883a 	mov	r16,r2
+ 4000548:	dd800d17 	ldw	r22,52(sp)
+ 400054c:	00004406 	br	4000660 <___vfprintf_internal_r+0x4dc>
+ 4000550:	00800044 	movi	r2,1
+ 4000554:	1440080e 	bge	r2,r17,4000578 <___vfprintf_internal_r+0x3f4>
+ 4000558:	8d3fffc4 	addi	r20,r17,-1
+ 400055c:	a00f883a 	mov	r7,r20
+ 4000560:	01800804 	movi	r6,32
+ 4000564:	e00b883a 	mov	r5,fp
+ 4000568:	9809883a 	mov	r4,r19
+ 400056c:	40001180 	call	4000118 <print_repeat>
+ 4000570:	10000e1e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 4000574:	8521883a 	add	r16,r16,r20
+ 4000578:	b0800017 	ldw	r2,0(r22)
+ 400057c:	01c00044 	movi	r7,1
+ 4000580:	d80d883a 	mov	r6,sp
+ 4000584:	d8800005 	stb	r2,0(sp)
+ 4000588:	e0800117 	ldw	r2,4(fp)
+ 400058c:	e00b883a 	mov	r5,fp
+ 4000590:	9809883a 	mov	r4,r19
+ 4000594:	b5000104 	addi	r20,r22,4
+ 4000598:	103ee83a 	callr	r2
+ 400059c:	1000031e 	bne	r2,zero,40005ac <___vfprintf_internal_r+0x428>
+ 40005a0:	84000044 	addi	r16,r16,1
+ 40005a4:	a02d883a 	mov	r22,r20
+ 40005a8:	00002d06 	br	4000660 <___vfprintf_internal_r+0x4dc>
+ 40005ac:	00bfffc4 	movi	r2,-1
+ 40005b0:	00003106 	br	4000678 <___vfprintf_internal_r+0x4f4>
+ 40005b4:	b5000017 	ldw	r20,0(r22)
+ 40005b8:	b0c00104 	addi	r3,r22,4
+ 40005bc:	d8c00a15 	stw	r3,40(sp)
+ 40005c0:	a009883a 	mov	r4,r20
+ 40005c4:	400077c0 	call	400077c <strlen>
+ 40005c8:	8893c83a 	sub	r9,r17,r2
+ 40005cc:	102d883a 	mov	r22,r2
+ 40005d0:	0240090e 	bge	zero,r9,40005f8 <___vfprintf_internal_r+0x474>
+ 40005d4:	480f883a 	mov	r7,r9
+ 40005d8:	01800804 	movi	r6,32
+ 40005dc:	e00b883a 	mov	r5,fp
+ 40005e0:	9809883a 	mov	r4,r19
+ 40005e4:	da401015 	stw	r9,64(sp)
+ 40005e8:	40001180 	call	4000118 <print_repeat>
+ 40005ec:	da401017 	ldw	r9,64(sp)
+ 40005f0:	103fee1e 	bne	r2,zero,40005ac <__alt_mem_Onchip_Memory+0xfbfe05ac>
+ 40005f4:	8261883a 	add	r16,r16,r9
+ 40005f8:	e0800117 	ldw	r2,4(fp)
+ 40005fc:	b00f883a 	mov	r7,r22
+ 4000600:	a00d883a 	mov	r6,r20
+ 4000604:	e00b883a 	mov	r5,fp
+ 4000608:	9809883a 	mov	r4,r19
+ 400060c:	103ee83a 	callr	r2
+ 4000610:	103fe61e 	bne	r2,zero,40005ac <__alt_mem_Onchip_Memory+0xfbfe05ac>
+ 4000614:	85a1883a 	add	r16,r16,r22
+ 4000618:	dd800a17 	ldw	r22,40(sp)
+ 400061c:	00001006 	br	4000660 <___vfprintf_internal_r+0x4dc>
+ 4000620:	05c00044 	movi	r23,1
+ 4000624:	04bfffc4 	movi	r18,-1
+ 4000628:	d8000e15 	stw	zero,56(sp)
+ 400062c:	05400284 	movi	r21,10
+ 4000630:	9023883a 	mov	r17,r18
+ 4000634:	d8000c15 	stw	zero,48(sp)
+ 4000638:	d8000b15 	stw	zero,44(sp)
+ 400063c:	b829883a 	mov	r20,r23
+ 4000640:	00000806 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 4000644:	dd000b15 	stw	r20,44(sp)
+ 4000648:	05000084 	movi	r20,2
+ 400064c:	00000506 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 4000650:	00c00044 	movi	r3,1
+ 4000654:	d8c00c15 	stw	r3,48(sp)
+ 4000658:	050000c4 	movi	r20,3
+ 400065c:	00000106 	br	4000664 <___vfprintf_internal_r+0x4e0>
+ 4000660:	0029883a 	mov	r20,zero
+ 4000664:	d8c00f17 	ldw	r3,60(sp)
+ 4000668:	18c00044 	addi	r3,r3,1
+ 400066c:	d8c00f15 	stw	r3,60(sp)
+ 4000670:	003ede06 	br	40001ec <__alt_mem_Onchip_Memory+0xfbfe01ec>
+ 4000674:	8005883a 	mov	r2,r16
+ 4000678:	dfc01a17 	ldw	ra,104(sp)
+ 400067c:	df001917 	ldw	fp,100(sp)
+ 4000680:	ddc01817 	ldw	r23,96(sp)
+ 4000684:	dd801717 	ldw	r22,92(sp)
+ 4000688:	dd401617 	ldw	r21,88(sp)
+ 400068c:	dd001517 	ldw	r20,84(sp)
+ 4000690:	dcc01417 	ldw	r19,80(sp)
+ 4000694:	dc801317 	ldw	r18,76(sp)
+ 4000698:	dc401217 	ldw	r17,72(sp)
+ 400069c:	dc001117 	ldw	r16,68(sp)
+ 40006a0:	dec01b04 	addi	sp,sp,108
+ 40006a4:	f800283a 	ret
+
+040006a8 <__vfprintf_internal>:
+ 40006a8:	00810034 	movhi	r2,1024
+ 40006ac:	10851b04 	addi	r2,r2,5228
+ 40006b0:	300f883a 	mov	r7,r6
+ 40006b4:	280d883a 	mov	r6,r5
+ 40006b8:	200b883a 	mov	r5,r4
+ 40006bc:	11000017 	ldw	r4,0(r2)
+ 40006c0:	40001841 	jmpi	4000184 <___vfprintf_internal_r>
+
+040006c4 <__sfvwrite_small_dev>:
+ 40006c4:	2880000b 	ldhu	r2,0(r5)
+ 40006c8:	1080020c 	andi	r2,r2,8
+ 40006cc:	10002126 	beq	r2,zero,4000754 <__sfvwrite_small_dev+0x90>
+ 40006d0:	2880008f 	ldh	r2,2(r5)
+ 40006d4:	defffa04 	addi	sp,sp,-24
+ 40006d8:	dc000015 	stw	r16,0(sp)
+ 40006dc:	dfc00515 	stw	ra,20(sp)
+ 40006e0:	dd000415 	stw	r20,16(sp)
+ 40006e4:	dcc00315 	stw	r19,12(sp)
+ 40006e8:	dc800215 	stw	r18,8(sp)
+ 40006ec:	dc400115 	stw	r17,4(sp)
+ 40006f0:	2821883a 	mov	r16,r5
+ 40006f4:	10001216 	blt	r2,zero,4000740 <__sfvwrite_small_dev+0x7c>
+ 40006f8:	2027883a 	mov	r19,r4
+ 40006fc:	3025883a 	mov	r18,r6
+ 4000700:	3823883a 	mov	r17,r7
+ 4000704:	05010004 	movi	r20,1024
+ 4000708:	04400b0e 	bge	zero,r17,4000738 <__sfvwrite_small_dev+0x74>
+ 400070c:	880f883a 	mov	r7,r17
+ 4000710:	a440010e 	bge	r20,r17,4000718 <__sfvwrite_small_dev+0x54>
+ 4000714:	01c10004 	movi	r7,1024
+ 4000718:	8140008f 	ldh	r5,2(r16)
+ 400071c:	900d883a 	mov	r6,r18
+ 4000720:	9809883a 	mov	r4,r19
+ 4000724:	40007980 	call	4000798 <_write_r>
+ 4000728:	0080050e 	bge	zero,r2,4000740 <__sfvwrite_small_dev+0x7c>
+ 400072c:	88a3c83a 	sub	r17,r17,r2
+ 4000730:	90a5883a 	add	r18,r18,r2
+ 4000734:	003ff406 	br	4000708 <__alt_mem_Onchip_Memory+0xfbfe0708>
+ 4000738:	0005883a 	mov	r2,zero
+ 400073c:	00000706 	br	400075c <__sfvwrite_small_dev+0x98>
+ 4000740:	8080000b 	ldhu	r2,0(r16)
+ 4000744:	10801014 	ori	r2,r2,64
+ 4000748:	8080000d 	sth	r2,0(r16)
+ 400074c:	00bfffc4 	movi	r2,-1
+ 4000750:	00000206 	br	400075c <__sfvwrite_small_dev+0x98>
+ 4000754:	00bfffc4 	movi	r2,-1
+ 4000758:	f800283a 	ret
+ 400075c:	dfc00517 	ldw	ra,20(sp)
+ 4000760:	dd000417 	ldw	r20,16(sp)
+ 4000764:	dcc00317 	ldw	r19,12(sp)
+ 4000768:	dc800217 	ldw	r18,8(sp)
+ 400076c:	dc400117 	ldw	r17,4(sp)
+ 4000770:	dc000017 	ldw	r16,0(sp)
+ 4000774:	dec00604 	addi	sp,sp,24
+ 4000778:	f800283a 	ret
+
+0400077c <strlen>:
+ 400077c:	2005883a 	mov	r2,r4
+ 4000780:	10c00007 	ldb	r3,0(r2)
+ 4000784:	18000226 	beq	r3,zero,4000790 <strlen+0x14>
+ 4000788:	10800044 	addi	r2,r2,1
+ 400078c:	003ffc06 	br	4000780 <__alt_mem_Onchip_Memory+0xfbfe0780>
+ 4000790:	1105c83a 	sub	r2,r2,r4
+ 4000794:	f800283a 	ret
+
+04000798 <_write_r>:
+ 4000798:	defffd04 	addi	sp,sp,-12
+ 400079c:	dc000015 	stw	r16,0(sp)
+ 40007a0:	04010034 	movhi	r16,1024
+ 40007a4:	dc400115 	stw	r17,4(sp)
+ 40007a8:	8405c904 	addi	r16,r16,5924
+ 40007ac:	2023883a 	mov	r17,r4
+ 40007b0:	2809883a 	mov	r4,r5
+ 40007b4:	300b883a 	mov	r5,r6
+ 40007b8:	380d883a 	mov	r6,r7
+ 40007bc:	dfc00215 	stw	ra,8(sp)
+ 40007c0:	80000015 	stw	zero,0(r16)
+ 40007c4:	4000ab00 	call	4000ab0 <write>
+ 40007c8:	00ffffc4 	movi	r3,-1
+ 40007cc:	10c0031e 	bne	r2,r3,40007dc <_write_r+0x44>
+ 40007d0:	80c00017 	ldw	r3,0(r16)
+ 40007d4:	18000126 	beq	r3,zero,40007dc <_write_r+0x44>
+ 40007d8:	88c00015 	stw	r3,0(r17)
+ 40007dc:	dfc00217 	ldw	ra,8(sp)
+ 40007e0:	dc400117 	ldw	r17,4(sp)
+ 40007e4:	dc000017 	ldw	r16,0(sp)
+ 40007e8:	dec00304 	addi	sp,sp,12
+ 40007ec:	f800283a 	ret
+
+040007f0 <__divsi3>:
+ 40007f0:	20001b16 	blt	r4,zero,4000860 <__divsi3+0x70>
+ 40007f4:	000f883a 	mov	r7,zero
+ 40007f8:	28001616 	blt	r5,zero,4000854 <__divsi3+0x64>
+ 40007fc:	200d883a 	mov	r6,r4
+ 4000800:	29001a2e 	bgeu	r5,r4,400086c <__divsi3+0x7c>
+ 4000804:	00800804 	movi	r2,32
+ 4000808:	00c00044 	movi	r3,1
+ 400080c:	00000106 	br	4000814 <__divsi3+0x24>
+ 4000810:	10000d26 	beq	r2,zero,4000848 <__divsi3+0x58>
+ 4000814:	294b883a 	add	r5,r5,r5
+ 4000818:	10bfffc4 	addi	r2,r2,-1
+ 400081c:	18c7883a 	add	r3,r3,r3
+ 4000820:	293ffb36 	bltu	r5,r4,4000810 <__alt_mem_Onchip_Memory+0xfbfe0810>
+ 4000824:	0005883a 	mov	r2,zero
+ 4000828:	18000726 	beq	r3,zero,4000848 <__divsi3+0x58>
+ 400082c:	0005883a 	mov	r2,zero
+ 4000830:	31400236 	bltu	r6,r5,400083c <__divsi3+0x4c>
+ 4000834:	314dc83a 	sub	r6,r6,r5
+ 4000838:	10c4b03a 	or	r2,r2,r3
+ 400083c:	1806d07a 	srli	r3,r3,1
+ 4000840:	280ad07a 	srli	r5,r5,1
+ 4000844:	183ffa1e 	bne	r3,zero,4000830 <__alt_mem_Onchip_Memory+0xfbfe0830>
+ 4000848:	38000126 	beq	r7,zero,4000850 <__divsi3+0x60>
+ 400084c:	0085c83a 	sub	r2,zero,r2
+ 4000850:	f800283a 	ret
+ 4000854:	014bc83a 	sub	r5,zero,r5
+ 4000858:	39c0005c 	xori	r7,r7,1
+ 400085c:	003fe706 	br	40007fc <__alt_mem_Onchip_Memory+0xfbfe07fc>
+ 4000860:	0109c83a 	sub	r4,zero,r4
+ 4000864:	01c00044 	movi	r7,1
+ 4000868:	003fe306 	br	40007f8 <__alt_mem_Onchip_Memory+0xfbfe07f8>
+ 400086c:	00c00044 	movi	r3,1
+ 4000870:	003fee06 	br	400082c <__alt_mem_Onchip_Memory+0xfbfe082c>
+
+04000874 <__modsi3>:
+ 4000874:	20001716 	blt	r4,zero,40008d4 <__modsi3+0x60>
+ 4000878:	000f883a 	mov	r7,zero
+ 400087c:	2005883a 	mov	r2,r4
+ 4000880:	28001216 	blt	r5,zero,40008cc <__modsi3+0x58>
+ 4000884:	2900162e 	bgeu	r5,r4,40008e0 <__modsi3+0x6c>
+ 4000888:	01800804 	movi	r6,32
+ 400088c:	00c00044 	movi	r3,1
+ 4000890:	00000106 	br	4000898 <__modsi3+0x24>
+ 4000894:	30000a26 	beq	r6,zero,40008c0 <__modsi3+0x4c>
+ 4000898:	294b883a 	add	r5,r5,r5
+ 400089c:	31bfffc4 	addi	r6,r6,-1
+ 40008a0:	18c7883a 	add	r3,r3,r3
+ 40008a4:	293ffb36 	bltu	r5,r4,4000894 <__alt_mem_Onchip_Memory+0xfbfe0894>
+ 40008a8:	18000526 	beq	r3,zero,40008c0 <__modsi3+0x4c>
+ 40008ac:	1806d07a 	srli	r3,r3,1
+ 40008b0:	11400136 	bltu	r2,r5,40008b8 <__modsi3+0x44>
+ 40008b4:	1145c83a 	sub	r2,r2,r5
+ 40008b8:	280ad07a 	srli	r5,r5,1
+ 40008bc:	183ffb1e 	bne	r3,zero,40008ac <__alt_mem_Onchip_Memory+0xfbfe08ac>
+ 40008c0:	38000126 	beq	r7,zero,40008c8 <__modsi3+0x54>
+ 40008c4:	0085c83a 	sub	r2,zero,r2
+ 40008c8:	f800283a 	ret
+ 40008cc:	014bc83a 	sub	r5,zero,r5
+ 40008d0:	003fec06 	br	4000884 <__alt_mem_Onchip_Memory+0xfbfe0884>
+ 40008d4:	0109c83a 	sub	r4,zero,r4
+ 40008d8:	01c00044 	movi	r7,1
+ 40008dc:	003fe706 	br	400087c <__alt_mem_Onchip_Memory+0xfbfe087c>
+ 40008e0:	00c00044 	movi	r3,1
+ 40008e4:	003ff106 	br	40008ac <__alt_mem_Onchip_Memory+0xfbfe08ac>
+
+040008e8 <__udivsi3>:
+ 40008e8:	200d883a 	mov	r6,r4
+ 40008ec:	2900152e 	bgeu	r5,r4,4000944 <__udivsi3+0x5c>
+ 40008f0:	28001416 	blt	r5,zero,4000944 <__udivsi3+0x5c>
+ 40008f4:	00800804 	movi	r2,32
+ 40008f8:	00c00044 	movi	r3,1
+ 40008fc:	00000206 	br	4000908 <__udivsi3+0x20>
+ 4000900:	10000e26 	beq	r2,zero,400093c <__udivsi3+0x54>
+ 4000904:	28000516 	blt	r5,zero,400091c <__udivsi3+0x34>
+ 4000908:	294b883a 	add	r5,r5,r5
+ 400090c:	10bfffc4 	addi	r2,r2,-1
+ 4000910:	18c7883a 	add	r3,r3,r3
+ 4000914:	293ffa36 	bltu	r5,r4,4000900 <__alt_mem_Onchip_Memory+0xfbfe0900>
+ 4000918:	18000826 	beq	r3,zero,400093c <__udivsi3+0x54>
+ 400091c:	0005883a 	mov	r2,zero
+ 4000920:	31400236 	bltu	r6,r5,400092c <__udivsi3+0x44>
+ 4000924:	314dc83a 	sub	r6,r6,r5
+ 4000928:	10c4b03a 	or	r2,r2,r3
+ 400092c:	1806d07a 	srli	r3,r3,1
+ 4000930:	280ad07a 	srli	r5,r5,1
+ 4000934:	183ffa1e 	bne	r3,zero,4000920 <__alt_mem_Onchip_Memory+0xfbfe0920>
+ 4000938:	f800283a 	ret
+ 400093c:	0005883a 	mov	r2,zero
+ 4000940:	f800283a 	ret
+ 4000944:	00c00044 	movi	r3,1
+ 4000948:	003ff406 	br	400091c <__alt_mem_Onchip_Memory+0xfbfe091c>
+
+0400094c <__umodsi3>:
+ 400094c:	2005883a 	mov	r2,r4
+ 4000950:	2900122e 	bgeu	r5,r4,400099c <__umodsi3+0x50>
+ 4000954:	28001116 	blt	r5,zero,400099c <__umodsi3+0x50>
+ 4000958:	01800804 	movi	r6,32
+ 400095c:	00c00044 	movi	r3,1
+ 4000960:	00000206 	br	400096c <__umodsi3+0x20>
+ 4000964:	30000c26 	beq	r6,zero,4000998 <__umodsi3+0x4c>
+ 4000968:	28000516 	blt	r5,zero,4000980 <__umodsi3+0x34>
+ 400096c:	294b883a 	add	r5,r5,r5
+ 4000970:	31bfffc4 	addi	r6,r6,-1
+ 4000974:	18c7883a 	add	r3,r3,r3
+ 4000978:	293ffa36 	bltu	r5,r4,4000964 <__alt_mem_Onchip_Memory+0xfbfe0964>
+ 400097c:	18000626 	beq	r3,zero,4000998 <__umodsi3+0x4c>
+ 4000980:	1806d07a 	srli	r3,r3,1
+ 4000984:	11400136 	bltu	r2,r5,400098c <__umodsi3+0x40>
+ 4000988:	1145c83a 	sub	r2,r2,r5
+ 400098c:	280ad07a 	srli	r5,r5,1
+ 4000990:	183ffb1e 	bne	r3,zero,4000980 <__alt_mem_Onchip_Memory+0xfbfe0980>
+ 4000994:	f800283a 	ret
+ 4000998:	f800283a 	ret
+ 400099c:	00c00044 	movi	r3,1
+ 40009a0:	003ff706 	br	4000980 <__alt_mem_Onchip_Memory+0xfbfe0980>
+
+040009a4 <alt_load>:
  * there is no bootloader, so this application is responsible for loading to
  * RAM any sections that are required.
  */  
 
 void alt_load (void)
 {
- 40002b0:	deffff04 	addi	sp,sp,-4
- 40002b4:	01010034 	movhi	r4,1024
- 40002b8:	01410034 	movhi	r5,1024
- 40002bc:	dfc00015 	stw	ra,0(sp)
- 40002c0:	2104d204 	addi	r4,r4,4936
- 40002c4:	29453404 	addi	r5,r5,5328
+ 40009a4:	deffff04 	addi	sp,sp,-4
+ 40009a8:	01010034 	movhi	r4,1024
+ 40009ac:	01410034 	movhi	r5,1024
+ 40009b0:	dfc00015 	stw	ra,0(sp)
+ 40009b4:	21047d04 	addi	r4,r4,4596
+ 40009b8:	29452304 	addi	r5,r5,5260
 
 static void ALT_INLINE alt_load_section (alt_u32* from, 
                                          alt_u32* to, 
                                          alt_u32* end)
 {
   if (to != from)
- 40002c8:	2140061e 	bne	r4,r5,40002e4 <alt_load+0x34>
- 40002cc:	01010034 	movhi	r4,1024
- 40002d0:	01410034 	movhi	r5,1024
- 40002d4:	21000804 	addi	r4,r4,32
- 40002d8:	29400804 	addi	r5,r5,32
- 40002dc:	2140121e 	bne	r4,r5,4000328 <alt_load+0x78>
- 40002e0:	00000b06 	br	4000310 <alt_load+0x60>
- 40002e4:	00c10034 	movhi	r3,1024
- 40002e8:	18c53404 	addi	r3,r3,5328
- 40002ec:	1907c83a 	sub	r3,r3,r4
- 40002f0:	0005883a 	mov	r2,zero
+ 40009bc:	2140061e 	bne	r4,r5,40009d8 <alt_load+0x34>
+ 40009c0:	01010034 	movhi	r4,1024
+ 40009c4:	01410034 	movhi	r5,1024
+ 40009c8:	21000804 	addi	r4,r4,32
+ 40009cc:	29400804 	addi	r5,r5,32
+ 40009d0:	2140121e 	bne	r4,r5,4000a1c <alt_load+0x78>
+ 40009d4:	00000b06 	br	4000a04 <alt_load+0x60>
+ 40009d8:	00c10034 	movhi	r3,1024
+ 40009dc:	18c52304 	addi	r3,r3,5260
+ 40009e0:	1907c83a 	sub	r3,r3,r4
+ 40009e4:	0005883a 	mov	r2,zero
   {
     while( to != end )
- 40002f4:	10fff526 	beq	r2,r3,40002cc <__alt_mem_Onchip_Memory+0xfbff02cc>
+ 40009e8:	10fff526 	beq	r2,r3,40009c0 <__alt_mem_Onchip_Memory+0xfbfe09c0>
     {
       *to++ = *from++;
- 40002f8:	114f883a 	add	r7,r2,r5
- 40002fc:	39c00017 	ldw	r7,0(r7)
- 4000300:	110d883a 	add	r6,r2,r4
- 4000304:	10800104 	addi	r2,r2,4
- 4000308:	31c00015 	stw	r7,0(r6)
- 400030c:	003ff906 	br	40002f4 <__alt_mem_Onchip_Memory+0xfbff02f4>
- 4000310:	01010034 	movhi	r4,1024
- 4000314:	01410034 	movhi	r5,1024
- 4000318:	21046f04 	addi	r4,r4,4540
- 400031c:	29446f04 	addi	r5,r5,4540
+ 40009ec:	114f883a 	add	r7,r2,r5
+ 40009f0:	39c00017 	ldw	r7,0(r7)
+ 40009f4:	110d883a 	add	r6,r2,r4
+ 40009f8:	10800104 	addi	r2,r2,4
+ 40009fc:	31c00015 	stw	r7,0(r6)
+ 4000a00:	003ff906 	br	40009e8 <__alt_mem_Onchip_Memory+0xfbfe09e8>
+ 4000a04:	01010034 	movhi	r4,1024
+ 4000a08:	01410034 	movhi	r5,1024
+ 4000a0c:	21045a04 	addi	r4,r4,4456
+ 4000a10:	29445a04 	addi	r5,r5,4456
 
 static void ALT_INLINE alt_load_section (alt_u32* from, 
                                          alt_u32* to, 
                                          alt_u32* end)
 {
   if (to != from)
- 4000320:	2140101e 	bne	r4,r5,4000364 <alt_load+0xb4>
- 4000324:	00000b06 	br	4000354 <alt_load+0xa4>
- 4000328:	00c10034 	movhi	r3,1024
- 400032c:	18c00804 	addi	r3,r3,32
- 4000330:	1907c83a 	sub	r3,r3,r4
- 4000334:	0005883a 	mov	r2,zero
+ 4000a14:	2140101e 	bne	r4,r5,4000a58 <alt_load+0xb4>
+ 4000a18:	00000b06 	br	4000a48 <alt_load+0xa4>
+ 4000a1c:	00c10034 	movhi	r3,1024
+ 4000a20:	18c00804 	addi	r3,r3,32
+ 4000a24:	1907c83a 	sub	r3,r3,r4
+ 4000a28:	0005883a 	mov	r2,zero
   {
     while( to != end )
- 4000338:	10fff526 	beq	r2,r3,4000310 <__alt_mem_Onchip_Memory+0xfbff0310>
+ 4000a2c:	10fff526 	beq	r2,r3,4000a04 <__alt_mem_Onchip_Memory+0xfbfe0a04>
     {
       *to++ = *from++;
- 400033c:	114f883a 	add	r7,r2,r5
- 4000340:	39c00017 	ldw	r7,0(r7)
- 4000344:	110d883a 	add	r6,r2,r4
- 4000348:	10800104 	addi	r2,r2,4
- 400034c:	31c00015 	stw	r7,0(r6)
- 4000350:	003ff906 	br	4000338 <__alt_mem_Onchip_Memory+0xfbff0338>
+ 4000a30:	114f883a 	add	r7,r2,r5
+ 4000a34:	39c00017 	ldw	r7,0(r7)
+ 4000a38:	110d883a 	add	r6,r2,r4
+ 4000a3c:	10800104 	addi	r2,r2,4
+ 4000a40:	31c00015 	stw	r7,0(r6)
+ 4000a44:	003ff906 	br	4000a2c <__alt_mem_Onchip_Memory+0xfbfe0a2c>
   
   /*
    * Now ensure that the caches are in synch.
    */
   
   alt_dcache_flush_all();
- 4000354:	4000fec0 	call	4000fec <alt_dcache_flush_all>
+ 4000a48:	4000fb40 	call	4000fb4 <alt_dcache_flush_all>
   alt_icache_flush_all();
 }
- 4000358:	dfc00017 	ldw	ra,0(sp)
- 400035c:	dec00104 	addi	sp,sp,4
+ 4000a4c:	dfc00017 	ldw	ra,0(sp)
+ 4000a50:	dec00104 	addi	sp,sp,4
   /*
    * Now ensure that the caches are in synch.
    */
   
   alt_dcache_flush_all();
   alt_icache_flush_all();
- 4000360:	40010ec1 	jmpi	40010ec <alt_icache_flush_all>
- 4000364:	00c10034 	movhi	r3,1024
- 4000368:	18c4d204 	addi	r3,r3,4936
- 400036c:	1907c83a 	sub	r3,r3,r4
+ 4000a54:	40010b41 	jmpi	40010b4 <alt_icache_flush_all>
+ 4000a58:	00c10034 	movhi	r3,1024
+ 4000a5c:	18c47d04 	addi	r3,r3,4596
+ 4000a60:	1907c83a 	sub	r3,r3,r4
 
 static void ALT_INLINE alt_load_section (alt_u32* from, 
                                          alt_u32* to, 
                                          alt_u32* end)
 {
   if (to != from)
- 4000370:	0005883a 	mov	r2,zero
+ 4000a64:	0005883a 	mov	r2,zero
   {
     while( to != end )
- 4000374:	18bff726 	beq	r3,r2,4000354 <__alt_mem_Onchip_Memory+0xfbff0354>
+ 4000a68:	18bff726 	beq	r3,r2,4000a48 <__alt_mem_Onchip_Memory+0xfbfe0a48>
     {
       *to++ = *from++;
- 4000378:	114f883a 	add	r7,r2,r5
- 400037c:	39c00017 	ldw	r7,0(r7)
- 4000380:	110d883a 	add	r6,r2,r4
- 4000384:	10800104 	addi	r2,r2,4
- 4000388:	31c00015 	stw	r7,0(r6)
- 400038c:	003ff906 	br	4000374 <__alt_mem_Onchip_Memory+0xfbff0374>
+ 4000a6c:	114f883a 	add	r7,r2,r5
+ 4000a70:	39c00017 	ldw	r7,0(r7)
+ 4000a74:	110d883a 	add	r6,r2,r4
+ 4000a78:	10800104 	addi	r2,r2,4
+ 4000a7c:	31c00015 	stw	r7,0(r6)
+ 4000a80:	003ff906 	br	4000a68 <__alt_mem_Onchip_Memory+0xfbfe0a68>
 
-04000390 <alt_main>:
+04000a84 <alt_main>:
  * devices/filesystems/components in the system; and call the entry point for
  * the users application, i.e. main().
  */
 
 void alt_main (void)
 {
- 4000390:	deffff04 	addi	sp,sp,-4
+ 4000a84:	deffff04 	addi	sp,sp,-4
 #endif
 
   /* ALT LOG - please see HAL/sys/alt_log_printf.h for details */
   ALT_LOG_PRINT_BOOT("[alt_main.c] Entering alt_main, calling alt_irq_init.\r\n");
   /* Initialize the interrupt controller. */
   alt_irq_init (NULL);
- 4000394:	0009883a 	mov	r4,zero
+ 4000a88:	0009883a 	mov	r4,zero
  * devices/filesystems/components in the system; and call the entry point for
  * the users application, i.e. main().
  */
 
 void alt_main (void)
 {
- 4000398:	dfc00015 	stw	ra,0(sp)
+ 4000a8c:	dfc00015 	stw	ra,0(sp)
 #endif
 
   /* ALT LOG - please see HAL/sys/alt_log_printf.h for details */
   ALT_LOG_PRINT_BOOT("[alt_main.c] Entering alt_main, calling alt_irq_init.\r\n");
   /* Initialize the interrupt controller. */
   alt_irq_init (NULL);
- 400039c:	40003fc0 	call	40003fc <alt_irq_init>
+ 4000a90:	4000b180 	call	4000b18 <alt_irq_init>
   ALT_LOG_PRINT_BOOT("[alt_main.c] Done OS Init, calling alt_sem_create.\r\n");
   ALT_SEM_CREATE (&alt_fd_list_lock, 1);
 
   /* Initialize the device drivers/software components. */
   ALT_LOG_PRINT_BOOT("[alt_main.c] Calling alt_sys_init.\r\n");
   alt_sys_init();
- 40003a0:	400041c0 	call	400041c <alt_sys_init>
+ 4000a94:	4000b380 	call	4000b38 <alt_sys_init>
    */
 
   ALT_LOG_PRINT_BOOT("[alt_main.c] Calling main.\r\n");
 
 #ifdef ALT_NO_EXIT
   main (alt_argc, alt_argv, alt_envp);
- 40003a4:	d1a07017 	ldw	r6,-32320(gp)
- 40003a8:	d1607117 	ldw	r5,-32316(gp)
- 40003ac:	d1207217 	ldw	r4,-32312(gp)
+ 4000a98:	d1a0b017 	ldw	r6,-32064(gp)
+ 4000a9c:	d160b117 	ldw	r5,-32060(gp)
+ 4000aa0:	d120b217 	ldw	r4,-32056(gp)
   close(STDOUT_FILENO);
   exit (result);
 #endif
 
   ALT_LOG_PRINT_BOOT("[alt_main.c] After main - we should not be here?.\r\n");
 }
- 40003b0:	dfc00017 	ldw	ra,0(sp)
- 40003b4:	dec00104 	addi	sp,sp,4
+ 4000aa4:	dfc00017 	ldw	ra,0(sp)
+ 4000aa8:	dec00104 	addi	sp,sp,4
    */
 
   ALT_LOG_PRINT_BOOT("[alt_main.c] Calling main.\r\n");
 
 #ifdef ALT_NO_EXIT
   main (alt_argc, alt_argv, alt_envp);
- 40003b8:	400025c1 	jmpi	400025c <main>
+ 4000aac:	400006c1 	jmpi	400006c <main>
 
-040003bc <alt_putstr>:
- * Uses the ALT_DRIVER_WRITE() macro to call directly to driver if available.
- * Otherwise, uses newlib provided fputs() routine.
- */
-int 
-alt_putstr(const char* str)
-{
- 40003bc:	defffe04 	addi	sp,sp,-8
- 40003c0:	dc000015 	stw	r16,0(sp)
- 40003c4:	dfc00115 	stw	ra,4(sp)
- 40003c8:	2021883a 	mov	r16,r4
-#ifdef ALT_SEMIHOSTING
-    return write(STDOUT_FILENO,str,strlen(str));
-#else
-#ifdef ALT_USE_DIRECT_DRIVERS
-    ALT_DRIVER_WRITE_EXTERNS(ALT_STDOUT_DEV);
-    return ALT_DRIVER_WRITE(ALT_STDOUT_DEV, str, strlen(str), 0);
- 40003cc:	40011a00 	call	40011a0 <strlen>
- 40003d0:	01010034 	movhi	r4,1024
- 40003d4:	000f883a 	mov	r7,zero
- 40003d8:	100d883a 	mov	r6,r2
- 40003dc:	800b883a 	mov	r5,r16
- 40003e0:	21052d04 	addi	r4,r4,5300
-#else
-    return fputs(str, stdout);
+04000ab0 <write>:
+#if !defined(ALT_STDOUT_PRESENT) && !defined(ALT_STDERR_PRESENT)
+    /* Generate a link time warning, should this function ever be called. */
+    ALT_STUB_WARNING(write);
 #endif
-#endif
-}
- 40003e4:	dfc00117 	ldw	ra,4(sp)
- 40003e8:	dc000017 	ldw	r16,0(sp)
- 40003ec:	dec00204 	addi	sp,sp,8
-#ifdef ALT_SEMIHOSTING
-    return write(STDOUT_FILENO,str,strlen(str));
-#else
-#ifdef ALT_USE_DIRECT_DRIVERS
-    ALT_DRIVER_WRITE_EXTERNS(ALT_STDOUT_DEV);
-    return ALT_DRIVER_WRITE(ALT_STDOUT_DEV, str, strlen(str), 0);
- 40003f0:	40005c81 	jmpi	40005c8 <altera_avalon_jtag_uart_write>
 
-040003f4 <alt_dev_reg>:
-
-static ALT_INLINE int alt_dev_reg (alt_dev* dev)
-{
-  extern alt_llist alt_dev_list;
-
-  return alt_dev_llist_insert ((alt_dev_llist*) dev, &alt_dev_list);
- 40003f4:	d1600304 	addi	r5,gp,-32756
- 40003f8:	400100c1 	jmpi	400100c <alt_dev_llist_insert>
-
-040003fc <alt_irq_init>:
- * The "base" parameter is ignored and only
- * present for backwards-compatibility.
- */
-
-void alt_irq_init ( const void* base )
-{
- 40003fc:	deffff04 	addi	sp,sp,-4
- 4000400:	dfc00015 	stw	ra,0(sp)
-    ALTERA_NIOS2_GEN2_IRQ_INIT ( CPU, CPU);
- 4000404:	40010f80 	call	40010f8 <altera_nios2_gen2_irq_init>
- * alt_irq_cpu_enable_interrupts() enables the CPU to start taking interrupts.
- */
-static ALT_INLINE void ALT_ALWAYS_INLINE 
-       alt_irq_cpu_enable_interrupts (void)
-{
-    NIOS2_WRITE_STATUS(NIOS2_STATUS_PIE_MSK
- 4000408:	00800044 	movi	r2,1
- 400040c:	1001703a 	wrctl	status,r2
-    alt_irq_cpu_enable_interrupts();
-}
- 4000410:	dfc00017 	ldw	ra,0(sp)
- 4000414:	dec00104 	addi	sp,sp,4
- 4000418:	f800283a 	ret
-
-0400041c <alt_sys_init>:
-void alt_sys_init( void )
-{
-    ALTERA_AVALON_TIMER_INIT ( TIMER, timer);
-    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
-    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
-    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
- 400041c:	01010034 	movhi	r4,1024
- * Initialize the non-interrupt controller devices.
- * Called after alt_irq_init().
- */
-
-void alt_sys_init( void )
-{
- 4000420:	deffff04 	addi	sp,sp,-4
-    ALTERA_AVALON_TIMER_INIT ( TIMER, timer);
-    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
-    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
-    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
- 4000424:	21050a04 	addi	r4,r4,5160
- * Initialize the non-interrupt controller devices.
- * Called after alt_irq_init().
- */
-
-void alt_sys_init( void )
-{
- 4000428:	dfc00015 	stw	ra,0(sp)
-    ALTERA_AVALON_TIMER_INIT ( TIMER, timer);
-    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
-    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
-    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
- 400042c:	40003f40 	call	40003f4 <alt_dev_reg>
-    ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INIT ( CHAR_BUFFER, Char_Buffer);
- 4000430:	00810034 	movhi	r2,1024
- 4000434:	1084f804 	addi	r2,r2,5088
- 4000438:	10c00a17 	ldw	r3,40(r2)
- 400043c:	01401004 	movi	r5,64
- 4000440:	18c00117 	ldw	r3,4(r3)
- 4000444:	193fffcc 	andi	r4,r3,65535
- 4000448:	1806d43a 	srli	r3,r3,16
- 400044c:	11000c15 	stw	r4,48(r2)
- 4000450:	10c00d15 	stw	r3,52(r2)
- 4000454:	29000436 	bltu	r5,r4,4000468 <alt_sys_init+0x4c>
- 4000458:	01000fc4 	movi	r4,63
- 400045c:	11000f15 	stw	r4,60(r2)
- 4000460:	01000184 	movi	r4,6
- 4000464:	11001015 	stw	r4,64(r2)
- 4000468:	01000804 	movi	r4,32
- 400046c:	20c00236 	bltu	r4,r3,4000478 <alt_sys_init+0x5c>
- 4000470:	00c007c4 	movi	r3,31
- 4000474:	10c01115 	stw	r3,68(r2)
- 4000478:	01010034 	movhi	r4,1024
- 400047c:	2104f804 	addi	r4,r4,5088
- 4000480:	40005fc0 	call	40005fc <alt_up_char_buffer_init>
- 4000484:	01010034 	movhi	r4,1024
- 4000488:	2104f804 	addi	r4,r4,5088
- 400048c:	40003f40 	call	40003f4 <alt_dev_reg>
-    ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INIT ( PIXEL_BUFFER, Pixel_Buffer);
- 4000490:	00810034 	movhi	r2,1024
- 4000494:	1084e304 	addi	r2,r2,5004
- 4000498:	10c00a17 	ldw	r3,40(r2)
- 400049c:	01c00044 	movi	r7,1
- 40004a0:	19000017 	ldw	r4,0(r3)
- 40004a4:	11000b15 	stw	r4,44(r2)
- 40004a8:	19000117 	ldw	r4,4(r3)
- 40004ac:	11000c15 	stw	r4,48(r2)
- 40004b0:	19000204 	addi	r4,r3,8
- 40004b4:	2140000b 	ldhu	r5,0(r4)
- 40004b8:	18c00304 	addi	r3,r3,12
- 40004bc:	11400f15 	stw	r5,60(r2)
- 40004c0:	21000017 	ldw	r4,0(r4)
- 40004c4:	2008d43a 	srli	r4,r4,16
- 40004c8:	11001015 	stw	r4,64(r2)
- 40004cc:	19000017 	ldw	r4,0(r3)
- 40004d0:	2009d07a 	srai	r4,r4,1
- 40004d4:	2100004c 	andi	r4,r4,1
- 40004d8:	11000d15 	stw	r4,52(r2)
- 40004dc:	19000017 	ldw	r4,0(r3)
- 40004e0:	2009d13a 	srai	r4,r4,4
- 40004e4:	210003cc 	andi	r4,r4,15
- 40004e8:	11000e15 	stw	r4,56(r2)
- 40004ec:	19400017 	ldw	r5,0(r3)
- 40004f0:	2807d43a 	srai	r3,r5,16
- 40004f4:	280cd63a 	srli	r6,r5,24
- 40004f8:	21c0021e 	bne	r4,r7,4000504 <alt_sys_init+0xe8>
- 40004fc:	10001115 	stw	zero,68(r2)
- 4000500:	00000506 	br	4000518 <alt_sys_init+0xfc>
- 4000504:	01400084 	movi	r5,2
- 4000508:	2140021e 	bne	r4,r5,4000514 <alt_sys_init+0xf8>
- 400050c:	11c01115 	stw	r7,68(r2)
- 4000510:	00000106 	br	4000518 <alt_sys_init+0xfc>
- 4000514:	11401115 	stw	r5,68(r2)
- 4000518:	18c03fcc 	andi	r3,r3,255
- 400051c:	01400804 	movi	r5,32
- 4000520:	28cfc83a 	sub	r7,r5,r3
- 4000524:	013fffc4 	movi	r4,-1
- 4000528:	21ced83a 	srl	r7,r4,r7
- 400052c:	298bc83a 	sub	r5,r5,r6
- 4000530:	2148d83a 	srl	r4,r4,r5
- 4000534:	11c01215 	stw	r7,72(r2)
- 4000538:	11c01117 	ldw	r7,68(r2)
- 400053c:	11001415 	stw	r4,80(r2)
- 4000540:	01010034 	movhi	r4,1024
- 4000544:	38c7883a 	add	r3,r7,r3
- 4000548:	2104e304 	addi	r4,r4,5004
- 400054c:	10c01315 	stw	r3,76(r2)
- 4000550:	40003f40 	call	40003f4 <alt_dev_reg>
-    ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INIT ( RGB_RESAMPLER, RGB_Resampler);
- 4000554:	01010034 	movhi	r4,1024
- 4000558:	2104d204 	addi	r4,r4,4936
- 400055c:	20800a17 	ldw	r2,40(r4)
- 4000560:	10c00017 	ldw	r3,0(r2)
- 4000564:	18c003cc 	andi	r3,r3,15
- 4000568:	20c00b15 	stw	r3,44(r4)
- 400056c:	10c00017 	ldw	r3,0(r2)
- 4000570:	1807d13a 	srai	r3,r3,4
- 4000574:	18c0004c 	andi	r3,r3,1
- 4000578:	20c00c15 	stw	r3,48(r4)
- 400057c:	10c00017 	ldw	r3,0(r2)
- 4000580:	1807d17a 	srai	r3,r3,5
- 4000584:	18c0004c 	andi	r3,r3,1
- 4000588:	20c00d15 	stw	r3,52(r4)
- 400058c:	10c00017 	ldw	r3,0(r2)
- 4000590:	1807d43a 	srai	r3,r3,16
- 4000594:	18c003cc 	andi	r3,r3,15
- 4000598:	20c00e15 	stw	r3,56(r4)
- 400059c:	10c00017 	ldw	r3,0(r2)
- 40005a0:	1807d53a 	srai	r3,r3,20
- 40005a4:	18c0004c 	andi	r3,r3,1
- 40005a8:	20c00f15 	stw	r3,60(r4)
- 40005ac:	10800017 	ldw	r2,0(r2)
- 40005b0:	1005d57a 	srai	r2,r2,21
- 40005b4:	1080004c 	andi	r2,r2,1
- 40005b8:	20801015 	stw	r2,64(r4)
-}
- 40005bc:	dfc00017 	ldw	ra,0(sp)
- 40005c0:	dec00104 	addi	sp,sp,4
-    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
-    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
-    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
-    ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INIT ( CHAR_BUFFER, Char_Buffer);
-    ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INIT ( PIXEL_BUFFER, Pixel_Buffer);
-    ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INIT ( RGB_RESAMPLER, RGB_Resampler);
- 40005c4:	40003f41 	jmpi	40003f4 <alt_dev_reg>
-
-040005c8 <altera_avalon_jtag_uart_write>:
- */
-
-int altera_avalon_jtag_uart_write(altera_avalon_jtag_uart_state* sp, 
-  const char * ptr, int count, int flags)
-{
-  unsigned int base = sp->base;
- 40005c8:	21000017 	ldw	r4,0(r4)
- * one FIFOs worth of data.  But you said you didn't want to use interrupts :-)
- */
-
-int altera_avalon_jtag_uart_write(altera_avalon_jtag_uart_state* sp, 
-  const char * ptr, int count, int flags)
-{
- 40005cc:	3005883a 	mov	r2,r6
-  unsigned int base = sp->base;
-
-  const char * end = ptr + count;
- 40005d0:	298d883a 	add	r6,r5,r6
-
-  while (ptr < end)
-    if ((IORD_ALTERA_AVALON_JTAG_UART_CONTROL(base) & ALTERA_AVALON_JTAG_UART_CONTROL_WSPACE_MSK) != 0)
- 40005d4:	21c00104 	addi	r7,r4,4
-{
-  unsigned int base = sp->base;
-
-  const char * end = ptr + count;
-
-  while (ptr < end)
- 40005d8:	2980072e 	bgeu	r5,r6,40005f8 <altera_avalon_jtag_uart_write+0x30>
-    if ((IORD_ALTERA_AVALON_JTAG_UART_CONTROL(base) & ALTERA_AVALON_JTAG_UART_CONTROL_WSPACE_MSK) != 0)
- 40005dc:	38c00037 	ldwio	r3,0(r7)
- 40005e0:	18ffffec 	andhi	r3,r3,65535
- 40005e4:	183ffc26 	beq	r3,zero,40005d8 <__alt_mem_Onchip_Memory+0xfbff05d8>
-      IOWR_ALTERA_AVALON_JTAG_UART_DATA(base, *ptr++);
- 40005e8:	28c00007 	ldb	r3,0(r5)
- 40005ec:	20c00035 	stwio	r3,0(r4)
- 40005f0:	29400044 	addi	r5,r5,1
- 40005f4:	003ff806 	br	40005d8 <__alt_mem_Onchip_Memory+0xfbff05d8>
-
-  return count;
-}
- 40005f8:	f800283a 	ret
-
-040005fc <alt_up_char_buffer_init>:
-#include <priv/alt_file.h>
-
-#include "altera_up_avalon_video_character_buffer_with_dma.h"
-#include "altera_up_avalon_video_character_buffer_with_dma_regs.h"
-
-void alt_up_char_buffer_init(alt_up_char_buffer_dev *char_buffer) {
- 40005fc:	defffe04 	addi	sp,sp,-8
- 4000600:	dc000015 	stw	r16,0(sp)
-	char * name;
-	name = (char *) char_buffer->dev.name;
- 4000604:	24000217 	ldw	r16,8(r4)
-#include <priv/alt_file.h>
-
-#include "altera_up_avalon_video_character_buffer_with_dma.h"
-#include "altera_up_avalon_video_character_buffer_with_dma_regs.h"
-
-void alt_up_char_buffer_init(alt_up_char_buffer_dev *char_buffer) {
- 4000608:	dfc00115 	stw	ra,4(sp)
-	char * name;
-	name = (char *) char_buffer->dev.name;
-
-	for ( ; (*name) != '\0'; name++) {
- 400060c:	80800007 	ldb	r2,0(r16)
- 4000610:	10000926 	beq	r2,zero,4000638 <alt_up_char_buffer_init+0x3c>
-		if (strcmp(name, "_avalon_char_buffer_slave") == 0) {
- 4000614:	01410034 	movhi	r5,1024
- 4000618:	2944c504 	addi	r5,r5,4884
- 400061c:	8009883a 	mov	r4,r16
- 4000620:	40011680 	call	4001168 <strcmp>
- 4000624:	1000021e 	bne	r2,zero,4000630 <alt_up_char_buffer_init+0x34>
-			(*name) = '\0';
- 4000628:	80000005 	stb	zero,0(r16)
-			break;
- 400062c:	00000206 	br	4000638 <alt_up_char_buffer_init+0x3c>
-
-void alt_up_char_buffer_init(alt_up_char_buffer_dev *char_buffer) {
-	char * name;
-	name = (char *) char_buffer->dev.name;
-
-	for ( ; (*name) != '\0'; name++) {
- 4000630:	84000044 	addi	r16,r16,1
- 4000634:	003ff506 	br	400060c <__alt_mem_Onchip_Memory+0xfbff060c>
-			break;
-		}
-	}
-	
-	return;
-}
- 4000638:	dfc00117 	ldw	ra,4(sp)
- 400063c:	dc000017 	ldw	r16,0(sp)
- 4000640:	dec00204 	addi	sp,sp,8
- 4000644:	f800283a 	ret
-
-04000648 <alt_up_char_buffer_open_dev>:
-alt_up_char_buffer_dev* alt_up_char_buffer_open_dev(const char* name) {
-  // find the device from the device list 
-  // (see altera_hal/HAL/inc/priv/alt_file.h 
-  // and altera_hal/HAL/src/alt_find_dev.c 
-  // for details)
-  alt_up_char_buffer_dev *dev = (alt_up_char_buffer_dev *)alt_find_dev(name, &alt_dev_list);
- 4000648:	d1600304 	addi	r5,gp,-32756
- 400064c:	40010781 	jmpi	4001078 <alt_find_dev>
-
-04000650 <alt_up_char_buffer_draw>:
-}
-
-int alt_up_char_buffer_draw(alt_up_char_buffer_dev *char_buffer, unsigned char ch, 
-	unsigned int x, unsigned int y) {
-	// boundary check
-	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
- 4000650:	20800c17 	ldw	r2,48(r4)
- 4000654:	3080102e 	bgeu	r6,r2,4000698 <alt_up_char_buffer_draw+0x48>
- 4000658:	20800d17 	ldw	r2,52(r4)
- 400065c:	38800e2e 	bgeu	r7,r2,4000698 <alt_up_char_buffer_draw+0x48>
-		return -1;
-	
-	unsigned int addr = 0;
-	addr |= ((x & char_buffer->x_coord_mask) << char_buffer->x_coord_offset);
-	addr |= ((y & char_buffer->y_coord_mask) << char_buffer->y_coord_offset);
-	IOWR_8DIRECT(char_buffer->buffer_base, addr, ch);
- 4000660:	20800f17 	ldw	r2,60(r4)
- 4000664:	3084703a 	and	r2,r6,r2
- 4000668:	21800e17 	ldw	r6,56(r4)
- 400066c:	1186983a 	sll	r3,r2,r6
- 4000670:	20801117 	ldw	r2,68(r4)
- 4000674:	21801017 	ldw	r6,64(r4)
- 4000678:	388e703a 	and	r7,r7,r2
- 400067c:	398e983a 	sll	r7,r7,r6
- 4000680:	20800b17 	ldw	r2,44(r4)
- 4000684:	19ccb03a 	or	r6,r3,r7
- 4000688:	308d883a 	add	r6,r6,r2
- 400068c:	31400025 	stbio	r5,0(r6)
-
-	return 0;
- 4000690:	0005883a 	mov	r2,zero
- 4000694:	f800283a 	ret
-
-int alt_up_char_buffer_draw(alt_up_char_buffer_dev *char_buffer, unsigned char ch, 
-	unsigned int x, unsigned int y) {
-	// boundary check
-	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
-		return -1;
- 4000698:	00bfffc4 	movi	r2,-1
-	addr |= ((x & char_buffer->x_coord_mask) << char_buffer->x_coord_offset);
-	addr |= ((y & char_buffer->y_coord_mask) << char_buffer->y_coord_offset);
-	IOWR_8DIRECT(char_buffer->buffer_base, addr, ch);
-
-	return 0;
-}
- 400069c:	f800283a 	ret
-
-040006a0 <alt_up_char_buffer_string>:
-
-int alt_up_char_buffer_string(alt_up_char_buffer_dev *char_buffer, const char *ptr, 
-	unsigned int x, unsigned int y) {
-	// boundary check
-	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
- 40006a0:	20800c17 	ldw	r2,48(r4)
- 40006a4:	30800236 	bltu	r6,r2,40006b0 <alt_up_char_buffer_string+0x10>
-		return -1;
- 40006a8:	00bfffc4 	movi	r2,-1
- 40006ac:	f800283a 	ret
-}
-
-int alt_up_char_buffer_string(alt_up_char_buffer_dev *char_buffer, const char *ptr, 
-	unsigned int x, unsigned int y) {
-	// boundary check
-	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
- 40006b0:	20800d17 	ldw	r2,52(r4)
- 40006b4:	38bffc2e 	bgeu	r7,r2,40006a8 <__alt_mem_Onchip_Memory+0xfbff06a8>
-		return -1;
-	
-	unsigned int offset = 0;
-	offset = (y << char_buffer->y_coord_offset) + x;
- 40006b8:	20801017 	ldw	r2,64(r4)
- 40006bc:	388e983a 	sll	r7,r7,r2
- 40006c0:	398f883a 	add	r7,r7,r6
- 40006c4:	394fc83a 	sub	r7,r7,r5
-
-	while ( *ptr )
-	{
-		IOWR_8DIRECT(char_buffer->buffer_base, offset, *ptr);
-		++ptr;
-		if (++x >= char_buffer->x_resolution)
- 40006c8:	314dc83a 	sub	r6,r6,r5
-		return -1;
-	
-	unsigned int offset = 0;
-	offset = (y << char_buffer->y_coord_offset) + x;
-
-	while ( *ptr )
- 40006cc:	28c00003 	ldbu	r3,0(r5)
- 40006d0:	29d3883a 	add	r9,r5,r7
- 40006d4:	1a003fcc 	andi	r8,r3,255
- 40006d8:	4200201c 	xori	r8,r8,128
- 40006dc:	423fe004 	addi	r8,r8,-128
- 40006e0:	40000826 	beq	r8,zero,4000704 <alt_up_char_buffer_string+0x64>
-	{
-		IOWR_8DIRECT(char_buffer->buffer_base, offset, *ptr);
- 40006e4:	20800b17 	ldw	r2,44(r4)
- 40006e8:	4885883a 	add	r2,r9,r2
- 40006ec:	10c00025 	stbio	r3,0(r2)
-		++ptr;
-		if (++x >= char_buffer->x_resolution)
- 40006f0:	20800c17 	ldw	r2,48(r4)
-	offset = (y << char_buffer->y_coord_offset) + x;
-
-	while ( *ptr )
-	{
-		IOWR_8DIRECT(char_buffer->buffer_base, offset, *ptr);
-		++ptr;
- 40006f4:	29400044 	addi	r5,r5,1
-		if (++x >= char_buffer->x_resolution)
- 40006f8:	2987883a 	add	r3,r5,r6
- 40006fc:	18bff336 	bltu	r3,r2,40006cc <__alt_mem_Onchip_Memory+0xfbff06cc>
- 4000700:	003fe906 	br	40006a8 <__alt_mem_Onchip_Memory+0xfbff06a8>
-			return -1;
-		++offset;
-	}
-	return 0;
- 4000704:	0005883a 	mov	r2,zero
-}
- 4000708:	f800283a 	ret
-
-0400070c <alt_up_char_buffer_clear>:
-
-int alt_up_char_buffer_clear(alt_up_char_buffer_dev *char_buffer) {
-	IOWR_ALT_UP_CHAR_BUFFER_CLR_SCRN(char_buffer->ctrl_reg_base, 1);
- 400070c:	20800a17 	ldw	r2,40(r4)
- 4000710:	00c00044 	movi	r3,1
- 4000714:	10c000a5 	stbio	r3,2(r2)
-	while ((IORD_ALT_UP_CHAR_BUFFER_CLR_SCRN(char_buffer->ctrl_reg_base) & ALT_UP_CHAR_BUFFER_CLR_SCRN_MSK) >> ALT_UP_CHAR_BUFFER_CLR_SCRN_OFST);
- 4000718:	20800a17 	ldw	r2,40(r4)
- 400071c:	108000a3 	ldbuio	r2,2(r2)
- 4000720:	1080004c 	andi	r2,r2,1
- 4000724:	103ffc1e 	bne	r2,zero,4000718 <__alt_mem_Onchip_Memory+0xfbff0718>
-	return 0;
-}
- 4000728:	f800283a 	ret
-
-0400072c <alt_up_pixel_buffer_dma_open_dev>:
-alt_up_pixel_buffer_dma_dev* alt_up_pixel_buffer_dma_open_dev(const char* name) {
-  // find the device from the device list 
-  // (see altera_hal/HAL/inc/priv/alt_file.h 
-  // and altera_hal/HAL/src/alt_find_dev.c 
-  // for details)
-  alt_up_pixel_buffer_dma_dev *dev = (alt_up_pixel_buffer_dma_dev*)alt_find_dev(name, &alt_dev_list);
- 400072c:	d1600304 	addi	r5,gp,-32756
- 4000730:	40010781 	jmpi	4001078 <alt_find_dev>
-
-04000734 <alt_up_pixel_buffer_dma_draw>:
-int alt_up_pixel_buffer_dma_draw(alt_up_pixel_buffer_dma_dev *pixel_buffer, unsigned int color, unsigned int x, unsigned int y)
-/* This function draws a pixel to the back buffer.
- */
-{
-	// boundary check
-	if (x >= pixel_buffer->x_resolution || y >= pixel_buffer->y_resolution )
- 4000734:	20800f17 	ldw	r2,60(r4)
- 4000738:	3080222e 	bgeu	r6,r2,40007c4 <alt_up_pixel_buffer_dma_draw+0x90>
- 400073c:	20c01017 	ldw	r3,64(r4)
- 4000740:	38c0202e 	bgeu	r7,r3,40007c4 <alt_up_pixel_buffer_dma_draw+0x90>
-		return -1;
-
-	unsigned int addr = 0;
-	/* Check the mode VGA Pixel Buffer is using. */
-	if (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) {
- 4000744:	22800d17 	ldw	r10,52(r4)
- 4000748:	22001217 	ldw	r8,72(r4)
- 400074c:	22401117 	ldw	r9,68(r4)
- 4000750:	20c01417 	ldw	r3,80(r4)
- 4000754:	5000071e 	bne	r10,zero,4000774 <alt_up_pixel_buffer_dma_draw+0x40>
-		/* For X-Y addressing mode, the address format is | unused | Y | X |. So shift bits for coordinates X and Y into their respective locations. */
-		addr += ((x & pixel_buffer->x_coord_mask) << pixel_buffer->x_coord_offset);
-		addr += ((y & pixel_buffer->y_coord_mask) << pixel_buffer->y_coord_offset);
- 4000758:	3210703a 	and	r8,r6,r8
- 400075c:	21801317 	ldw	r6,76(r4)
- 4000760:	38c6703a 	and	r3,r7,r3
- 4000764:	4250983a 	sll	r8,r8,r9
- 4000768:	1986983a 	sll	r3,r3,r6
- 400076c:	40cd883a 	add	r6,r8,r3
- 4000770:	00000506 	br	4000788 <alt_up_pixel_buffer_dma_draw+0x54>
-	} else {
-		/* In a consecutive addressing mode, the pixels are stored in consecutive memory locations. So the address of a pixel at (x,y) can be computed as
-		 * (y*x_resolution + x).*/
-		addr += ((x & pixel_buffer->x_coord_mask) << pixel_buffer->x_coord_offset);
-		addr += (((y & pixel_buffer->y_coord_mask) * pixel_buffer->x_resolution) << pixel_buffer->x_coord_offset);
- 4000774:	38c6703a 	and	r3,r7,r3
- 4000778:	1885383a 	mul	r2,r3,r2
- 400077c:	3210703a 	and	r8,r6,r8
- 4000780:	4085883a 	add	r2,r8,r2
- 4000784:	124c983a 	sll	r6,r2,r9
-	}
-	/* Now, depending on the color depth, write the pixel color to the specified memory location. */
-	if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 4000788:	20c00e17 	ldw	r3,56(r4)
- 400078c:	20800c17 	ldw	r2,48(r4)
- 4000790:	01000044 	movi	r4,1
- 4000794:	1900031e 	bne	r3,r4,40007a4 <alt_up_pixel_buffer_dma_draw+0x70>
-		IOWR_8DIRECT(pixel_buffer->back_buffer_start_address, addr, color);
- 4000798:	308d883a 	add	r6,r6,r2
- 400079c:	31400025 	stbio	r5,0(r6)
- 40007a0:	00000606 	br	40007bc <alt_up_pixel_buffer_dma_draw+0x88>
-	} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 40007a4:	01000084 	movi	r4,2
-		IOWR_16DIRECT(pixel_buffer->back_buffer_start_address, addr, color);
- 40007a8:	308d883a 	add	r6,r6,r2
-		addr += (((y & pixel_buffer->y_coord_mask) * pixel_buffer->x_resolution) << pixel_buffer->x_coord_offset);
-	}
-	/* Now, depending on the color depth, write the pixel color to the specified memory location. */
-	if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-		IOWR_8DIRECT(pixel_buffer->back_buffer_start_address, addr, color);
-	} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 40007ac:	1900021e 	bne	r3,r4,40007b8 <alt_up_pixel_buffer_dma_draw+0x84>
-		IOWR_16DIRECT(pixel_buffer->back_buffer_start_address, addr, color);
- 40007b0:	3140002d 	sthio	r5,0(r6)
- 40007b4:	00000106 	br	40007bc <alt_up_pixel_buffer_dma_draw+0x88>
-	} else {
-		IOWR_32DIRECT(pixel_buffer->back_buffer_start_address, addr, color);
- 40007b8:	31400035 	stwio	r5,0(r6)
-	}
-
-	return 0;
- 40007bc:	0005883a 	mov	r2,zero
- 40007c0:	f800283a 	ret
-/* This function draws a pixel to the back buffer.
- */
-{
-	// boundary check
-	if (x >= pixel_buffer->x_resolution || y >= pixel_buffer->y_resolution )
-		return -1;
- 40007c4:	00bfffc4 	movi	r2,-1
-	} else {
-		IOWR_32DIRECT(pixel_buffer->back_buffer_start_address, addr, color);
-	}
-
-	return 0;
-}
- 40007c8:	f800283a 	ret
-
-040007cc <alt_up_pixel_buffer_dma_change_back_buffer_address>:
-
-int alt_up_pixel_buffer_dma_change_back_buffer_address(alt_up_pixel_buffer_dma_dev *pixel_buffer, unsigned int new_address)
-/* This function changes the memory address for the back buffer. */
-{
-	IOWR_32DIRECT(pixel_buffer->base, 4, new_address);
- 40007cc:	20800a17 	ldw	r2,40(r4)
- 40007d0:	11400135 	stwio	r5,4(r2)
-	pixel_buffer->back_buffer_start_address = IORD_32DIRECT(pixel_buffer->base, 4);
- 40007d4:	20800a17 	ldw	r2,40(r4)
- 40007d8:	10800137 	ldwio	r2,4(r2)
- 40007dc:	20800c15 	stw	r2,48(r4)
-	return 0;
-}
- 40007e0:	0005883a 	mov	r2,zero
- 40007e4:	f800283a 	ret
-
-040007e8 <alt_up_pixel_buffer_dma_swap_buffers>:
-
-int alt_up_pixel_buffer_dma_swap_buffers(alt_up_pixel_buffer_dma_dev *pixel_buffer)
-/* This function swaps the front and back buffers. At the next refresh cycle the back buffer will be drawn on the screen
- * and will become the front buffer. */
-{
-	register unsigned int temp = pixel_buffer->back_buffer_start_address;
- 40007e8:	20800c17 	ldw	r2,48(r4)
-	IOWR_32DIRECT(pixel_buffer->base, 0, 1);
- 40007ec:	20c00a17 	ldw	r3,40(r4)
- 40007f0:	01400044 	movi	r5,1
- 40007f4:	19400035 	stwio	r5,0(r3)
-	pixel_buffer->back_buffer_start_address = pixel_buffer->buffer_start_address;
- 40007f8:	20c00b17 	ldw	r3,44(r4)
-	pixel_buffer->buffer_start_address = temp;
- 40007fc:	20800b15 	stw	r2,44(r4)
-	return 0;
-}
- 4000800:	0005883a 	mov	r2,zero
-/* This function swaps the front and back buffers. At the next refresh cycle the back buffer will be drawn on the screen
- * and will become the front buffer. */
-{
-	register unsigned int temp = pixel_buffer->back_buffer_start_address;
-	IOWR_32DIRECT(pixel_buffer->base, 0, 1);
-	pixel_buffer->back_buffer_start_address = pixel_buffer->buffer_start_address;
- 4000804:	20c00c15 	stw	r3,48(r4)
-	pixel_buffer->buffer_start_address = temp;
-	return 0;
-}
- 4000808:	f800283a 	ret
-
-0400080c <alt_up_pixel_buffer_dma_check_swap_buffers_status>:
-/* This function checks if the buffer swap has occured. Since the buffer swap only happens after an entire screen is drawn,
- * it is important to wait for this function to return 0 before proceeding to draw on either buffer. When both front and the back buffers
- * have the same address calling the alt_up_pixel_buffer_dma_swap_buffers(...) function and then waiting for this function to return 0, causes your program to
- * wait for the screen to refresh. */
-{
-	return (IORD_32DIRECT(pixel_buffer->base, 12) & 0x1);
- 400080c:	20800a17 	ldw	r2,40(r4)
- 4000810:	10800337 	ldwio	r2,12(r2)
-}
- 4000814:	1080004c 	andi	r2,r2,1
- 4000818:	f800283a 	ret
-
-0400081c <alt_up_pixel_buffer_dma_clear_screen>:
-{
-	register unsigned int addr;
-	register unsigned int limit_x, limit_y;
-	
-	/* Set up the address to start clearing from and the screen boundaries. */
-	if (backbuffer == 1)
- 400081c:	00800044 	movi	r2,1
- 4000820:	2880021e 	bne	r5,r2,400082c <alt_up_pixel_buffer_dma_clear_screen+0x10>
-		addr = pixel_buffer->back_buffer_start_address;
- 4000824:	20c00c17 	ldw	r3,48(r4)
- 4000828:	00000106 	br	4000830 <alt_up_pixel_buffer_dma_clear_screen+0x14>
-	else
-		addr = pixel_buffer->buffer_start_address;
- 400082c:	20c00b17 	ldw	r3,44(r4)
-	limit_x = pixel_buffer->x_resolution;
- 4000830:	20800f17 	ldw	r2,60(r4)
-	/* In 16 and 32-bit color modes we use twice or four times more memory for the display buffer.*/
-	if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 4000834:	21800e17 	ldw	r6,56(r4)
- 4000838:	01400084 	movi	r5,2
- 400083c:	1085883a 	add	r2,r2,r2
- 4000840:	31400126 	beq	r6,r5,4000848 <alt_up_pixel_buffer_dma_clear_screen+0x2c>
-		limit_x = limit_x << 1;
-	} else {
-		limit_x = limit_x << 2;
- 4000844:	1085883a 	add	r2,r2,r2
-	}	
-	limit_y = pixel_buffer->y_resolution;
-
-	if (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) {
- 4000848:	21800d17 	ldw	r6,52(r4)
-	if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-		limit_x = limit_x << 1;
-	} else {
-		limit_x = limit_x << 2;
-	}	
-	limit_y = pixel_buffer->y_resolution;
- 400084c:	21401017 	ldw	r5,64(r4)
-
-	if (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) {
- 4000850:	30000e1e 	bne	r6,zero,400088c <alt_up_pixel_buffer_dma_clear_screen+0x70>
-		{
-			for (x = 0; x < limit_x; x = x + 4)
-			{
-				IOWR_32DIRECT(addr, x, 0);
-			}
-			addr = addr + (1 << offset_y);
- 4000854:	21c01317 	ldw	r7,76(r4)
- 4000858:	01000044 	movi	r4,1
- 400085c:	21ce983a 	sll	r7,r4,r7
-		/* Clear the screen when the VGA is set up in an XY addressing mode. */
-		register unsigned int x,y;
-		register unsigned int offset_y;
-		offset_y = pixel_buffer->y_coord_offset;
-
-		for (y = 0; y < limit_y; y++)
- 4000860:	31400926 	beq	r6,r5,4000888 <alt_up_pixel_buffer_dma_clear_screen+0x6c>
- 4000864:	1809883a 	mov	r4,r3
-		{
-			for (x = 0; x < limit_x; x = x + 4)
- 4000868:	20d1c83a 	sub	r8,r4,r3
- 400086c:	4080032e 	bgeu	r8,r2,400087c <alt_up_pixel_buffer_dma_clear_screen+0x60>
-			{
-				IOWR_32DIRECT(addr, x, 0);
- 4000870:	20000035 	stwio	zero,0(r4)
- 4000874:	21000104 	addi	r4,r4,4
- 4000878:	003ffb06 	br	4000868 <__alt_mem_Onchip_Memory+0xfbff0868>
-			}
-			addr = addr + (1 << offset_y);
- 400087c:	19c7883a 	add	r3,r3,r7
-		/* Clear the screen when the VGA is set up in an XY addressing mode. */
-		register unsigned int x,y;
-		register unsigned int offset_y;
-		offset_y = pixel_buffer->y_coord_offset;
-
-		for (y = 0; y < limit_y; y++)
- 4000880:	31800044 	addi	r6,r6,1
- 4000884:	003ff606 	br	4000860 <__alt_mem_Onchip_Memory+0xfbff0860>
- 4000888:	f800283a 	ret
-			addr = addr + (1 << offset_y);
-		}
-	} else {
-		/* Clear the screen when the VGA is set up in a linear addressing mode. */
-		register int x;
-		limit_y = limit_x*limit_y;	
- 400088c:	1145383a 	mul	r2,r2,r5
-
-		for (x = 0; x < limit_y; x = x + 4)
- 4000890:	1809883a 	mov	r4,r3
- 4000894:	20cbc83a 	sub	r5,r4,r3
- 4000898:	2880032e 	bgeu	r5,r2,40008a8 <alt_up_pixel_buffer_dma_clear_screen+0x8c>
-		{
-			IOWR_32DIRECT(addr, x, 0);
- 400089c:	20000035 	stwio	zero,0(r4)
- 40008a0:	21000104 	addi	r4,r4,4
- 40008a4:	003ffb06 	br	4000894 <__alt_mem_Onchip_Memory+0xfbff0894>
- 40008a8:	f800283a 	ret
-
-040008ac <alt_up_pixel_buffer_dma_draw_box>:
-	}
-}
-
-void alt_up_pixel_buffer_dma_draw_box(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-/* This function draws a filled box. */
-{
- 40008ac:	d8800017 	ldw	r2,0(sp)
- 40008b0:	db000117 	ldw	r12,4(sp)
-	register unsigned int addr;
-	register unsigned int limit_x = pixel_buffer->x_resolution;
- 40008b4:	22400f17 	ldw	r9,60(r4)
-	register unsigned int limit_y = pixel_buffer->y_resolution;
-	register unsigned int temp;
-	register unsigned int l_x = x0;
- 40008b8:	2815883a 	mov	r10,r5
-	register unsigned int r_x = x1;
-	register unsigned int t_y = y0;
- 40008bc:	3011883a 	mov	r8,r6
-	register unsigned int b_y = y1;
- 40008c0:	1017883a 	mov	r11,r2
-	register unsigned int local_color = color;
-	
-	/* Check coordinates */
-	if (l_x > r_x)
- 40008c4:	3940022e 	bgeu	r7,r5,40008d0 <alt_up_pixel_buffer_dma_draw_box+0x24>
- 40008c8:	3815883a 	mov	r10,r7
- 40008cc:	280f883a 	mov	r7,r5
-	{
-		temp = l_x;
-		l_x = r_x;
-		r_x = temp;
-	}
-	if (t_y > b_y)
- 40008d0:	1180022e 	bgeu	r2,r6,40008dc <alt_up_pixel_buffer_dma_draw_box+0x30>
- 40008d4:	1011883a 	mov	r8,r2
- 40008d8:	3017883a 	mov	r11,r6
-	{
-		temp = t_y;
-		t_y = b_y;
-		b_y = temp;
-	}
-	if ((l_x >= limit_x) || (t_y >= limit_y) || (r_x < 0) || (b_y < 0))
- 40008dc:	5240642e 	bgeu	r10,r9,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
-void alt_up_pixel_buffer_dma_draw_box(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-/* This function draws a filled box. */
-{
-	register unsigned int addr;
-	register unsigned int limit_x = pixel_buffer->x_resolution;
-	register unsigned int limit_y = pixel_buffer->y_resolution;
- 40008e0:	20801017 	ldw	r2,64(r4)
-	{
-		temp = t_y;
-		t_y = b_y;
-		b_y = temp;
-	}
-	if ((l_x >= limit_x) || (t_y >= limit_y) || (r_x < 0) || (b_y < 0))
- 40008e4:	4080622e 	bgeu	r8,r2,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
-	/* Clip the box and draw only within the confines of the screen. */
-	if (l_x < 0)
-	{
-		l_x = 0;
-	}
-	if (r_x >= limit_x)
- 40008e8:	3a400136 	bltu	r7,r9,40008f0 <alt_up_pixel_buffer_dma_draw_box+0x44>
-	{
-		r_x = limit_x - 1;
- 40008ec:	49ffffc4 	addi	r7,r9,-1
-	}
-	if (t_y < 0)
-	{
-		t_y = 0;
-	}
-	if (b_y >= limit_y)
- 40008f0:	58800136 	bltu	r11,r2,40008f8 <alt_up_pixel_buffer_dma_draw_box+0x4c>
-	{
-		b_y = limit_y - 1;
- 40008f4:	12ffffc4 	addi	r11,r2,-1
-	}
-
-	/* Set up the address to start clearing from and the screen boundaries. */
-	if (backbuffer == 1)
- 40008f8:	d8800217 	ldw	r2,8(sp)
- 40008fc:	01400044 	movi	r5,1
- 4000900:	1140021e 	bne	r2,r5,400090c <alt_up_pixel_buffer_dma_draw_box+0x60>
-		addr = pixel_buffer->back_buffer_start_address;
- 4000904:	20c00c17 	ldw	r3,48(r4)
- 4000908:	00000106 	br	4000910 <alt_up_pixel_buffer_dma_draw_box+0x64>
-	else
-		addr = pixel_buffer->buffer_start_address;
- 400090c:	20c00b17 	ldw	r3,44(r4)
-
-	/* Draw the box using one of the addressing modes. */
-	if (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) {
- 4000910:	20800d17 	ldw	r2,52(r4)
- 4000914:	21800e17 	ldw	r6,56(r4)
- 4000918:	1000291e 	bne	r2,zero,40009c0 <alt_up_pixel_buffer_dma_draw_box+0x114>
-		/* Draw a box of a given color on the screen using the XY addressing mode. */
-		register unsigned int x,y;
-		register unsigned int offset_y;
-		offset_y = pixel_buffer->y_coord_offset;
- 400091c:	21001317 	ldw	r4,76(r4)
-		addr = addr + (t_y << offset_y);
- 4000920:	4104983a 	sll	r2,r8,r4
- 4000924:	10c5883a 	add	r2,r2,r3
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 4000928:	31400b1e 	bne	r6,r5,4000958 <alt_up_pixel_buffer_dma_draw_box+0xac>
-			{
-				for (x = l_x; x <= r_x; x++)
-				{
-					IOWR_8DIRECT(addr, x, local_color);
-				}
-				addr = addr + (1 << offset_y);
- 400092c:	290a983a 	sll	r5,r5,r4
-		addr = addr + (t_y << offset_y);
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
- 4000930:	5a004f36 	bltu	r11,r8,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
- 4000934:	5007883a 	mov	r3,r10
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000938:	38c00436 	bltu	r7,r3,400094c <alt_up_pixel_buffer_dma_draw_box+0xa0>
-				{
-					IOWR_8DIRECT(addr, x, local_color);
- 400093c:	10c9883a 	add	r4,r2,r3
- 4000940:	23000025 	stbio	r12,0(r4)
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000944:	18c00044 	addi	r3,r3,1
- 4000948:	003ffb06 	br	4000938 <__alt_mem_Onchip_Memory+0xfbff0938>
-				{
-					IOWR_8DIRECT(addr, x, local_color);
-				}
-				addr = addr + (1 << offset_y);
- 400094c:	1145883a 	add	r2,r2,r5
-		addr = addr + (t_y << offset_y);
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
- 4000950:	42000044 	addi	r8,r8,1
- 4000954:	003ff606 	br	4000930 <__alt_mem_Onchip_Memory+0xfbff0930>
- 4000958:	00c00044 	movi	r3,1
- 400095c:	190a983a 	sll	r5,r3,r4
-				{
-					IOWR_8DIRECT(addr, x, local_color);
-				}
-				addr = addr + (1 << offset_y);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 4000960:	00c00084 	movi	r3,2
- 4000964:	30c00d1e 	bne	r6,r3,400099c <alt_up_pixel_buffer_dma_draw_box+0xf0>
-			for (y = t_y; y <= b_y; y++)
- 4000968:	5a004136 	bltu	r11,r8,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
- 400096c:	5007883a 	mov	r3,r10
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000970:	38c00536 	bltu	r7,r3,4000988 <alt_up_pixel_buffer_dma_draw_box+0xdc>
-				{
-					IOWR_16DIRECT(addr, x << 1, local_color);
- 4000974:	18c9883a 	add	r4,r3,r3
- 4000978:	2089883a 	add	r4,r4,r2
- 400097c:	2300002d 	sthio	r12,0(r4)
-				addr = addr + (1 << offset_y);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000980:	18c00044 	addi	r3,r3,1
- 4000984:	003ffa06 	br	4000970 <__alt_mem_Onchip_Memory+0xfbff0970>
-				{
-					IOWR_16DIRECT(addr, x << 1, local_color);
-				}
-				addr = addr + (1 << offset_y);
- 4000988:	1145883a 	add	r2,r2,r5
-					IOWR_8DIRECT(addr, x, local_color);
-				}
-				addr = addr + (1 << offset_y);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
- 400098c:	42000044 	addi	r8,r8,1
- 4000990:	003ff506 	br	4000968 <__alt_mem_Onchip_Memory+0xfbff0968>
-			{
-				for (x = l_x; x <= r_x; x++)
-				{
-					IOWR_32DIRECT(addr, x << 2, local_color);
-				}
-				addr = addr + (1 << offset_y);
- 4000994:	1145883a 	add	r2,r2,r5
-				addr = addr + (1 << offset_y);
-			}
-		}
-		else
-		{
-			for (y = t_y; y <= b_y; y++)
- 4000998:	42000044 	addi	r8,r8,1
- 400099c:	5a003436 	bltu	r11,r8,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
- 40009a0:	5009883a 	mov	r4,r10
-			{
-				for (x = l_x; x <= r_x; x++)
- 40009a4:	393ffb36 	bltu	r7,r4,4000994 <__alt_mem_Onchip_Memory+0xfbff0994>
-				{
-					IOWR_32DIRECT(addr, x << 2, local_color);
- 40009a8:	2107883a 	add	r3,r4,r4
- 40009ac:	18c7883a 	add	r3,r3,r3
- 40009b0:	1887883a 	add	r3,r3,r2
- 40009b4:	1b000035 	stwio	r12,0(r3)
-		}
-		else
-		{
-			for (y = t_y; y <= b_y; y++)
-			{
-				for (x = l_x; x <= r_x; x++)
- 40009b8:	21000044 	addi	r4,r4,1
- 40009bc:	003ff906 	br	40009a4 <__alt_mem_Onchip_Memory+0xfbff09a4>
-	} else {
-		/* Draw a box of a given color on the screen using the linear addressing mode. */
-		register unsigned int x,y;
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 40009c0:	31400c1e 	bne	r6,r5,40009f4 <alt_up_pixel_buffer_dma_draw_box+0x148>
-			addr = addr + t_y * limit_x;
- 40009c4:	4245383a 	mul	r2,r8,r9
- 40009c8:	10c5883a 	add	r2,r2,r3
-			for (y = t_y; y <= b_y; y++)
- 40009cc:	5a002836 	bltu	r11,r8,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
- 40009d0:	5007883a 	mov	r3,r10
-			{
-				for (x = l_x; x <= r_x; x++)
- 40009d4:	38c00436 	bltu	r7,r3,40009e8 <alt_up_pixel_buffer_dma_draw_box+0x13c>
-				{
-					IOWR_8DIRECT(addr, x, local_color);
- 40009d8:	10c9883a 	add	r4,r2,r3
- 40009dc:	23000025 	stbio	r12,0(r4)
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
-			{
-				for (x = l_x; x <= r_x; x++)
- 40009e0:	18c00044 	addi	r3,r3,1
- 40009e4:	003ffb06 	br	40009d4 <__alt_mem_Onchip_Memory+0xfbff09d4>
-				{
-					IOWR_8DIRECT(addr, x, local_color);
-				}
-				addr = addr + limit_x;
- 40009e8:	1245883a 	add	r2,r2,r9
-		register unsigned int x,y;
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 40009ec:	42000044 	addi	r8,r8,1
- 40009f0:	003ff606 	br	40009cc <__alt_mem_Onchip_Memory+0xfbff09cc>
-				{
-					IOWR_8DIRECT(addr, x, local_color);
-				}
-				addr = addr + limit_x;
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 40009f4:	00800084 	movi	r2,2
- 40009f8:	4a53883a 	add	r9,r9,r9
- 40009fc:	30800d1e 	bne	r6,r2,4000a34 <alt_up_pixel_buffer_dma_draw_box+0x188>
-			limit_x = limit_x << 1;
-			addr = addr + t_y * limit_x;
- 4000a00:	4245383a 	mul	r2,r8,r9
- 4000a04:	10c5883a 	add	r2,r2,r3
-			for (y = t_y; y <= b_y; y++)
- 4000a08:	5a001936 	bltu	r11,r8,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
- 4000a0c:	5007883a 	mov	r3,r10
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000a10:	38c00536 	bltu	r7,r3,4000a28 <alt_up_pixel_buffer_dma_draw_box+0x17c>
-				{
-					IOWR_16DIRECT(addr, x << 1, local_color);
- 4000a14:	18c9883a 	add	r4,r3,r3
- 4000a18:	2089883a 	add	r4,r4,r2
- 4000a1c:	2300002d 	sthio	r12,0(r4)
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			limit_x = limit_x << 1;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000a20:	18c00044 	addi	r3,r3,1
- 4000a24:	003ffa06 	br	4000a10 <__alt_mem_Onchip_Memory+0xfbff0a10>
-				{
-					IOWR_16DIRECT(addr, x << 1, local_color);
-				}
-				addr = addr + limit_x;
- 4000a28:	1245883a 	add	r2,r2,r9
-				addr = addr + limit_x;
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			limit_x = limit_x << 1;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000a2c:	42000044 	addi	r8,r8,1
- 4000a30:	003ff506 	br	4000a08 <__alt_mem_Onchip_Memory+0xfbff0a08>
-				addr = addr + limit_x;
-			}
-		}
-		else
-		{
-			limit_x = limit_x << 2;
- 4000a34:	4a53883a 	add	r9,r9,r9
-			addr = addr + t_y * limit_x;
- 4000a38:	4245383a 	mul	r2,r8,r9
- 4000a3c:	10c5883a 	add	r2,r2,r3
-			for (y = t_y; y <= b_y; y++)
- 4000a40:	5a000b36 	bltu	r11,r8,4000a70 <alt_up_pixel_buffer_dma_draw_box+0x1c4>
- 4000a44:	5009883a 	mov	r4,r10
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000a48:	39000636 	bltu	r7,r4,4000a64 <alt_up_pixel_buffer_dma_draw_box+0x1b8>
-				{
-					IOWR_32DIRECT(addr, x << 2, local_color);
- 4000a4c:	2107883a 	add	r3,r4,r4
- 4000a50:	18c7883a 	add	r3,r3,r3
- 4000a54:	1887883a 	add	r3,r3,r2
- 4000a58:	1b000035 	stwio	r12,0(r3)
-		{
-			limit_x = limit_x << 2;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
-			{
-				for (x = l_x; x <= r_x; x++)
- 4000a5c:	21000044 	addi	r4,r4,1
- 4000a60:	003ff906 	br	4000a48 <__alt_mem_Onchip_Memory+0xfbff0a48>
-				{
-					IOWR_32DIRECT(addr, x << 2, local_color);
-				}
-				addr = addr + limit_x;
- 4000a64:	1245883a 	add	r2,r2,r9
-		}
-		else
-		{
-			limit_x = limit_x << 2;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000a68:	42000044 	addi	r8,r8,1
- 4000a6c:	003ff406 	br	4000a40 <__alt_mem_Onchip_Memory+0xfbff0a40>
- 4000a70:	f800283a 	ret
-
-04000a74 <alt_up_pixel_buffer_dma_draw_hline>:
-	}
-}
-
-void alt_up_pixel_buffer_dma_draw_hline(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int x1, int y, int color, int backbuffer)
-/* This method draws a horizontal line. This method is faster than using the line method because we know the direction of the line. */
-{
- 4000a74:	da400017 	ldw	r9,0(sp)
-	register unsigned int addr;
-	register unsigned int limit_x = pixel_buffer->x_resolution;
- 4000a78:	22000f17 	ldw	r8,60(r4)
-	register unsigned int limit_y = pixel_buffer->y_resolution;
-	register unsigned int temp;
-	register unsigned int l_x = x0;
- 4000a7c:	2805883a 	mov	r2,r5
-	register unsigned int r_x = x1;
-	register unsigned int line_y = y;
-	register unsigned int local_color = color;
-	
-	/* Check coordinates */
-	if (l_x > r_x)
- 4000a80:	3140022e 	bgeu	r6,r5,4000a8c <alt_up_pixel_buffer_dma_draw_hline+0x18>
- 4000a84:	3005883a 	mov	r2,r6
- 4000a88:	280d883a 	mov	r6,r5
-	{
-		temp = l_x;
-		l_x = r_x;
-		r_x = temp;
-	}
-	if ((l_x >= limit_x) || (line_y >= limit_y) || (r_x < 0) || (line_y < 0))
- 4000a8c:	1200472e 	bgeu	r2,r8,4000bac <alt_up_pixel_buffer_dma_draw_hline+0x138>
- 4000a90:	20c01017 	ldw	r3,64(r4)
- 4000a94:	38c0452e 	bgeu	r7,r3,4000bac <alt_up_pixel_buffer_dma_draw_hline+0x138>
-	/* Clip the box and draw only within the confines of the screen. */
-	if (l_x < 0)
-	{
-		l_x = 0;
-	}
-	if (r_x >= limit_x)
- 4000a98:	32000136 	bltu	r6,r8,4000aa0 <alt_up_pixel_buffer_dma_draw_hline+0x2c>
-	{
-		r_x = limit_x - 1;
- 4000a9c:	41bfffc4 	addi	r6,r8,-1
-	}
-
-	/* Set up the address to start clearing from and the screen boundaries. */
-	if (backbuffer == 1)
- 4000aa0:	d8c00117 	ldw	r3,4(sp)
- 4000aa4:	02800044 	movi	r10,1
- 4000aa8:	1a80021e 	bne	r3,r10,4000ab4 <alt_up_pixel_buffer_dma_draw_hline+0x40>
-		addr = pixel_buffer->back_buffer_start_address;
- 4000aac:	20c00c17 	ldw	r3,48(r4)
- 4000ab0:	00000106 	br	4000ab8 <alt_up_pixel_buffer_dma_draw_hline+0x44>
-	else
-		addr = pixel_buffer->buffer_start_address;
- 4000ab4:	20c00b17 	ldw	r3,44(r4)
-
-	/* Draw a horizontal line using one of the addressing modes. */
-	if (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) {
- 4000ab8:	22c00d17 	ldw	r11,52(r4)
- 4000abc:	21400e17 	ldw	r5,56(r4)
- 4000ac0:	58001b1e 	bne	r11,zero,4000b30 <alt_up_pixel_buffer_dma_draw_hline+0xbc>
-		/* Draw a horizontal line of a given color on the screen using the XY addressing mode. */
-		register unsigned int x;
-		register unsigned int offset_y;
-		offset_y = pixel_buffer->y_coord_offset;
-		addr = addr + (line_y << offset_y);
- 4000ac4:	21001317 	ldw	r4,76(r4)
- 4000ac8:	390e983a 	sll	r7,r7,r4
- 4000acc:	38c7883a 	add	r3,r7,r3
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a horizontal line. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 4000ad0:	2a80061e 	bne	r5,r10,4000aec <alt_up_pixel_buffer_dma_draw_hline+0x78>
-			for (x = l_x; x <= r_x; x++)
- 4000ad4:	30800436 	bltu	r6,r2,4000ae8 <alt_up_pixel_buffer_dma_draw_hline+0x74>
-			{
-				IOWR_8DIRECT(addr, x, local_color);
- 4000ad8:	10c9883a 	add	r4,r2,r3
- 4000adc:	22400025 	stbio	r9,0(r4)
-		addr = addr + (line_y << offset_y);
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a horizontal line. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			for (x = l_x; x <= r_x; x++)
- 4000ae0:	10800044 	addi	r2,r2,1
- 4000ae4:	003ffb06 	br	4000ad4 <__alt_mem_Onchip_Memory+0xfbff0ad4>
- 4000ae8:	f800283a 	ret
-			{
-				IOWR_8DIRECT(addr, x, local_color);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 4000aec:	01000084 	movi	r4,2
- 4000af0:	2900071e 	bne	r5,r4,4000b10 <alt_up_pixel_buffer_dma_draw_hline+0x9c>
-			for (x = l_x; x <= r_x; x++)
- 4000af4:	30800536 	bltu	r6,r2,4000b0c <alt_up_pixel_buffer_dma_draw_hline+0x98>
-			{
-				IOWR_16DIRECT(addr, x << 1, local_color);
- 4000af8:	1089883a 	add	r4,r2,r2
- 4000afc:	20c9883a 	add	r4,r4,r3
- 4000b00:	2240002d 	sthio	r9,0(r4)
-			for (x = l_x; x <= r_x; x++)
-			{
-				IOWR_8DIRECT(addr, x, local_color);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			for (x = l_x; x <= r_x; x++)
- 4000b04:	10800044 	addi	r2,r2,1
- 4000b08:	003ffa06 	br	4000af4 <__alt_mem_Onchip_Memory+0xfbff0af4>
- 4000b0c:	f800283a 	ret
-				IOWR_16DIRECT(addr, x << 1, local_color);
-			}
-		}
-		else
-		{
-			for (x = l_x; x <= r_x; x++)
- 4000b10:	30800636 	bltu	r6,r2,4000b2c <alt_up_pixel_buffer_dma_draw_hline+0xb8>
-			{
-				IOWR_32DIRECT(addr, x << 2, local_color);
- 4000b14:	1089883a 	add	r4,r2,r2
- 4000b18:	2109883a 	add	r4,r4,r4
- 4000b1c:	20c9883a 	add	r4,r4,r3
- 4000b20:	22400035 	stwio	r9,0(r4)
-				IOWR_16DIRECT(addr, x << 1, local_color);
-			}
-		}
-		else
-		{
-			for (x = l_x; x <= r_x; x++)
- 4000b24:	10800044 	addi	r2,r2,1
- 4000b28:	003ff906 	br	4000b10 <__alt_mem_Onchip_Memory+0xfbff0b10>
- 4000b2c:	f800283a 	ret
-	} else {
-		/* Draw a horizontal line of a given color on the screen using the linear addressing mode. */
-		register unsigned int x;
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 4000b30:	2a80081e 	bne	r5,r10,4000b54 <alt_up_pixel_buffer_dma_draw_hline+0xe0>
-			addr = addr + line_y * limit_x;
- 4000b34:	41cf383a 	mul	r7,r8,r7
- 4000b38:	38c7883a 	add	r3,r7,r3
-			for (x = l_x; x <= r_x; x++)
- 4000b3c:	30800436 	bltu	r6,r2,4000b50 <alt_up_pixel_buffer_dma_draw_hline+0xdc>
-			{
-				IOWR_8DIRECT(addr, x, local_color);
- 4000b40:	10c9883a 	add	r4,r2,r3
- 4000b44:	22400025 	stbio	r9,0(r4)
-		register unsigned int x;
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			addr = addr + line_y * limit_x;
-			for (x = l_x; x <= r_x; x++)
- 4000b48:	10800044 	addi	r2,r2,1
- 4000b4c:	003ffb06 	br	4000b3c <__alt_mem_Onchip_Memory+0xfbff0b3c>
- 4000b50:	f800283a 	ret
-			{
-				IOWR_8DIRECT(addr, x, local_color);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 4000b54:	01000084 	movi	r4,2
- 4000b58:	4211883a 	add	r8,r8,r8
- 4000b5c:	2900091e 	bne	r5,r4,4000b84 <alt_up_pixel_buffer_dma_draw_hline+0x110>
-			limit_x = limit_x << 1;
-			addr = addr + line_y * limit_x;
- 4000b60:	41cf383a 	mul	r7,r8,r7
- 4000b64:	38c7883a 	add	r3,r7,r3
-			for (x = l_x; x <= r_x; x++)
- 4000b68:	30800536 	bltu	r6,r2,4000b80 <alt_up_pixel_buffer_dma_draw_hline+0x10c>
-			{
-				IOWR_16DIRECT(addr, x << 1, local_color);
- 4000b6c:	1089883a 	add	r4,r2,r2
- 4000b70:	20c9883a 	add	r4,r4,r3
- 4000b74:	2240002d 	sthio	r9,0(r4)
-				IOWR_8DIRECT(addr, x, local_color);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			limit_x = limit_x << 1;
-			addr = addr + line_y * limit_x;
-			for (x = l_x; x <= r_x; x++)
- 4000b78:	10800044 	addi	r2,r2,1
- 4000b7c:	003ffa06 	br	4000b68 <__alt_mem_Onchip_Memory+0xfbff0b68>
- 4000b80:	f800283a 	ret
-			}
-		}
-		else
-		{
-			limit_x = limit_x << 2;
-			addr = addr + line_y * limit_x;
- 4000b84:	4211883a 	add	r8,r8,r8
- 4000b88:	41cf383a 	mul	r7,r8,r7
- 4000b8c:	38c7883a 	add	r3,r7,r3
-			for (x = l_x; x <= r_x; x++)
- 4000b90:	30800636 	bltu	r6,r2,4000bac <alt_up_pixel_buffer_dma_draw_hline+0x138>
-			{
-				IOWR_32DIRECT(addr, x << 2, local_color);
- 4000b94:	1089883a 	add	r4,r2,r2
- 4000b98:	2109883a 	add	r4,r4,r4
- 4000b9c:	20c9883a 	add	r4,r4,r3
- 4000ba0:	22400035 	stwio	r9,0(r4)
-		}
-		else
-		{
-			limit_x = limit_x << 2;
-			addr = addr + line_y * limit_x;
-			for (x = l_x; x <= r_x; x++)
- 4000ba4:	10800044 	addi	r2,r2,1
- 4000ba8:	003ff906 	br	4000b90 <__alt_mem_Onchip_Memory+0xfbff0b90>
- 4000bac:	f800283a 	ret
-
-04000bb0 <alt_up_pixel_buffer_dma_draw_vline>:
-
-
-void alt_up_pixel_buffer_dma_draw_vline(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x, int y0, int y1, int color, int backbuffer)
-/* This method draws a vertical line. This method is faster than using the line method because we know the direction of the line. */
-
-{
- 4000bb0:	da800017 	ldw	r10,0(sp)
-	register unsigned int addr;
-	register unsigned int limit_x = pixel_buffer->x_resolution;
- 4000bb4:	22400f17 	ldw	r9,60(r4)
-	register unsigned int limit_y = pixel_buffer->y_resolution;
-	register unsigned int temp;
-	register unsigned int line_x = x;
-	register unsigned int t_y = y0;
- 4000bb8:	3011883a 	mov	r8,r6
-	register unsigned int b_y = y1;
-	register unsigned int local_color = color;
-	
-	/* Check coordinates */
-	if (t_y > b_y)
- 4000bbc:	3980022e 	bgeu	r7,r6,4000bc8 <alt_up_pixel_buffer_dma_draw_vline+0x18>
- 4000bc0:	3811883a 	mov	r8,r7
- 4000bc4:	300f883a 	mov	r7,r6
-	{
-		temp = t_y;
-		t_y = b_y;
-		b_y = temp;
-	}
-	if ((line_x >= limit_x) || (t_y >= limit_y) || (line_x < 0) || (b_y < 0))
- 4000bc8:	2a404f2e 	bgeu	r5,r9,4000d08 <alt_up_pixel_buffer_dma_draw_vline+0x158>
-/* This method draws a vertical line. This method is faster than using the line method because we know the direction of the line. */
-
-{
-	register unsigned int addr;
-	register unsigned int limit_x = pixel_buffer->x_resolution;
-	register unsigned int limit_y = pixel_buffer->y_resolution;
- 4000bcc:	20801017 	ldw	r2,64(r4)
-	{
-		temp = t_y;
-		t_y = b_y;
-		b_y = temp;
-	}
-	if ((line_x >= limit_x) || (t_y >= limit_y) || (line_x < 0) || (b_y < 0))
- 4000bd0:	40804d2e 	bgeu	r8,r2,4000d08 <alt_up_pixel_buffer_dma_draw_vline+0x158>
-	/* Clip the box and draw only within the confines of the screen. */
-	if (t_y < 0)
-	{
-		t_y = 0;
-	}
-	if (b_y >= limit_y)
- 4000bd4:	38800136 	bltu	r7,r2,4000bdc <alt_up_pixel_buffer_dma_draw_vline+0x2c>
-	{
-		b_y = limit_y - 1;
- 4000bd8:	11ffffc4 	addi	r7,r2,-1
-	}
-
-	/* Set up the address to start clearing from and the screen boundaries. */
-	if (backbuffer == 1)
- 4000bdc:	d8800117 	ldw	r2,4(sp)
- 4000be0:	01800044 	movi	r6,1
- 4000be4:	1180021e 	bne	r2,r6,4000bf0 <alt_up_pixel_buffer_dma_draw_vline+0x40>
-		addr = pixel_buffer->back_buffer_start_address;
- 4000be8:	20800c17 	ldw	r2,48(r4)
- 4000bec:	00000106 	br	4000bf4 <alt_up_pixel_buffer_dma_draw_vline+0x44>
-	else
-		addr = pixel_buffer->buffer_start_address;
- 4000bf0:	20800b17 	ldw	r2,44(r4)
-
-	/* Draw the vertical line using one of the addressing modes. */
-	if (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) {
- 4000bf4:	20c00d17 	ldw	r3,52(r4)
- 4000bf8:	22c00e17 	ldw	r11,56(r4)
- 4000bfc:	1800211e 	bne	r3,zero,4000c84 <alt_up_pixel_buffer_dma_draw_vline+0xd4>
-		/* Draw a vertical line of a given color on the screen using the XY addressing mode. */
-		register unsigned int y;
-		register unsigned int offset_y;
-		offset_y = pixel_buffer->y_coord_offset;
- 4000c00:	21001317 	ldw	r4,76(r4)
-		addr = addr + (t_y << offset_y);
- 4000c04:	4106983a 	sll	r3,r8,r4
- 4000c08:	1887883a 	add	r3,r3,r2
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 4000c0c:	5980081e 	bne	r11,r6,4000c30 <alt_up_pixel_buffer_dma_draw_vline+0x80>
-			for (y = t_y; y <= b_y; y++)
-			{
-				IOWR_8DIRECT(addr, line_x, local_color);
-				addr = addr + (1 << offset_y);
- 4000c10:	310c983a 	sll	r6,r6,r4
- 4000c14:	28c5883a 	add	r2,r5,r3
-		addr = addr + (t_y << offset_y);
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
- 4000c18:	3a000436 	bltu	r7,r8,4000c2c <alt_up_pixel_buffer_dma_draw_vline+0x7c>
-			{
-				IOWR_8DIRECT(addr, line_x, local_color);
- 4000c1c:	12800025 	stbio	r10,0(r2)
-		addr = addr + (t_y << offset_y);
-		
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
- 4000c20:	42000044 	addi	r8,r8,1
- 4000c24:	1185883a 	add	r2,r2,r6
- 4000c28:	003ffb06 	br	4000c18 <__alt_mem_Onchip_Memory+0xfbff0c18>
- 4000c2c:	f800283a 	ret
- 4000c30:	00800044 	movi	r2,1
- 4000c34:	110c983a 	sll	r6,r2,r4
-			{
-				IOWR_8DIRECT(addr, line_x, local_color);
-				addr = addr + (1 << offset_y);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 4000c38:	01000084 	movi	r4,2
- 4000c3c:	2945883a 	add	r2,r5,r5
- 4000c40:	59000326 	beq	r11,r4,4000c50 <alt_up_pixel_buffer_dma_draw_vline+0xa0>
- 4000c44:	1085883a 	add	r2,r2,r2
- 4000c48:	10c5883a 	add	r2,r2,r3
- 4000c4c:	00000706 	br	4000c6c <alt_up_pixel_buffer_dma_draw_vline+0xbc>
- 4000c50:	10c5883a 	add	r2,r2,r3
-			for (y = t_y; y <= b_y; y++)
- 4000c54:	3a000436 	bltu	r7,r8,4000c68 <alt_up_pixel_buffer_dma_draw_vline+0xb8>
-			{
-				IOWR_16DIRECT(addr, line_x << 1, local_color);
- 4000c58:	1280002d 	sthio	r10,0(r2)
-			{
-				IOWR_8DIRECT(addr, line_x, local_color);
-				addr = addr + (1 << offset_y);
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			for (y = t_y; y <= b_y; y++)
- 4000c5c:	42000044 	addi	r8,r8,1
- 4000c60:	1185883a 	add	r2,r2,r6
- 4000c64:	003ffb06 	br	4000c54 <__alt_mem_Onchip_Memory+0xfbff0c54>
- 4000c68:	f800283a 	ret
-				addr = addr + (1 << offset_y);
-			}
-		}
-		else
-		{
-			for (y = t_y; y <= b_y; y++)
- 4000c6c:	3a000436 	bltu	r7,r8,4000c80 <alt_up_pixel_buffer_dma_draw_vline+0xd0>
-			{
-				IOWR_32DIRECT(addr, line_x << 2, local_color);
- 4000c70:	12800035 	stwio	r10,0(r2)
-				addr = addr + (1 << offset_y);
-			}
-		}
-		else
-		{
-			for (y = t_y; y <= b_y; y++)
- 4000c74:	42000044 	addi	r8,r8,1
- 4000c78:	1185883a 	add	r2,r2,r6
- 4000c7c:	003ffb06 	br	4000c6c <__alt_mem_Onchip_Memory+0xfbff0c6c>
- 4000c80:	f800283a 	ret
-	} else {
-		/* Draw a vertical line of a given color on the screen using the linear addressing mode. */
-		register unsigned int y;
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
- 4000c84:	5980091e 	bne	r11,r6,4000cac <alt_up_pixel_buffer_dma_draw_vline+0xfc>
- 4000c88:	4247383a 	mul	r3,r8,r9
- 4000c8c:	194b883a 	add	r5,r3,r5
- 4000c90:	2885883a 	add	r2,r5,r2
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000c94:	3a000436 	bltu	r7,r8,4000ca8 <alt_up_pixel_buffer_dma_draw_vline+0xf8>
-			{
-				IOWR_8DIRECT(addr, line_x, local_color);
- 4000c98:	12800025 	stbio	r10,0(r2)
-		register unsigned int y;
-		/* This portion of the code is purposefully replicated. This is because having a text for
-		 * the mode would unnecessarily slow down the drawing of a box. */
-		if (pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) {
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000c9c:	42000044 	addi	r8,r8,1
- 4000ca0:	1245883a 	add	r2,r2,r9
- 4000ca4:	003ffb06 	br	4000c94 <__alt_mem_Onchip_Memory+0xfbff0c94>
- 4000ca8:	f800283a 	ret
-			{
-				IOWR_8DIRECT(addr, line_x, local_color);
-				addr = addr + limit_x;
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
- 4000cac:	00c00084 	movi	r3,2
- 4000cb0:	294b883a 	add	r5,r5,r5
- 4000cb4:	4a53883a 	add	r9,r9,r9
- 4000cb8:	58c0091e 	bne	r11,r3,4000ce0 <alt_up_pixel_buffer_dma_draw_vline+0x130>
- 4000cbc:	4247383a 	mul	r3,r8,r9
- 4000cc0:	194b883a 	add	r5,r3,r5
- 4000cc4:	2885883a 	add	r2,r5,r2
-			limit_x = limit_x << 1;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000cc8:	3a000436 	bltu	r7,r8,4000cdc <alt_up_pixel_buffer_dma_draw_vline+0x12c>
-			{
-				IOWR_16DIRECT(addr, line_x << 1, local_color);
- 4000ccc:	1280002d 	sthio	r10,0(r2)
-				addr = addr + limit_x;
-			}
-		} else if (pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) {
-			limit_x = limit_x << 1;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000cd0:	42000044 	addi	r8,r8,1
- 4000cd4:	1245883a 	add	r2,r2,r9
- 4000cd8:	003ffb06 	br	4000cc8 <__alt_mem_Onchip_Memory+0xfbff0cc8>
- 4000cdc:	f800283a 	ret
-				addr = addr + limit_x;
-			}
-		}
-		else
-		{
-			limit_x = limit_x << 2;
- 4000ce0:	4a53883a 	add	r9,r9,r9
- 4000ce4:	4247383a 	mul	r3,r8,r9
- 4000ce8:	294b883a 	add	r5,r5,r5
- 4000cec:	194b883a 	add	r5,r3,r5
- 4000cf0:	2885883a 	add	r2,r5,r2
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000cf4:	3a000436 	bltu	r7,r8,4000d08 <alt_up_pixel_buffer_dma_draw_vline+0x158>
-			{
-				IOWR_32DIRECT(addr, line_x << 2, local_color);
- 4000cf8:	12800035 	stwio	r10,0(r2)
-		}
-		else
-		{
-			limit_x = limit_x << 2;
-			addr = addr + t_y * limit_x;
-			for (y = t_y; y <= b_y; y++)
- 4000cfc:	42000044 	addi	r8,r8,1
- 4000d00:	1245883a 	add	r2,r2,r9
- 4000d04:	003ffb06 	br	4000cf4 <__alt_mem_Onchip_Memory+0xfbff0cf4>
- 4000d08:	f800283a 	ret
-
-04000d0c <alt_up_pixel_buffer_dma_draw_rectangle>:
-		}
-	}
-}
-
-void alt_up_pixel_buffer_dma_draw_rectangle(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-{
- 4000d0c:	defff604 	addi	sp,sp,-40
- 4000d10:	dc400315 	stw	r17,12(sp)
- 4000d14:	dc000215 	stw	r16,8(sp)
- 4000d18:	dc400c17 	ldw	r17,48(sp)
- 4000d1c:	dc000b17 	ldw	r16,44(sp)
- 4000d20:	dd400715 	stw	r21,28(sp)
- 4000d24:	dcc00515 	stw	r19,20(sp)
- 4000d28:	dd400a17 	ldw	r21,40(sp)
- 4000d2c:	3827883a 	mov	r19,r7
- 4000d30:	dd000615 	stw	r20,24(sp)
-	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, x1, y0, color, backbuffer);
- 4000d34:	300f883a 	mov	r7,r6
-		}
-	}
-}
-
-void alt_up_pixel_buffer_dma_draw_rectangle(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-{
- 4000d38:	3029883a 	mov	r20,r6
-	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, x1, y0, color, backbuffer);
- 4000d3c:	dc400115 	stw	r17,4(sp)
- 4000d40:	980d883a 	mov	r6,r19
- 4000d44:	dc000015 	stw	r16,0(sp)
-		}
-	}
-}
-
-void alt_up_pixel_buffer_dma_draw_rectangle(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-{
- 4000d48:	dfc00915 	stw	ra,36(sp)
- 4000d4c:	dd800815 	stw	r22,32(sp)
- 4000d50:	dc800415 	stw	r18,16(sp)
- 4000d54:	282d883a 	mov	r22,r5
- 4000d58:	2025883a 	mov	r18,r4
-	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, x1, y0, color, backbuffer);
- 4000d5c:	4000a740 	call	4000a74 <alt_up_pixel_buffer_dma_draw_hline>
-	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, x1, y1, color, backbuffer);
- 4000d60:	a80f883a 	mov	r7,r21
- 4000d64:	980d883a 	mov	r6,r19
- 4000d68:	b00b883a 	mov	r5,r22
- 4000d6c:	9009883a 	mov	r4,r18
- 4000d70:	dc400115 	stw	r17,4(sp)
- 4000d74:	dc000015 	stw	r16,0(sp)
- 4000d78:	4000a740 	call	4000a74 <alt_up_pixel_buffer_dma_draw_hline>
-	alt_up_pixel_buffer_dma_draw_vline(pixel_buffer, x0, y0, y1, color, backbuffer);
- 4000d7c:	a80f883a 	mov	r7,r21
- 4000d80:	a00d883a 	mov	r6,r20
- 4000d84:	b00b883a 	mov	r5,r22
- 4000d88:	9009883a 	mov	r4,r18
- 4000d8c:	dc400115 	stw	r17,4(sp)
- 4000d90:	dc000015 	stw	r16,0(sp)
- 4000d94:	4000bb00 	call	4000bb0 <alt_up_pixel_buffer_dma_draw_vline>
-	alt_up_pixel_buffer_dma_draw_vline(pixel_buffer, x1, y0, y1, color, backbuffer);
- 4000d98:	a80f883a 	mov	r7,r21
- 4000d9c:	a00d883a 	mov	r6,r20
- 4000da0:	980b883a 	mov	r5,r19
- 4000da4:	9009883a 	mov	r4,r18
- 4000da8:	dc400b15 	stw	r17,44(sp)
- 4000dac:	dc000a15 	stw	r16,40(sp)
-}
- 4000db0:	dfc00917 	ldw	ra,36(sp)
- 4000db4:	dd800817 	ldw	r22,32(sp)
- 4000db8:	dd400717 	ldw	r21,28(sp)
- 4000dbc:	dd000617 	ldw	r20,24(sp)
- 4000dc0:	dcc00517 	ldw	r19,20(sp)
- 4000dc4:	dc800417 	ldw	r18,16(sp)
- 4000dc8:	dc400317 	ldw	r17,12(sp)
- 4000dcc:	dc000217 	ldw	r16,8(sp)
- 4000dd0:	dec00a04 	addi	sp,sp,40
-void alt_up_pixel_buffer_dma_draw_rectangle(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-{
-	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, x1, y0, color, backbuffer);
-	alt_up_pixel_buffer_dma_draw_hline(pixel_buffer, x0, x1, y1, color, backbuffer);
-	alt_up_pixel_buffer_dma_draw_vline(pixel_buffer, x0, y0, y1, color, backbuffer);
-	alt_up_pixel_buffer_dma_draw_vline(pixel_buffer, x1, y0, y1, color, backbuffer);
- 4000dd4:	4000bb01 	jmpi	4000bb0 <alt_up_pixel_buffer_dma_draw_vline>
-
-04000dd8 <helper_plot_pixel>:
-}
-
-void helper_plot_pixel(register unsigned int buffer_start, register int line_size, register int x, register int y, register int color, register int mode)
-/* This is a helper function that draws a pixel at a given location. Note that no boundary checks are made,
- * so drawing off-screen may cause unpredictable side effects. */
-{
- 4000dd8:	d8c00117 	ldw	r3,4(sp)
- 4000ddc:	d8800017 	ldw	r2,0(sp)
- 4000de0:	29cb383a 	mul	r5,r5,r7
-	if (mode == 0)
- 4000de4:	1800041e 	bne	r3,zero,4000df8 <helper_plot_pixel+0x20>
-		IOWR_8DIRECT(buffer_start, line_size*y+x, color);
- 4000de8:	298d883a 	add	r6,r5,r6
- 4000dec:	310d883a 	add	r6,r6,r4
- 4000df0:	30800025 	stbio	r2,0(r6)
- 4000df4:	f800283a 	ret
-	else if (mode == 1)
-		IOWR_16DIRECT(buffer_start, (line_size*y+x) << 1, color);
- 4000df8:	298d883a 	add	r6,r5,r6
-/* This is a helper function that draws a pixel at a given location. Note that no boundary checks are made,
- * so drawing off-screen may cause unpredictable side effects. */
-{
-	if (mode == 0)
-		IOWR_8DIRECT(buffer_start, line_size*y+x, color);
-	else if (mode == 1)
- 4000dfc:	01c00044 	movi	r7,1
-		IOWR_16DIRECT(buffer_start, (line_size*y+x) << 1, color);
- 4000e00:	318d883a 	add	r6,r6,r6
-/* This is a helper function that draws a pixel at a given location. Note that no boundary checks are made,
- * so drawing off-screen may cause unpredictable side effects. */
-{
-	if (mode == 0)
-		IOWR_8DIRECT(buffer_start, line_size*y+x, color);
-	else if (mode == 1)
- 4000e04:	19c0031e 	bne	r3,r7,4000e14 <helper_plot_pixel+0x3c>
-		IOWR_16DIRECT(buffer_start, (line_size*y+x) << 1, color);
- 4000e08:	310d883a 	add	r6,r6,r4
- 4000e0c:	3080002d 	sthio	r2,0(r6)
- 4000e10:	f800283a 	ret
-	else
-		IOWR_32DIRECT(buffer_start, (line_size*y+x) << 2, color);
- 4000e14:	318d883a 	add	r6,r6,r6
- 4000e18:	310d883a 	add	r6,r6,r4
- 4000e1c:	30800035 	stwio	r2,0(r6)
- 4000e20:	f800283a 	ret
-
-04000e24 <alt_up_pixel_buffer_dma_draw_line>:
-}
-
-void alt_up_pixel_buffer_dma_draw_line(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-/* This function draws a line between points (x0, y0) and (x1, y1). The function does not check if it draws a pixel within screen boundaries.
- * users should ensure that the line is drawn within the screen boundaries. */
-{
- 4000e24:	defff304 	addi	sp,sp,-52
- 4000e28:	d8800d17 	ldw	r2,52(sp)
- 4000e2c:	dcc00615 	stw	r19,24(sp)
- 4000e30:	dc800515 	stw	r18,20(sp)
- 4000e34:	dc400415 	stw	r17,16(sp)
- 4000e38:	dfc00c15 	stw	ra,48(sp)
- 4000e3c:	df000b15 	stw	fp,44(sp)
- 4000e40:	ddc00a15 	stw	r23,40(sp)
- 4000e44:	dd800915 	stw	r22,36(sp)
- 4000e48:	dd400815 	stw	r21,32(sp)
- 4000e4c:	dd000715 	stw	r20,28(sp)
- 4000e50:	dc000315 	stw	r16,12(sp)
-	register int x_0 = x0;
-	register int y_0 = y0;
-	register int x_1 = x1;
-	register int y_1 = y1;
-	register char steep = (ABS(y_1 - y_0) > ABS(x_1 - x_0)) ? 1 : 0;
- 4000e54:	1187c83a 	sub	r3,r2,r6
-}
-
-void alt_up_pixel_buffer_dma_draw_line(alt_up_pixel_buffer_dma_dev *pixel_buffer, int x0, int y0, int x1, int y1, int color, int backbuffer)
-/* This function draws a line between points (x0, y0) and (x1, y1). The function does not check if it draws a pixel within screen boundaries.
- * users should ensure that the line is drawn within the screen boundaries. */
-{
- 4000e58:	2823883a 	mov	r17,r5
- 4000e5c:	3025883a 	mov	r18,r6
- 4000e60:	3827883a 	mov	r19,r7
-	register int x_0 = x0;
-	register int y_0 = y0;
-	register int x_1 = x1;
-	register int y_1 = y1;
-	register char steep = (ABS(y_1 - y_0) > ABS(x_1 - x_0)) ? 1 : 0;
- 4000e64:	1800010e 	bge	r3,zero,4000e6c <alt_up_pixel_buffer_dma_draw_line+0x48>
- 4000e68:	00c7c83a 	sub	r3,zero,r3
- 4000e6c:	9c4bc83a 	sub	r5,r19,r17
- 4000e70:	2800010e 	bge	r5,zero,4000e78 <alt_up_pixel_buffer_dma_draw_line+0x54>
- 4000e74:	014bc83a 	sub	r5,zero,r5
-	register int deltax, deltay, error, ystep, x, y;
-	register int color_mode =	(pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) ? 0 :
- 4000e78:	25000e17 	ldw	r20,56(r4)
- 4000e7c:	05800044 	movi	r22,1
- 4000e80:	a5800426 	beq	r20,r22,4000e94 <alt_up_pixel_buffer_dma_draw_line+0x70>
-								(pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) ? 1 : 2;
- 4000e84:	a50000a0 	cmpeqi	r20,r20,2
- 4000e88:	01800084 	movi	r6,2
- 4000e8c:	3529c83a 	sub	r20,r6,r20
- 4000e90:	00000106 	br	4000e98 <alt_up_pixel_buffer_dma_draw_line+0x74>
-	register int y_0 = y0;
-	register int x_1 = x1;
-	register int y_1 = y1;
-	register char steep = (ABS(y_1 - y_0) > ABS(x_1 - x_0)) ? 1 : 0;
-	register int deltax, deltay, error, ystep, x, y;
-	register int color_mode =	(pixel_buffer->color_mode == ALT_UP_8BIT_COLOR_MODE) ? 0 :
- 4000e94:	0029883a 	mov	r20,zero
-								(pixel_buffer->color_mode == ALT_UP_16BIT_COLOR_MODE) ? 1 : 2;
-	register int line_color = color;
-	register unsigned int buffer_start;
-	register int line_size = (pixel_buffer->addressing_mode == ALT_UP_PIXEL_BUFFER_XY_ADDRESS_MODE) ? (1 << (pixel_buffer->y_coord_offset-color_mode)) : pixel_buffer->x_resolution;
- 4000e98:	21800d17 	ldw	r6,52(r4)
- 4000e9c:	3000041e 	bne	r6,zero,4000eb0 <alt_up_pixel_buffer_dma_draw_line+0x8c>
- 4000ea0:	21801317 	ldw	r6,76(r4)
- 4000ea4:	350dc83a 	sub	r6,r6,r20
- 4000ea8:	b1ac983a 	sll	r22,r22,r6
- 4000eac:	00000106 	br	4000eb4 <alt_up_pixel_buffer_dma_draw_line+0x90>
- 4000eb0:	25800f17 	ldw	r22,60(r4)
-
-	if (backbuffer == 1)
- 4000eb4:	d9c00f17 	ldw	r7,60(sp)
- 4000eb8:	01800044 	movi	r6,1
- 4000ebc:	3980021e 	bne	r7,r6,4000ec8 <alt_up_pixel_buffer_dma_draw_line+0xa4>
-		buffer_start = pixel_buffer->back_buffer_start_address;
- 4000ec0:	22000c17 	ldw	r8,48(r4)
- 4000ec4:	00000106 	br	4000ecc <alt_up_pixel_buffer_dma_draw_line+0xa8>
-	else
-		buffer_start = pixel_buffer->buffer_start_address;
- 4000ec8:	22000b17 	ldw	r8,44(r4)
-
-	/* Preprocessing inputs */
-	if (steep > 0) {
- 4000ecc:	28c0060e 	bge	r5,r3,4000ee8 <alt_up_pixel_buffer_dma_draw_line+0xc4>
- 4000ed0:	9809883a 	mov	r4,r19
-		error = x_0;
-		x_0 = y_0;
-		y_0 = error;
-		// Swap x_1 and y_1
-		error = x_1;
-		x_1 = y_1;
- 4000ed4:	1027883a 	mov	r19,r2
-		y_1 = error;
- 4000ed8:	2005883a 	mov	r2,r4
- 4000edc:	8809883a 	mov	r4,r17
-
-	/* Preprocessing inputs */
-	if (steep > 0) {
-		// Swap x_0 and y_0
-		error = x_0;
-		x_0 = y_0;
- 4000ee0:	9023883a 	mov	r17,r18
-		y_0 = error;
- 4000ee4:	2025883a 	mov	r18,r4
-		// Swap x_1 and y_1
-		error = x_1;
-		x_1 = y_1;
-		y_1 = error;
-	}
-	if (x_0 > x_1) {
- 4000ee8:	9c40060e 	bge	r19,r17,4000f04 <alt_up_pixel_buffer_dma_draw_line+0xe0>
- 4000eec:	9009883a 	mov	r4,r18
-		error = x_0;
-		x_0 = x_1;
-		x_1 = error;
-		// Swap y_0 and y_1
-		error = y_0;
-		y_0 = y_1;
- 4000ef0:	1025883a 	mov	r18,r2
-		y_1 = error;
- 4000ef4:	2005883a 	mov	r2,r4
-		// Swap x_1 and y_1
-		error = x_1;
-		x_1 = y_1;
-		y_1 = error;
-	}
-	if (x_0 > x_1) {
- 4000ef8:	8809883a 	mov	r4,r17
- 4000efc:	9823883a 	mov	r17,r19
- 4000f00:	2027883a 	mov	r19,r4
-		y_1 = error;
-	}
-
-	/* Setup local variables */
-	deltax = x_1 - x_0;
-	deltay = ABS(y_1 - y_0);
- 4000f04:	14afc83a 	sub	r23,r2,r18
-		y_0 = y_1;
-		y_1 = error;
-	}
-
-	/* Setup local variables */
-	deltax = x_1 - x_0;
- 4000f08:	9c79c83a 	sub	fp,r19,r17
-	deltay = ABS(y_1 - y_0);
- 4000f0c:	b800010e 	bge	r23,zero,4000f14 <alt_up_pixel_buffer_dma_draw_line+0xf0>
- 4000f10:	05efc83a 	sub	r23,zero,r23
-	error = -(deltax / 2); 
- 4000f14:	e020d7fa 	srli	r16,fp,31
- 4000f18:	8721883a 	add	r16,r16,fp
- 4000f1c:	8021d07a 	srai	r16,r16,1
- 4000f20:	0421c83a 	sub	r16,zero,r16
-	y = y_0;
-	if (y_0 < y_1)
- 4000f24:	90800216 	blt	r18,r2,4000f30 <alt_up_pixel_buffer_dma_draw_line+0x10c>
-		ystep = 1;
-	else
-		ystep = -1;
- 4000f28:	057fffc4 	movi	r21,-1
- 4000f2c:	00000106 	br	4000f34 <alt_up_pixel_buffer_dma_draw_line+0x110>
-	deltax = x_1 - x_0;
-	deltay = ABS(y_1 - y_0);
-	error = -(deltax / 2); 
-	y = y_0;
-	if (y_0 < y_1)
-		ystep = 1;
- 4000f30:	05400044 	movi	r21,1
-	else
-		ystep = -1;
-
-	/* Draw a line - either go along the x axis (steep = 0) or along the y axis (steep = 1). The code is replicated to
-	 * compile well on low optimization levels. */
-	if (steep == 1)
- 4000f34:	28c0200e 	bge	r5,r3,4000fb8 <alt_up_pixel_buffer_dma_draw_line+0x194>
-	{
-		for (x=x_0; x <= x_1; x++) {
- 4000f38:	9c402016 	blt	r19,r17,4000fbc <alt_up_pixel_buffer_dma_draw_line+0x198>
-			helper_plot_pixel(buffer_start, line_size, y, x, line_color, color_mode);
- 4000f3c:	d8800e17 	ldw	r2,56(sp)
- 4000f40:	4009883a 	mov	r4,r8
- 4000f44:	dd000115 	stw	r20,4(sp)
- 4000f48:	d8800015 	stw	r2,0(sp)
- 4000f4c:	880f883a 	mov	r7,r17
- 4000f50:	900d883a 	mov	r6,r18
- 4000f54:	b00b883a 	mov	r5,r22
- 4000f58:	da000215 	stw	r8,8(sp)
-			error = error + deltay;
- 4000f5c:	85e1883a 	add	r16,r16,r23
-	/* Draw a line - either go along the x axis (steep = 0) or along the y axis (steep = 1). The code is replicated to
-	 * compile well on low optimization levels. */
-	if (steep == 1)
-	{
-		for (x=x_0; x <= x_1; x++) {
-			helper_plot_pixel(buffer_start, line_size, y, x, line_color, color_mode);
- 4000f60:	4000dd80 	call	4000dd8 <helper_plot_pixel>
-			error = error + deltay;
-			if (error > 0) {
- 4000f64:	da000217 	ldw	r8,8(sp)
- 4000f68:	0400020e 	bge	zero,r16,4000f74 <alt_up_pixel_buffer_dma_draw_line+0x150>
-				y = y + ystep;
- 4000f6c:	9565883a 	add	r18,r18,r21
-				error = error - deltax;
- 4000f70:	8721c83a 	sub	r16,r16,fp
-
-	/* Draw a line - either go along the x axis (steep = 0) or along the y axis (steep = 1). The code is replicated to
-	 * compile well on low optimization levels. */
-	if (steep == 1)
-	{
-		for (x=x_0; x <= x_1; x++) {
- 4000f74:	8c400044 	addi	r17,r17,1
- 4000f78:	003fef06 	br	4000f38 <__alt_mem_Onchip_Memory+0xfbff0f38>
-		}
-	}
-	else
-	{
-		for (x=x_0; x <= x_1; x++) {
-			helper_plot_pixel(buffer_start, line_size, x, y, line_color, color_mode);
- 4000f7c:	d8800e17 	ldw	r2,56(sp)
- 4000f80:	4009883a 	mov	r4,r8
- 4000f84:	dd000115 	stw	r20,4(sp)
- 4000f88:	d8800015 	stw	r2,0(sp)
- 4000f8c:	900f883a 	mov	r7,r18
- 4000f90:	880d883a 	mov	r6,r17
- 4000f94:	b00b883a 	mov	r5,r22
- 4000f98:	da000215 	stw	r8,8(sp)
-			error = error + deltay;
- 4000f9c:	85e1883a 	add	r16,r16,r23
-		}
-	}
-	else
-	{
-		for (x=x_0; x <= x_1; x++) {
-			helper_plot_pixel(buffer_start, line_size, x, y, line_color, color_mode);
- 4000fa0:	4000dd80 	call	4000dd8 <helper_plot_pixel>
-			error = error + deltay;
-			if (error > 0) {
- 4000fa4:	da000217 	ldw	r8,8(sp)
- 4000fa8:	0400020e 	bge	zero,r16,4000fb4 <alt_up_pixel_buffer_dma_draw_line+0x190>
-				y = y + ystep;
- 4000fac:	9565883a 	add	r18,r18,r21
-				error = error - deltax;
- 4000fb0:	8721c83a 	sub	r16,r16,fp
-			}
-		}
-	}
-	else
-	{
-		for (x=x_0; x <= x_1; x++) {
- 4000fb4:	8c400044 	addi	r17,r17,1
- 4000fb8:	9c7ff00e 	bge	r19,r17,4000f7c <__alt_mem_Onchip_Memory+0xfbff0f7c>
-				y = y + ystep;
-				error = error - deltax;
-			}
-		}
-	}
-}
- 4000fbc:	dfc00c17 	ldw	ra,48(sp)
- 4000fc0:	df000b17 	ldw	fp,44(sp)
- 4000fc4:	ddc00a17 	ldw	r23,40(sp)
- 4000fc8:	dd800917 	ldw	r22,36(sp)
- 4000fcc:	dd400817 	ldw	r21,32(sp)
- 4000fd0:	dd000717 	ldw	r20,28(sp)
- 4000fd4:	dcc00617 	ldw	r19,24(sp)
- 4000fd8:	dc800517 	ldw	r18,20(sp)
- 4000fdc:	dc400417 	ldw	r17,16(sp)
- 4000fe0:	dc000317 	ldw	r16,12(sp)
- 4000fe4:	dec00d04 	addi	sp,sp,52
- 4000fe8:	f800283a 	ret
-
-04000fec <alt_dcache_flush_all>:
-void alt_dcache_flush_all (void)
-{
-#if NIOS2_DCACHE_SIZE > 0
-  char* i;
-  
-  for (i = (char*) 0; i < (char*) NIOS2_DCACHE_SIZE; i+= NIOS2_DCACHE_LINE_SIZE)
- 4000fec:	0005883a 	mov	r2,zero
- 4000ff0:	00c20004 	movi	r3,2048
-  { 
-    __asm__ volatile ("flushd (%0)" :: "r" (i));
- 4000ff4:	1000003b 	flushd	0(r2)
-void alt_dcache_flush_all (void)
-{
-#if NIOS2_DCACHE_SIZE > 0
-  char* i;
-  
-  for (i = (char*) 0; i < (char*) NIOS2_DCACHE_SIZE; i+= NIOS2_DCACHE_LINE_SIZE)
- 4000ff8:	10800804 	addi	r2,r2,32
- 4000ffc:	10fffd1e 	bne	r2,r3,4000ff4 <__alt_mem_Onchip_Memory+0xfbff0ff4>
-  { 
-    __asm__ volatile ("flushd (%0)" :: "r" (i));
-  }
-#endif /* NIOS2_DCACHE_SIZE > 0 */
-}
- 4001000:	f800283a 	ret
-
-04001004 <alt_dev_null_write>:
- */
-
-static int alt_dev_null_write (alt_fd* fd, const char* ptr, int len)
-{
-  return len;
-}
- 4001004:	3005883a 	mov	r2,r6
- 4001008:	f800283a 	ret
-
-0400100c <alt_dev_llist_insert>:
-{
-  /*
-   * check that the device exists, and that it has a valid name.
-   */
-
-  if (!dev || !dev->name)
- 400100c:	20000226 	beq	r4,zero,4001018 <alt_dev_llist_insert+0xc>
- 4001010:	20800217 	ldw	r2,8(r4)
- 4001014:	1000101e 	bne	r2,zero,4001058 <alt_dev_llist_insert+0x4c>
+    switch (file) {
+ 4000ab0:	00800044 	movi	r2,1
+ 4000ab4:	20800226 	beq	r4,r2,4000ac0 <write+0x10>
+ 4000ab8:	00800084 	movi	r2,2
+ 4000abc:	2080041e 	bne	r4,r2,4000ad0 <write+0x20>
+    case 1: /* stdout file descriptor */
+        return ALT_DRIVER_WRITE(ALT_STDOUT_DEV, ptr, len, 0);
+#endif /* ALT_STDOUT_PRESENT */
+#ifdef ALT_STDERR_PRESENT
+    case 2: /* stderr file descriptor */
+        return ALT_DRIVER_WRITE(ALT_STDERR_DEV, ptr, len, 0);
+ 4000ac0:	01010034 	movhi	r4,1024
+ 4000ac4:	000f883a 	mov	r7,zero
+ 4000ac8:	21051c04 	addi	r4,r4,5232
+ 4000acc:	4000cf01 	jmpi	4000cf0 <altera_avalon_jtag_uart_write>
 
 extern int errno;
 
 static ALT_INLINE int* alt_get_errno(void)
 {
   return ((alt_errno) ? alt_errno() : &errno);
- 4001018:	d0a00717 	ldw	r2,-32740(gp)
- 400101c:	10000926 	beq	r2,zero,4001044 <alt_dev_llist_insert+0x38>
+ 4000ad0:	d0a00817 	ldw	r2,-32736(gp)
+ 4000ad4:	10000926 	beq	r2,zero,4000afc <write+0x4c>
+ * Provide minimal version that just writes to the stdout/stderr devices
+ * when provided.
+ */
+
+int ALT_WRITE (int file, const void *ptr, size_t len)
+{
+ 4000ad8:	deffff04 	addi	sp,sp,-4
+ 4000adc:	dfc00015 	stw	ra,0(sp)
+ 4000ae0:	103ee83a 	callr	r2
+#ifdef ALT_STDERR_PRESENT
+    case 2: /* stderr file descriptor */
+        return ALT_DRIVER_WRITE(ALT_STDERR_DEV, ptr, len, 0);
+#endif /* ALT_STDERR_PRESENT */
+    default:
+        ALT_ERRNO = EBADFD;
+ 4000ae4:	00c01444 	movi	r3,81
+ 4000ae8:	10c00015 	stw	r3,0(r2)
+        return -1;
+    }
+}
+ 4000aec:	00bfffc4 	movi	r2,-1
+ 4000af0:	dfc00017 	ldw	ra,0(sp)
+ 4000af4:	dec00104 	addi	sp,sp,4
+ 4000af8:	f800283a 	ret
+ 4000afc:	d0a0af04 	addi	r2,gp,-32068
+#ifdef ALT_STDERR_PRESENT
+    case 2: /* stderr file descriptor */
+        return ALT_DRIVER_WRITE(ALT_STDERR_DEV, ptr, len, 0);
+#endif /* ALT_STDERR_PRESENT */
+    default:
+        ALT_ERRNO = EBADFD;
+ 4000b00:	00c01444 	movi	r3,81
+ 4000b04:	10c00015 	stw	r3,0(r2)
+        return -1;
+    }
+}
+ 4000b08:	00bfffc4 	movi	r2,-1
+ 4000b0c:	f800283a 	ret
+
+04000b10 <alt_dev_reg>:
+
+static ALT_INLINE int alt_dev_reg (alt_dev* dev)
+{
+  extern alt_llist alt_dev_list;
+
+  return alt_dev_llist_insert ((alt_dev_llist*) dev, &alt_dev_list);
+ 4000b10:	d1600404 	addi	r5,gp,-32752
+ 4000b14:	4000fd41 	jmpi	4000fd4 <alt_dev_llist_insert>
+
+04000b18 <alt_irq_init>:
+ * The "base" parameter is ignored and only
+ * present for backwards-compatibility.
+ */
+
+void alt_irq_init ( const void* base )
+{
+ 4000b18:	deffff04 	addi	sp,sp,-4
+ 4000b1c:	dfc00015 	stw	ra,0(sp)
+    ALTERA_NIOS2_GEN2_IRQ_INIT ( CPU, CPU);
+ 4000b20:	40010c00 	call	40010c0 <altera_nios2_gen2_irq_init>
+ * alt_irq_cpu_enable_interrupts() enables the CPU to start taking interrupts.
+ */
+static ALT_INLINE void ALT_ALWAYS_INLINE 
+       alt_irq_cpu_enable_interrupts (void)
+{
+    NIOS2_WRITE_STATUS(NIOS2_STATUS_PIE_MSK
+ 4000b24:	00800044 	movi	r2,1
+ 4000b28:	1001703a 	wrctl	status,r2
+    alt_irq_cpu_enable_interrupts();
+}
+ 4000b2c:	dfc00017 	ldw	ra,0(sp)
+ 4000b30:	dec00104 	addi	sp,sp,4
+ 4000b34:	f800283a 	ret
+
+04000b38 <alt_sys_init>:
+void alt_sys_init( void )
+{
+    ALTERA_AVALON_TIMER_INIT ( TIMER, timer);
+    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
+    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
+    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
+ 4000b38:	01010034 	movhi	r4,1024
+ * Initialize the non-interrupt controller devices.
+ * Called after alt_irq_init().
+ */
+
+void alt_sys_init( void )
+{
+ 4000b3c:	deffff04 	addi	sp,sp,-4
+    ALTERA_AVALON_TIMER_INIT ( TIMER, timer);
+    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
+    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
+    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
+ 4000b40:	2104f804 	addi	r4,r4,5088
+ * Initialize the non-interrupt controller devices.
+ * Called after alt_irq_init().
+ */
+
+void alt_sys_init( void )
+{
+ 4000b44:	dfc00015 	stw	ra,0(sp)
+    ALTERA_AVALON_TIMER_INIT ( TIMER, timer);
+    ALTERA_AVALON_TIMER_INIT ( TIMER_0, timer_0);
+    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
+    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
+ 4000b48:	4000b100 	call	4000b10 <alt_dev_reg>
+    ALTERA_UP_AVALON_RS232_INIT ( WIFI_SERIAL_PORT, WIFI_Serial_Port);
+ 4000b4c:	01010034 	movhi	r4,1024
+ 4000b50:	2104ed04 	addi	r4,r4,5044
+ 4000b54:	4000b100 	call	4000b10 <alt_dev_reg>
+    ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INIT ( CHAR_BUFFER, Char_Buffer);
+ 4000b58:	00810034 	movhi	r2,1024
+ 4000b5c:	1084db04 	addi	r2,r2,4972
+ 4000b60:	10c00a17 	ldw	r3,40(r2)
+ 4000b64:	01401004 	movi	r5,64
+ 4000b68:	18c00117 	ldw	r3,4(r3)
+ 4000b6c:	193fffcc 	andi	r4,r3,65535
+ 4000b70:	1806d43a 	srli	r3,r3,16
+ 4000b74:	11000c15 	stw	r4,48(r2)
+ 4000b78:	10c00d15 	stw	r3,52(r2)
+ 4000b7c:	29000436 	bltu	r5,r4,4000b90 <alt_sys_init+0x58>
+ 4000b80:	01000fc4 	movi	r4,63
+ 4000b84:	11000f15 	stw	r4,60(r2)
+ 4000b88:	01000184 	movi	r4,6
+ 4000b8c:	11001015 	stw	r4,64(r2)
+ 4000b90:	01000804 	movi	r4,32
+ 4000b94:	20c00236 	bltu	r4,r3,4000ba0 <alt_sys_init+0x68>
+ 4000b98:	00c007c4 	movi	r3,31
+ 4000b9c:	10c01115 	stw	r3,68(r2)
+ 4000ba0:	01010034 	movhi	r4,1024
+ 4000ba4:	2104db04 	addi	r4,r4,4972
+ 4000ba8:	4000e840 	call	4000e84 <alt_up_char_buffer_init>
+ 4000bac:	01010034 	movhi	r4,1024
+ 4000bb0:	2104db04 	addi	r4,r4,4972
+ 4000bb4:	4000b100 	call	4000b10 <alt_dev_reg>
+    ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INIT ( PIXEL_BUFFER, Pixel_Buffer);
+ 4000bb8:	00810034 	movhi	r2,1024
+ 4000bbc:	1084c604 	addi	r2,r2,4888
+ 4000bc0:	10c00a17 	ldw	r3,40(r2)
+ 4000bc4:	01c00044 	movi	r7,1
+ 4000bc8:	19000017 	ldw	r4,0(r3)
+ 4000bcc:	11000b15 	stw	r4,44(r2)
+ 4000bd0:	19000117 	ldw	r4,4(r3)
+ 4000bd4:	11000c15 	stw	r4,48(r2)
+ 4000bd8:	19000204 	addi	r4,r3,8
+ 4000bdc:	2140000b 	ldhu	r5,0(r4)
+ 4000be0:	18c00304 	addi	r3,r3,12
+ 4000be4:	11400f15 	stw	r5,60(r2)
+ 4000be8:	21000017 	ldw	r4,0(r4)
+ 4000bec:	2008d43a 	srli	r4,r4,16
+ 4000bf0:	11001015 	stw	r4,64(r2)
+ 4000bf4:	19000017 	ldw	r4,0(r3)
+ 4000bf8:	2009d07a 	srai	r4,r4,1
+ 4000bfc:	2100004c 	andi	r4,r4,1
+ 4000c00:	11000d15 	stw	r4,52(r2)
+ 4000c04:	19000017 	ldw	r4,0(r3)
+ 4000c08:	2009d13a 	srai	r4,r4,4
+ 4000c0c:	210003cc 	andi	r4,r4,15
+ 4000c10:	11000e15 	stw	r4,56(r2)
+ 4000c14:	19400017 	ldw	r5,0(r3)
+ 4000c18:	2807d43a 	srai	r3,r5,16
+ 4000c1c:	280cd63a 	srli	r6,r5,24
+ 4000c20:	21c0021e 	bne	r4,r7,4000c2c <alt_sys_init+0xf4>
+ 4000c24:	10001115 	stw	zero,68(r2)
+ 4000c28:	00000506 	br	4000c40 <alt_sys_init+0x108>
+ 4000c2c:	01400084 	movi	r5,2
+ 4000c30:	2140021e 	bne	r4,r5,4000c3c <alt_sys_init+0x104>
+ 4000c34:	11c01115 	stw	r7,68(r2)
+ 4000c38:	00000106 	br	4000c40 <alt_sys_init+0x108>
+ 4000c3c:	11401115 	stw	r5,68(r2)
+ 4000c40:	18c03fcc 	andi	r3,r3,255
+ 4000c44:	01400804 	movi	r5,32
+ 4000c48:	28cfc83a 	sub	r7,r5,r3
+ 4000c4c:	013fffc4 	movi	r4,-1
+ 4000c50:	21ced83a 	srl	r7,r4,r7
+ 4000c54:	298bc83a 	sub	r5,r5,r6
+ 4000c58:	2148d83a 	srl	r4,r4,r5
+ 4000c5c:	11c01215 	stw	r7,72(r2)
+ 4000c60:	11c01117 	ldw	r7,68(r2)
+ 4000c64:	11001415 	stw	r4,80(r2)
+ 4000c68:	01010034 	movhi	r4,1024
+ 4000c6c:	38c7883a 	add	r3,r7,r3
+ 4000c70:	2104c604 	addi	r4,r4,4888
+ 4000c74:	10c01315 	stw	r3,76(r2)
+ 4000c78:	4000b100 	call	4000b10 <alt_dev_reg>
+    ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INIT ( RGB_RESAMPLER, RGB_Resampler);
+ 4000c7c:	01010034 	movhi	r4,1024
+ 4000c80:	2104b504 	addi	r4,r4,4820
+ 4000c84:	20800a17 	ldw	r2,40(r4)
+ 4000c88:	10c00017 	ldw	r3,0(r2)
+ 4000c8c:	18c003cc 	andi	r3,r3,15
+ 4000c90:	20c00b15 	stw	r3,44(r4)
+ 4000c94:	10c00017 	ldw	r3,0(r2)
+ 4000c98:	1807d13a 	srai	r3,r3,4
+ 4000c9c:	18c0004c 	andi	r3,r3,1
+ 4000ca0:	20c00c15 	stw	r3,48(r4)
+ 4000ca4:	10c00017 	ldw	r3,0(r2)
+ 4000ca8:	1807d17a 	srai	r3,r3,5
+ 4000cac:	18c0004c 	andi	r3,r3,1
+ 4000cb0:	20c00d15 	stw	r3,52(r4)
+ 4000cb4:	10c00017 	ldw	r3,0(r2)
+ 4000cb8:	1807d43a 	srai	r3,r3,16
+ 4000cbc:	18c003cc 	andi	r3,r3,15
+ 4000cc0:	20c00e15 	stw	r3,56(r4)
+ 4000cc4:	10c00017 	ldw	r3,0(r2)
+ 4000cc8:	1807d53a 	srai	r3,r3,20
+ 4000ccc:	18c0004c 	andi	r3,r3,1
+ 4000cd0:	20c00f15 	stw	r3,60(r4)
+ 4000cd4:	10800017 	ldw	r2,0(r2)
+ 4000cd8:	1005d57a 	srai	r2,r2,21
+ 4000cdc:	1080004c 	andi	r2,r2,1
+ 4000ce0:	20801015 	stw	r2,64(r4)
+}
+ 4000ce4:	dfc00017 	ldw	ra,0(sp)
+ 4000ce8:	dec00104 	addi	sp,sp,4
+    ALTERA_AVALON_JTAG_UART_INIT ( JTAG, JTAG);
+    ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
+    ALTERA_UP_AVALON_RS232_INIT ( WIFI_SERIAL_PORT, WIFI_Serial_Port);
+    ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INIT ( CHAR_BUFFER, Char_Buffer);
+    ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INIT ( PIXEL_BUFFER, Pixel_Buffer);
+    ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INIT ( RGB_RESAMPLER, RGB_Resampler);
+ 4000cec:	4000b101 	jmpi	4000b10 <alt_dev_reg>
+
+04000cf0 <altera_avalon_jtag_uart_write>:
+ */
+
+int altera_avalon_jtag_uart_write(altera_avalon_jtag_uart_state* sp, 
+  const char * ptr, int count, int flags)
+{
+  unsigned int base = sp->base;
+ 4000cf0:	21000017 	ldw	r4,0(r4)
+ * one FIFOs worth of data.  But you said you didn't want to use interrupts :-)
+ */
+
+int altera_avalon_jtag_uart_write(altera_avalon_jtag_uart_state* sp, 
+  const char * ptr, int count, int flags)
+{
+ 4000cf4:	3005883a 	mov	r2,r6
+  unsigned int base = sp->base;
+
+  const char * end = ptr + count;
+ 4000cf8:	298d883a 	add	r6,r5,r6
+
+  while (ptr < end)
+    if ((IORD_ALTERA_AVALON_JTAG_UART_CONTROL(base) & ALTERA_AVALON_JTAG_UART_CONTROL_WSPACE_MSK) != 0)
+ 4000cfc:	21c00104 	addi	r7,r4,4
+{
+  unsigned int base = sp->base;
+
+  const char * end = ptr + count;
+
+  while (ptr < end)
+ 4000d00:	2980072e 	bgeu	r5,r6,4000d20 <altera_avalon_jtag_uart_write+0x30>
+    if ((IORD_ALTERA_AVALON_JTAG_UART_CONTROL(base) & ALTERA_AVALON_JTAG_UART_CONTROL_WSPACE_MSK) != 0)
+ 4000d04:	38c00037 	ldwio	r3,0(r7)
+ 4000d08:	18ffffec 	andhi	r3,r3,65535
+ 4000d0c:	183ffc26 	beq	r3,zero,4000d00 <__alt_mem_Onchip_Memory+0xfbfe0d00>
+      IOWR_ALTERA_AVALON_JTAG_UART_DATA(base, *ptr++);
+ 4000d10:	28c00007 	ldb	r3,0(r5)
+ 4000d14:	20c00035 	stwio	r3,0(r4)
+ 4000d18:	29400044 	addi	r5,r5,1
+ 4000d1c:	003ff806 	br	4000d00 <__alt_mem_Onchip_Memory+0xfbfe0d00>
+
+  return count;
+}
+ 4000d20:	f800283a 	ret
+
+04000d24 <alt_up_rs232_enable_read_interrupt>:
+
+
+void alt_up_rs232_enable_read_interrupt(alt_up_rs232_dev *rs232)
+{
+	alt_u32 ctrl_reg;
+	ctrl_reg = IORD_ALT_UP_RS232_CONTROL(rs232->base); 
+ 4000d24:	20800a17 	ldw	r2,40(r4)
+ 4000d28:	10800104 	addi	r2,r2,4
+ 4000d2c:	10c00037 	ldwio	r3,0(r2)
+	// set RE to 1 while maintaining other bits the same
+	ctrl_reg |= ALT_UP_RS232_CONTROL_RE_MSK;
+	IOWR_ALT_UP_RS232_CONTROL(rs232->base, ctrl_reg);
+ 4000d30:	18c00054 	ori	r3,r3,1
+ 4000d34:	10c00035 	stwio	r3,0(r2)
+ 4000d38:	f800283a 	ret
+
+04000d3c <alt_up_rs232_disable_read_interrupt>:
+}
+
+void alt_up_rs232_disable_read_interrupt(alt_up_rs232_dev *rs232)
+{
+	alt_u32 ctrl_reg;
+	ctrl_reg = IORD_ALT_UP_RS232_CONTROL(rs232->base); 
+ 4000d3c:	20800a17 	ldw	r2,40(r4)
+ 4000d40:	10800104 	addi	r2,r2,4
+ 4000d44:	11000037 	ldwio	r4,0(r2)
+	// set RE to 0 while maintaining other bits the same
+	ctrl_reg &= ~ALT_UP_RS232_CONTROL_RE_MSK;
+	IOWR_ALT_UP_RS232_CONTROL(rs232->base, ctrl_reg);
+ 4000d48:	00ffff84 	movi	r3,-2
+ 4000d4c:	20c6703a 	and	r3,r4,r3
+ 4000d50:	10c00035 	stwio	r3,0(r2)
+ 4000d54:	f800283a 	ret
+
+04000d58 <alt_up_rs232_get_used_space_in_read_FIFO>:
+unsigned alt_up_rs232_get_used_space_in_read_FIFO(alt_up_rs232_dev *rs232)
+{
+	alt_u16 ravail = 0;
+	// we can only read the 16 bits for RAVAIL --- a read of DATA will discard the data
+//	ravail = IORD_16DIRECT(IOADDR_ALT_UP_RS232_DATA(rs232->base), 2); 
+	ravail = IORD_ALT_UP_RS232_RAVAIL(rs232->base); 
+ 4000d58:	20800a17 	ldw	r2,40(r4)
+ 4000d5c:	108000ab 	ldhuio	r2,2(r2)
+//	return ravail;
+	return (ravail & ALT_UP_RS232_RAVAIL_MSK) >> ALT_UP_RS232_RAVAIL_OFST;
+}
+ 4000d60:	10bfffcc 	andi	r2,r2,65535
+ 4000d64:	f800283a 	ret
+
+04000d68 <alt_up_rs232_get_available_space_in_write_FIFO>:
+
+unsigned alt_up_rs232_get_available_space_in_write_FIFO(alt_up_rs232_dev *rs232)
+{
+	alt_u32 ctrl_reg;
+	ctrl_reg = IORD_ALT_UP_RS232_CONTROL(rs232->base); 
+ 4000d68:	20800a17 	ldw	r2,40(r4)
+ 4000d6c:	10800137 	ldwio	r2,4(r2)
+	return (ctrl_reg & ALT_UP_RS232_CONTROL_WSPACE_MSK) >> ALT_UP_RS232_CONTROL_WSPACE_OFST;
+}
+ 4000d70:	1004d43a 	srli	r2,r2,16
+ 4000d74:	f800283a 	ret
+
+04000d78 <alt_up_rs232_check_parity>:
+
+int alt_up_rs232_check_parity(alt_u32 data_reg)
+{
+	unsigned parity_error = (data_reg & ALT_UP_RS232_DATA_PE_MSK) >> ALT_UP_RS232_DATA_PE_OFST;
+	return (parity_error ? -1 : 0);
+ 4000d78:	200495ba 	slli	r2,r4,22
+}
+ 4000d7c:	1005d7fa 	srai	r2,r2,31
+ 4000d80:	f800283a 	ret
+
+04000d84 <alt_up_rs232_write_data>:
+	/*alt_u32 data_reg;
+	data_reg = IORD_ALT_UP_RS232_DATA(rs232->base);*/
+    
+	// we can write directly without thinking about other bit fields for this
+	// case ONLY, because only DATA field of the data register is writable
+	IOWR_ALT_UP_RS232_DATA(rs232->base, (data>>ALT_UP_RS232_DATA_DATA_OFST) & ALT_UP_RS232_DATA_DATA_MSK);
+ 4000d84:	20800a17 	ldw	r2,40(r4)
+ 4000d88:	29403fcc 	andi	r5,r5,255
+ 4000d8c:	11400035 	stwio	r5,0(r2)
+	return 0;
+}
+ 4000d90:	0005883a 	mov	r2,zero
+ 4000d94:	f800283a 	ret
+
+04000d98 <alt_up_rs232_read_data>:
+
+int alt_up_rs232_read_data(alt_up_rs232_dev *rs232, alt_u8 *data, alt_u8 *parity_error)
+{
+	alt_u32 data_reg;
+	data_reg = IORD_ALT_UP_RS232_DATA(rs232->base);
+ 4000d98:	20800a17 	ldw	r2,40(r4)
+	IOWR_ALT_UP_RS232_DATA(rs232->base, (data>>ALT_UP_RS232_DATA_DATA_OFST) & ALT_UP_RS232_DATA_DATA_MSK);
+	return 0;
+}
+
+int alt_up_rs232_read_data(alt_up_rs232_dev *rs232, alt_u8 *data, alt_u8 *parity_error)
+{
+ 4000d9c:	defffd04 	addi	sp,sp,-12
+ 4000da0:	dc400115 	stw	r17,4(sp)
+ 4000da4:	3023883a 	mov	r17,r6
+ 4000da8:	dfc00215 	stw	ra,8(sp)
+ 4000dac:	dc000015 	stw	r16,0(sp)
+	alt_u32 data_reg;
+	data_reg = IORD_ALT_UP_RS232_DATA(rs232->base);
+ 4000db0:	14000037 	ldwio	r16,0(r2)
+	*data = (data_reg & ALT_UP_RS232_DATA_DATA_MSK) >> ALT_UP_RS232_DATA_DATA_OFST;
+ 4000db4:	2c000005 	stb	r16,0(r5)
+	*parity_error = alt_up_rs232_check_parity(data_reg);
+ 4000db8:	8009883a 	mov	r4,r16
+ 4000dbc:	4000d780 	call	4000d78 <alt_up_rs232_check_parity>
+ 4000dc0:	88800005 	stb	r2,0(r17)
+	return (((data_reg & ALT_UP_RS232_DATA_RVALID_MSK) >> ALT_UP_RS232_DATA_RVALID_OFST) - 1);
+ 4000dc4:	80a0000c 	andi	r2,r16,32768
+ 4000dc8:	1004d3fa 	srli	r2,r2,15
+}
+ 4000dcc:	10bfffc4 	addi	r2,r2,-1
+ 4000dd0:	dfc00217 	ldw	ra,8(sp)
+ 4000dd4:	dc400117 	ldw	r17,4(sp)
+ 4000dd8:	dc000017 	ldw	r16,0(sp)
+ 4000ddc:	dec00304 	addi	sp,sp,12
+ 4000de0:	f800283a 	ret
+
+04000de4 <alt_up_rs232_read_fd>:
+
+int alt_up_rs232_read_fd (alt_fd* fd, char* ptr, int len)
+{
+ 4000de4:	defff904 	addi	sp,sp,-28
+ 4000de8:	dcc00415 	stw	r19,16(sp)
+	alt_up_rs232_dev *rs232 = (alt_up_rs232_dev*)fd->dev;
+ 4000dec:	24c00017 	ldw	r19,0(r4)
+	*parity_error = alt_up_rs232_check_parity(data_reg);
+	return (((data_reg & ALT_UP_RS232_DATA_RVALID_MSK) >> ALT_UP_RS232_DATA_RVALID_OFST) - 1);
+}
+
+int alt_up_rs232_read_fd (alt_fd* fd, char* ptr, int len)
+{
+ 4000df0:	dc800315 	stw	r18,12(sp)
+ 4000df4:	dc000115 	stw	r16,4(sp)
+ 4000df8:	dfc00615 	stw	ra,24(sp)
+ 4000dfc:	dd000515 	stw	r20,20(sp)
+ 4000e00:	dc400215 	stw	r17,8(sp)
+ 4000e04:	2821883a 	mov	r16,r5
+ 4000e08:	29a5883a 	add	r18,r5,r6
+ 4000e0c:	2c23c83a 	sub	r17,r5,r16
+	alt_up_rs232_dev *rs232 = (alt_up_rs232_dev*)fd->dev;
+	int count = 0;
+	alt_u8 parity_error;
+	while(len--)
+ 4000e10:	2c800726 	beq	r5,r18,4000e30 <alt_up_rs232_read_fd+0x4c>
+	{
+		if (alt_up_rs232_read_data(rs232, (alt_u8 *)ptr++, &parity_error)==0)
+ 4000e14:	d80d883a 	mov	r6,sp
+ 4000e18:	9809883a 	mov	r4,r19
+ 4000e1c:	2d000044 	addi	r20,r5,1
+ 4000e20:	4000d980 	call	4000d98 <alt_up_rs232_read_data>
+ 4000e24:	1000021e 	bne	r2,zero,4000e30 <alt_up_rs232_read_fd+0x4c>
+ 4000e28:	a00b883a 	mov	r5,r20
+ 4000e2c:	003ff706 	br	4000e0c <__alt_mem_Onchip_Memory+0xfbfe0e0c>
+			count++;
+		else
+			break;
+	}
+	return count;
+}
+ 4000e30:	8805883a 	mov	r2,r17
+ 4000e34:	dfc00617 	ldw	ra,24(sp)
+ 4000e38:	dd000517 	ldw	r20,20(sp)
+ 4000e3c:	dcc00417 	ldw	r19,16(sp)
+ 4000e40:	dc800317 	ldw	r18,12(sp)
+ 4000e44:	dc400217 	ldw	r17,8(sp)
+ 4000e48:	dc000117 	ldw	r16,4(sp)
+ 4000e4c:	dec00704 	addi	sp,sp,28
+ 4000e50:	f800283a 	ret
+
+04000e54 <alt_up_rs232_write_fd>:
+
+int alt_up_rs232_write_fd (alt_fd* fd, const char* ptr, int len)
+{
+	alt_up_rs232_dev *rs232 = (alt_up_rs232_dev*)fd->dev;
+ 4000e54:	21000017 	ldw	r4,0(r4)
+	}
+	return count;
+}
+
+int alt_up_rs232_write_fd (alt_fd* fd, const char* ptr, int len)
+{
+ 4000e58:	3005883a 	mov	r2,r6
+ 4000e5c:	2987883a 	add	r3,r5,r6
+	alt_up_rs232_dev *rs232 = (alt_up_rs232_dev*)fd->dev;
+	int count = 0;
+	while(len--)
+ 4000e60:	28c00526 	beq	r5,r3,4000e78 <alt_up_rs232_write_fd+0x24>
+	/*alt_u32 data_reg;
+	data_reg = IORD_ALT_UP_RS232_DATA(rs232->base);*/
+    
+	// we can write directly without thinking about other bit fields for this
+	// case ONLY, because only DATA field of the data register is writable
+	IOWR_ALT_UP_RS232_DATA(rs232->base, (data>>ALT_UP_RS232_DATA_DATA_OFST) & ALT_UP_RS232_DATA_DATA_MSK);
+ 4000e64:	29c00003 	ldbu	r7,0(r5)
+ 4000e68:	21800a17 	ldw	r6,40(r4)
+ 4000e6c:	31c00035 	stwio	r7,0(r6)
+	while(len--)
+	{
+		if (alt_up_rs232_write_data(rs232, *ptr)==0)
+		{
+			count++;
+			ptr++;
+ 4000e70:	29400044 	addi	r5,r5,1
+ 4000e74:	003ffa06 	br	4000e60 <__alt_mem_Onchip_Memory+0xfbfe0e60>
+		}
+		else
+			break;
+	}
+	return count;
+}
+ 4000e78:	f800283a 	ret
+
+04000e7c <alt_up_rs232_open_dev>:
+{
+  // find the device from the device list 
+  // (see altera_hal/HAL/inc/priv/alt_file.h 
+  // and altera_hal/HAL/src/alt_find_dev.c 
+  // for details)
+  alt_up_rs232_dev *dev = (alt_up_rs232_dev*)alt_find_dev(name, &alt_dev_list);
+ 4000e7c:	d1600404 	addi	r5,gp,-32752
+ 4000e80:	40010401 	jmpi	4001040 <alt_find_dev>
+
+04000e84 <alt_up_char_buffer_init>:
+#include <priv/alt_file.h>
+
+#include "altera_up_avalon_video_character_buffer_with_dma.h"
+#include "altera_up_avalon_video_character_buffer_with_dma_regs.h"
+
+void alt_up_char_buffer_init(alt_up_char_buffer_dev *char_buffer) {
+ 4000e84:	defffe04 	addi	sp,sp,-8
+ 4000e88:	dc000015 	stw	r16,0(sp)
+	char * name;
+	name = (char *) char_buffer->dev.name;
+ 4000e8c:	24000217 	ldw	r16,8(r4)
+#include <priv/alt_file.h>
+
+#include "altera_up_avalon_video_character_buffer_with_dma.h"
+#include "altera_up_avalon_video_character_buffer_with_dma_regs.h"
+
+void alt_up_char_buffer_init(alt_up_char_buffer_dev *char_buffer) {
+ 4000e90:	dfc00115 	stw	ra,4(sp)
+	char * name;
+	name = (char *) char_buffer->dev.name;
+
+	for ( ; (*name) != '\0'; name++) {
+ 4000e94:	80800007 	ldb	r2,0(r16)
+ 4000e98:	10000926 	beq	r2,zero,4000ec0 <alt_up_char_buffer_init+0x3c>
+		if (strcmp(name, "_avalon_char_buffer_slave") == 0) {
+ 4000e9c:	01410034 	movhi	r5,1024
+ 4000ea0:	29446a04 	addi	r5,r5,4520
+ 4000ea4:	8009883a 	mov	r4,r16
+ 4000ea8:	40011300 	call	4001130 <strcmp>
+ 4000eac:	1000021e 	bne	r2,zero,4000eb8 <alt_up_char_buffer_init+0x34>
+			(*name) = '\0';
+ 4000eb0:	80000005 	stb	zero,0(r16)
+			break;
+ 4000eb4:	00000206 	br	4000ec0 <alt_up_char_buffer_init+0x3c>
+
+void alt_up_char_buffer_init(alt_up_char_buffer_dev *char_buffer) {
+	char * name;
+	name = (char *) char_buffer->dev.name;
+
+	for ( ; (*name) != '\0'; name++) {
+ 4000eb8:	84000044 	addi	r16,r16,1
+ 4000ebc:	003ff506 	br	4000e94 <__alt_mem_Onchip_Memory+0xfbfe0e94>
+			break;
+		}
+	}
+	
+	return;
+}
+ 4000ec0:	dfc00117 	ldw	ra,4(sp)
+ 4000ec4:	dc000017 	ldw	r16,0(sp)
+ 4000ec8:	dec00204 	addi	sp,sp,8
+ 4000ecc:	f800283a 	ret
+
+04000ed0 <alt_up_char_buffer_open_dev>:
+alt_up_char_buffer_dev* alt_up_char_buffer_open_dev(const char* name) {
+  // find the device from the device list 
+  // (see altera_hal/HAL/inc/priv/alt_file.h 
+  // and altera_hal/HAL/src/alt_find_dev.c 
+  // for details)
+  alt_up_char_buffer_dev *dev = (alt_up_char_buffer_dev *)alt_find_dev(name, &alt_dev_list);
+ 4000ed0:	d1600404 	addi	r5,gp,-32752
+ 4000ed4:	40010401 	jmpi	4001040 <alt_find_dev>
+
+04000ed8 <alt_up_char_buffer_draw>:
+}
+
+int alt_up_char_buffer_draw(alt_up_char_buffer_dev *char_buffer, unsigned char ch, 
+	unsigned int x, unsigned int y) {
+	// boundary check
+	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
+ 4000ed8:	20800c17 	ldw	r2,48(r4)
+ 4000edc:	3080102e 	bgeu	r6,r2,4000f20 <alt_up_char_buffer_draw+0x48>
+ 4000ee0:	20800d17 	ldw	r2,52(r4)
+ 4000ee4:	38800e2e 	bgeu	r7,r2,4000f20 <alt_up_char_buffer_draw+0x48>
+		return -1;
+	
+	unsigned int addr = 0;
+	addr |= ((x & char_buffer->x_coord_mask) << char_buffer->x_coord_offset);
+	addr |= ((y & char_buffer->y_coord_mask) << char_buffer->y_coord_offset);
+	IOWR_8DIRECT(char_buffer->buffer_base, addr, ch);
+ 4000ee8:	20800f17 	ldw	r2,60(r4)
+ 4000eec:	3084703a 	and	r2,r6,r2
+ 4000ef0:	21800e17 	ldw	r6,56(r4)
+ 4000ef4:	1186983a 	sll	r3,r2,r6
+ 4000ef8:	20801117 	ldw	r2,68(r4)
+ 4000efc:	21801017 	ldw	r6,64(r4)
+ 4000f00:	388e703a 	and	r7,r7,r2
+ 4000f04:	398e983a 	sll	r7,r7,r6
+ 4000f08:	20800b17 	ldw	r2,44(r4)
+ 4000f0c:	19ccb03a 	or	r6,r3,r7
+ 4000f10:	308d883a 	add	r6,r6,r2
+ 4000f14:	31400025 	stbio	r5,0(r6)
+
+	return 0;
+ 4000f18:	0005883a 	mov	r2,zero
+ 4000f1c:	f800283a 	ret
+
+int alt_up_char_buffer_draw(alt_up_char_buffer_dev *char_buffer, unsigned char ch, 
+	unsigned int x, unsigned int y) {
+	// boundary check
+	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
+		return -1;
+ 4000f20:	00bfffc4 	movi	r2,-1
+	addr |= ((x & char_buffer->x_coord_mask) << char_buffer->x_coord_offset);
+	addr |= ((y & char_buffer->y_coord_mask) << char_buffer->y_coord_offset);
+	IOWR_8DIRECT(char_buffer->buffer_base, addr, ch);
+
+	return 0;
+}
+ 4000f24:	f800283a 	ret
+
+04000f28 <alt_up_char_buffer_string>:
+
+int alt_up_char_buffer_string(alt_up_char_buffer_dev *char_buffer, const char *ptr, 
+	unsigned int x, unsigned int y) {
+	// boundary check
+	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
+ 4000f28:	20800c17 	ldw	r2,48(r4)
+ 4000f2c:	30800236 	bltu	r6,r2,4000f38 <alt_up_char_buffer_string+0x10>
+		return -1;
+ 4000f30:	00bfffc4 	movi	r2,-1
+ 4000f34:	f800283a 	ret
+}
+
+int alt_up_char_buffer_string(alt_up_char_buffer_dev *char_buffer, const char *ptr, 
+	unsigned int x, unsigned int y) {
+	// boundary check
+	if (x >= char_buffer->x_resolution || y >= char_buffer->y_resolution )
+ 4000f38:	20800d17 	ldw	r2,52(r4)
+ 4000f3c:	38bffc2e 	bgeu	r7,r2,4000f30 <__alt_mem_Onchip_Memory+0xfbfe0f30>
+		return -1;
+	
+	unsigned int offset = 0;
+	offset = (y << char_buffer->y_coord_offset) + x;
+ 4000f40:	20801017 	ldw	r2,64(r4)
+ 4000f44:	388e983a 	sll	r7,r7,r2
+ 4000f48:	398f883a 	add	r7,r7,r6
+ 4000f4c:	394fc83a 	sub	r7,r7,r5
+
+	while ( *ptr )
+	{
+		IOWR_8DIRECT(char_buffer->buffer_base, offset, *ptr);
+		++ptr;
+		if (++x >= char_buffer->x_resolution)
+ 4000f50:	314dc83a 	sub	r6,r6,r5
+		return -1;
+	
+	unsigned int offset = 0;
+	offset = (y << char_buffer->y_coord_offset) + x;
+
+	while ( *ptr )
+ 4000f54:	28c00003 	ldbu	r3,0(r5)
+ 4000f58:	29d3883a 	add	r9,r5,r7
+ 4000f5c:	1a003fcc 	andi	r8,r3,255
+ 4000f60:	4200201c 	xori	r8,r8,128
+ 4000f64:	423fe004 	addi	r8,r8,-128
+ 4000f68:	40000826 	beq	r8,zero,4000f8c <alt_up_char_buffer_string+0x64>
+	{
+		IOWR_8DIRECT(char_buffer->buffer_base, offset, *ptr);
+ 4000f6c:	20800b17 	ldw	r2,44(r4)
+ 4000f70:	4885883a 	add	r2,r9,r2
+ 4000f74:	10c00025 	stbio	r3,0(r2)
+		++ptr;
+		if (++x >= char_buffer->x_resolution)
+ 4000f78:	20800c17 	ldw	r2,48(r4)
+	offset = (y << char_buffer->y_coord_offset) + x;
+
+	while ( *ptr )
+	{
+		IOWR_8DIRECT(char_buffer->buffer_base, offset, *ptr);
+		++ptr;
+ 4000f7c:	29400044 	addi	r5,r5,1
+		if (++x >= char_buffer->x_resolution)
+ 4000f80:	2987883a 	add	r3,r5,r6
+ 4000f84:	18bff336 	bltu	r3,r2,4000f54 <__alt_mem_Onchip_Memory+0xfbfe0f54>
+ 4000f88:	003fe906 	br	4000f30 <__alt_mem_Onchip_Memory+0xfbfe0f30>
+			return -1;
+		++offset;
+	}
+	return 0;
+ 4000f8c:	0005883a 	mov	r2,zero
+}
+ 4000f90:	f800283a 	ret
+
+04000f94 <alt_up_char_buffer_clear>:
+
+int alt_up_char_buffer_clear(alt_up_char_buffer_dev *char_buffer) {
+	IOWR_ALT_UP_CHAR_BUFFER_CLR_SCRN(char_buffer->ctrl_reg_base, 1);
+ 4000f94:	20800a17 	ldw	r2,40(r4)
+ 4000f98:	00c00044 	movi	r3,1
+ 4000f9c:	10c000a5 	stbio	r3,2(r2)
+	while ((IORD_ALT_UP_CHAR_BUFFER_CLR_SCRN(char_buffer->ctrl_reg_base) & ALT_UP_CHAR_BUFFER_CLR_SCRN_MSK) >> ALT_UP_CHAR_BUFFER_CLR_SCRN_OFST);
+ 4000fa0:	20800a17 	ldw	r2,40(r4)
+ 4000fa4:	108000a3 	ldbuio	r2,2(r2)
+ 4000fa8:	1080004c 	andi	r2,r2,1
+ 4000fac:	103ffc1e 	bne	r2,zero,4000fa0 <__alt_mem_Onchip_Memory+0xfbfe0fa0>
+	return 0;
+}
+ 4000fb0:	f800283a 	ret
+
+04000fb4 <alt_dcache_flush_all>:
+void alt_dcache_flush_all (void)
+{
+#if NIOS2_DCACHE_SIZE > 0
+  char* i;
+  
+  for (i = (char*) 0; i < (char*) NIOS2_DCACHE_SIZE; i+= NIOS2_DCACHE_LINE_SIZE)
+ 4000fb4:	0005883a 	mov	r2,zero
+ 4000fb8:	00c20004 	movi	r3,2048
+  { 
+    __asm__ volatile ("flushd (%0)" :: "r" (i));
+ 4000fbc:	1000003b 	flushd	0(r2)
+void alt_dcache_flush_all (void)
+{
+#if NIOS2_DCACHE_SIZE > 0
+  char* i;
+  
+  for (i = (char*) 0; i < (char*) NIOS2_DCACHE_SIZE; i+= NIOS2_DCACHE_LINE_SIZE)
+ 4000fc0:	10800804 	addi	r2,r2,32
+ 4000fc4:	10fffd1e 	bne	r2,r3,4000fbc <__alt_mem_Onchip_Memory+0xfbfe0fbc>
+  { 
+    __asm__ volatile ("flushd (%0)" :: "r" (i));
+  }
+#endif /* NIOS2_DCACHE_SIZE > 0 */
+}
+ 4000fc8:	f800283a 	ret
+
+04000fcc <alt_dev_null_write>:
+ */
+
+static int alt_dev_null_write (alt_fd* fd, const char* ptr, int len)
+{
+  return len;
+}
+ 4000fcc:	3005883a 	mov	r2,r6
+ 4000fd0:	f800283a 	ret
+
+04000fd4 <alt_dev_llist_insert>:
+{
+  /*
+   * check that the device exists, and that it has a valid name.
+   */
+
+  if (!dev || !dev->name)
+ 4000fd4:	20000226 	beq	r4,zero,4000fe0 <alt_dev_llist_insert+0xc>
+ 4000fd8:	20800217 	ldw	r2,8(r4)
+ 4000fdc:	1000101e 	bne	r2,zero,4001020 <alt_dev_llist_insert+0x4c>
+ 4000fe0:	d0a00817 	ldw	r2,-32736(gp)
+ 4000fe4:	10000926 	beq	r2,zero,400100c <alt_dev_llist_insert+0x38>
 /*
  *
  */
 
 int alt_dev_llist_insert (alt_dev_llist* dev, alt_llist* list)
 {
- 4001020:	deffff04 	addi	sp,sp,-4
- 4001024:	dfc00015 	stw	ra,0(sp)
- 4001028:	103ee83a 	callr	r2
+ 4000fe8:	deffff04 	addi	sp,sp,-4
+ 4000fec:	dfc00015 	stw	ra,0(sp)
+ 4000ff0:	103ee83a 	callr	r2
    * check that the device exists, and that it has a valid name.
    */
 
   if (!dev || !dev->name)
   {
     ALT_ERRNO = EINVAL;
- 400102c:	00c00584 	movi	r3,22
- 4001030:	10c00015 	stw	r3,0(r2)
+ 4000ff4:	00c00584 	movi	r3,22
+ 4000ff8:	10c00015 	stw	r3,0(r2)
     return -EINVAL;
- 4001034:	00bffa84 	movi	r2,-22
+ 4000ffc:	00bffa84 	movi	r2,-22
    */
   
   alt_llist_insert(list, &dev->llist);
 
   return 0;  
 }
- 4001038:	dfc00017 	ldw	ra,0(sp)
- 400103c:	dec00104 	addi	sp,sp,4
- 4001040:	f800283a 	ret
- 4001044:	d0a07304 	addi	r2,gp,-32308
+ 4001000:	dfc00017 	ldw	ra,0(sp)
+ 4001004:	dec00104 	addi	sp,sp,4
+ 4001008:	f800283a 	ret
+ 400100c:	d0a0af04 	addi	r2,gp,-32068
    * check that the device exists, and that it has a valid name.
    */
 
   if (!dev || !dev->name)
   {
     ALT_ERRNO = EINVAL;
- 4001048:	00c00584 	movi	r3,22
- 400104c:	10c00015 	stw	r3,0(r2)
+ 4001010:	00c00584 	movi	r3,22
+ 4001014:	10c00015 	stw	r3,0(r2)
     return -EINVAL;
- 4001050:	00bffa84 	movi	r2,-22
+ 4001018:	00bffa84 	movi	r2,-22
    */
   
   alt_llist_insert(list, &dev->llist);
 
   return 0;  
 }
- 4001054:	f800283a 	ret
+ 400101c:	f800283a 	ret
 
 static ALT_INLINE void ALT_ALWAYS_INLINE alt_llist_insert(alt_llist* list, 
                 alt_llist* entry)
 {
   entry->previous = list;
   entry->next     = list->next;
- 4001058:	28800017 	ldw	r2,0(r5)
+ 4001020:	28800017 	ldw	r2,0(r5)
  */
 
 static ALT_INLINE void ALT_ALWAYS_INLINE alt_llist_insert(alt_llist* list, 
                 alt_llist* entry)
 {
   entry->previous = list;
- 400105c:	21400115 	stw	r5,4(r4)
+ 4001024:	21400115 	stw	r5,4(r4)
   entry->next     = list->next;
- 4001060:	20800015 	stw	r2,0(r4)
+ 4001028:	20800015 	stw	r2,0(r4)
 
   list->next->previous = entry;
- 4001064:	28800017 	ldw	r2,0(r5)
- 4001068:	11000115 	stw	r4,4(r2)
+ 400102c:	28800017 	ldw	r2,0(r5)
+ 4001030:	11000115 	stw	r4,4(r2)
   list->next           = entry;
- 400106c:	29000015 	stw	r4,0(r5)
+ 4001034:	29000015 	stw	r4,0(r5)
    * register the device.
    */
   
   alt_llist_insert(list, &dev->llist);
 
   return 0;  
- 4001070:	0005883a 	mov	r2,zero
- 4001074:	f800283a 	ret
+ 4001038:	0005883a 	mov	r2,zero
+ 400103c:	f800283a 	ret
 
-04001078 <alt_find_dev>:
+04001040 <alt_find_dev>:
  * "name" must be an exact match for the devices registered name for a match to
  * be found.
  */
  
 alt_dev* alt_find_dev(const char* name, alt_llist* llist)
 {
- 4001078:	defffb04 	addi	sp,sp,-20
- 400107c:	dcc00315 	stw	r19,12(sp)
- 4001080:	dc800215 	stw	r18,8(sp)
- 4001084:	dc400115 	stw	r17,4(sp)
- 4001088:	dc000015 	stw	r16,0(sp)
- 400108c:	dfc00415 	stw	ra,16(sp)
- 4001090:	2027883a 	mov	r19,r4
- 4001094:	2823883a 	mov	r17,r5
+ 4001040:	defffb04 	addi	sp,sp,-20
+ 4001044:	dcc00315 	stw	r19,12(sp)
+ 4001048:	dc800215 	stw	r18,8(sp)
+ 400104c:	dc400115 	stw	r17,4(sp)
+ 4001050:	dc000015 	stw	r16,0(sp)
+ 4001054:	dfc00415 	stw	ra,16(sp)
+ 4001058:	2027883a 	mov	r19,r4
+ 400105c:	2823883a 	mov	r17,r5
   alt_dev* next = (alt_dev*) llist->next;
- 4001098:	2c000017 	ldw	r16,0(r5)
+ 4001060:	2c000017 	ldw	r16,0(r5)
   alt_32 len;
 
   len  = strlen(name) + 1;
- 400109c:	40011a00 	call	40011a0 <strlen>
- 40010a0:	14800044 	addi	r18,r2,1
+ 4001064:	400077c0 	call	400077c <strlen>
+ 4001068:	14800044 	addi	r18,r2,1
   /*
    * Check each list entry in turn, until a match is found, or we reach the
    * end of the list (i.e. next winds up pointing back to the list head).
    */ 
 
   while (next != (alt_dev*) llist)
- 40010a4:	84400726 	beq	r16,r17,40010c4 <alt_find_dev+0x4c>
+ 400106c:	84400726 	beq	r16,r17,400108c <alt_find_dev+0x4c>
     /* 
      * memcmp() is used here rather than strcmp() in order to reduce the size
      * of the executable.
      */
 
     if (!memcmp (next->name, name, len))
- 40010a8:	81000217 	ldw	r4,8(r16)
- 40010ac:	900d883a 	mov	r6,r18
- 40010b0:	980b883a 	mov	r5,r19
- 40010b4:	40011380 	call	4001138 <memcmp>
- 40010b8:	10000426 	beq	r2,zero,40010cc <alt_find_dev+0x54>
+ 4001070:	81000217 	ldw	r4,8(r16)
+ 4001074:	900d883a 	mov	r6,r18
+ 4001078:	980b883a 	mov	r5,r19
+ 400107c:	40011000 	call	4001100 <memcmp>
+ 4001080:	10000426 	beq	r2,zero,4001094 <alt_find_dev+0x54>
     {
       /* match found */
 
       return next;
     }
     next = (alt_dev*) next->llist.next;
- 40010bc:	84000017 	ldw	r16,0(r16)
- 40010c0:	003ff806 	br	40010a4 <__alt_mem_Onchip_Memory+0xfbff10a4>
+ 4001084:	84000017 	ldw	r16,0(r16)
+ 4001088:	003ff806 	br	400106c <__alt_mem_Onchip_Memory+0xfbfe106c>
   }
   
   /* No match found */
   
   return NULL;
- 40010c4:	0005883a 	mov	r2,zero
- 40010c8:	00000106 	br	40010d0 <alt_find_dev+0x58>
- 40010cc:	8005883a 	mov	r2,r16
+ 400108c:	0005883a 	mov	r2,zero
+ 4001090:	00000106 	br	4001098 <alt_find_dev+0x58>
+ 4001094:	8005883a 	mov	r2,r16
 }
- 40010d0:	dfc00417 	ldw	ra,16(sp)
- 40010d4:	dcc00317 	ldw	r19,12(sp)
- 40010d8:	dc800217 	ldw	r18,8(sp)
- 40010dc:	dc400117 	ldw	r17,4(sp)
- 40010e0:	dc000017 	ldw	r16,0(sp)
- 40010e4:	dec00504 	addi	sp,sp,20
- 40010e8:	f800283a 	ret
+ 4001098:	dfc00417 	ldw	ra,16(sp)
+ 400109c:	dcc00317 	ldw	r19,12(sp)
+ 40010a0:	dc800217 	ldw	r18,8(sp)
+ 40010a4:	dc400117 	ldw	r17,4(sp)
+ 40010a8:	dc000017 	ldw	r16,0(sp)
+ 40010ac:	dec00504 	addi	sp,sp,20
+ 40010b0:	f800283a 	ret
 
-040010ec <alt_icache_flush_all>:
+040010b4 <alt_icache_flush_all>:
  */
 
 void alt_icache_flush_all (void)
 {
 #if NIOS2_ICACHE_SIZE > 0
   alt_icache_flush (0, NIOS2_ICACHE_SIZE);
- 40010ec:	01440004 	movi	r5,4096
- 40010f0:	0009883a 	mov	r4,zero
- 40010f4:	40011001 	jmpi	4001100 <alt_icache_flush>
+ 40010b4:	01440004 	movi	r5,4096
+ 40010b8:	0009883a 	mov	r4,zero
+ 40010bc:	40010c81 	jmpi	40010c8 <alt_icache_flush>
 
-040010f8 <altera_nios2_gen2_irq_init>:
+040010c0 <altera_nios2_gen2_irq_init>:
  * To initialize the internal interrupt controller, just clear the IENABLE
  * register so that all possible IRQs are disabled.
  */
 void altera_nios2_gen2_irq_init(void) 
 {
     NIOS2_WRITE_IENABLE(0);
- 40010f8:	000170fa 	wrctl	ienable,zero
- 40010fc:	f800283a 	ret
+ 40010c0:	000170fa 	wrctl	ienable,zero
+ 40010c4:	f800283a 	ret
 
-04001100 <alt_icache_flush>:
+040010c8 <alt_icache_flush>:
   if (len > NIOS2_ICACHE_SIZE)
   {
     len = NIOS2_ICACHE_SIZE;
   }
 
   end = ((char*) start) + len;
- 4001100:	00840004 	movi	r2,4096
- 4001104:	1140012e 	bgeu	r2,r5,400110c <alt_icache_flush+0xc>
- 4001108:	100b883a 	mov	r5,r2
- 400110c:	214b883a 	add	r5,r4,r5
+ 40010c8:	00840004 	movi	r2,4096
+ 40010cc:	1140012e 	bgeu	r2,r5,40010d4 <alt_icache_flush+0xc>
+ 40010d0:	100b883a 	mov	r5,r2
+ 40010d4:	214b883a 	add	r5,r4,r5
 
   for (i = start; i < end; i+= NIOS2_ICACHE_LINE_SIZE)
- 4001110:	2005883a 	mov	r2,r4
- 4001114:	1140032e 	bgeu	r2,r5,4001124 <alt_icache_flush+0x24>
+ 40010d8:	2005883a 	mov	r2,r4
+ 40010dc:	1140032e 	bgeu	r2,r5,40010ec <alt_icache_flush+0x24>
   { 
     __asm__ volatile ("flushi %0" :: "r" (i)); 
- 4001118:	1000603a 	flushi	r2
+ 40010e0:	1000603a 	flushi	r2
     len = NIOS2_ICACHE_SIZE;
   }
 
   end = ((char*) start) + len;
 
   for (i = start; i < end; i+= NIOS2_ICACHE_LINE_SIZE)
- 400111c:	10800804 	addi	r2,r2,32
- 4001120:	003ffc06 	br	4001114 <__alt_mem_Onchip_Memory+0xfbff1114>
+ 40010e4:	10800804 	addi	r2,r2,32
+ 40010e8:	003ffc06 	br	40010dc <__alt_mem_Onchip_Memory+0xfbfe10dc>
    * For an unaligned flush request, we've got one more line left.
    * Note that this is dependent on NIOS2_ICACHE_LINE_SIZE to be a 
    * multiple of 2 (which it always is).
    */
 
   if (((alt_u32) start) & (NIOS2_ICACHE_LINE_SIZE - 1))
- 4001124:	210007cc 	andi	r4,r4,31
- 4001128:	20000126 	beq	r4,zero,4001130 <alt_icache_flush+0x30>
+ 40010ec:	210007cc 	andi	r4,r4,31
+ 40010f0:	20000126 	beq	r4,zero,40010f8 <alt_icache_flush+0x30>
   {
     __asm__ volatile ("flushi %0" :: "r" (i));
- 400112c:	1000603a 	flushi	r2
+ 40010f4:	1000603a 	flushi	r2
   /* 
    * Having flushed the cache, flush any stale instructions in the 
    * pipeline 
    */
 
   __asm__ volatile ("flushp");
- 4001130:	0000203a 	flushp
- 4001134:	f800283a 	ret
+ 40010f8:	0000203a 	flushp
+ 40010fc:	f800283a 	ret
 
-04001138 <memcmp>:
- 4001138:	218d883a 	add	r6,r4,r6
- 400113c:	21800826 	beq	r4,r6,4001160 <memcmp+0x28>
- 4001140:	20800003 	ldbu	r2,0(r4)
- 4001144:	28c00003 	ldbu	r3,0(r5)
- 4001148:	10c00226 	beq	r2,r3,4001154 <memcmp+0x1c>
- 400114c:	10c5c83a 	sub	r2,r2,r3
- 4001150:	f800283a 	ret
- 4001154:	21000044 	addi	r4,r4,1
- 4001158:	29400044 	addi	r5,r5,1
- 400115c:	003ff706 	br	400113c <__alt_mem_Onchip_Memory+0xfbff113c>
- 4001160:	0005883a 	mov	r2,zero
+04001100 <memcmp>:
+ 4001100:	218d883a 	add	r6,r4,r6
+ 4001104:	21800826 	beq	r4,r6,4001128 <memcmp+0x28>
+ 4001108:	20800003 	ldbu	r2,0(r4)
+ 400110c:	28c00003 	ldbu	r3,0(r5)
+ 4001110:	10c00226 	beq	r2,r3,400111c <memcmp+0x1c>
+ 4001114:	10c5c83a 	sub	r2,r2,r3
+ 4001118:	f800283a 	ret
+ 400111c:	21000044 	addi	r4,r4,1
+ 4001120:	29400044 	addi	r5,r5,1
+ 4001124:	003ff706 	br	4001104 <__alt_mem_Onchip_Memory+0xfbfe1104>
+ 4001128:	0005883a 	mov	r2,zero
+ 400112c:	f800283a 	ret
+
+04001130 <strcmp>:
+ 4001130:	20800003 	ldbu	r2,0(r4)
+ 4001134:	10c03fcc 	andi	r3,r2,255
+ 4001138:	18c0201c 	xori	r3,r3,128
+ 400113c:	18ffe004 	addi	r3,r3,-128
+ 4001140:	18000526 	beq	r3,zero,4001158 <strcmp+0x28>
+ 4001144:	29800007 	ldb	r6,0(r5)
+ 4001148:	1980031e 	bne	r3,r6,4001158 <strcmp+0x28>
+ 400114c:	21000044 	addi	r4,r4,1
+ 4001150:	29400044 	addi	r5,r5,1
+ 4001154:	003ff606 	br	4001130 <__alt_mem_Onchip_Memory+0xfbfe1130>
+ 4001158:	28c00003 	ldbu	r3,0(r5)
+ 400115c:	10803fcc 	andi	r2,r2,255
+ 4001160:	10c5c83a 	sub	r2,r2,r3
  4001164:	f800283a 	ret
-
-04001168 <strcmp>:
- 4001168:	20800003 	ldbu	r2,0(r4)
- 400116c:	10c03fcc 	andi	r3,r2,255
- 4001170:	18c0201c 	xori	r3,r3,128
- 4001174:	18ffe004 	addi	r3,r3,-128
- 4001178:	18000526 	beq	r3,zero,4001190 <strcmp+0x28>
- 400117c:	29800007 	ldb	r6,0(r5)
- 4001180:	1980031e 	bne	r3,r6,4001190 <strcmp+0x28>
- 4001184:	21000044 	addi	r4,r4,1
- 4001188:	29400044 	addi	r5,r5,1
- 400118c:	003ff606 	br	4001168 <__alt_mem_Onchip_Memory+0xfbff1168>
- 4001190:	28c00003 	ldbu	r3,0(r5)
- 4001194:	10803fcc 	andi	r2,r2,255
- 4001198:	10c5c83a 	sub	r2,r2,r3
- 400119c:	f800283a 	ret
-
-040011a0 <strlen>:
- 40011a0:	2005883a 	mov	r2,r4
- 40011a4:	10c00007 	ldb	r3,0(r2)
- 40011a8:	18000226 	beq	r3,zero,40011b4 <strlen+0x14>
- 40011ac:	10800044 	addi	r2,r2,1
- 40011b0:	003ffc06 	br	40011a4 <__alt_mem_Onchip_Memory+0xfbff11a4>
- 40011b4:	1105c83a 	sub	r2,r2,r4
- 40011b8:	f800283a 	ret

@@ -3,7 +3,7 @@
 # Machine generated for CPU 'CPU' in SOPC Builder design 'test'
 # SOPC Builder design path: ../../test.sopcinfo
 #
-# Generated: Tue Mar 07 10:14:37 PST 2023
+# Generated: Wed Mar 15 13:17:01 PDT 2023
 
 # DO NOT MODIFY THIS FILE
 #
@@ -50,4 +50,4 @@
 memory 0x4000000 0x8000000 cache
 
 # Onchip_Memory
-memory 0x8010000 0x801a000 cache
+memory 0x8020000 0x802a000 cache

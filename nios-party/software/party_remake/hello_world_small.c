@@ -77,7 +77,7 @@
  *        alt_getchar      Smaller overhead than getchar with direct drivers
  *
  */
-
+/*
 #include <stdio.h>
 #include <math.h>
 #include <stdbool.h>
@@ -92,9 +92,10 @@
 void init_room_setup();
 void init_question_gameplay();
 void button_trigger();
+*/
 //void init_timer_interrupt( void );
 //static void timer_isr( void * context, alt_u32 id );
-
+/*
 alt_up_pixel_buffer_dma_dev* pixel_buffer;
 alt_up_char_buffer_dev* char_buffer;
 int team_one_score = 0;
@@ -130,7 +131,7 @@ void init_room_setup() {
     } else {
         alt_putstr("Opened pixel buffer device\n");
     }
-
+*/
 
 
     //alt_up_pixel_buffer_dma_clear_screen(pixel_buffer, 0);
@@ -139,7 +140,7 @@ void init_room_setup() {
     alt_up_char_buffer_clear(char_buffer);
     usleep(1000000);
     */
-    alt_putstr("Displaying Colour\n");
+    /*alt_putstr("Displaying Colour\n");
     alt_up_pixel_buffer_dma_draw_box (pixel_buffer, 150, 100, 199, 149, RED, 0);
 
     char_buffer = alt_up_char_buffer_open_dev("/dev/Char_Buffer");
@@ -152,8 +153,9 @@ void init_room_setup() {
 
     char text = 'X';
     char text_top_row[40] = "TriviaSoC:\0";
-    char text_bottom_row[40] = "Please enter the Room Code:\0";
+    char text_bottom_row[40] = "Please enter the Room Code:\0";*/
     /* output text message near the middle of the VGA monitor */
+/*
     while(alt_up_char_buffer_clear(char_buffer));
     alt_up_char_buffer_draw(char_buffer, text, 0, 0);
     alt_up_char_buffer_draw(char_buffer, text, 0, 59);
@@ -188,7 +190,7 @@ void init_question_gameplay() {
 
 
     }
-}
+}*/
 /*
  * int button_pressed = 0;
     // Add timer
@@ -209,7 +211,7 @@ void init_question_gameplay() {
         // Display timing end
     }
  */
-
+/*
 void button_trigger() {
     int button_pressed = 0;
 
@@ -220,7 +222,7 @@ void button_trigger() {
     	}
     }
 
-}
+}*/
 
 /*void init_timer_interrupt( void )
 {
@@ -238,3 +240,8 @@ static void timer_isr(void * context, alt_u32 id) {
     global_count++;
 }
 */
+#include <stdio.h>
+int main() {
+	printf("Test");
+	return 0;
+}
