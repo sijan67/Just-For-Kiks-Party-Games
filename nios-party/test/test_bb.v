@@ -29,15 +29,7 @@ module test (
 	vga_SYNC,
 	vga_R,
 	vga_G,
-	vga_B,
-	io_acknowledge,
-	io_irq,
-	io_address,
-	io_bus_enable,
-	io_byte_enable,
-	io_rw,
-	io_write_data,
-	io_read_data);	
+	vga_B);	
 
 	input		audio_ADCDAT;
 	input		audio_ADCLRCK;
@@ -69,12 +61,4 @@ module test (
 	output	[7:0]	vga_R;
 	output	[7:0]	vga_G;
 	output	[7:0]	vga_B;
-	input		io_acknowledge;
-	input		io_irq;
-	output	[15:0]	io_address;
-	output		io_bus_enable;
-	output	[1:0]	io_byte_enable;
-	output		io_rw;
-	output	[15:0]	io_write_data;
-	input	[15:0]	io_read_data;
 endmodule

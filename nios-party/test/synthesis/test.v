@@ -13,14 +13,6 @@ module test (
 		input  wire        button_1_export, //  button_1.export
 		input  wire        button_2_export, //  button_2.export
 		input  wire        clk_clk,         //       clk.clk
-		input  wire        io_acknowledge,  //        io.acknowledge
-		input  wire        io_irq,          //          .irq
-		output wire [15:0] io_address,      //          .address
-		output wire        io_bus_enable,   //          .bus_enable
-		output wire [1:0]  io_byte_enable,  //          .byte_enable
-		output wire        io_rw,           //          .rw
-		output wire [15:0] io_write_data,   //          .write_data
-		input  wire [15:0] io_read_data,    //          .read_data
 		input  wire        reset_reset_n,   //     reset.reset_n
 		input  wire        rs232_RXD,       //     rs232.RXD
 		output wire        rs232_TXD,       //          .TXD
@@ -69,7 +61,7 @@ module test (
 	wire         rgb_resampler_avalon_rgb_source_ready;                              // Alpha_Blender:background_ready -> RGB_Resampler:stream_out_ready
 	wire         rgb_resampler_avalon_rgb_source_startofpacket;                      // RGB_Resampler:stream_out_startofpacket -> Alpha_Blender:background_startofpacket
 	wire         rgb_resampler_avalon_rgb_source_endofpacket;                        // RGB_Resampler:stream_out_endofpacket -> Alpha_Blender:background_endofpacket
-	wire         sys_clk_sys_clk_clk;                                                // Sys_Clk:sys_clk_clk -> [Alpha_Blender:clk, Audio:clk, Audio_Clk:ref_clk_clk, CPU:clk, Char_Buffer:clk, Dual_Clock_FIFO:clk_stream_in, IO_Bridge:clk, JTAG:clk, Onchip_Memory:clk, Pixel_Buffer:clk, RGB_Resampler:clk, SDRAM:clk, Video_Clk:ref_clk_clk, WIFI_Serial_Port:clk, button_1:clk, button_2:clk, irq_mapper:clk, mm_interconnect_0:Sys_Clk_sys_clk_clk, rst_controller:clk, rst_controller_002:clk, timer:clk, timer_0:clk]
+	wire         sys_clk_sys_clk_clk;                                                // Sys_Clk:sys_clk_clk -> [Alpha_Blender:clk, Audio:clk, Audio_Clk:ref_clk_clk, CPU:clk, Char_Buffer:clk, Dual_Clock_FIFO:clk_stream_in, JTAG:clk, Onchip_Memory:clk, Pixel_Buffer:clk, RGB_Resampler:clk, SDRAM:clk, Video_Clk:ref_clk_clk, WIFI_Serial_Port:clk, button_1:clk, button_2:clk, irq_mapper:clk, mm_interconnect_0:Sys_Clk_sys_clk_clk, rst_controller:clk, rst_controller_002:clk, timer:clk, timer_0:clk]
 	wire         video_clk_vga_clk_clk;                                              // Video_Clk:vga_clk_clk -> [Dual_Clock_FIFO:clk_stream_out, VGA_Controller:clk, rst_controller_001:clk, rst_controller_004:clk]
 	wire         sys_clk_reset_source_reset;                                         // Sys_Clk:reset_source_reset -> [Audio_Clk:ref_reset_reset, rst_controller_005:reset_in1]
 	wire         pixel_buffer_avalon_pixel_dma_master_waitrequest;                   // mm_interconnect_0:Pixel_Buffer_avalon_pixel_dma_master_waitrequest -> Pixel_Buffer:master_waitrequest
@@ -131,7 +123,7 @@ module test (
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_writedata;                    // mm_interconnect_0:CPU_debug_mem_slave_writedata -> CPU:debug_mem_slave_writedata
 	wire         mm_interconnect_0_onchip_memory_s1_chipselect;                      // mm_interconnect_0:Onchip_Memory_s1_chipselect -> Onchip_Memory:chipselect
 	wire  [31:0] mm_interconnect_0_onchip_memory_s1_readdata;                        // Onchip_Memory:readdata -> mm_interconnect_0:Onchip_Memory_s1_readdata
-	wire  [13:0] mm_interconnect_0_onchip_memory_s1_address;                         // mm_interconnect_0:Onchip_Memory_s1_address -> Onchip_Memory:address
+	wire  [14:0] mm_interconnect_0_onchip_memory_s1_address;                         // mm_interconnect_0:Onchip_Memory_s1_address -> Onchip_Memory:address
 	wire   [3:0] mm_interconnect_0_onchip_memory_s1_byteenable;                      // mm_interconnect_0:Onchip_Memory_s1_byteenable -> Onchip_Memory:byteenable
 	wire         mm_interconnect_0_onchip_memory_s1_write;                           // mm_interconnect_0:Onchip_Memory_s1_write -> Onchip_Memory:write
 	wire  [31:0] mm_interconnect_0_onchip_memory_s1_writedata;                       // mm_interconnect_0:Onchip_Memory_s1_writedata -> Onchip_Memory:writedata
@@ -159,14 +151,6 @@ module test (
 	wire   [3:0] mm_interconnect_0_wifi_serial_port_avalon_rs232_slave_byteenable;   // mm_interconnect_0:WIFI_Serial_Port_avalon_rs232_slave_byteenable -> WIFI_Serial_Port:byteenable
 	wire         mm_interconnect_0_wifi_serial_port_avalon_rs232_slave_write;        // mm_interconnect_0:WIFI_Serial_Port_avalon_rs232_slave_write -> WIFI_Serial_Port:write
 	wire  [31:0] mm_interconnect_0_wifi_serial_port_avalon_rs232_slave_writedata;    // mm_interconnect_0:WIFI_Serial_Port_avalon_rs232_slave_writedata -> WIFI_Serial_Port:writedata
-	wire         mm_interconnect_0_io_bridge_avalon_slave_chipselect;                // mm_interconnect_0:IO_Bridge_avalon_slave_chipselect -> IO_Bridge:avalon_chipselect
-	wire  [15:0] mm_interconnect_0_io_bridge_avalon_slave_readdata;                  // IO_Bridge:avalon_readdata -> mm_interconnect_0:IO_Bridge_avalon_slave_readdata
-	wire         mm_interconnect_0_io_bridge_avalon_slave_waitrequest;               // IO_Bridge:avalon_waitrequest -> mm_interconnect_0:IO_Bridge_avalon_slave_waitrequest
-	wire  [14:0] mm_interconnect_0_io_bridge_avalon_slave_address;                   // mm_interconnect_0:IO_Bridge_avalon_slave_address -> IO_Bridge:avalon_address
-	wire         mm_interconnect_0_io_bridge_avalon_slave_read;                      // mm_interconnect_0:IO_Bridge_avalon_slave_read -> IO_Bridge:avalon_read
-	wire   [1:0] mm_interconnect_0_io_bridge_avalon_slave_byteenable;                // mm_interconnect_0:IO_Bridge_avalon_slave_byteenable -> IO_Bridge:avalon_byteenable
-	wire         mm_interconnect_0_io_bridge_avalon_slave_write;                     // mm_interconnect_0:IO_Bridge_avalon_slave_write -> IO_Bridge:avalon_write
-	wire  [15:0] mm_interconnect_0_io_bridge_avalon_slave_writedata;                 // mm_interconnect_0:IO_Bridge_avalon_slave_writedata -> IO_Bridge:avalon_writedata
 	wire         mm_interconnect_0_timer_0_s1_chipselect;                            // mm_interconnect_0:timer_0_s1_chipselect -> timer_0:chipselect
 	wire  [15:0] mm_interconnect_0_timer_0_s1_readdata;                              // timer_0:readdata -> mm_interconnect_0:timer_0_s1_readdata
 	wire   [2:0] mm_interconnect_0_timer_0_s1_address;                               // mm_interconnect_0:timer_0_s1_address -> timer_0:address
@@ -189,18 +173,17 @@ module test (
 	wire  [15:0] mm_interconnect_0_timer_s1_writedata;                               // mm_interconnect_0:timer_s1_writedata -> timer:writedata
 	wire         irq_mapper_receiver0_irq;                                           // Audio:irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                           // WIFI_Serial_Port:irq -> irq_mapper:receiver1_irq
-	wire         irq_mapper_receiver2_irq;                                           // IO_Bridge:avalon_irq -> irq_mapper:receiver2_irq
-	wire         irq_mapper_receiver3_irq;                                           // timer_0:irq -> irq_mapper:receiver3_irq
-	wire         irq_mapper_receiver4_irq;                                           // JTAG:av_irq -> irq_mapper:receiver4_irq
-	wire         irq_mapper_receiver5_irq;                                           // button_2:irq -> irq_mapper:receiver5_irq
-	wire         irq_mapper_receiver6_irq;                                           // button_1:irq -> irq_mapper:receiver6_irq
-	wire         irq_mapper_receiver7_irq;                                           // timer:irq -> irq_mapper:receiver7_irq
+	wire         irq_mapper_receiver2_irq;                                           // timer_0:irq -> irq_mapper:receiver2_irq
+	wire         irq_mapper_receiver3_irq;                                           // JTAG:av_irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                           // button_2:irq -> irq_mapper:receiver4_irq
+	wire         irq_mapper_receiver5_irq;                                           // button_1:irq -> irq_mapper:receiver5_irq
+	wire         irq_mapper_receiver6_irq;                                           // timer:irq -> irq_mapper:receiver6_irq
 	wire  [31:0] cpu_irq_irq;                                                        // irq_mapper:sender_irq -> CPU:irq
 	wire         rst_controller_reset_out_reset;                                     // rst_controller:reset_out -> [Alpha_Blender:reset, Audio:reset, CPU:reset_n, Char_Buffer:reset, Dual_Clock_FIFO:reset_stream_in, Onchip_Memory:reset, Pixel_Buffer:reset, RGB_Resampler:reset, SDRAM:reset_n, irq_mapper:reset, mm_interconnect_0:Pixel_Buffer_reset_reset_bridge_in_reset_reset, rst_translator:in_reset]
 	wire         rst_controller_reset_out_reset_req;                                 // rst_controller:reset_req -> [CPU:reset_req, Onchip_Memory:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                                      // CPU:debug_reset_request -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_003:reset_in1, rst_controller_004:reset_in1, rst_controller_005:reset_in0]
 	wire         rst_controller_001_reset_out_reset;                                 // rst_controller_001:reset_out -> Dual_Clock_FIFO:reset_stream_out
-	wire         rst_controller_002_reset_out_reset;                                 // rst_controller_002:reset_out -> [IO_Bridge:reset, JTAG:rst_n, WIFI_Serial_Port:reset, button_1:reset_n, button_2:reset_n, mm_interconnect_0:JTAG_reset_reset_bridge_in_reset_reset, timer:reset_n, timer_0:reset_n]
+	wire         rst_controller_002_reset_out_reset;                                 // rst_controller_002:reset_out -> [JTAG:rst_n, WIFI_Serial_Port:reset, button_1:reset_n, button_2:reset_n, mm_interconnect_0:JTAG_reset_reset_bridge_in_reset_reset, timer:reset_n, timer_0:reset_n]
 	wire         rst_controller_003_reset_out_reset;                                 // rst_controller_003:reset_out -> Sys_Clk:ref_reset_reset
 	wire         rst_controller_004_reset_out_reset;                                 // rst_controller_004:reset_out -> VGA_Controller:reset
 	wire         video_clk_reset_source_reset;                                       // Video_Clk:reset_source_reset -> rst_controller_004:reset_in2
@@ -323,28 +306,6 @@ module test (
 		.stream_out_data          (dual_clock_fifo_avalon_dc_buffer_source_data)           //                        .data
 	);
 
-	test_IO_Bridge io_bridge (
-		.clk                (sys_clk_sys_clk_clk),                                  //                clk.clk
-		.reset              (rst_controller_002_reset_out_reset),                   //              reset.reset
-		.avalon_address     (mm_interconnect_0_io_bridge_avalon_slave_address),     //       avalon_slave.address
-		.avalon_byteenable  (mm_interconnect_0_io_bridge_avalon_slave_byteenable),  //                   .byteenable
-		.avalon_chipselect  (mm_interconnect_0_io_bridge_avalon_slave_chipselect),  //                   .chipselect
-		.avalon_read        (mm_interconnect_0_io_bridge_avalon_slave_read),        //                   .read
-		.avalon_write       (mm_interconnect_0_io_bridge_avalon_slave_write),       //                   .write
-		.avalon_writedata   (mm_interconnect_0_io_bridge_avalon_slave_writedata),   //                   .writedata
-		.avalon_readdata    (mm_interconnect_0_io_bridge_avalon_slave_readdata),    //                   .readdata
-		.avalon_waitrequest (mm_interconnect_0_io_bridge_avalon_slave_waitrequest), //                   .waitrequest
-		.avalon_irq         (irq_mapper_receiver2_irq),                             //          interrupt.irq
-		.acknowledge        (io_acknowledge),                                       // external_interface.export
-		.irq                (io_irq),                                               //                   .export
-		.address            (io_address),                                           //                   .export
-		.bus_enable         (io_bus_enable),                                        //                   .export
-		.byte_enable        (io_byte_enable),                                       //                   .export
-		.rw                 (io_rw),                                                //                   .export
-		.write_data         (io_write_data),                                        //                   .export
-		.read_data          (io_read_data)                                          //                   .export
-	);
-
 	test_JTAG jtag (
 		.clk            (sys_clk_sys_clk_clk),                                  //               clk.clk
 		.rst_n          (~rst_controller_002_reset_out_reset),                  //             reset.reset_n
@@ -355,7 +316,7 @@ module test (
 		.av_write_n     (~mm_interconnect_0_jtag_avalon_jtag_slave_write),      //                  .write_n
 		.av_writedata   (mm_interconnect_0_jtag_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_avalon_jtag_slave_waitrequest), //                  .waitrequest
-		.av_irq         (irq_mapper_receiver4_irq)                              //               irq.irq
+		.av_irq         (irq_mapper_receiver3_irq)                              //               irq.irq
 	);
 
 	test_Onchip_Memory onchip_memory (
@@ -491,7 +452,7 @@ module test (
 		.chipselect (mm_interconnect_0_button_1_s1_chipselect), //                    .chipselect
 		.readdata   (mm_interconnect_0_button_1_s1_readdata),   //                    .readdata
 		.in_port    (button_1_export),                          // external_connection.export
-		.irq        (irq_mapper_receiver6_irq)                  //                 irq.irq
+		.irq        (irq_mapper_receiver5_irq)                  //                 irq.irq
 	);
 
 	test_button_1 button_2 (
@@ -503,7 +464,7 @@ module test (
 		.chipselect (mm_interconnect_0_button_2_s1_chipselect), //                    .chipselect
 		.readdata   (mm_interconnect_0_button_2_s1_readdata),   //                    .readdata
 		.in_port    (button_2_export),                          // external_connection.export
-		.irq        (irq_mapper_receiver5_irq)                  //                 irq.irq
+		.irq        (irq_mapper_receiver4_irq)                  //                 irq.irq
 	);
 
 	test_timer timer (
@@ -514,7 +475,7 @@ module test (
 		.readdata   (mm_interconnect_0_timer_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver7_irq)               //   irq.irq
+		.irq        (irq_mapper_receiver6_irq)               //   irq.irq
 	);
 
 	test_timer timer_0 (
@@ -525,7 +486,7 @@ module test (
 		.readdata   (mm_interconnect_0_timer_0_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_0_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_0_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver3_irq)                 //   irq.irq
+		.irq        (irq_mapper_receiver2_irq)                 //   irq.irq
 	);
 
 	test_mm_interconnect_0 mm_interconnect_0 (
@@ -591,14 +552,6 @@ module test (
 		.CPU_debug_mem_slave_byteenable                     (mm_interconnect_0_cpu_debug_mem_slave_byteenable),                   //                                         .byteenable
 		.CPU_debug_mem_slave_waitrequest                    (mm_interconnect_0_cpu_debug_mem_slave_waitrequest),                  //                                         .waitrequest
 		.CPU_debug_mem_slave_debugaccess                    (mm_interconnect_0_cpu_debug_mem_slave_debugaccess),                  //                                         .debugaccess
-		.IO_Bridge_avalon_slave_address                     (mm_interconnect_0_io_bridge_avalon_slave_address),                   //                   IO_Bridge_avalon_slave.address
-		.IO_Bridge_avalon_slave_write                       (mm_interconnect_0_io_bridge_avalon_slave_write),                     //                                         .write
-		.IO_Bridge_avalon_slave_read                        (mm_interconnect_0_io_bridge_avalon_slave_read),                      //                                         .read
-		.IO_Bridge_avalon_slave_readdata                    (mm_interconnect_0_io_bridge_avalon_slave_readdata),                  //                                         .readdata
-		.IO_Bridge_avalon_slave_writedata                   (mm_interconnect_0_io_bridge_avalon_slave_writedata),                 //                                         .writedata
-		.IO_Bridge_avalon_slave_byteenable                  (mm_interconnect_0_io_bridge_avalon_slave_byteenable),                //                                         .byteenable
-		.IO_Bridge_avalon_slave_waitrequest                 (mm_interconnect_0_io_bridge_avalon_slave_waitrequest),               //                                         .waitrequest
-		.IO_Bridge_avalon_slave_chipselect                  (mm_interconnect_0_io_bridge_avalon_slave_chipselect),                //                                         .chipselect
 		.JTAG_avalon_jtag_slave_address                     (mm_interconnect_0_jtag_avalon_jtag_slave_address),                   //                   JTAG_avalon_jtag_slave.address
 		.JTAG_avalon_jtag_slave_write                       (mm_interconnect_0_jtag_avalon_jtag_slave_write),                     //                                         .write
 		.JTAG_avalon_jtag_slave_read                        (mm_interconnect_0_jtag_avalon_jtag_slave_read),                      //                                         .read
@@ -659,7 +612,6 @@ module test (
 		.receiver4_irq (irq_mapper_receiver4_irq),       // receiver4.irq
 		.receiver5_irq (irq_mapper_receiver5_irq),       // receiver5.irq
 		.receiver6_irq (irq_mapper_receiver6_irq),       // receiver6.irq
-		.receiver7_irq (irq_mapper_receiver7_irq),       // receiver7.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 

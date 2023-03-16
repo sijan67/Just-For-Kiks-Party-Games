@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Wed Mar 15 12:57:35 PDT 2023
+ * Generated: Thu Mar 16 05:04:17 PDT 2023
  */
 
 /*
@@ -50,9 +50,9 @@
 
 MEMORY
 {
-    reset : ORIGIN = 0x4000000, LENGTH = 32
-    SDRAM : ORIGIN = 0x4000020, LENGTH = 67108832
-    Onchip_Memory : ORIGIN = 0x8020000, LENGTH = 40960
+    SDRAM : ORIGIN = 0x4000000, LENGTH = 67108864
+    reset : ORIGIN = 0x8020000, LENGTH = 32
+    Onchip_Memory : ORIGIN = 0x8020020, LENGTH = 99968
 }
 
 /* Define symbols for each memory base-address */
@@ -113,7 +113,7 @@ SECTIONS
         KEEP (*(.exceptions.exit));
         KEEP (*(.exceptions));
         PROVIDE (__ram_exceptions_end = ABSOLUTE(.));
-    } > SDRAM
+    } > Onchip_Memory
 
     PROVIDE (__flash_exceptions_start = LOADADDR(.exceptions));
 

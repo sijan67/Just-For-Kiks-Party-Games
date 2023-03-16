@@ -85,15 +85,15 @@ module partyBox(
 		.button_1_export							(KEY[3]),
 		.button_2_export							(KEY[2]),
 		.rs232_RXD       							(GPIO_1[33]),       //     rs232.RXD
-		.rs232_TXD       							(GPIO_1[35]),
-		.io_acknowledge  (IO_acknowledge),  //        io.acknowledge
+		.rs232_TXD       							(GPIO_1[35])
+		/*.io_acknowledge  (IO_acknowledge),  //        io.acknowledge
 		.io_irq          (IO_irq),          //          .irq
 		.io_address      (IO_address),      //          .address
 		.io_bus_enable   (IO_bus_enable),   //          .bus_enable
 		.io_byte_enable  (IO_byte_enable),  //          .byte_enable
 		.io_rw           (IO_rw),           //          .rw
 		.io_write_data   (IO_write_data),   //          .write_data
-		.io_read_data    (IO_read_data)     // 
+		.io_read_data    (IO_read_data)     // */
 	);
 
 

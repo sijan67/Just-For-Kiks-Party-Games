@@ -28,14 +28,6 @@
 		.vga_SYNC        (<connected-to-vga_SYNC>),        //          .SYNC
 		.vga_R           (<connected-to-vga_R>),           //          .R
 		.vga_G           (<connected-to-vga_G>),           //          .G
-		.vga_B           (<connected-to-vga_B>),           //          .B
-		.io_acknowledge  (<connected-to-io_acknowledge>),  //        io.acknowledge
-		.io_irq          (<connected-to-io_irq>),          //          .irq
-		.io_address      (<connected-to-io_address>),      //          .address
-		.io_bus_enable   (<connected-to-io_bus_enable>),   //          .bus_enable
-		.io_byte_enable  (<connected-to-io_byte_enable>),  //          .byte_enable
-		.io_rw           (<connected-to-io_rw>),           //          .rw
-		.io_write_data   (<connected-to-io_write_data>),   //          .write_data
-		.io_read_data    (<connected-to-io_read_data>)     //          .read_data
+		.vga_B           (<connected-to-vga_B>)            //          .B
 	);
 
