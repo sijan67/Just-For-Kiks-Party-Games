@@ -1,8 +1,8 @@
 -- This information is used by the Wi-Fi dongle to make a wireless connection to the router in the Lab
---SSID = "ubcvisitor"--"TELUS4189-2.4G"
---SSID_PASSWORD = ""--"2Cheese61Pikachu"
-SSID = "TELUS4189-2.4G"
-SSID_PASSWORD = "2Cheese61Pikachu"
+SSID = "TPLINK2.4GHz_391"
+SSID_PASSWORD = "391391391"
+--SSID = "TELUS4189-2.4G"
+--SSID_PASSWORD = "2Cheese61Pikachu"
 
 -- configure ESP as a station
 --wifi.setmode(wifi.STATION)
@@ -14,7 +14,6 @@ station_cfg.pwd=SSID_PASSWORD
 station_cfg.save=false
 wifi.sta.config(station_cfg)
 wifi.sta.autoconnect(1)
-
 
 HOST = "http://50.112.215.42/"
 
@@ -60,7 +59,6 @@ function check_wifi()
 end
 
 
-
 function check_wifi_get()
 	ip = wifi.sta.getip()
 
@@ -69,7 +67,8 @@ function check_wifi_get()
 	else
 		--print("Connected!")
 		--print(ip)
-        getQuestion(HOST .. "questions/2", function(response)
+        getQuestion(HOST .. "questions/1", function(response)
+            --print(response)
             local array = {}
             for split in response:gmatch('"([^"]+)"') do
                 table.insert(array, split)
@@ -83,6 +82,10 @@ function check_wifi_get()
             28,30: D, answer
             ]]--
             print(array[5])
+            print(array[10] .. ": " .. array[12])
+            print(array[16] .. ": " .. array[18])
+            print(array[22] .. ": " .. array[24])
+            print(array[28] .. ": " .. array[30])
             print("@")
         end)
 	end

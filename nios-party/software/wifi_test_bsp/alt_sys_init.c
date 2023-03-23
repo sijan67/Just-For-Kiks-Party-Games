@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Thu Mar 09 10:03:39 PST 2023
+ * Generated: Thu Mar 23 09:39:31 PDT 2023
  */
 
 /*
@@ -64,8 +64,6 @@
 #include "altera_up_avalon_audio.h"
 #include "altera_up_avalon_rs232.h"
 #include "altera_up_avalon_video_character_buffer_with_dma.h"
-#include "altera_up_avalon_video_pixel_buffer_dma.h"
-#include "altera_up_avalon_video_rgb_resampler.h"
 
 /*
  * Allocate the device storage
@@ -78,8 +76,6 @@ ALTERA_AVALON_TIMER_INSTANCE ( TIMER_0, timer_0);
 ALTERA_UP_AVALON_AUDIO_INSTANCE ( AUDIO, Audio);
 ALTERA_UP_AVALON_RS232_INSTANCE ( WIFI_SERIAL_PORT, WIFI_Serial_Port);
 ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INSTANCE ( CHAR_BUFFER, Char_Buffer);
-ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INSTANCE ( PIXEL_BUFFER, Pixel_Buffer);
-ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INSTANCE ( RGB_RESAMPLER, RGB_Resampler);
 
 /*
  * Initialize the interrupt controller devices
@@ -108,6 +104,4 @@ void alt_sys_init( void )
     ALTERA_UP_AVALON_AUDIO_INIT ( AUDIO, Audio);
     ALTERA_UP_AVALON_RS232_INIT ( WIFI_SERIAL_PORT, WIFI_Serial_Port);
     ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA_INIT ( CHAR_BUFFER, Char_Buffer);
-    ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA_INIT ( PIXEL_BUFFER, Pixel_Buffer);
-    ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER_INIT ( RGB_RESAMPLER, RGB_Resampler);
 }
