@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>23-Mar-2023 9:39:30 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1679589570816</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>24-Mar-2023 3:48:13 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1679698093187</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\kolto\Desktop\CPEN_391\l2a-01-triviasoc\nios-party\software\wifi_test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\test.sopcinfo</SopcDesignFile>

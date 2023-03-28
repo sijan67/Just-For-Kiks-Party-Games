@@ -29,6 +29,7 @@
 void write_data(char *function);
 void read_data();
 void display_question();
+void display_new_question();
 void press_button();
 
 
@@ -42,8 +43,12 @@ char dofile[] = "dofile(\"wifi_script.lua\")";
 char end = '\n';
 char check_wifi_get[] = "check_wifi_get()";
 char check_wifi[] = "check_wifi()";
+char get_question[] = "getQuestion()";
+char get_question_choices[] = "getQuestionChoices()";
 char led[] = "gpio.write(3, gpio.LOW)";
 char output[512] = "Question 1:";
+
+char *delim = "@";
 
 
 alt_u32 write_FIFO_space;
@@ -67,23 +72,23 @@ int main() {
 
 	alt_up_rs232_enable_read_interrupt(rs232_dev);
 
-	//write_data(node_start);
 	write_data(dofile);
-	usleep(10000000);
-	//read_data();
-	write_data(check_wifi_get);
-	//write_data(led);
+	usleep(15000000);
+	write_data(get_question);
 	usleep(5000000);
 	read_data();
+	usleep(5000000);
+	//write_data(get_question_choices);
+	//usleep(5000000);
+	//read_data();
 	//usleep(5000000);
 	printf("\nDONE GET\n");
-	press_button();
 
 	printf("\noutput: \n");
 	printf("%s", output);
-	//display_question();
-	printf("\nFinished\n");
 
+	display_new_question();
+	printf("\nFinished\n");
 
 
     return 0;
@@ -95,7 +100,7 @@ void write_data(char *function) {
 	for (int i = 0; function[i] != '\0'; i++) {
 		data_W8 = function[i];
 		if(alt_up_rs232_write_data(rs232_dev, data_W8) == 0) {
-			printf("Write %c\n", data_W8);
+			//printf("Write %c\n", data_W8);
 		}
 	}
 	data_W8 = '\n';
@@ -109,22 +114,25 @@ void write_data(char *function) {
 void read_data() {
 	printf("Reading\n");
 	read_FIFO_used = alt_up_rs232_get_used_space_in_read_FIFO(rs232_dev);
+	int i = 0;
 	while(read_FIFO_used > 0){
 		int record = 0;
-		int i = 0;
+
 		alt_up_rs232_read_data(rs232_dev, &data_R8, &parity);
 		char str[2];
 		sprintf(str, "%c", data_R8);
-		if(strcmp(str, "@") == 0) {
+		/*if(strcmp(str, "@") == 0) {
 			record = 1;
 			printf("RECORD\n");
 		} else if(record == 1) {
 			//sprintf(output, "%s%c", output, data_R8);
 			output[i] = data_R8;
-		}
+		}*/
+		output[i] = data_R8;
+
 
 		printf("%c", data_R8);
-		//printf("%d\n", read_FIFO_used);
+		i++;
 		read_FIFO_used = alt_up_rs232_get_used_space_in_read_FIFO(rs232_dev);
 
 	}
@@ -154,6 +162,12 @@ void display_question() {
 
 
 	printf("Displayed questioned\n");
+}
+
+void display_new_question() {
+	alt_up_char_buffer_clear(char_buffer);
+	char *token = strtok(output,delim);
+	alt_up_char_buffer_string(char_buffer, strtok(NULL,delim), 0, 30);
 }
 
 void press_button() {
