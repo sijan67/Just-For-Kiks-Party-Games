@@ -15,8 +15,6 @@ router.get("/", (req, res, next) => {
     });
 });
 
-
-
 router.post("/", (req, res, next) => {
     const newUser = new User({
       username: req.body.username,
