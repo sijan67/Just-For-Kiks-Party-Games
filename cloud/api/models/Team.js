@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 
 const TeamSchema = new mongoose.Schema({
-    teamname: String,
+    teamID: Number,
+    teamName: String,
     teamScore: Number,
-    teamID: Number
+    teamSize: Number,
 })
 
 module.exports = mongoose.model('Team', TeamSchema)

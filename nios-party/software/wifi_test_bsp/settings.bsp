@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>16-Mar-2023 5:04:16 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1678968256210</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>24-Mar-2023 3:48:13 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1679698093187</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\kolto\Desktop\CPEN_391\l2a-01-triviasoc\nios-party\software\wifi_test_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\test.sopcinfo</SopcDesignFile>
@@ -941,12 +941,6 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>Pixel_Buffer</slaveDescriptor>
-                <addressRange>0x08043080 - 0x0804308F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>Audio</slaveDescriptor>
                 <addressRange>0x08043090 - 0x0804309F</addressRange>
                 <addressSpan>16</addressSpan>
@@ -968,12 +962,6 @@
                 <slaveDescriptor>Char_Buffer_avalon_char_control_slave</slaveDescriptor>
                 <addressRange>0x080430B8 - 0x080430BF</addressRange>
                 <addressSpan>8</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>RGB_Resampler</slaveDescriptor>
-                <addressRange>0x080430C0 - 0x080430C3</addressRange>
-                <addressSpan>4</addressSpan>
                 <attributes/>
         </MemoryMap>
         <LinkerSection>

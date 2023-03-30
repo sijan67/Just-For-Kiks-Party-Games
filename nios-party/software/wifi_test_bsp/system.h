@@ -4,7 +4,7 @@
  * Machine generated for CPU 'CPU' in SOPC Builder design 'test'
  * SOPC Builder design path: ../../test.sopcinfo
  *
- * Generated: Thu Mar 16 05:04:17 PDT 2023
+ * Generated: Fri Mar 24 15:48:13 PDT 2023
  */
 
 /*
@@ -192,8 +192,6 @@
 #define __ALTERA_UP_AVALON_AUDIO
 #define __ALTERA_UP_AVALON_RS232
 #define __ALTERA_UP_AVALON_VIDEO_CHARACTER_BUFFER_WITH_DMA
-#define __ALTERA_UP_AVALON_VIDEO_PIXEL_BUFFER_DMA
-#define __ALTERA_UP_AVALON_VIDEO_RGB_RESAMPLER
 
 
 /*
@@ -241,34 +239,6 @@
 #define ONCHIP_MEMORY_SPAN 100000
 #define ONCHIP_MEMORY_TYPE "altera_avalon_onchip_memory2"
 #define ONCHIP_MEMORY_WRITABLE 1
-
-
-/*
- * Pixel_Buffer configuration
- *
- */
-
-#define ALT_MODULE_CLASS_Pixel_Buffer altera_up_avalon_video_pixel_buffer_dma
-#define PIXEL_BUFFER_BASE 0x8043080
-#define PIXEL_BUFFER_IRQ -1
-#define PIXEL_BUFFER_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define PIXEL_BUFFER_NAME "/dev/Pixel_Buffer"
-#define PIXEL_BUFFER_SPAN 16
-#define PIXEL_BUFFER_TYPE "altera_up_avalon_video_pixel_buffer_dma"
-
-
-/*
- * RGB_Resampler configuration
- *
- */
-
-#define ALT_MODULE_CLASS_RGB_Resampler altera_up_avalon_video_rgb_resampler
-#define RGB_RESAMPLER_BASE 0x80430c0
-#define RGB_RESAMPLER_IRQ -1
-#define RGB_RESAMPLER_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define RGB_RESAMPLER_NAME "/dev/RGB_Resampler"
-#define RGB_RESAMPLER_SPAN 4
-#define RGB_RESAMPLER_TYPE "altera_up_avalon_video_rgb_resampler"
 
 
 /*

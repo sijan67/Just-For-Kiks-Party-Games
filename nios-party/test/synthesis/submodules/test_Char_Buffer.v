@@ -107,7 +107,7 @@ output reg	[31: 0]	ctrl_readdata;
 output reg	[ 7: 0]	buf_readdata;
 output					buf_waitrequest;
 
-output		[39: 0]	stream_data;
+output		[29: 0]	stream_data;
 output					stream_startofpacket;
 output					stream_endofpacket;
 output		[ 1: 0]	stream_empty;
@@ -304,7 +304,6 @@ end
 assign buf_waitrequest = 
 		(buf_chipselect & buf_read) & ~delayed_buf_waitrequest[1];
 
-assign stream_data[39:30]		= {10{cur_char_data}};
 assign stream_data[29: 0]		= {char_red, char_green, char_blue};
 assign stream_startofpacket	= delayed_startofpacket[3];
 assign stream_endofpacket		= delayed_endofpacket[3];

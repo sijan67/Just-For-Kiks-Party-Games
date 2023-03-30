@@ -37,7 +37,7 @@
    {
       datum _sortIndex
       {
-         value = "17";
+         value = "18";
          type = "int";
       }
    }
@@ -106,7 +106,7 @@
    {
       datum _sortIndex
       {
-         value = "15";
+         value = "16";
          type = "int";
       }
    }
@@ -114,7 +114,7 @@
    {
       datum _sortIndex
       {
-         value = "22";
+         value = "23";
          type = "int";
       }
    }
@@ -206,6 +206,14 @@
          type = "String";
       }
    }
+   element Scaler
+   {
+      datum _sortIndex
+      {
+         value = "15";
+         type = "int";
+      }
+   }
    element Sys_Clk
    {
       datum _sortIndex
@@ -218,7 +226,7 @@
    {
       datum _sortIndex
       {
-         value = "16";
+         value = "17";
          type = "int";
       }
    }
@@ -234,7 +242,7 @@
    {
       datum _sortIndex
       {
-         value = "21";
+         value = "22";
          type = "int";
       }
    }
@@ -250,7 +258,7 @@
    {
       datum _sortIndex
       {
-         value = "18";
+         value = "19";
          type = "int";
       }
    }
@@ -266,7 +274,7 @@
    {
       datum _sortIndex
       {
-         value = "19";
+         value = "20";
          type = "int";
       }
    }
@@ -298,7 +306,7 @@
    {
       datum _sortIndex
       {
-         value = "20";
+         value = "21";
          type = "int";
       }
    }
@@ -413,7 +421,7 @@
    name="Alpha_Blender"
    kind="altera_up_avalon_video_alpha_blender"
    version="18.0"
-   enabled="1">
+   enabled="0">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
   <parameter name="mode" value="Simple" />
@@ -457,7 +465,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SDRAM.s1' start='0x4000000' end='0x8000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='Onchip_Memory.s1' start='0x8020000' end='0x80386A0' type='altera_avalon_onchip_memory2.s1' /><slave name='Char_Buffer.avalon_char_buffer_slave' start='0x8040000' end='0x8042000' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_buffer_slave' /><slave name='CPU.debug_mem_slave' start='0x8042800' end='0x8043000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='timer.s1' start='0x8043020' end='0x8043040' type='altera_avalon_timer.s1' /><slave name='timer_0.s1' start='0x8043040' end='0x8043060' type='altera_avalon_timer.s1' /><slave name='button_2.s1' start='0x8043060' end='0x8043070' type='altera_avalon_pio.s1' /><slave name='button_1.s1' start='0x8043070' end='0x8043080' type='altera_avalon_pio.s1' /><slave name='Pixel_Buffer.avalon_control_slave' start='0x8043080' end='0x8043090' type='altera_up_avalon_video_pixel_buffer_dma.avalon_control_slave' /><slave name='Audio.avalon_audio_slave' start='0x8043090' end='0x80430A0' type='altera_up_avalon_audio.avalon_audio_slave' /><slave name='WIFI_Serial_Port.avalon_rs232_slave' start='0x80430A8' end='0x80430B0' type='altera_up_avalon_rs232.avalon_rs232_slave' /><slave name='JTAG.avalon_jtag_slave' start='0x80430B0' end='0x80430B8' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='Char_Buffer.avalon_char_control_slave' start='0x80430B8' end='0x80430C0' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_control_slave' /><slave name='RGB_Resampler.avalon_rgb_slave' start='0x80430C0' end='0x80430C4' type='altera_up_avalon_video_rgb_resampler.avalon_rgb_slave' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='SDRAM.s1' start='0x4000000' end='0x8000000' type='altera_avalon_new_sdram_controller.s1' /><slave name='Onchip_Memory.s1' start='0x8020000' end='0x80386A0' type='altera_avalon_onchip_memory2.s1' /><slave name='Char_Buffer.avalon_char_buffer_slave' start='0x8040000' end='0x8042000' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_buffer_slave' /><slave name='CPU.debug_mem_slave' start='0x8042800' end='0x8043000' type='altera_nios2_gen2.debug_mem_slave' /><slave name='timer.s1' start='0x8043020' end='0x8043040' type='altera_avalon_timer.s1' /><slave name='timer_0.s1' start='0x8043040' end='0x8043060' type='altera_avalon_timer.s1' /><slave name='button_2.s1' start='0x8043060' end='0x8043070' type='altera_avalon_pio.s1' /><slave name='button_1.s1' start='0x8043070' end='0x8043080' type='altera_avalon_pio.s1' /><slave name='Audio.avalon_audio_slave' start='0x8043090' end='0x80430A0' type='altera_up_avalon_audio.avalon_audio_slave' /><slave name='WIFI_Serial_Port.avalon_rs232_slave' start='0x80430A8' end='0x80430B0' type='altera_up_avalon_rs232.avalon_rs232_slave' /><slave name='JTAG.avalon_jtag_slave' start='0x80430B0' end='0x80430B8' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='Char_Buffer.avalon_char_control_slave' start='0x80430B8' end='0x80430C0' type='altera_up_avalon_video_character_buffer_with_dma.avalon_char_control_slave' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -623,7 +631,7 @@
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
   <parameter name="color_bits" value="1-bit" />
-  <parameter name="enable_transparency" value="true" />
+  <parameter name="enable_transparency" value="false" />
   <parameter name="resolution" value="80 x 60" />
   <parameter name="vga_device" value="On-board VGA DAC" />
  </module>
@@ -700,7 +708,7 @@
    name="Pixel_Buffer"
    kind="altera_up_avalon_video_pixel_buffer_dma"
    version="18.0"
-   enabled="1">
+   enabled="0">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
   <parameter name="addr_mode" value="X-Y" />
@@ -714,7 +722,7 @@
    name="RGB_Resampler"
    kind="altera_up_avalon_video_rgb_resampler"
    version="18.0"
-   enabled="1">
+   enabled="0">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
   <parameter name="alpha" value="1023" />
@@ -749,6 +757,21 @@
   <parameter name="refreshPeriod" value="15.625" />
   <parameter name="registerDataIn" value="true" />
   <parameter name="rowWidth" value="13" />
+ </module>
+ <module
+   name="Scaler"
+   kind="altera_up_avalon_video_scaler"
+   version="18.0"
+   enabled="0">
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="color_bits" value="10" />
+  <parameter name="color_planes" value="3" />
+  <parameter name="height_in" value="240" />
+  <parameter name="height_scaling" value="2" />
+  <parameter name="include_channel" value="false" />
+  <parameter name="width_in" value="320" />
+  <parameter name="width_scaling" value="2" />
  </module>
  <module
    name="Sys_Clk"
@@ -1145,13 +1168,8 @@
  <connection
    kind="avalon_streaming"
    version="18.1"
-   start="Alpha_Blender.avalon_blended_source"
-   end="Dual_Clock_FIFO.avalon_dc_buffer_sink" />
- <connection
-   kind="avalon_streaming"
-   version="18.1"
    start="Char_Buffer.avalon_char_source"
-   end="Alpha_Blender.avalon_foreground_sink" />
+   end="Dual_Clock_FIFO.avalon_dc_buffer_sink" />
  <connection
    kind="avalon_streaming"
    version="18.1"
@@ -1219,6 +1237,7 @@
    version="18.1"
    start="Sys_Clk.sys_clk"
    end="IO_Bridge.clk" />
+ <connection kind="clock" version="18.1" start="Sys_Clk.sys_clk" end="Scaler.clk" />
  <connection
    kind="clock"
    version="18.1"
@@ -1341,6 +1360,11 @@
    version="18.1"
    start="clk_0.clk_reset"
    end="IO_Bridge.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="Scaler.reset" />
  <connection
    kind="reset"
    version="18.1"

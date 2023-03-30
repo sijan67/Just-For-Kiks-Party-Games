@@ -1,13 +1,9 @@
 -- This information is used by the Wi-Fi dongle to make a wireless connection to the router in the Lab
---SSID = "ubcvisitor"--"TELUS4189-2.4G"
---SSID_PASSWORD = ""--"2Cheese61Pikachu"
+--SSID = "TPLINK2.4GHz_391"
+--SSID_PASSWORD = "391391391"
 SSID = "TELUS4189-2.4G"
 SSID_PASSWORD = "2Cheese61Pikachu"
 
--- configure ESP as a station
---wifi.setmode(wifi.STATION)
---wifi.sta.config(SSID,SSID_PASSWORD)
---wifi.sta.autoconnect(1)
 station_cfg={}
 station_cfg.ssid=SSID
 station_cfg.pwd=SSID_PASSWORD
@@ -15,10 +11,9 @@ station_cfg.save=false
 wifi.sta.config(station_cfg)
 wifi.sta.autoconnect(1)
 
-
 HOST = "http://50.112.215.42/"
 
-function getQuestion(url, callback)
+function getQuestionReq(url, callback)
 	http.get(url, nil, function(code, data)
 		if(code == 200) then
 			callback(data)
@@ -26,6 +21,16 @@ function getQuestion(url, callback)
 			print("HTTP request failed")
 		end
 	end)
+end
+
+function getQuestionChoicesReq(url, callback)
+    http.get(url, nil, function(code, data)
+        if(code == 200) then
+            callback(data)
+        else
+            print("HTTP request failed")
+        end
+    end)
 end
 
 function sendAnswer(url, teamNum, questionNum, callback)
@@ -60,7 +65,6 @@ function check_wifi()
 end
 
 
-
 function check_wifi_get()
 	ip = wifi.sta.getip()
 
@@ -69,7 +73,8 @@ function check_wifi_get()
 	else
 		--print("Connected!")
 		--print(ip)
-        getQuestion(HOST .. "questions/2", function(response)
+        getQuestionReq(HOST .. "questions/1", function(response)
+            --print(response)
             local array = {}
             for split in response:gmatch('"([^"]+)"') do
                 table.insert(array, split)
@@ -77,15 +82,57 @@ function check_wifi_get()
             print("@")
             --[[
             5: question
-            10,12: A, answer
-            16,18: B, answer
-            22,24: C, answer
-            28,30: D, answer
+            12,14: A, answer
+            18,20: B, answer
+            24,26: C, answer
+            30,32: D, answer
             ]]--
             print(array[5])
+            s = splitByChunk(array[5])
+            for i,v in pairs(s) do
+                --print(i)
+                print(v)
+            end
+            print(array[12] .. ": " .. array[14])
+            print(array[18] .. ": " .. array[20])
+            print(array[24] .. ": " .. array[26])
+            print(array[30] .. ": " .. array[32])
             print("@")
         end)
 	end
+end
+
+function getQuestion()
+    getQuestionReq(HOST .. "questions/1", function(response)
+        --print(response)
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+        print("@")
+        s = splitByChunk(array[5])
+        for i,v in pairs(s) do
+            print(v)
+        end
+        print("@")
+    end)
+end
+
+function getQuestionChoices()
+    getQuestionReq(HOST .. "questions/1", function(response)
+        --print(response)
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+        print("@")
+        print(array[12] .. ": " .. array[14])
+        print(array[18] .. ": " .. array[20])
+        print(array[24] .. ": " .. array[26])
+        print(array[30] .. ": " .. array[32])
+        print("@")
+    end)
+    
 end
 
 function open_audio()
@@ -95,4 +142,13 @@ function open_audio()
     local buffer = file.read(fileSize)
     return buffer
 end
+
+function splitByChunk(text)
+    local s = {}
+    for i = 1, #text, 14 do
+        s[#s+1] = text:sub(i, i+14 - 1)
+    end
+    return s
+end
+
    
