@@ -14,6 +14,7 @@ function getNextId() {
     });
 }
 
+// GET all teams
 router.get('/', (req, res, next) => {
     Team.find()
         .then(team => {
@@ -25,9 +26,10 @@ router.get('/', (req, res, next) => {
         });
 });
 
-router.get("/:username/score", (req, res, next) => {
-    const {username} = req.params;
-    User.find({ username }, "teamscore").then(team => {
+// GET team by ID
+router.get("/:teamID/", (req, res, next) => {
+    const { teamID } = req.params;
+    Team.find({ teamID }, "teamName teamScore teamSize").then(team => {
         if (team !== null && team.length > 0) {
             res.write(JSON.stringify(team[0]));
         } else {
@@ -37,14 +39,16 @@ router.get("/:username/score", (req, res, next) => {
     })  
 });
 
+// POST a new team
 router.post("/", async (req, res, next) => {
-    const { teamname } = req.body;
+    const { teamName } = req.body;
 
     getNextId().then(id => {
         const newTeam = new Team({
-            teamname: teamname,
+            teamName: teamName,
             teamScore: 0,
-            teamID : id
+            teamID : id,
+            teamSize: 1
         });
         newTeam.save().then(result => {
             res.status(201).json(result);
@@ -56,6 +60,16 @@ router.post("/", async (req, res, next) => {
         console.error(err);
         res.status(500).send("Internal server error");
         });
+});
+
+// DELETE all teams
+router.delete('/teams', async (req, res, next) => {
+    try {
+      await Team.deleteMany();
+      res.status(200).json({ message: 'All teams have been deleted.' });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
 });
 
 module.exports = router;
