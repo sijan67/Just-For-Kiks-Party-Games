@@ -72,7 +72,7 @@ module partyBox(
 		.vga_HS        (VGA_HS),        //      .HS
 		.vga_VS        (VGA_VS),        //      .VS
 		.vga_BLANK     (VGA_BLANK_N),     //      .BLANK
-		.vga_SYNC      (VGA_SYNC),      //      .SYNC
+		.vga_SYNC      (VGA_SYNC_N),      //      .SYNC
 		.vga_R         (VGA_R),         //      .R
 		.vga_G         (VGA_G),         //      .G
 		.vga_B         (VGA_B),          //      .B
