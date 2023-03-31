@@ -1,6 +1,18 @@
-18:10:30 **** Incremental Build of configuration Nios II for project wifi_test_bsp ****
+10:44:57 **** Incremental Build of configuration Nios II for project wifi_test_bsp ****
 make all 
-[BSP build complete]
+Makefile not up to date.
+settings.bsp has been modified since the BSP Makefile was generated.
 
-18:10:31 Build Finished (took 692ms)
+Generate the BSP to update the Makefile, and then build again.
+
+To generate from Eclipse:
+ 1. Right-click the BSP project.
+ 2. In the Nios II Menu, click Generate BSP.
+
+To generate from the command line:
+ nios2-bsp-generate-files --settings=<settings file> --bsp-dir=<target bsp files directory>
+
+make: *** [makefile] Error 1
+
+10:44:59 Build Finished (took 1s.425ms)
 

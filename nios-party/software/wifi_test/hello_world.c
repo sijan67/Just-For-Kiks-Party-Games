@@ -173,7 +173,7 @@ void display_new_question() {
 void press_button() {
 	int j = 0;
 	while(j == 0) {
-		if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) {
+		if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) {
 			printf("Button Pressed\n");
 			j = 1;
 			write_data(check_wifi);
