@@ -3,9 +3,10 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const User = require('../models/User');
+const Team = require('../models/Team');
 
 router.get("/", (req, res, next) => {
-    User.find({}, "username teamname teamscore roomcode").then(users => {
+    User.find({}, "username teamID roomCode").then(users => {
         if (users !== null && users.length > 0) {
             res.write(JSON.stringify(users));
         } else {
@@ -15,14 +16,11 @@ router.get("/", (req, res, next) => {
     });
 });
 
-
-
 router.post("/", (req, res, next) => {
     const newUser = new User({
-      username: req.body.username,
-      teamname: req.body.teamname,
-      teamscore: req.body.teamscore,
-      roomcode: req.body.roomcode
+        username: req.body.username,
+        teamID: req.body.teamID,
+        roomCode: req.body.roomCode
     });
     newUser
     .save()
@@ -41,22 +39,25 @@ router.post("/", (req, res, next) => {
     });
 });
 
-router.get("/:username", (req, res, next) => {
-    const {username} = req.params;
-    User.find({ username }, "username teamname teamscore roomcode").then(user => {
-        if (user !== null && user.length > 0) {
-            res.write(JSON.stringify(user[0]));
-        } else {
-            res.write("No users found");
+router.get("/:username/team", (req, res, next) => {
+    const { username } = req.params;
+    User.find({ username }, "teamID").then(teamID => {
+        if (teamID !== null) {
+            Team.find({ teamID }, "teamID teamName teamScore teamSize").then(team => {
+                if (team !== null && team.length > 0) {
+                    res.write(JSON.stringify(team[0]));
+                } else {
+                    res.write("No team found");
+                }
+                res.end();
+            });
         }
-        res.end();
     })
 });
 
-
 router.get('/:username/roomcode', (req, res) => {
     const {username} = req.params;
-    User.find({ username }, "roomcode").then(user => {
+    User.find({ username }, "roomCode").then(user => {
         if (user !== null && user.length > 0) {
             res.write(JSON.stringify(user[0]));
         } else {

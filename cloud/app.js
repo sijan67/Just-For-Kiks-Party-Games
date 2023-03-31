@@ -6,12 +6,7 @@ const mongoose = require('mongoose');
 
 const questionRoutes = require("./api/routes/question");
 const userRoutes = require("./api/routes/user");
-
-const leaderboardRoutes = require("./api/routes/leaderboard");
-const mathRoutes = require("./api/routes/math");
-const triviaRoutes = require("./api/routes/trivia");
-// const numberOrderingRoutes = require("./api/routes/numOrdering");
-
+const teamRoutes = require("./api/routes/teams");
 const audioRoute = require("./api/routes/audio");
 
 mongoose.connect("mongodb://my_user:my_pwd@localhost:27017/mern", { useNewUrlParser: true });
@@ -36,12 +31,7 @@ app.use((req, res, next) => {
 // Routes for handling requests
 app.use('/questions', questionRoutes);
 app.use('/users', userRoutes);
-
-app.use('/leaderboard', leaderboardRoutes);
-app.use('/math', mathRoutes);
-app.use('/trivia', triviaRoutes);
-// app.use('/numOrdering', numberOrderingRoutes);
-
+app.use('/teams', teamRoutes);
 app.use('/audio', audioRoute);
 
 app.use((req, res, next) => {
