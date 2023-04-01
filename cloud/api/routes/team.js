@@ -14,6 +14,8 @@ function getNextId() {
     });
 }
 
+/* GET Operations */
+
 // GET all teams
 router.get('/', (req, res, next) => {
     Team.find()
@@ -39,6 +41,8 @@ router.get("/:teamID/", (req, res, next) => {
     })  
 });
 
+/* POST Operations */
+
 // POST a new team
 router.post("/", async (req, res, next) => {
     const { teamName } = req.body;
@@ -62,8 +66,23 @@ router.post("/", async (req, res, next) => {
         });
 });
 
+/* DELETE Operations */
+
+// DELETE one team
+router.delete('/:teamID', async (req, res) => {
+    try {
+        const deletedTeam = await Team.findByIdAndDelete(req.params.teamID);
+        if (!deletedTeam) {
+        return res.status(404).json({ message: 'Team not found.' });
+        }
+        res.status(200).json({ message: 'Team deleted successfully.' });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // DELETE all teams
-router.delete('/teams', async (req, res, next) => {
+router.delete('/', async (req, res, next) => {
     try {
       await Team.deleteMany();
       res.status(200).json({ message: 'All teams have been deleted.' });
