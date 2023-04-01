@@ -1,5 +1,5 @@
 Analysis & Synthesis report for partyBox
-Fri Feb 24 14:22:14 2023
+Thu Mar 30 09:33:09 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -15,26 +15,24 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
   9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |partyBox|display_count
- 11. Registers Removed During Synthesis
- 12. Removed Registers Triggering Further Register Optimizations
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for sld_signaltap:auto_signaltap_0
- 17. Parameter Settings for User Entity Instance: video_driver:v1
- 18. Parameter Settings for User Entity Instance: video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i
- 19. Parameter Settings for User Entity Instance: video_driver:v1|altera_up_avalon_video_vga_timing:video
- 20. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 21. Port Connectivity Checks: "video_driver:v1|altera_up_avalon_video_vga_timing:video"
- 22. Port Connectivity Checks: "video_driver:v1|CLOCK25_PLL:c25_gen"
- 23. Port Connectivity Checks: "video_driver:v1"
- 24. Signal Tap Logic Analyzer Settings
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Connections to In-System Debugging Instance "auto_signaltap_0"
- 28. Analysis & Synthesis Messages
- 29. Analysis & Synthesis Suppressed Messages
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for sld_signaltap:auto_signaltap_0
+ 16. Parameter Settings for User Entity Instance: video_driver:v1
+ 17. Parameter Settings for User Entity Instance: video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i
+ 18. Parameter Settings for User Entity Instance: video_driver:v1|altera_up_avalon_video_vga_timing:video
+ 19. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 20. Port Connectivity Checks: "video_driver:v1|altera_up_avalon_video_vga_timing:video"
+ 21. Port Connectivity Checks: "video_driver:v1|CLOCK25_PLL:c25_gen"
+ 22. Port Connectivity Checks: "video_driver:v1"
+ 23. Signal Tap Logic Analyzer Settings
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 27. Analysis & Synthesis Messages
 
 
 
@@ -60,13 +58,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Feb 24 14:22:14 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu Mar 30 09:33:09 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 1124                                        ;
+; Total registers                 ; 1082                                        ;
 ; Total pins                      ; 132                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 6,912                                       ;
@@ -172,15 +170,15 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -260,16 +258,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 620            ;
+; Estimate of Logic utilization (ALMs needed) ; 592            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 488            ;
+; Combinational ALUT usage for logic          ; 429            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 101            ;
-;     -- 5 input functions                    ; 115            ;
-;     -- 4 input functions                    ; 45             ;
-;     -- <=3 input functions                  ; 227            ;
+;     -- 6 input functions                    ; 85             ;
+;     -- 5 input functions                    ; 111            ;
+;     -- 4 input functions                    ; 43             ;
+;     -- <=3 input functions                  ; 190            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 1124           ;
+; Dedicated logic registers                   ; 1082           ;
 ;                                             ;                ;
 ; I/O pins                                    ; 132            ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -281,9 +279,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 628            ;
-; Total fan-out                               ; 6548           ;
-; Average fan-out                             ; 3.38           ;
+; Maximum fan-out                             ; 588            ;
+; Total fan-out                               ; 6193           ;
+; Average fan-out                             ; 3.37           ;
 +---------------------------------------------+----------------+
 
 
@@ -292,7 +290,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                  ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |partyBox                                                                                                                               ; 488 (55)            ; 1124 (41)                 ; 6912              ; 0          ; 132  ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
+; |partyBox                                                                                                                               ; 429 (1)             ; 1082 (1)                  ; 6912              ; 0          ; 132  ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 91 (1)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
 ;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
 ;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
@@ -387,11 +385,11 @@ refer to the applicable agreement for further details.
 ;                |lpm_shiftreg:ram_data_shift_out|                                                                                        ; 1 (1)               ; 54 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:ram_data_shift_out                                                                                                               ; lpm_shiftreg                      ; work         ;
 ;                |lpm_shiftreg:status_data_shift_out|                                                                                     ; 1 (1)               ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:status_data_shift_out                                                                                                            ; lpm_shiftreg                      ; work         ;
 ;             |sld_rom_sr:crc_rom_sr|                                                                                                     ; 20 (20)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr                                                                                                                                                                                                          ; sld_rom_sr                        ; work         ;
-;    |video_driver:v1|                                                                                                                    ; 68 (25)             ; 71 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1                                                                                                                                                                                                                                                                                                                            ; video_driver                      ; work         ;
+;    |video_driver:v1|                                                                                                                    ; 63 (23)             ; 69 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1                                                                                                                                                                                                                                                                                                                            ; video_driver                      ; work         ;
 ;       |CLOCK25_PLL:c25_gen|                                                                                                             ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen                                                                                                                                                                                                                                                                                                        ; CLOCK25_PLL                       ; CLOCK25_PLL  ;
 ;          |CLOCK25_PLL_0002:clock25_pll_inst|                                                                                            ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst                                                                                                                                                                                                                                                                      ; CLOCK25_PLL_0002                  ; CLOCK25_PLL  ;
 ;             |altera_pll:altera_pll_i|                                                                                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i                                                                                                                                                                                                                                              ; altera_pll                        ; work         ;
-;       |altera_up_avalon_video_vga_timing:video|                                                                                         ; 43 (43)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|altera_up_avalon_video_vga_timing:video                                                                                                                                                                                                                                                                                    ; altera_up_avalon_video_vga_timing ; work         ;
+;       |altera_up_avalon_video_vga_timing:video|                                                                                         ; 40 (40)             ; 48 (48)                   ; 0                 ; 0          ; 0    ; 0            ; |partyBox|video_driver:v1|altera_up_avalon_video_vga_timing:video                                                                                                                                                                                                                                                                                    ; altera_up_avalon_video_vga_timing ; work         ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -419,59 +417,31 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
 
 
-Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |partyBox|display_count                                                                                                                               ;
-+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
-; Name                  ; display_count.1111001 ; display_count.1000000 ; display_count.0110000 ; display_count.0011001 ; display_count.0100100 ; display_count.0010010 ;
-+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
-; display_count.0010010 ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ;
-; display_count.0011001 ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 1                     ;
-; display_count.0100100 ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 1                     ;
-; display_count.0110000 ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 1                     ;
-; display_count.1000000 ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 1                     ;
-; display_count.1111001 ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ;
-+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+
-
-
 +-----------------------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                              ;
 +------------------------------------------------------------------------+----------------------------------------+
 ; Register name                                                          ; Reason for Removal                     ;
 +------------------------------------------------------------------------+----------------------------------------+
+; video_driver:v1|rout[5]                                                ; Stuck at GND due to stuck port data_in ;
 ; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_blue[0,1]  ; Stuck at GND due to stuck port data_in ;
 ; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_green[0,1] ; Stuck at GND due to stuck port data_in ;
-; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[0,1]   ; Stuck at GND due to stuck port data_in ;
-; on[1..4]                                                               ; Merged with on[0]                      ;
-; on[6..9]                                                               ; Merged with on[5]                      ;
-; video_driver:v1|rout[1..4]                                             ; Merged with video_driver:v1|rout[0]    ;
-; video_driver:v1|gout[1..5]                                             ; Merged with video_driver:v1|gout[0]    ;
+; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[0,1,7] ; Stuck at GND due to stuck port data_in ;
+; video_driver:v1|rout[0..4]                                             ; Merged with video_driver:v1|bout[0]    ;
+; video_driver:v1|gout[0..5]                                             ; Merged with video_driver:v1|bout[0]    ;
 ; video_driver:v1|bout[1..5]                                             ; Merged with video_driver:v1|bout[0]    ;
-; colour[17..20]                                                         ; Merged with colour[16]                 ;
-; colour[1..5]                                                           ; Merged with colour[0]                  ;
-; colour[8,9,11..13]                                                     ; Merged with colour[10]                 ;
-; colour[21]                                                             ; Stuck at GND due to stuck port data_in ;
-; video_driver:v1|rout[5]                                                ; Stuck at GND due to stuck port data_in ;
-; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[7]     ; Stuck at GND due to stuck port data_in ;
-; display_count~3                                                        ; Lost fanout                            ;
-; display_count~6                                                        ; Lost fanout                            ;
-; display_count~7                                                        ; Lost fanout                            ;
-; display_count~8                                                        ; Lost fanout                            ;
-; display_count~9                                                        ; Lost fanout                            ;
-; Total Number of Removed Registers = 50                                 ;                                        ;
+; on[1..9]                                                               ; Merged with on[0]                      ;
+; Total Number of Removed Registers = 33                                 ;                                        ;
 +------------------------------------------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                          ;
-+---------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------+
-; Register name                                                       ; Reason for Removal        ; Registers Removed due to This Register                             ;
-+---------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------+
-; colour[21]                                                          ; Stuck at GND              ; video_driver:v1|rout[5],                                           ;
-;                                                                     ; due to stuck port data_in ; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[7] ;
-; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_blue[0] ; Stuck at GND              ; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[0] ;
-;                                                                     ; due to stuck port data_in ;                                                                    ;
-+---------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                              ;
++-------------------------+---------------------------+--------------------------------------------------------------------+
+; Register name           ; Reason for Removal        ; Registers Removed due to This Register                             ;
++-------------------------+---------------------------+--------------------------------------------------------------------+
+; video_driver:v1|rout[5] ; Stuck at GND              ; video_driver:v1|altera_up_avalon_video_vga_timing:video|vga_red[7] ;
+;                         ; due to stuck port data_in ;                                                                    ;
++-------------------------+---------------------------+--------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -479,12 +449,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1124  ;
-; Number of registers using Synchronous Clear  ; 158   ;
+; Total registers                              ; 1082  ;
+; Number of registers using Synchronous Clear  ; 129   ;
 ; Number of registers using Synchronous Load   ; 172   ;
 ; Number of registers using Asynchronous Clear ; 345   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 483   ;
+; Number of registers using Clock Enable       ; 449   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -494,9 +464,6 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; colour[16]                                                                                                                                                                                                                                                                                                                      ; 1       ;
-; colour[10]                                                                                                                                                                                                                                                                                                                      ; 1       ;
-; colour[0]                                                                                                                                                                                                                                                                                                                       ; 1       ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 3       ;
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[6]                                                                                                                                                   ; 1       ;
@@ -507,7 +474,7 @@ Encoding Type:  One-Hot
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[3]                                                                                                                                                   ; 1       ;
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[4]                                                                                                                                                   ; 1       ;
 ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[5]                                                                                                                                                   ; 1       ;
-; Total number of inverted registers = 13                                                                                                                                                                                                                                                                                         ;         ;
+; Total number of inverted registers = 10                                                                                                                                                                                                                                                                                         ;         ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
@@ -516,10 +483,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
-; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |partyBox|video_driver:v1|yt[6] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |partyBox|colour[21]            ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |partyBox|colour[16]            ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |partyBox|display_count         ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |partyBox|video_driver:v1|yt[7] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
 
 
@@ -908,15 +872,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "video_driver:v1"                                                                     ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; reset ; Input  ; Info     ; Stuck at GND                                                                        ;
-; x     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; y     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "video_driver:v1"                                                                         ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; reset     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; x         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; y         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; red[4..0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; red[7..5] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; green     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; blue      ; Input  ; Info     ; Stuck at VCC                                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -933,28 +901,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 112                         ;
-;     ENA               ; 5                           ;
-;     ENA SCLR          ; 39                          ;
+; arriav_ff             ; 70                          ;
+;     ENA SCLR          ; 10                          ;
 ;     ENA SLD           ; 9                           ;
 ;     SCLR              ; 20                          ;
-;     plain             ; 39                          ;
-; arriav_lcell_comb     ; 128                         ;
-;     arith             ; 68                          ;
-;         1 data inputs ; 68                          ;
-;     normal            ; 60                          ;
+;     plain             ; 31                          ;
+; arriav_lcell_comb     ; 65                          ;
+;     arith             ; 39                          ;
+;         1 data inputs ; 39                          ;
+;     normal            ; 26                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 7                           ;
-;         2 data inputs ; 10                          ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 6                           ;
-;         5 data inputs ; 9                           ;
-;         6 data inputs ; 22                          ;
-; boundary_port         ; 172                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 4                           ;
+;         5 data inputs ; 5                           ;
+;         6 data inputs ; 6                           ;
+; boundary_port         ; 142                         ;
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.60                        ;
-; Average LUT depth     ; 2.99                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 1.44                        ;
 +-----------------------+-----------------------------+
 
 
@@ -967,153 +934,153 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Connections to In-System Debugging Instance "auto_signaltap_0"                                                                                        ;
-+----------------------+---------------+-----------+--------------------------------+-------------------+-------------------------------------+---------+
-; Name                 ; Type          ; Status    ; Partition Name                 ; Netlist Type Used ; Actual Connection                   ; Details ;
-+----------------------+---------------+-----------+--------------------------------+-------------------+-------------------------------------+---------+
-; CLOCK_50             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; CLOCK_50                            ; N/A     ;
-; KEY[0]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[0]                              ; N/A     ;
-; KEY[0]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[0]                              ; N/A     ;
-; KEY[1]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[1]                              ; N/A     ;
-; KEY[1]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[1]                              ; N/A     ;
-; KEY[2]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[2]                              ; N/A     ;
-; KEY[2]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[2]                              ; N/A     ;
-; KEY[3]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[3]                              ; N/A     ;
-; KEY[3]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[3]                              ; N/A     ;
-; LEDR[0]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[0]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[1]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[1]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[2]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[2]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[3]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[3]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[4]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[4]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; LEDR[5]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[5]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[6]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[6]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[7]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[7]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[8]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[8]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[9]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; LEDR[9]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; count                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; count                               ; N/A     ;
-; count                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; count                               ; N/A     ;
-; counter[0]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[0]                          ; N/A     ;
-; counter[0]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[0]                          ; N/A     ;
-; counter[10]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[10]                         ; N/A     ;
-; counter[10]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[10]                         ; N/A     ;
-; counter[11]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[11]                         ; N/A     ;
-; counter[11]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[11]                         ; N/A     ;
-; counter[12]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[12]                         ; N/A     ;
-; counter[12]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[12]                         ; N/A     ;
-; counter[13]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[13]                         ; N/A     ;
-; counter[13]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[13]                         ; N/A     ;
-; counter[14]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[14]                         ; N/A     ;
-; counter[14]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[14]                         ; N/A     ;
-; counter[15]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[15]                         ; N/A     ;
-; counter[15]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[15]                         ; N/A     ;
-; counter[16]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[16]                         ; N/A     ;
-; counter[16]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[16]                         ; N/A     ;
-; counter[17]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[17]                         ; N/A     ;
-; counter[17]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[17]                         ; N/A     ;
-; counter[18]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[18]                         ; N/A     ;
-; counter[18]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[18]                         ; N/A     ;
-; counter[19]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[19]                         ; N/A     ;
-; counter[19]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[19]                         ; N/A     ;
-; counter[1]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[1]                          ; N/A     ;
-; counter[1]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[1]                          ; N/A     ;
-; counter[20]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[20]                         ; N/A     ;
-; counter[20]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[20]                         ; N/A     ;
-; counter[21]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[21]                         ; N/A     ;
-; counter[21]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[21]                         ; N/A     ;
-; counter[22]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[22]                         ; N/A     ;
-; counter[22]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[22]                         ; N/A     ;
-; counter[23]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[23]                         ; N/A     ;
-; counter[23]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[23]                         ; N/A     ;
-; counter[24]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[24]                         ; N/A     ;
-; counter[24]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[24]                         ; N/A     ;
-; counter[25]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[25]                         ; N/A     ;
-; counter[25]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[25]                         ; N/A     ;
-; counter[26]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[26]                         ; N/A     ;
-; counter[26]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[26]                         ; N/A     ;
-; counter[27]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[27]                         ; N/A     ;
-; counter[27]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[27]                         ; N/A     ;
-; counter[28]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[28]                         ; N/A     ;
-; counter[28]          ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[28]                         ; N/A     ;
-; counter[2]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[2]                          ; N/A     ;
-; counter[2]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[2]                          ; N/A     ;
-; counter[3]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[3]                          ; N/A     ;
-; counter[3]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[3]                          ; N/A     ;
-; counter[4]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[4]                          ; N/A     ;
-; counter[4]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[4]                          ; N/A     ;
-; counter[5]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[5]                          ; N/A     ;
-; counter[5]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[5]                          ; N/A     ;
-; counter[6]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[6]                          ; N/A     ;
-; counter[6]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[6]                          ; N/A     ;
-; counter[7]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[7]                          ; N/A     ;
-; counter[7]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[7]                          ; N/A     ;
-; counter[8]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[8]                          ; N/A     ;
-; counter[8]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[8]                          ; N/A     ;
-; counter[9]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[9]                          ; N/A     ;
-; counter[9]           ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; counter[9]                          ; N/A     ;
-; on[0]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[0]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[1]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[1]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[2]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[2]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[3]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[3]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[4]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[4]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A     ;
-; on[5]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[5]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[6]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[6]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[7]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[7]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[8]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[8]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[9]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; on[9]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[5]                               ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A     ;
-+----------------------+---------------+-----------+--------------------------------+-------------------+-------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Connections to In-System Debugging Instance "auto_signaltap_0"                                                                                                                                                                                                                                               ;
++----------------------+---------------+-----------+--------------------------------+-------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Name                 ; Type          ; Status    ; Partition Name                 ; Netlist Type Used ; Actual Connection                   ; Details                                                                                                                                                        ;
++----------------------+---------------+-----------+--------------------------------+-------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; CLOCK_50             ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; CLOCK_50                            ; N/A                                                                                                                                                            ;
+; KEY[0]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[0]                              ; N/A                                                                                                                                                            ;
+; KEY[0]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[0]                              ; N/A                                                                                                                                                            ;
+; KEY[1]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[1]                              ; N/A                                                                                                                                                            ;
+; KEY[1]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[1]                              ; N/A                                                                                                                                                            ;
+; KEY[2]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[2]                              ; N/A                                                                                                                                                            ;
+; KEY[2]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[2]                              ; N/A                                                                                                                                                            ;
+; KEY[3]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[3]                              ; N/A                                                                                                                                                            ;
+; KEY[3]               ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; KEY[3]                              ; N/A                                                                                                                                                            ;
+; LEDR[0]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[0]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[1]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[1]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[2]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[2]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[3]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[3]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[4]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[4]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[5]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[5]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[6]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[6]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[7]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[7]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[8]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[8]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[9]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; LEDR[9]              ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; count                ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; count                ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[0]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[0]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[10]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[10]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[11]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[11]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[12]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[12]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[13]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[13]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[14]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[14]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[15]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[15]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[16]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[16]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[17]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[17]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[18]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[18]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[19]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[19]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[1]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[1]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[20]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[20]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[21]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[21]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[22]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[22]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[23]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[23]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[24]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[24]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[25]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[25]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[26]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[26]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[27]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[27]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[28]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[28]          ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[2]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[2]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[3]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[3]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[4]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[4]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[5]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[5]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[6]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[6]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[7]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[7]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[8]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[8]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[9]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; counter[9]           ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; on[0]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[0]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[1]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[1]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[2]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[2]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[3]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[3]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[4]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[4]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[5]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[5]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[6]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[6]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[7]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[7]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[8]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[8]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[9]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; on[9]                ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; on[0]                               ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC ; N/A                                                                                                                                                            ;
++----------------------+---------------+-----------+--------------------------------+-------------------+-------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -1122,10 +1089,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Feb 24 14:21:51 2023
+    Info: Processing started: Thu Mar 30 09:32:35 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off partyBox -c partyBox
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file partybox.sv
     Info (12023): Found entity 1: partyBox File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file clock25_pll.v
@@ -1137,8 +1104,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file video_d
 Info (12021): Found 1 design units, including 1 entities, in source file altera_up_avalon_video_vga_timing.v
     Info (12023): Found entity 1: altera_up_avalon_video_vga_timing File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/altera_up_avalon_video_vga_timing.v Line: 47
 Info (12127): Elaborating entity "partyBox" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at partyBox.sv(73): truncated value with size 32 to match size of target (29) File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 73
-Info (10264): Verilog HDL Case Statement information at partyBox.sv(75): all case item expressions in this case statement are onehot File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 75
+Warning (10036): Verilog HDL or VHDL warning at partyBox.sv(46): object "counter" assigned a value but never read File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 46
+Warning (10036): Verilog HDL or VHDL warning at partyBox.sv(48): object "count" assigned a value but never read File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 48
 Info (12128): Elaborating entity "video_driver" for hierarchy "video_driver:v1" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 40
 Info (12128): Elaborating entity "CLOCK25_PLL" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/video_driver.sv Line: 47
 Info (12128): Elaborating entity "CLOCK25_PLL_0002" for hierarchy "video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/CLOCK25_PLL.v Line: 20
@@ -1229,7 +1196,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_99c File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/cmpr_99c.tdf Line: 22
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2023.02.24.14:22:06 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2023.03.30.09:32:57 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1253,6 +1220,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/ip/sld76ff8c70/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX0[3]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX0[5]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
     Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
     Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
     Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 14
@@ -1297,7 +1271,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 22
     Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 26
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 595 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
@@ -1919,8 +1892,7 @@ Warning (20013): Ignored 24 assignments for entity "dds_and_nios_lab" -- entity 
     Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity dds_and_nios_lab -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity dds_and_nios_lab -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity dds_and_nios_lab -section_id Top was ignored
-Info (144001): Generated suppressed messages file C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/output_files/partyBox.map.smsg
-Info (35024): Successfully connected in-system debug instance "auto_signaltap_0" to all 141 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
+Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 81 of its 141 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 60 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 14 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance video_driver:v1|CLOCK25_PLL:c25_gen|CLOCK25_PLL_0002:clock25_pll_inst|altera_pll:altera_pll_i|general[0].gpll. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altera_pll.v Line: 748
@@ -1971,22 +1943,16 @@ Warning (21074): Design contains 45 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "GPIO_1[33]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
     Warning (15610): No output dependent on input pin "GPIO_1[34]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
     Warning (15610): No output dependent on input pin "GPIO_1[35]" File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/partyBox.sv Line: 29
-Info (21057): Implemented 1529 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1437 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 54 input pins
     Info (21059): Implemented 82 output pins
-    Info (21061): Implemented 1337 logic cells
+    Info (21061): Implemented 1245 logic cells
     Info (21064): Implemented 54 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 714 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 723 warnings
     Info: Peak virtual memory: 4920 megabytes
-    Info: Processing ended: Fri Feb 24 14:22:14 2023
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:39
-
-
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
-The suppressed messages can be found in C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/output_files/partyBox.map.smsg.
+    Info: Processing ended: Thu Mar 30 09:33:09 2023
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:01:03
 
 

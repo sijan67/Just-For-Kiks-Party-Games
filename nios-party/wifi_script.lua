@@ -1,6 +1,8 @@
 -- This information is used by the Wi-Fi dongle to make a wireless connection to the router in the Lab
 --SSID = "TPLINK2.4GHz_391"
 --SSID_PASSWORD = "391391391"
+--SSID = "Ivan's iPhone"
+--SSID_PASSWORD = "cpen391cpen"
 SSID = "TELUS4189-2.4G"
 SSID_PASSWORD = "2Cheese61Pikachu"
 
@@ -126,10 +128,10 @@ function getQuestionChoices()
             table.insert(array, split)
         end
         print("@")
-        print(array[12] .. ": " .. array[14])
-        print(array[18] .. ": " .. array[20])
-        print(array[24] .. ": " .. array[26])
-        print(array[30] .. ": " .. array[32])
+        print(array[12] .. ": " .. array[14] .. "@")
+        print(array[18] .. ": " .. array[20] .. "@")
+        print(array[24] .. ": " .. array[26] .. "@")
+        print(array[30] .. ": " .. array[32] .. "@")
         print("@")
     end)
     
