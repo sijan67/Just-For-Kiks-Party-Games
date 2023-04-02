@@ -2,9 +2,11 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-
 const Question = require('../models/Question');
 
+/* GET Operations */
+
+// GET all questions
 router.get("/", (req, res, next) => {
     Question.find({}, "questionID description alternatives").then(questions => {
         if (questions !== null && questions.length > 0) {
@@ -16,6 +18,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
+// GET a question by ID
 router.get("/:questionID", (req, res, next) => {
     const questionID = parseInt(req.params.questionID);
     Question.find({ questionID }, "questionID description alternatives").then(question => {
@@ -27,6 +30,9 @@ router.get("/:questionID", (req, res, next) => {
     })
 });
 
+/* DELETE Operations */
+
+// DELETE a question by ID
 router.delete("/:questionID", (req, res, next) => {
     const questionID = parseInt(req.params['questionID']);
 

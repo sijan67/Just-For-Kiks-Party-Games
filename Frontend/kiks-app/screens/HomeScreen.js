@@ -63,7 +63,7 @@ function GameScreen({navigation, route}) {
           </Card.Actions>
         </Card>
 
-        <Card style={styles.end_card_container}>
+        {/* <Card style={styles.end_card_container}>
           <Card.Title style= {styles.title_style} title="Number Ordering" left={LeftContentOrdering} />
           <Card.Content>
             <Text style= {styles.text_style} variant="titleLarge">Order the numbers in increasing order quickly!</Text>
@@ -74,7 +74,11 @@ function GameScreen({navigation, route}) {
             Enter Game
           </Button>
           </Card.Actions>
+        </Card> */}
+
+        <Card style={styles.end_card_container}>
         </Card>
+
 
         </ScrollView>
       </SafeAreaView>

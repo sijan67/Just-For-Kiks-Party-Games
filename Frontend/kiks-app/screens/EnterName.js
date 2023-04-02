@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 })
 
 export default function EnterName({navigation, route}){
-    const [username, setUsername] = React.useState('Useless Text');
+    const [username, setUsername] = React.useState('Anon');
     const [number, onChangeNumber] = React.useState('');
 
     const handleUsernameChange = (text) => {
