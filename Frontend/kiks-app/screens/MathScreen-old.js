@@ -20,16 +20,11 @@ export default function TriviaScreen({navigation, route}) {
     const url = `http://50.112.215.42/math/${route.params.username}/score`; //check if this is getting user's score
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            fetch(url)
-                .then((resp) => resp.json())
-                .then((json) => setData(json))
-                .catch((error) => console.error(error))
-                .finally(() => setLoading(false));
-        }, 2000); // make the request every 2 seconds
-
-        // cleanup function to clear the interval when the component unmounts
-        return () => clearInterval(intervalId);
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((json) => setData(json))
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
     }, []);
 
     // TO DO: need to set team's score from API call 

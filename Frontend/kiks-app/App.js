@@ -10,6 +10,7 @@ import EnterGameScreen from './screens/StartScreen';
 import HomeScreen from './screens/HomeScreen';
 import TriviaScreen from './screens/TriviaScreen';
 import EnterGameCode from './screens/EnterGameCode';
+import ChooseTeam from './screens/ChooseTeam'
 import EnterName from './screens/EnterName';
 // import { Cache } from "react-native-cache";
 // import {AsyncStorage} from 'react-native';
@@ -38,6 +39,8 @@ export default function App() {
         <Stack.Screen name="EnterGameScreen" component={EnterGameScreen} />
         <Stack.Screen name="EnterName" component={EnterName} />
         <Stack.Screen name="EnterGameCode" component={EnterGameCode} />
+        <Stack.Screen name="ChooseTeam" component={ChooseTeam} />
+
         <Stack.Screen name="NavTab" component={NavTab} />
         <Stack.Screen name="HomeScreen" component={HomeScreen}/>
       </Stack.Navigator>

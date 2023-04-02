@@ -3,7 +3,6 @@ import { StyleSheet, Text, View , SafeAreaView, ScrollView, StatusBar,Pressable 
 import { Avatar, Button, Card } from 'react-native-paper';
 import React from "react";
 import {useEffect, useState} from 'react';
-
 import  { Component } from 'react'
 import CircularProgress from 'react-native-circular-progress-indicator'
 
@@ -13,50 +12,39 @@ import CircularProgress from 'react-native-circular-progress-indicator'
 
 export default function TriviaScreen({navigation, route}) {
 
-   // API Call Code 
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // API Call Code 
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const url = `http://50.112.215.42/math/${route.params.username}/score`; //check if this is getting user's score
+    // https://codesandbox.io/examples/package/react-score-indicator
+    const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            fetch(url)
-                .then((resp) => resp.json())
-                .then((json) => setData(json))
-                .catch((error) => console.error(error))
-                .finally(() => setLoading(false));
-        }, 2000); // make the request every 2 seconds
-
-        // cleanup function to clear the interval when the component unmounts
-        return () => clearInterval(intervalId);
+      fetch(url)
+        .then((resp) => resp.json())
+        .then((json) => setData(json))
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
     }, []);
 
+
     // TO DO: need to set team's score from API call 
-    
-    // https://codesandbox.io/examples/package/react-score-indicator
     return (
         <View style={{flex:1 , alignItems: 'center', backgroundColor: 'black'}}>
           
-          <Text style = {styles.text}> Your Team's Score , {route.params.username}</Text> 
+          <Text style = {styles.text}> Your Team's Score , {route.params.username} </Text> 
           <CircularProgress
-            // value={40}
+            // value={80}
             value = {data.teamscore}
             radius={120}
             progressValueColor={'#ecf0f1'}
             activeStrokeColor={'#f39c12'}
             activeStrokeSecondaryColor={'#bf1518'}
+            inActiveStrokeColor={'#9b59b6'}
             inActiveStrokeOpacity={0.5}
             inActiveStrokeWidth={20}
             activeStrokeWidth={40}
-            duration = {4000}
-            progressValueStyle={{ fontWeight: '100', color: 'white' }}
-            inActiveStrokeColor="black"
-            dashedStrokeConfig={{
-              count: 50,
-              width: 4,
-            }}
-
+            duration = {3000}
           />
 
           <StatusBar style = "auto"/>
