@@ -25,6 +25,7 @@
 #include "io.h"
 #include "alt_types.h"
 #include "altera_up_avalon_video_character_buffer_with_dma.h"
+#include <time.h>
 
 void write_data(char *function);
 void read_data(int text);
@@ -33,6 +34,7 @@ void display_new_question();
 void display_choices();
 void press_button();
 void removeChar(char *str, char remove);
+void generate_question();
 
 
 alt_up_rs232_dev *rs232_dev;
@@ -45,12 +47,16 @@ char dofile[] = "dofile(\"wifi_script.lua\")";
 char end = '\n';
 char check_wifi_get[] = "check_wifi_get()";
 char check_wifi[] = "check_wifi()";
-char get_question[] = "getQuestion()";
-char get_question_choices[] = "getQuestionChoices()";
+char get_question[] = "getQuestion( )";
+char get_question_choices[] = "getQuestionChoices( )";
 char led[] = "gpio.write(3, gpio.LOW)";
 char output[512] = "Question 1:";
 char choices[512] = "";
 char question[512] = "";
+int question_count = 1;
+int question_grab = 1;
+
+char current_question[20] = "Question   :";
 
 char *delim = "@";
 
@@ -65,7 +71,7 @@ alt_up_char_buffer_dev* char_buffer;
 
 int main() {
 	printf("TESTING\n");
-	//display_question();
+	display_question();
 	rs232_dev = alt_up_rs232_open_dev("/dev/WIFI_Serial_Port");
 
 	if(rs232_dev == NULL) {
@@ -73,30 +79,16 @@ int main() {
 	} else {
 		printf("Opened Wifi device\n");
 	}
-
 	alt_up_rs232_enable_read_interrupt(rs232_dev);
-
-	//write_data("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-	//read_data();
 	write_data(dofile);
 	usleep(15000000);
 	read_data(0);
 	usleep(5000000);
-	//write_data(get_question);
-	//usleep(5000000);
-	//read_data(1);
-	//usleep(5000000);
-	write_data(get_question_choices);
-	usleep(5000000);
-	read_data(2);
-	//usleep(5000000);
+	generate_question();
 	printf("\nDONE GET\n");
 
-	printf("\noutput: \n");
-	printf("%s", choices);
+	printf("CHOICES: %s", choices);
 
-	//display_new_question();
-	display_choices();
 	printf("\nFinished\n");
 
 
@@ -108,15 +100,11 @@ void write_data(char *function) {
 	printf("Writing\n");
 	for (int i = 0; function[i] != '\0'; i++) {
 		data_W8 = function[i];
-		if(alt_up_rs232_write_data(rs232_dev, data_W8) == 0) {
-			//printf("Write %d", i);
-		}
+		alt_up_rs232_write_data(rs232_dev, data_W8);
+
 	}
 	data_W8 = '\n';
 	alt_up_rs232_write_data(rs232_dev, data_W8);
-
-	//printf("%d", stat);
-	//printf("Write %c\n", data_W8);
 	alt_up_rs232_enable_read_interrupt(rs232_dev);
 }
 
@@ -125,22 +113,16 @@ void read_data(int text) {
 	read_FIFO_used = alt_up_rs232_get_used_space_in_read_FIFO(rs232_dev);
 	int i = 0;
 	while(read_FIFO_used > 0){
-		int record = 0;
-
 		alt_up_rs232_read_data(rs232_dev, &data_R8, &parity);
-		//char str[2];
-		//sprintf(str, "%c", data_R8);
 		if(text == 0) {
 			output[i] = data_R8;
 		} else if(text == 1) {
 			question[i] = data_R8;
 		} else if(text == 2) {
+			printf("%c", data_R8);
 			choices[i] = data_R8;
 		}
 
-
-
-		printf("%c", data_R8);
 		i++;
 		read_FIFO_used = alt_up_rs232_get_used_space_in_read_FIFO(rs232_dev);
 
@@ -154,20 +136,20 @@ void display_question() {
 	} else {
 		printf("Opened Char Buffer\n");
 	}
-	char questions[20] = "Question 1:";
 
 	char border = 'X';
+	char *kiks = "Just for Kiks";
+	char *room_code = "Room Code:";
 	alt_up_char_buffer_clear(char_buffer);
 	alt_up_char_buffer_draw(char_buffer, border, 0, 0);
 	alt_up_char_buffer_draw(char_buffer, border, 0, 59);
 	alt_up_char_buffer_draw(char_buffer, border, 79, 0);
 	alt_up_char_buffer_draw(char_buffer, border, 79, 59);
-	alt_up_char_buffer_string(char_buffer, questions, 30, 30);
-	for(int i = 0; i < 10; i++) {
-		questions[9] = i + '0';
-		alt_up_char_buffer_string(char_buffer, questions, 30, 30);
-		//usleep(1000000);
-	}
+
+	alt_up_char_buffer_string(char_buffer, kiks, 33, 20);
+	alt_up_char_buffer_string(char_buffer, room_code, 35, 25);
+
+
 
 	printf("Displayed questioned\n");
 }
@@ -184,29 +166,52 @@ void display_new_question() {
 	int len = strlen(token);
 	int width = 40 - (len / 2);
 
-	for(int i = 0; i < strlen(token); i++) {
-		printf("Character %d: %d\n", i, token[i]);
+	current_question[10] = (question_count % 10) + '0';
+	if(question_count > 9) {
+		current_question[9] = (question_count / 10) + '0';
 	}
 
-	alt_up_char_buffer_string(char_buffer, token, width, 10);
+	alt_up_char_buffer_string(char_buffer, current_question, 32, 8);
+	alt_up_char_buffer_string(char_buffer, token, width, 15);
+	question_count++;
 }
 
 void display_choices() {
-	char *token = strtok(choices,'\n');
-	char *choice1 = strtok(NULL, '\n');
+	char *token = strtok(choices, delim);
+	char *choice1 = strtok(NULL, delim);
+	removeChar(choice1, '†');
+	removeChar(choice1, '…');
 	removeChar(choice1, '\n');
-	char *choice2 = strtok(NULL, '\n');
+	removeChar(choice1, '\r');
+	char *choice2 = strtok(NULL, delim);
+	removeChar(choice2, '†');
+	removeChar(choice2, '…');
 	removeChar(choice2, '\n');
-	char *choice3 = strtok(NULL, '\n');
+	removeChar(choice2, '\r');
+	char *choice3 = strtok(NULL, delim);
+	removeChar(choice3, '†');
+	removeChar(choice3, '…');
 	removeChar(choice3, '\n');
-	char *choice4 = strtok(NULL, '\n');
+	removeChar(choice3, '\r');
+	char *choice4 = strtok(NULL, delim);
+	removeChar(choice4, '†');
+	removeChar(choice4, '…');
 	removeChar(choice4, '\n');
+	removeChar(choice4, '\r');
+
+
 
 	printf("%s\n", choice1);
 	printf("%s\n", choice2);
 	printf("%s\n", choice3);
 	printf("%s\n", choice4);
 
+	int width = 40 - (strlen(choice1) / 2) - 4;
+
+	alt_up_char_buffer_string(char_buffer, choice1, width, 22);
+	alt_up_char_buffer_string(char_buffer, choice2, width, 25);
+	alt_up_char_buffer_string(char_buffer, choice3, width, 28);
+	alt_up_char_buffer_string(char_buffer, choice4, width, 31);
 }
 
 void press_button() {
@@ -226,6 +231,33 @@ void press_button() {
 			read_data(1);
 		}
 	}
+}
+
+void generate_question() {
+	srand(time(NULL));
+	//question_grab = rand() % 10;
+
+	question_grab = 8;
+	get_question[12] = question_grab + '0';
+	get_question_choices[19] = question_grab + '0';
+
+	//printf("QUESTIONS\n");
+	//printf("%s\n", get_question);
+	//printf("%s\n", get_question_choices);
+
+
+	write_data(get_question);
+	usleep(5000000);
+	read_data(1);
+	usleep(5000000);
+	write_data(get_question_choices);
+	usleep(5000000);
+	read_data(2);
+	usleep(5000000);
+
+	display_new_question();
+	display_choices();
+
 }
 
 void removeChar(char *str, char remove) {

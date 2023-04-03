@@ -4443,3 +4443,2550 @@ Info: Building ../triviasoc_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
 [BSP build complete]
 [triviasoc build complete]
+15:35:14 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:128:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:195:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:196:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:198:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:195:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:35:22 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:35:40 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:44:43 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:47:17 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:128:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:195:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:196:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:198:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:195:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:47:24 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:47:27 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:54:13 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:129:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_new_question':
+hello_world.c:192:41: warning: passing argument 2 of 'alt_up_char_buffer_string' makes pointer from integer without a cast [-Wint-conversion]
+  alt_up_char_buffer_string(char_buffer, (char) question_count, width, 8);
+                                         ^
+In file included from hello_world.c:27:0:
+../triviasoc_bsp//drivers/inc/altera_up_avalon_video_character_buffer_with_dma.h:83:5: note: expected 'const char *' but argument is of type 'char'
+ int alt_up_char_buffer_string(alt_up_char_buffer_dev *char_buffer, const char *ptr, 
+     ^
+hello_world.c: In function 'display_choices':
+hello_world.c:198:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:199:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:203:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:198:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:54:16 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:54:18 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:58:16 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_new_question':
+hello_world.c:195:41: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  alt_up_char_buffer_string(char_buffer, (char) current_question, width, 8);
+                                         ^
+hello_world.c:195:41: warning: passing argument 2 of 'alt_up_char_buffer_string' makes pointer from integer without a cast [-Wint-conversion]
+In file included from hello_world.c:27:0:
+../triviasoc_bsp//drivers/inc/altera_up_avalon_video_character_buffer_with_dma.h:83:5: note: expected 'const char *' but argument is of type 'char'
+ int alt_up_char_buffer_string(alt_up_char_buffer_dev *char_buffer, const char *ptr, 
+     ^
+hello_world.c: In function 'display_choices':
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:206:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:208:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:58:19 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:58:42 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:59:33 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:206:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:208:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:59:36 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:59:39 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:05:09 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:209:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:211:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:05:12 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:05:14 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:06:52 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:209:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:211:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:06:54 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:06:58 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:12:06 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:203:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65453 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:12:09 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:12:11 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:16:54 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:203:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:16:57 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:16:59 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:18:18 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:210:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:18:21 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:18:31 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:20:06 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:210:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:20:09 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:20:15 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:26:23 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:200:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:204:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:207:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:210:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:200:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:26:25 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:26:29 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:29:47 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:208:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:211:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:29:50 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:29:53 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:30:46 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:32:58 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:208:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:211:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:33:01 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:33:03 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:33:58 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'read_data':
+hello_world.c:131:7: warning: unused variable 'record' [-Wunused-variable]
+   int record = 0;
+       ^
+hello_world.c: In function 'display_choices':
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:202:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:205:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:208:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:211:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:34:01 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:52:54 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:192:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:195:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:198:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:201:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 75 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:52:57 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:52:59 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:56:37 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:189:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:192:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:195:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:198:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 36 KBytes program size (code + initialized data).
+Info:                 65492 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:56:40 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:56:42 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:20:00 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:194:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 36 KBytes program size (code + initialized data).
+Info:                 65491 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+17:20:02 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+17:20:05 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:22:53 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:194:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 36 KBytes program size (code + initialized data).
+Info:                 65491 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+17:22:56 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+17:22:58 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:23:55 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:194:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 36 KBytes program size (code + initialized data).
+Info:                 65491 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+17:23:58 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+17:24:00 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:25:31 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:25:44 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:194:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 36 KBytes program size (code + initialized data).
+Info:                 65491 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+17:25:46 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+17:26:01 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:52:14 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:178:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:179:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:178:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 36 KBytes program size (code + initialized data).
+Info:                 65491 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+17:52:17 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+17:52:22 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:53:30 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+17:55:41 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:179:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:183:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:186:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:189:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:179:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 39 KBytes program size (code + initialized data).
+Info:                 65489 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+17:55:43 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+17:55:45 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:19:35 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:187:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:190:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:19:38 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:19:40 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:20:40 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:187:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:190:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:20:43 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:21:40 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:187:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:190:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:21:43 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:21:44 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:24:30 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:187:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:190:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:24:33 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:24:35 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:25:38 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:187:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:190:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:25:41 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:25:46 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:26:55 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:187:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:190:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'\n');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:26:58 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:27:00 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:30:30 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:23: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  token = strtok(NULL, '@');
+                       ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:32: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(token, '\n');
+                                ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:30:33 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:30:35 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:31:42 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:23: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  token = strtok(NULL, '@');
+                       ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:32: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(token, '\n');
+                                ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:31:45 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:31:48 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:32:41 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:32: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(token, '\n');
+                                ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:32:43 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:32:45 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:38:51 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:38:52 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:39:07 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:32: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(token, '\n');
+                                ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:39:10 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:39:13 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:40:02 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:32: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(token, '\n');
+                                ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:185:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:188:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:191:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '\n');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:40:04 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:40:06 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:43:17 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *token = strtok(choices,'@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:181:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice1 = strtok(NULL, '@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:182:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice2 = strtok(NULL, '@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:183:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice3 = strtok(NULL, '@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:184:31: warning: passing argument 2 of 'strtok' makes pointer from integer without a cast [-Wint-conversion]
+  char *choice4 = strtok(NULL, '@');
+                               ^
+In file included from c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world.c:17:
+c:\intelfpga_lite\18.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:42:8: note: expected 'const char * restrict' but argument is of type 'int'
+ char  *_EXFUN(strtok,(char *__restrict, const char *__restrict));
+        ^
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices,'@');
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:43:19 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:43:21 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:46:15 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:47:58 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65452 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:48:01 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:48:03 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:52:21 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:180:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 76 KBytes program size (code + initialized data).
+Info:                 65451 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+20:52:24 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+20:52:27 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+20:53:38 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]

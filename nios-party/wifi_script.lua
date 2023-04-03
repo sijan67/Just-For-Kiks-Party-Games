@@ -95,17 +95,17 @@ function check_wifi_get()
                 --print(i)
                 print(v)
             end
-            print(array[12] .. ": " .. array[14])
-            print(array[18] .. ": " .. array[20])
-            print(array[24] .. ": " .. array[26])
-            print(array[30] .. ": " .. array[32])
+            print("A: " .. array[14])
+            print("B: " .. array[20])
+            print("C: " .. array[26])
+            print("D: " .. array[32])
             print("@")
         end)
 	end
 end
 
-function getQuestion()
-    getQuestionReq(HOST .. "questions/1", function(response)
+function getQuestion(number)
+    getQuestionReq(HOST .. "questions/" .. number, function(response)
         --print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
@@ -120,18 +120,21 @@ function getQuestion()
     end)
 end
 
-function getQuestionChoices()
-    getQuestionReq(HOST .. "questions/1", function(response)
+function getQuestionChoices(number)
+    getQuestionReq(HOST .. "questions/" .. number, function(response)
         --print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
         end
+        local string = "A: " .. array[14] .. "@B: " .. array[20] .. "@C: " .. array[26] .. "@D: " .. array[32]
         print("@")
-        print(array[12] .. ": " .. array[14] .. "@")
-        print(array[18] .. ": " .. array[20] .. "@")
-        print(array[24] .. ": " .. array[26] .. "@")
-        print(array[30] .. ": " .. array[32] .. "@")
+        s = splitByChunk(string)
+        for i,v in pairs(s) do
+            print(v)
+        end
+        
+       
         print("@")
     end)
     
@@ -148,7 +151,7 @@ end
 function splitByChunk(text)
     local s = {}
     for i = 1, #text, 14 do
-        s[#s+1] = text:sub(i, i+14 - 1)
+        s[#s+1] = text:sub(i, i+13)
     end
     return s
 end
