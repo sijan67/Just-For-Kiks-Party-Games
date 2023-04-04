@@ -1,10 +1,10 @@
 -- This information is used by the Wi-Fi dongle to make a wireless connection to the router in the Lab
 --SSID = "TPLINK2.4GHz_391"
 --SSID_PASSWORD = "391391391"
---SSID = "Ivan's iPhone"
---SSID_PASSWORD = "cpen391cpen"
-SSID = "TELUS4189-2.4G"
-SSID_PASSWORD = "2Cheese61Pikachu"
+SSID = "Kolton's phone"
+SSID_PASSWORD = "391391391"
+--SSID = "TELUS4189-2.4G"
+--SSID_PASSWORD = "2Cheese61Pikachu"
 
 station_cfg={}
 station_cfg.ssid=SSID
@@ -112,6 +112,7 @@ function getQuestion(number)
             table.insert(array, split)
         end
         print("@")
+        --print(table.getn(array))
         s = splitByChunk(array[5])
         for i,v in pairs(s) do
             print(v)
@@ -127,7 +128,12 @@ function getQuestionChoices(number)
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
         end
-        local string = "A: " .. array[14] .. "@B: " .. array[20] .. "@C: " .. array[26] .. "@D: " .. array[32]
+        local string = ""
+        if(table.getn(array) < 26) then
+            string = "A: " .. array[14] .. "@B: " .. array[20]  
+        else        
+            string = "A: " .. array[14] .. "@B: " .. array[20] .. "@C: " .. array[26] .. "@D: " .. array[32]
+        end
         print("@")
         s = splitByChunk(string)
         for i,v in pairs(s) do

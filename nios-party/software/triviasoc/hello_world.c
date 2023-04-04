@@ -50,11 +50,8 @@ unsigned char parity;
 char node_start[] = "node.start()";
 char dofile[] = "dofile(\"wifi_script.lua\")";
 char end = '\n';
-char check_wifi_get[] = "check_wifi_get()";
-char check_wifi[] = "check_wifi()";
 char get_question[] = "getQuestion(  )";
 char get_question_choices[] = "getQuestionChoices(  )";
-char led[] = "gpio.write(3, gpio.LOW)";
 char output[512] = "Question 1:";
 char choices[512] = "";
 char question[512] = "";
@@ -67,6 +64,8 @@ char display_time[1] = "0";
 char current_question[20] = "Question   :";
 
 char *delim = "@";
+int used_questions[50] = {-1};
+int used_question_index = 0;
 
 
 
@@ -79,6 +78,7 @@ alt_up_char_buffer_dev* char_buffer;
 
 
 int main() {
+	srand(time(0));
 	printf("TESTING\n");
 	display_question();
 	rs232_dev = alt_up_rs232_open_dev("/dev/WIFI_Serial_Port");
@@ -95,8 +95,9 @@ int main() {
 	usleep(15000000);
 	read_data(0);
 	usleep(5000000);
-	generate_question();
-	generate_question();
+	for(int k = 0; k < 10; k++) {
+		generate_question();
+	}
 	printf("\nDONE GET\n");
 
 	printf("CHOICES: %s", choices);
@@ -211,48 +212,65 @@ void display_choices() {
 	removeChar(choice4, '\n');
 	removeChar(choice4, '\r');
 
-
-
-	printf("%s\n", choice1);
+	/*printf("%s\n", choice1);
 	printf("%s\n", choice2);
 	printf("%s\n", choice3);
-	printf("%s\n", choice4);
+	printf("%s\n", choice4);*/
 
 	int width = 40 - (strlen(choice1) / 2) - 4;
 
 	alt_up_char_buffer_string(char_buffer, choice1, width, 22);
 	alt_up_char_buffer_string(char_buffer, choice2, width, 25);
-	alt_up_char_buffer_string(char_buffer, choice3, width, 28);
-	alt_up_char_buffer_string(char_buffer, choice4, width, 31);
-}
-
-void press_button() {
-	int j = 0;
-	while(j == 0) {
-		if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) {
-			printf("Button Pressed\n");
-			j = 1;
-			write_data(check_wifi);
-			usleep(5000000);
-			read_data(1);
-		} else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) {
-			printf("Button 2 Pressed\n");
-			j = 1;
-			write_data(check_wifi);
-			usleep(5000000);
-			read_data(1);
-		}
+	if((choice3 != NULL) & (choice4 != NULL)) {
+		alt_up_char_buffer_string(char_buffer, choice3, width, 28);
+		alt_up_char_buffer_string(char_buffer, choice4, width, 31);
 	}
 }
 
-void generate_question() {
-	srand(time(NULL));
-	/*question_grab = rand() % 100;
-	if(question_grab < 10) {
-		question_grab += 10;
-	}*/
+void press_button() {
+	//int j = 0;
+	//while(j == 0) {
+		if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) {
+			printf("Button Pressed\n");
+			current_time = -1;
+			//write_data(check_wifi);
+			//usleep(5000000);
+			//read_data(1);
+		} else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) {
+			printf("Button 2 Pressed\n");
+			current_time = -1;
+			//write_data(check_wifi);
+			//usleep(5000000);
+			//read_data(1);
+		}
+	//}
+}
 
-	question_grab = 13;
+void generate_question() {
+
+	int generate = 1;
+	question_grab = (rand() % 10) + 10;
+	if(used_questions[0] != -1) {
+		while(generate == 1) {
+			generate = 0;
+			for(int i = 0; used_questions[i] > -1; i++) {
+				if(question_grab == used_questions[i]) {
+					generate = 1;
+					question_grab = (rand() % 10) + 10;
+					break;
+				}
+			}
+
+			if(generate != 1) {
+				break;
+			}
+		}
+	}
+	used_questions[used_question_index] = question_grab;
+	used_question_index++;
+
+
+
 	get_question[13] = (question_grab % 10) + '0';
 	get_question[12] = (question_grab / 10) + '0';
 	get_question_choices[20] = (question_grab % 10) + '0';
@@ -305,8 +323,6 @@ void removeChar(char *str, char remove) {
 }
 
 void init_timer_interrupt() {
-	//alt_irq_register(TIMER_IRQ_INTERRUPT_CONTROLLER_ID, TIMER_IRQ, (void *)timer_isr, NULL, 0x0);
-
 	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE,
 			ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |
 			ALTERA_AVALON_TIMER_CONTROL_START_MSK |
@@ -317,6 +333,7 @@ void init_timer_interrupt() {
 
 static void timer_isr(void * context, alt_u32 id) {
 	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0);
+	press_button();
 	if(count % 1000 == 0) {
 		if(current_time > -1) {
 			current_time--;
