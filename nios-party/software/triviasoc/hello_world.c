@@ -26,6 +26,8 @@
 #include "alt_types.h"
 #include "altera_up_avalon_video_character_buffer_with_dma.h"
 #include <time.h>
+#include "sys/alt_irq.h"
+#include <altera_avalon_timer_regs.h>
 
 void write_data(char *function);
 void read_data(int text);
@@ -35,6 +37,9 @@ void display_choices();
 void press_button();
 void removeChar(char *str, char remove);
 void generate_question();
+static void timer_isr(void *context, alt_u32 id);
+void init_timer_interrupt();
+void question_countdown();
 
 
 alt_up_rs232_dev *rs232_dev;
@@ -47,18 +52,22 @@ char dofile[] = "dofile(\"wifi_script.lua\")";
 char end = '\n';
 char check_wifi_get[] = "check_wifi_get()";
 char check_wifi[] = "check_wifi()";
-char get_question[] = "getQuestion( )";
-char get_question_choices[] = "getQuestionChoices( )";
+char get_question[] = "getQuestion(  )";
+char get_question_choices[] = "getQuestionChoices(  )";
 char led[] = "gpio.write(3, gpio.LOW)";
 char output[512] = "Question 1:";
 char choices[512] = "";
 char question[512] = "";
 int question_count = 1;
 int question_grab = 1;
+int count = 0;
+int current_time = 0;
+char display_time[1] = "0";
 
 char current_question[20] = "Question   :";
 
 char *delim = "@";
+
 
 
 alt_u32 write_FIFO_space;
@@ -79,11 +88,14 @@ int main() {
 	} else {
 		printf("Opened Wifi device\n");
 	}
+	init_timer_interrupt();
+	alt_irq_disable(TIMER_IRQ);
 	alt_up_rs232_enable_read_interrupt(rs232_dev);
 	write_data(dofile);
 	usleep(15000000);
 	read_data(0);
 	usleep(5000000);
+	generate_question();
 	generate_question();
 	printf("\nDONE GET\n");
 
@@ -235,15 +247,20 @@ void press_button() {
 
 void generate_question() {
 	srand(time(NULL));
-	//question_grab = rand() % 10;
+	/*question_grab = rand() % 100;
+	if(question_grab < 10) {
+		question_grab += 10;
+	}*/
 
-	question_grab = 8;
-	get_question[12] = question_grab + '0';
-	get_question_choices[19] = question_grab + '0';
+	question_grab = 13;
+	get_question[13] = (question_grab % 10) + '0';
+	get_question[12] = (question_grab / 10) + '0';
+	get_question_choices[20] = (question_grab % 10) + '0';
+	get_question_choices[19] = (question_grab / 10) + '0';
 
-	//printf("QUESTIONS\n");
-	//printf("%s\n", get_question);
-	//printf("%s\n", get_question_choices);
+	printf("QUESTIONS\n");
+	printf("%s\n", get_question);
+	printf("%s\n", get_question_choices);
 
 
 	write_data(get_question);
@@ -255,9 +272,22 @@ void generate_question() {
 	read_data(2);
 	usleep(5000000);
 
+
 	display_new_question();
 	display_choices();
+	question_countdown();
 
+
+}
+
+void question_countdown() {
+	alt_irq_enable(TIMER_IRQ);
+	current_time = 9;
+	while(current_time > -1) {
+		display_time[0] = current_time + '0';
+		alt_up_char_buffer_string(char_buffer, display_time, 40, 40);
+	}
+	alt_irq_disable(TIMER_IRQ);
 }
 
 void removeChar(char *str, char remove) {
@@ -272,4 +302,26 @@ void removeChar(char *str, char remove) {
 			i--;
 		}
 	}
+}
+
+void init_timer_interrupt() {
+	//alt_irq_register(TIMER_IRQ_INTERRUPT_CONTROLLER_ID, TIMER_IRQ, (void *)timer_isr, NULL, 0x0);
+
+	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE,
+			ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |
+			ALTERA_AVALON_TIMER_CONTROL_START_MSK |
+			ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+
+	alt_irq_register(TIMER_IRQ, NULL,timer_isr);
+}
+
+static void timer_isr(void * context, alt_u32 id) {
+	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0);
+	if(count % 1000 == 0) {
+		if(current_time > -1) {
+			current_time--;
+		}
+	}
+	count++;
+
 }
