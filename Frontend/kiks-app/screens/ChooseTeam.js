@@ -211,7 +211,7 @@ export default function EnterGameCode({ navigation, route }) {
           
         }}
       >
-         Please enter your team name  {'\n'}            and create a team.  
+         Please enter your team name  {'\n'}            to create a team.  
          </Text>
          <SafeAreaView>
          <TextInput

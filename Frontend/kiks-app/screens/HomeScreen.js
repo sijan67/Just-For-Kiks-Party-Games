@@ -19,6 +19,7 @@ const LeftContentOrdering = props => <Avatar.Icon style={styles.icon_style} {...
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import TriviaScreen from './TriviaScreen'
 import MathScreen from './MathScreen'
+import ScoreScreen from './ScoreScreen'
 import NumberOrderingScreen from './NumberOrderingScreen'
 import NumberOrderingScreen2 from './NumberOrderingScreen2'
 import NumberOrderingScreen3 from './NumberOrderingScreen3'
@@ -44,8 +45,8 @@ function GameScreen({navigation, route}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/BBaFnKbM-Trivia-Day--702x336.gif' }} />
           <Card.Actions>
-          <Button onPress={() => navigation.navigate('TriviaScreen', { username: route.params.name })}>
-             Enter Game
+          <Button onPress={() => navigation.navigate('ScoreScreen', { username: route.params.name })}>
+             Choose This
           </Button>
           </Card.Actions>
         </Card>
@@ -57,8 +58,8 @@ function GameScreen({navigation, route}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
           <Card.Actions>
-          <Button onPress={() => navigation.navigate('MathScreen' , { username: route.params.name })}>
-            Enter Game
+          <Button onPress={() => navigation.navigate('ScoreScreen' , { username: route.params.name })}>
+          Choose This
           </Button>
           </Card.Actions>
         </Card>
@@ -71,7 +72,7 @@ function GameScreen({navigation, route}) {
           <Card.Cover source={{ uri: 'https://m.media-amazon.com/images/I/418Iix7JQ1L.png' }} />
           <Card.Actions>
           <Button onPress={() => navigation.navigate('NumberOrderingScreen')}>
-            Enter Game
+            Choose This
           </Button>
           </Card.Actions>
         </Card> */}
@@ -103,11 +104,11 @@ function GameScreen({navigation, route}) {
             initialParams={{ name: route.params.name }}
             
           />
-          <Stack.Screen options={{headerShown: false}} name="TriviaScreen" component={TriviaScreen} />
+          {/* <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} /> */}
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen" component={NumberOrderingScreen} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen2" component={NumberOrderingScreen2} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen3" component={NumberOrderingScreen3} />
-          <Stack.Screen options={{headerShown: false}} name="MathScreen" component={MathScreen} />
+          <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
     );
