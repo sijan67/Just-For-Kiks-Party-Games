@@ -14,7 +14,8 @@ export default function ScoreScreen({navigation, route}) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [recording, setRecording] = React.useState();
-    const AUDIO_BACKEND = "http://your-flask-ip:5000/audio";
+    // const AUDIO_BACKEND = "http://your-flask-ip:5000/audio";
+    const AUDIO_BACKEND = "http://128.189.217.199:4000/audio"
 
     // https://codesandbox.io/examples/package/react-score-indicator
     const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score
@@ -70,25 +71,24 @@ export default function ScoreScreen({navigation, route}) {
         const uri = recording.getURI();
         
         // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
-        
-        // try {
-        //   const response = await FileSystem.uploadAsync(
-        //     AUDIO_BACKEND,
-        //     uri
-        //   );
-        //   const body = JSON.parse(response.body);
-        //   setText(body.text);
-        // } catch (err) {
-        //   console.log(err);
-        // }
 
-        console.log('Recording stopped and stored at', uri , ' and sent to backend ');
+        try {
+          const response = await FileSystem.uploadAsync(
+            AUDIO_BACKEND,
+            uri
+          );
+          const body = JSON.parse(response.body);
+          console.log(body.text);
+        } catch (err) {
+          console.log(err);
+        }
+
+        console.log('Recording stopped and stored at', uri , ' and sent to backend.');
       }
 
 
-      // https://stackoverflow.com/questions/75367279/where-does-expo-av-recorded-file-store-in-mobile-phones
-      // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
-
+    // https://stackoverflow.com/questions/75367279/where-does-expo-av-recorded-file-store-in-mobile-phones
+    // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
 
     // TO DO: need to set team's score from API call 
     return (

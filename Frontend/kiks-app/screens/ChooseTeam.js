@@ -163,8 +163,8 @@ const styles = StyleSheet.create({
 
 // Predefined dictionary
 const predefinedTeams = {
-//   'Team A': 3,
-//   'Team B': 2,
+  // 'Team A': 3,
+  // 'Team B': 2,
 };
 
 export default function EnterGameCode({ navigation, route }) {
