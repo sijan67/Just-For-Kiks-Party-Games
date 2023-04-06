@@ -8,7 +8,7 @@ const { triviaHotWords, DeepSpeechModel } = require("../../ML/deepspeechmodel");
 
 // POST endpoint for receiving audio file
 router.post('/', async (req, res) => {
-    const { questionID, teamID } = req.body;
+    const { questionID, teamID, uri } = req.body;
   
     try {
       const question = await Question.findOne({ questionID }, "questionID description alternatives answer");
@@ -21,9 +21,9 @@ router.post('/', async (req, res) => {
       const deepspeech_model = new DeepSpeechModel();
       deepspeech_model.SetHotWords(triviaHotWords);
 
-      const filePath = path.join(__dirname, 'test_audio.wav');
+      // const filePath = path.join(__dirname, 'test_audio.wav');
   
-      const transcript = deepspeech_model.Translate(filePath, true).trim();
+      const transcript = deepspeech_model.Translate(uri, false).trim();
 
       if (transcript == "two") {
         const team = await Trivia.findOneAndUpdate({ teamID }, { $inc: { teamScore: 100 } }, { new: true });
