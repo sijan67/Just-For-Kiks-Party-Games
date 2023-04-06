@@ -44,29 +44,25 @@ router.get("/:teamID/", (req, res, next) => {
 });
 
 
-// GET a username from a team
+// GET a team from a username
 router.get("/:username/", async (req, res, next) => {
 
     const { username } = req.params;
   
-    User.find({ username }, "teamID").then(user=> {
-        if (user != null && user.length > 0) { 
-            const teamIDs = user.map(user => user.teamID);
-            Team.find({ teamID: { $in: teamIDs } }, "teamName teamScore teamSize").then(team => {
-                if (team !== null && team.length > 0) {
-                    res.write(JSON.stringify(team[0]));
-                }
-                else {
-                    res.write("No team found");
-                }
-                res.end();
-            });
-        } else {
-            res.write("No user found");
-            res.end();
+    User.find({ username }, "teamID").then(teamID=> {
+        if (teamID != null && teamID.length > 0) { 
+            Team.find({teamID}, "").then(team => {
+                if (team != null) {
+                    res.status(200).json(team);
+                } else {
+                    res.status(500).write("No team found.");
+                }});
+            }
+        else {
+            res.status(500).write("Error in retrieving team.");
         }
-    });
-})
+    })
+});
 
 // GET the game with the most votes
 router.get('/game', async (req, res) => {
