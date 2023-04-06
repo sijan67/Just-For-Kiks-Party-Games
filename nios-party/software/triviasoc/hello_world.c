@@ -31,7 +31,7 @@
 
 void write_data(char *function);
 void read_data(int text);
-void display_question();
+void display_roomcode();
 void display_new_question();
 void display_choices();
 void press_button();
@@ -40,6 +40,9 @@ void generate_question();
 static void timer_isr(void *context, alt_u32 id);
 void init_timer_interrupt();
 void question_countdown();
+void wait_for_start();
+void loading_screen();
+
 
 
 alt_up_rs232_dev *rs232_dev;
@@ -52,6 +55,8 @@ char dofile[] = "dofile(\"wifi_script.lua\")";
 char end = '\n';
 char get_question[] = "getQuestion(  )";
 char get_question_choices[] = "getQuestionChoices(  )";
+char get_roomcode[] = "getRoomCode()";
+char get_start[] = "getStart()";
 char output[512] = "Question 1:";
 char choices[512] = "";
 char question[512] = "";
@@ -80,7 +85,12 @@ alt_up_char_buffer_dev* char_buffer;
 int main() {
 	srand(time(0));
 	printf("TESTING\n");
-	display_question();
+	char_buffer = alt_up_char_buffer_open_dev("/dev/Char_Buffer");
+	if(char_buffer == NULL) {
+		printf("Failed to open Char buffer\n");
+	} else {
+		printf("Opened Char Buffer\n");
+	}
 	rs232_dev = alt_up_rs232_open_dev("/dev/WIFI_Serial_Port");
 
 	if(rs232_dev == NULL) {
@@ -88,6 +98,7 @@ int main() {
 	} else {
 		printf("Opened Wifi device\n");
 	}
+	loading_screen();
 	init_timer_interrupt();
 	alt_irq_disable(TIMER_IRQ);
 	alt_up_rs232_enable_read_interrupt(rs232_dev);
@@ -95,9 +106,10 @@ int main() {
 	usleep(15000000);
 	read_data(0);
 	usleep(5000000);
-	for(int k = 0; k < 10; k++) {
+	display_roomcode();
+	/*for(int k = 0; k < 10; k++) {
 		generate_question();
-	}
+	}*/
 	printf("\nDONE GET\n");
 
 	printf("CHOICES: %s", choices);
@@ -142,14 +154,24 @@ void read_data(int text) {
 	}
 }
 
-void display_question() {
-	char_buffer = alt_up_char_buffer_open_dev("/dev/Char_Buffer");
-	if(char_buffer == NULL) {
-		printf("Failed to open Char buffer\n");
-	} else {
-		printf("Opened Char Buffer\n");
-	}
+void loading_screen() {
+	alt_up_char_buffer_clear(char_buffer);
+	alt_up_char_buffer_string(char_buffer, "Loading...", 35, 30);
 
+}
+
+void display_roomcode() {
+	write_data(get_roomcode);
+	usleep(2000000);
+	read_data(0);
+	usleep(2000000);
+	char *token = strtok(output, delim);
+	token = strtok(NULL, delim);
+	removeChar(token, '†');
+	removeChar(token, '…');
+	removeChar(token, '\n');
+	removeChar(token, '\r');
+	printf("ROOMCODE: %s\n", token);
 	char border = 'X';
 	char *kiks = "Just for Kiks";
 	char *room_code = "Room Code:";
@@ -161,10 +183,9 @@ void display_question() {
 
 	alt_up_char_buffer_string(char_buffer, kiks, 33, 20);
 	alt_up_char_buffer_string(char_buffer, room_code, 35, 25);
+	alt_up_char_buffer_string(char_buffer, token, 38, 29);
 
-
-
-	printf("Displayed questioned\n");
+	printf("Displayed room code\n");
 }
 
 void display_new_question() {
@@ -212,11 +233,6 @@ void display_choices() {
 	removeChar(choice4, '\n');
 	removeChar(choice4, '\r');
 
-	/*printf("%s\n", choice1);
-	printf("%s\n", choice2);
-	printf("%s\n", choice3);
-	printf("%s\n", choice4);*/
-
 	int width = 40 - (strlen(choice1) / 2) - 4;
 
 	alt_up_char_buffer_string(char_buffer, choice1, width, 22);
@@ -228,26 +244,16 @@ void display_choices() {
 }
 
 void press_button() {
-	//int j = 0;
-	//while(j == 0) {
-		if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) {
-			printf("Button Pressed\n");
-			current_time = -1;
-			//write_data(check_wifi);
-			//usleep(5000000);
-			//read_data(1);
-		} else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) {
-			printf("Button 2 Pressed\n");
-			current_time = -1;
-			//write_data(check_wifi);
-			//usleep(5000000);
-			//read_data(1);
-		}
-	//}
+	if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) {
+		printf("Button Pressed\n");
+		current_time = -1;
+	} else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) {
+		printf("Button 2 Pressed\n");
+		current_time = -1;
+	}
 }
 
 void generate_question() {
-
 	int generate = 1;
 	question_grab = (rand() % 10) + 10;
 	if(used_questions[0] != -1) {
@@ -260,7 +266,6 @@ void generate_question() {
 					break;
 				}
 			}
-
 			if(generate != 1) {
 				break;
 			}
@@ -269,7 +274,11 @@ void generate_question() {
 	used_questions[used_question_index] = question_grab;
 	used_question_index++;
 
-
+	if(used_question_index % 2 == 0) {
+		question_grab = 19;
+	} else {
+		question_grab = 10;
+	}
 
 	get_question[13] = (question_grab % 10) + '0';
 	get_question[12] = (question_grab / 10) + '0';
@@ -282,14 +291,13 @@ void generate_question() {
 
 
 	write_data(get_question);
-	usleep(5000000);
+	usleep(3000000);
 	read_data(1);
-	usleep(5000000);
+	usleep(3000000);
 	write_data(get_question_choices);
-	usleep(5000000);
+	usleep(3000000);
 	read_data(2);
-	usleep(5000000);
-
+	usleep(3000000);
 
 	display_new_question();
 	display_choices();
@@ -322,6 +330,19 @@ void removeChar(char *str, char remove) {
 	}
 }
 
+void wait_for_start() {
+	while(1) {
+		write_data(get_start);
+		usleep(2000000);
+		read_data(0);
+		usleep(2000000);
+		char *token = strtok(output, delim);
+		if(strcmp(token, "START") == 0) {
+			break;
+		}
+	}
+}
+
 void init_timer_interrupt() {
 	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_BASE,
 			ALTERA_AVALON_TIMER_CONTROL_CONT_MSK |
@@ -340,5 +361,4 @@ static void timer_isr(void * context, alt_u32 id) {
 		}
 	}
 	count++;
-
 }
