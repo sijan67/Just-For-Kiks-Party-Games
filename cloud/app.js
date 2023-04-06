@@ -34,7 +34,7 @@ app.use('/questions', questionRoutes);
 app.use('/users', userRoutes);
 app.use('/teams', teamRoutes);
 app.use('/audio', audioRoute);
-app.use('/room', roomRoutes)
+app.use('/room', roomRoutes);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
