@@ -43,7 +43,7 @@ router.get("/:teamID/", (req, res, next) => {
     })  
 });
 
-// Get a username from a team
+// GET a username from a team
 router.get("/:username/", async (req, res, next) => {
     const { username } = req.params;
   
@@ -68,7 +68,7 @@ router.get("/:username/", async (req, res, next) => {
     }
 })
 
-// get the game with the most votes
+// GET the game with the most votes
 router.get('/game', async (req, res) => {
     try {
       const games = await Game.find({});
@@ -200,7 +200,7 @@ router.post('/team/room', async (req, res) => {
     }
 });
 
-// vote for games
+// POST a vote for games
 router.post('/:game', async (req, res) => {
     const { username,} = req.body;
     const game = req.params;
