@@ -43,8 +43,10 @@ router.get("/:teamID/", (req, res, next) => {
     })  
 });
 
-// Get a username from a team
-router.get("/:username/", (req, res, next) => {
+
+// GET a username from a team
+router.get("/:username/", async (req, res, next) => {
+
     const { username } = req.params;
   
     User.find({ username }, "teamID").then(user=> {
@@ -66,7 +68,40 @@ router.get("/:username/", (req, res, next) => {
     });
 })
 
-// get the game with the most votes
+// GET the game with the most votes
+router.get('/game', async (req, res) => {
+    try {
+      const games = await Game.find({});
+      if (!games || games.length === 0) {
+        return res.status(404).json({ error: 'No games found' });
+      }
+  
+      let triviaCount = 0;
+      let mathCount = 0;
+      games.forEach(game => {
+        if (game.game === 'Trivia') {
+            triviaCount++;
+        } else if (game.game === 'Math') {
+            mathCount++;
+        }
+      });
+  
+      let winningGame = '';
+      if (triviaCount > mathCount) {
+        winningGame = 'Trivia';
+      } else if (mathCount > triviaCount) {
+        winningGame = 'Math';
+      }
+  
+      return res.status(200).json({
+        winningGame
+      });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
 
 router.get('/game', (req, res) => {
     Game.find({}, 'game')
@@ -245,7 +280,7 @@ router.post('/team/room', async (req, res) => {
     }
 });
 
-// vote for games
+// POST a vote for games
 router.post('/:game', async (req, res) => {
     const { username,} = req.body;
     const game = req.params;

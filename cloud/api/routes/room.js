@@ -4,16 +4,33 @@ const mongoose = require("mongoose");
 
 const Room = require('../models/Room');
 
+const roomCode = "0000";
 
-router.get("/", (req, res, next) => {
-    Room.find({}, "roomCode").then(room => {
-        if (room !== null && room.length > 0) {
-            res.write(JSON.stringify(room[0]));
-        } else {
-            res.write("No users found");
-        }
-        res.end();
-    });
+// GET all rooms
+router.get('/', (req, res, next) => {
+    Room.find()
+        .then(room => {
+            res.status(200).json(room);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send("Internal server error");
+        });
 });
 
-router.get("/ready" , (req, res, next) => {
+// POST a new room
+router.post("/:roomCode", async (req, res, next) => {
+    const {username} = req.params;
+
+    const newRoom = new Room({
+        code : roomCode
+    });
+
+    await newRoom.save();
+
+    console.log(`A new room has been created with code ${roomCode}.`)
+    return res.status(200).json(roomCode)
+});
+
+module.exports = router;
+
