@@ -44,99 +44,144 @@ router.get("/:teamID/", (req, res, next) => {
 });
 
 // Get a username from a team
-router.get("/:username/", async (req, res, next) => {
+router.get("/:username/", (req, res, next) => {
     const { username } = req.params;
   
-    try {
-      const user = await User.find({ username });
-      if (!user) {
-        return res.status(404).json({ error: "User not found" });
-      }
-  
-      const team = await Team.find({ teamID: user.teamID });
-      if (!team) {
-        return res.status(404).json({ error: "Team not found" });
-      }
-  
-      const { teamName, roomCode, teamScore } = team;
-      const teamData = { teamname: teamName, teamscore: teamScore, roomcode: roomCode };
-  
-      return res.status(200).json(teamData);
-    } catch (err) {
-      console.error(err);
-      return res.status(500).json({ error: "Internal server error" });
-    }
+    User.find({ username }, "teamID").then(user=> {
+        if (user != null && user.length > 0) { 
+            const teamIDs = user.map(user => user.teamID);
+            Team.find({ teamID: { $in: teamIDs } }, "teamName teamScore teamSize").then(team => {
+                if (team !== null && team.length > 0) {
+                    res.write(JSON.stringify(team[0]));
+                }
+                else {
+                    res.write("No team found");
+                }
+                res.end();
+            });
+        } else {
+            res.write("No user found");
+            res.end();
+        }
+    });
 })
 
 // get the game with the most votes
-router.get('/game', async (req, res) => {
-    try {
-      const games = await Game.find({});
-      if (!games || games.length === 0) {
-        return res.status(404).json({ error: 'No games found' });
-      }
-  
-      let triviaCount = 0;
-      let mathCount = 0;
-      games.forEach(game => {
-        if (game.game === 'Trivia') {
-            triviaCount++;
-        } else if (game.game === 'Math') {
-            mathCount++;
-        }
-      });
-  
-      let winningGame = '';
-      if (triviaCount > mathCount) {
-        winningGame = 'Trivia';
-      } else if (mathCount > triviaCount) {
-        winningGame = 'Math';
-      }
-  
-      return res.status(200).json({
-        winningGame
-      });
-    } catch (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Internal server error' });
-    }
-  });
 
+router.get('/game', (req, res) => {
+    Game.find({}, 'game')
+      .then(games => {
+        if (games === null || games.length === 0) {
+          return res.status(404).json({ error: 'No games found' });
+        }
+  
+        const voteCounts = {
+          Trivia: 0,
+          Math: 0
+        };
+  
+        games.forEach(game => {
+          if (game.game === 'Trivia') {
+            voteCounts.Trivia++;
+          } else if (game.game === 'Math') {
+            voteCounts.Math++;
+          }
+        });
+  
+        const winningGame = Object.keys(voteCounts).reduce((a, b) => {
+          return voteCounts[a] > voteCounts[b] ? a : b;
+        });
+  
+        return res.status(200).json({
+          winningGame: winningGame,
+          score: 0,
+          status: 'voting'
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+    );
+});
+
+// get the accumulated score of a game
+router.get('/game/score', (req, res) => {
+    Team.find({}, 'teamScore')
+        .then(score => {
+            if (score === null || score.length === 0) {
+                return res.status(404).json({ error: 'No games yet' });
+            }
+            let totalScore = 0; 
+            let gameStatus = 'In game';
+            score.forEach(score => {
+                totalScore += score.teamScore;
+            });
+            if (totalScore >= 100) {
+                gameStatus = 'Game over';
+            } else {
+                gameStatus = 'In game';
+            }
+            return res.status(200).json({
+                totalScore: totalScore,
+                status: gameStatus
+            });
+        }
+    )  
+});
 
 /* UPDATE Operations */
 
 // join new team
-router.put("/:username", async (req, res, next) => {
+router.put("/:username", (req, res, next) => {
     const {username, teamname} = req.body;
-    try{
+    
+    User.find({username}, "username").then(user => {
+        if (user === null || user.length === 0) {
+            return res.status(404).json({ error: 'User not found' });
+        } else {
+            Team.find({teamname}, "teamID").then(team => {
+                if (team === null || team.length === 0) {
+                    return res.status(404).json({ error: 'Team not found' });
+                } else {
+                    user.teamID = team.teamID;
+                    user.save();
+                    team.teamSize++;
+                    team.save();
+                    return res.status(200).json({ message: 'Team updated successfully' });
+                }
+            }
+        )}
+    })
+    
+    // try{
 
-        const user = await User.find({ username });
-        if (!user) {
-          return res.status(404).json({ error: 'User not found' });
-        }
+    //     const user = await User.find({ username });
+    //     if (!user) {
+    //       return res.status(404).json({ error: 'User not found' });
+    //     }
     
-        const team = await Team.find({ teamname });
-        if (!team) {
-          return res.status(404).json({ error: 'Team not found' });
-        }
+    //     const team = await Team.find({ teamname });
+    //     if (!team) {
+    //       return res.status(404).json({ error: 'Team not found' });
+    //     }
     
-        user.teamID = team.teamID;
-        await user.save();
+    //     user.teamID = team.teamID;
+    //     await user.save();
     
-        team.teamSize++;
-        await team.save();
+    //     team.teamSize++;
+    //     await team.save();
     
-        return res.status(200).json({ message: 'Team updated successfully' });
+    //     return res.status(200).json({ message: 'Team updated successfully' });
     
-    } catch (err) {
-        console.error(err);
-        return res.status(500).json({ error: 'Internal server error' });
-    }
+    // } catch (err) {
+    //     console.error(err);
+    //     return res.status(500).json({ error: 'Internal server error' });
+    // }
 });
 
 
 /* POST Operations */
-
 
 // POST a new team
 router.post("/:username", async (req, res, next) => {
@@ -204,7 +249,7 @@ router.post('/team/room', async (req, res) => {
 router.post('/:game', async (req, res) => {
     const { username,} = req.body;
     const game = req.params;
-  
+
     try {
       const user = await User.find({ username });
       if (!user) {
@@ -220,6 +265,7 @@ router.post('/:game', async (req, res) => {
         username: username,
         teamID: user.teamID,
         game: game,
+        status: 'voting'
       });
   
       await gameRecord.save();
@@ -229,10 +275,40 @@ router.post('/:game', async (req, res) => {
       console.error(err);
       return res.status(500).json({ error: 'Internal server error' });
     }
-  });
+});
 
+// post to return to lobby or restart the game
+router.post('game/:restart', async (req, res) => {
+    const {restart} = req.params;
 
-
+    if (restart === 'restart') {
+        // Delete the team score and accumulated score but don't delete the team and user
+        try {
+            await Game.deleteMany({}); // Delete all game records
+            await User.updateMany({}, { $unset: { roomCode: "" } }); // Remove the roomCode field from all user records
+            await Team.updateMany({}, { $set: { teamScore: 0 } }); // Set the teamScore field to 0 for all team records
+            return res.status(200).json({ message: 'Game restarted successfully' });
+        } catch (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Delete everything including the team and user
+        try {
+            const users = await User.find({});
+            const teamIDs = users.map(user => user.teamID);
+            await User.deleteMany({});
+            await Team.deleteMany({ teamID: { $in: teamIDs } });
+            await Game.deleteMany({});
+            return res.status(200).json({ message: 'Game ended successfully' });
+        } catch (err) {
+            console.error(err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    }
+});
+    
+  
 /* DELETE Operations */
 
 // DELETE one team
@@ -259,7 +335,4 @@ router.delete('/', async (req, res, next) => {
 });
 
 
-
-  
-
-  module.exports = router;
+module.exports = router;
