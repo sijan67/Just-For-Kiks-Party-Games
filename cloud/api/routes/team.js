@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const Team = require('../models/Team');
 const User = require('../models/User');
+const Game = require('../models/Game');
+const Room = require('../models/Room');
 
 function getNextId() {
     return Team.find().sort({ teamID: -1 }).limit(1).then(result => {
@@ -41,173 +43,17 @@ router.get("/:teamID/", (req, res, next) => {
     })  
 });
 
-
-/* POST Operations */
-
-
-// POST a new team
-router.post("/:username", async (req, res, next) => {
-    const {username} = req.params.username;
-    const { teamName } = req.body;
-
-    const teams = await Team.find()
-    
-    if (teams.length === 0) {
-
-        getNextId().then(id => {
-            const newTeam = new Team({
-            teamID: id,
-            teamName: `${username}'s team`,
-            teamScore: 0,
-            teamSize: 1,
-        });
-        newTeam.save().then(result => {
-            res.status(201).json(result);
-        }).catch(err => {
-            console.error(err);
-            res.status(500).send("Internal server error");
-        });
-        }).catch(err => {
-            console.error(err);
-            res.status(500).send("Internal server error");
-        });
-    
-        const newUser = new User({
-          username: username,
-          teamID: newTeam.teamID,
-          roomCode: 0000
-        })
-        newUser.save().then(result => {
-            res.status(201).json(result);
-        }).catch(err => {
-            console.error(err);
-            res.status(500).send("Internal server error");
-        });
-      
-    
-        console.log(`${username} has created a new team.`)
-        return res.status(200).json({ message: `${username} has created a new team.` })
-    }
-
-    if (teams.length == 1) {
-        const choice = req.body.choice;
-        if (choice === 'create') {
-            getNextId().then(id => {
-                const newTeam = new Team({
-                teamID: id,
-                teamName: `${username}'s team`,
-                teamScore: 0,
-                teamSize: 1,
-            });
-            newTeam.save().then(result => {
-                res.status(201).json(result);
-            }).catch(err => {
-                console.error(err);
-                res.status(500).send("Internal server error");
-            });
-            }).catch(err => {
-                console.error(err);
-                res.status(500).send("Internal server error");
-            });
-        
-            const newUser = new User({
-            username: username,
-            teamID: newTeam.teamID,
-            roomCode: 0000
-            })
-            newUser.save().then(result => {
-                res.status(201).json(result);
-            }).catch(err => {
-                console.error(err);
-                res.status(500).send("Internal server error");
-            });
-        
-        
-            console.log(`${username} has created a new team.`)
-            return res.status(200).json({ message: `${username} has created a new team.` })
-        } else if (choice === 'join') {
-            const team = teams[0];
-            team.teamSize ++;
-            Team.updateOne({ teamID: team.teamID }, { $set: { teamSize: team.teamSize } });
-
-            const newUser = new User({
-                username: username,
-                teamID: newTeam.teamID,
-                roomCode: 0000
-            })
-            newUser.save().then(result => {
-                res.status(201).json(result);
-            }).catch(err => {
-                console.error(err);
-                res.status(500).send("Internal server error");
-            });
-
-            console.log(`${username} has joined ${team.teamName}.`)
-            return res.status(200).json({ message: `${username} has joined ${team.teamName}.` })
-        } else {
-            return res.status(400).json({ error: 'Invalid choice.' })
-        }
-    }
-
-    if (teams.length == 2) {
-        const choice = req.body;
-
-        const team1 = teams[0]
-        const team2 = teams[1]
-
-        if (choice === team1.teamName) {
-            team1.teamSize++
-            await Team.updateOne({ teamID: team1.teamID }, { $set: { teamSize: team1.teamSize, members: team1.members } })
-
-            const newUser = new User({
-                username: playerName,
-                teamID: team1.teamID,
-                roomCode: 0000,
-            })
-            newUser.save().then(result => {
-                res.status(201).json(result);
-            }).catch(err => {
-                console.error(err);
-                res.status(500).send("Internal server error");
-            });
-
-            console.log(`${username} has joined ${team1.teamName}.`)
-            return res.status(200).json({ message: `${username} has joined ${team1.teamName}.` })
-        } else if (choice === team2.teamName) {
-            team2.teamSize++
-            await Team.updateOne({ teamID: team2.teamID }, { $set: { teamSize: team2.teamSize, members: team2.members } })
-
-            const newUser = new User({
-                username: playerName,
-                teamID: team2.teamID,
-                roomCode: 0000,
-            })
-            newUser.save().then(result => {
-                res.status(201).json(result);
-            }).catch(err => {
-                console.error(err);
-                res.status(500).send("Internal server error");
-            });
-
-            console.log(`${username} has joined ${team2.teamName}.`)
-            return res.status(200).json({ message: `${username} has joined ${team2.teamName}.` })
-        } else {
-            return res.status(400).json({ error: 'Invalid choice.' })
-        }
-    }
-});
-
 // Get a username from a team
 router.get("/:username/", async (req, res, next) => {
     const { username } = req.params;
   
     try {
-      const user = await User.findOne({ username });
+      const user = await User.find({ username });
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
   
-      const team = await Team.findOne({ teamID: user.teamID });
+      const team = await Team.find({ teamID: user.teamID });
       if (!team) {
         return res.status(404).json({ error: "Team not found" });
       }
@@ -220,7 +66,171 @@ router.get("/:username/", async (req, res, next) => {
       console.error(err);
       return res.status(500).json({ error: "Internal server error" });
     }
+})
+
+// get the game with the most votes
+router.get('/game', async (req, res) => {
+    try {
+      const games = await Game.find({});
+      if (!games || games.length === 0) {
+        return res.status(404).json({ error: 'No games found' });
+      }
+  
+      let triviaCount = 0;
+      let mathCount = 0;
+      games.forEach(game => {
+        if (game.game === 'Trivia') {
+            triviaCount++;
+        } else if (game.game === 'Math') {
+            mathCount++;
+        }
+      });
+  
+      let winningGame = '';
+      if (triviaCount > mathCount) {
+        winningGame = 'Trivia';
+      } else if (mathCount > triviaCount) {
+        winningGame = 'Math';
+      }
+  
+      return res.status(200).json({
+        winningGame
+      });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
   });
+
+
+/* UPDATE Operations */
+
+// join new team
+router.put("/:username", async (req, res, next) => {
+    const {username, teamname} = req.body;
+    try{
+
+        const user = await User.find({ username });
+        if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+        }
+    
+        const team = await Team.find({ teamname });
+        if (!team) {
+          return res.status(404).json({ error: 'Team not found' });
+        }
+    
+        user.teamID = team.teamID;
+        await user.save();
+    
+        team.teamSize++;
+        await team.save();
+    
+        return res.status(200).json({ message: 'Team updated successfully' });
+    
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+/* POST Operations */
+
+
+// POST a new team
+router.post("/:username", async (req, res, next) => {
+    const {username} = req.params;
+
+    const newTeam = new Team({
+        teamID: await getNextId(),
+        teamName: `${username}'s team`,
+        teamScore: 0,
+        teamSize: 1,
+    });
+
+    await newTeam.save();
+
+    const newUser = new User({
+        username: username,
+        teamID: newTeam.teamID,
+        roomCode: 0000,
+    });
+
+    await newUser.save();
+
+    console.log(`${username} has created a new team.`)
+    return res.status(200).json({ message: `${username} has created a new team.` })
+    }
+);
+
+
+// POST to join a room
+router.post('/team/room', async (req, res) => {
+    try {
+      const { username, roomCode } = req.body;
+  
+      // Check if room exists
+      const room = await Room.find({ code: roomCode });
+      if (!room) {
+        return res.status(400).json({ success: false, message: 'Room not found.' });
+      }
+  
+      // Check if user already exists in the room
+      const existingUser = await User.find({ username, room: room._id });
+      if (existingUser) {
+        return res.status(400).json({ success: false, message: 'User already in the room.' });
+      }
+  
+      // Update the user's room
+      const updatedUser = await User.findOneAndUpdate(
+        { username },
+        { $set: { room: room._id } },
+        { new: true }
+      );
+  
+      if (!updatedUser) {
+        return res.status(400).json({ success: false, message: 'User not found.' });
+      }
+  
+      return res.status(200).json({ success: true, message: 'User successfully joined the room.' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ success: false, message: 'Internal server error.' });
+    }
+});
+
+// vote for games
+router.post('/:game', async (req, res) => {
+    const { username,} = req.body;
+    const game = req.params;
+  
+    try {
+      const user = await User.find({ username });
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      const team = await Team.find({ teamID: user.teamID });
+      if (!team) {
+        return res.status(404).json({ error: 'Team not found' });
+      }
+  
+      const gameRecord = new Game({
+        username: username,
+        teamID: user.teamID,
+        game: game,
+      });
+  
+      await gameRecord.save();
+  
+      return res.status(200).json({ message: 'Game vote recorded successfully' });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
 
 
 /* DELETE Operations */
@@ -248,4 +258,8 @@ router.delete('/', async (req, res, next) => {
     }
 });
 
-module.exports = router;
+
+
+  
+
+  module.exports = router;
