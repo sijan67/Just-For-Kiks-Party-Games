@@ -32,6 +32,7 @@ router.get('/:username/', (req, res) => {
     });
 });
 
+
 // GET a user's team from username
 router.get("/:username/team", (req, res, next) => {
     const { username } = req.params;

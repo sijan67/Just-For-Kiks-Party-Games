@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const questionRoutes = require("./api/routes/question");
 const userRoutes = require("./api/routes/user");
-const teamRoutes = require("./api/routes/teams");
+const teamRoutes = require("./api/routes/team");
 const audioRoute = require("./api/routes/audio");
 const roomRoutes = require("./api/routes/room");
 
@@ -35,7 +35,6 @@ app.use('/users', userRoutes);
 app.use('/teams', teamRoutes);
 app.use('/audio', audioRoute);
 app.use('/room', roomRoutes);
-
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
