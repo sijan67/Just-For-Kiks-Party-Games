@@ -45,6 +45,7 @@ router.get("/:teamID/", (req, res, next) => {
 
 
 // GET a team from a username
+
 router.get('/username/:username', async (req, res) => {
     // const { username } = req.params;
   
@@ -110,7 +111,25 @@ router.get('/username/:username', async (req, res) => {
       return res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+router.get("/:username/", async (req, res, next) => {
+
+    const { username } = req.params;
   
+    User.find({ username }, "teamID").then(teamID=> {
+        if (teamID != null && teamID.length > 0) { 
+            Team.find({teamID}, "").then(team => {
+                if (team != null) {
+                    res.status(200).json(team);
+                } else {
+                    res.status(500).write("No team found.");
+                }});
+            }
+        else {
+            res.status(500).write("Error in retrieving team.");
+        }
+    })
+});
 
 // GET the game with the most votes
 router.get('/game/votes', async (req, res) => {

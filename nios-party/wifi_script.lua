@@ -15,7 +15,7 @@ wifi.sta.autoconnect(1)
 
 HOST = "http://50.112.215.42/"
 
-function getQuestionReq(url, callback)
+function getReq(url, callback)
 	http.get(url, nil, function(code, data)
 		if(code == 200) then
 			callback(data)
@@ -25,23 +25,11 @@ function getQuestionReq(url, callback)
 	end)
 end
 
-function getQuestionChoicesReq(url, callback)
-    http.get(url, nil, function(code, data)
-        if(code == 200) then
-            callback(data)
-        else
-            print("HTTP request failed")
-        end
-    end)
-end
 
-function sendAnswer(url, teamNum, questionNum, callback)
+function sendAnswerReq(url, teamNum, questionNum, callback)
     print(url)
     local data = {teamID=teamNum, questionID=questionNum}
-    --print(data)
     local postData = sjson.encode(data)
-    --local postData = "teamID=" .. tostring(teamNum) .. "&questionID=" .. tostring(questionNum)
-	--print(type(tostring(teamNum)))
 	http.post(url, 
 	'Content-Type: application/json\r\n',
 	postData, function(code, body)
@@ -53,59 +41,8 @@ function sendAnswer(url, teamNum, questionNum, callback)
 	end)    
 end
 
-function check_wifi()
-    ip = wifi.sta.getip()
-    if(ip==nil) then
-        print(ip)
-    else
-        print("Connected!")
-        print(ip)
-        sendAnswer(HOST .. "audio/", 1, 2, function(response)
-            print(response)
-        end)
-    end
-end
-
-
-function check_wifi_get()
-	ip = wifi.sta.getip()
-
-	if(ip==nil) then
-		print(ip)
-	else
-		--print("Connected!")
-		--print(ip)
-        getQuestionReq(HOST .. "questions/1", function(response)
-            --print(response)
-            local array = {}
-            for split in response:gmatch('"([^"]+)"') do
-                table.insert(array, split)
-            end
-            print("@")
-            --[[
-            5: question
-            12,14: A, answer
-            18,20: B, answer
-            24,26: C, answer
-            30,32: D, answer
-            ]]--
-            print(array[5])
-            s = splitByChunk(array[5])
-            for i,v in pairs(s) do
-                --print(i)
-                print(v)
-            end
-            print("A: " .. array[14])
-            print("B: " .. array[20])
-            print("C: " .. array[26])
-            print("D: " .. array[32])
-            print("@")
-        end)
-	end
-end
-
 function getQuestion(number)
-    getQuestionReq(HOST .. "questions/" .. number, function(response)
+    getReq(HOST .. "questions/" .. number, function(response)
         --print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
@@ -122,7 +59,7 @@ function getQuestion(number)
 end
 
 function getQuestionChoices(number)
-    getQuestionReq(HOST .. "questions/" .. number, function(response)
+    getReq(HOST .. "questions/" .. number, function(response)
         --print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
@@ -139,19 +76,32 @@ function getQuestionChoices(number)
         for i,v in pairs(s) do
             print(v)
         end
-        
-       
         print("@")
     end)
-    
 end
 
-function open_audio()
-    file.open("mki0a-u7uo1.wav", "r")
-    local fileSize = file.seek("end")
-    file.seek("set",0)
-    local buffer = file.read(fileSize)
-    return buffer
+function getRoomCode()
+    getReq(HOST .. "room/main", function(response)
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+        print("@")
+        print(array[1])
+        print("@")
+    end)
+end
+
+function getStart()
+    getReq(HOST .. "", function(response)
+        print(response)
+    end)
+end
+
+function sendAnswer()
+    sendAnswerReq(HOST .. "audio/", 1, 2, function(response)
+        print(response)
+    end)
 end
 
 function splitByChunk(text)
@@ -160,6 +110,16 @@ function splitByChunk(text)
         s[#s+1] = text:sub(i, i+13)
     end
     return s
+end
+
+function check_wifi()
+    ip = wifi.sta.getip()
+    if(ip==nil) then
+        print(ip)
+    else
+        print("Connected!")
+        print(ip)
+    end
 end
 
    
