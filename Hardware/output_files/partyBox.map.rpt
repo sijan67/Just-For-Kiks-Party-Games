@@ -1,5 +1,5 @@
 Analysis & Synthesis report for partyBox
-Thu Mar 30 09:33:09 2023
+Sat Apr 08 13:57:23 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -58,7 +58,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Mar 30 09:33:09 2023       ;
+; Analysis & Synthesis Status     ; Successful - Sat Apr 08 13:57:23 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
@@ -260,12 +260,12 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Estimate of Logic utilization (ALMs needed) ; 592            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 429            ;
+; Combinational ALUT usage for logic          ; 430            ;
 ;     -- 7 input functions                    ; 0              ;
 ;     -- 6 input functions                    ; 85             ;
 ;     -- 5 input functions                    ; 111            ;
 ;     -- 4 input functions                    ; 43             ;
-;     -- <=3 input functions                  ; 190            ;
+;     -- <=3 input functions                  ; 191            ;
 ;                                             ;                ;
 ; Dedicated logic registers                   ; 1082           ;
 ;                                             ;                ;
@@ -280,7 +280,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 588            ;
-; Total fan-out                               ; 6193           ;
+; Total fan-out                               ; 6194           ;
 ; Average fan-out                             ; 3.37           ;
 +---------------------------------------------+----------------+
 
@@ -290,7 +290,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                  ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |partyBox                                                                                                                               ; 429 (1)             ; 1082 (1)                  ; 6912              ; 0          ; 132  ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
+; |partyBox                                                                                                                               ; 430 (2)             ; 1082 (1)                  ; 6912              ; 0          ; 132  ; 0            ; |partyBox                                                                                                                                                                                                                                                                                                                                            ; partyBox                          ; work         ;
 ;    |sld_hub:auto_hub|                                                                                                                   ; 91 (1)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
 ;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
 ;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 90 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |partyBox|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
@@ -906,12 +906,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 9                           ;
 ;     SCLR              ; 20                          ;
 ;     plain             ; 31                          ;
-; arriav_lcell_comb     ; 65                          ;
+; arriav_lcell_comb     ; 66                          ;
 ;     arith             ; 39                          ;
 ;         1 data inputs ; 39                          ;
-;     normal            ; 26                          ;
+;     normal            ; 27                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
+;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 3                           ;
 ;         3 data inputs ; 2                           ;
 ;         4 data inputs ; 4                           ;
@@ -921,7 +921,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; generic_pll           ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.44                        ;
+; Average LUT depth     ; 1.45                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1089,7 +1089,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Mar 30 09:32:35 2023
+    Info: Processing started: Sat Apr 08 13:56:47 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off partyBox -c partyBox
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1196,7 +1196,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr
     Info (12023): Found entity 1: cmpr_99c File: C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/Hardware/db/cmpr_99c.tdf Line: 22
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2023.03.30.09:32:57 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2023.04.08.13:57:10 Progress: Loading sld76ff8c70/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -1950,9 +1950,9 @@ Info (21057): Implemented 1437 device resources after synthesis - the final reso
     Info (21064): Implemented 54 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 723 warnings
-    Info: Peak virtual memory: 4920 megabytes
-    Info: Processing ended: Thu Mar 30 09:33:09 2023
-    Info: Elapsed time: 00:00:34
-    Info: Total CPU time (on all processors): 00:01:03
+    Info: Peak virtual memory: 4923 megabytes
+    Info: Processing ended: Sat Apr 08 13:57:23 2023
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:53
 
 

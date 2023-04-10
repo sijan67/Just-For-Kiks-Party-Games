@@ -42,8 +42,7 @@ void init_timer_interrupt();
 void question_countdown();
 void wait_for_start();
 void loading_screen();
-
-
+int check_game_status();
 
 alt_up_rs232_dev *rs232_dev;
 //variable to hold data received from uart
@@ -56,7 +55,11 @@ char end = '\n';
 char get_question[] = "getQuestion(  )";
 char get_question_choices[] = "getQuestionChoices(  )";
 char get_roomcode[] = "getRoomCode()";
-char get_start[] = "getStart()";
+char get_start[] = "getStart('    ')";
+char post_buzzer[] = "sendBuzzer( ,  )";
+char get_winner[] = "getWinner()";
+char get_question_status[] = "getNextQState()";
+char get_game_mode[] = "getGameMode()";
 char output[512] = "Question 1:";
 char choices[512] = "";
 char question[512] = "";
@@ -65,14 +68,17 @@ int question_grab = 1;
 int count = 0;
 int current_time = 0;
 char display_time[1] = "0";
+char *roomCode = "";
 
 char current_question[20] = "Question   :";
 
 char *delim = "@";
+char *gameMode;
+int question_increment = 10;
 int used_questions[50] = {-1};
 int used_question_index = 0;
-
-
+int button_pressed = 0;
+int times_pressed = 0;
 
 alt_u32 write_FIFO_space;
 alt_u16 read_FIFO_used;
@@ -107,9 +113,22 @@ int main() {
 	read_data(0);
 	usleep(5000000);
 	display_roomcode();
-	/*for(int k = 0; k < 10; k++) {
+	wait_for_start();
+
+	for(int k = 0; k < 10; k++) {
 		generate_question();
+	}
+
+	/*int status = 1;
+	int k = 0;
+	while(status) {
+		generate_question();
+		if(k > 9) {
+			status = check_game_status;
+		}
 	}*/
+
+
 	printf("\nDONE GET\n");
 
 	printf("CHOICES: %s", choices);
@@ -162,9 +181,9 @@ void loading_screen() {
 
 void display_roomcode() {
 	write_data(get_roomcode);
-	usleep(2000000);
+	usleep(3000000);
 	read_data(0);
-	usleep(2000000);
+	usleep(3000000);
 	char *token = strtok(output, delim);
 	token = strtok(NULL, delim);
 	removeChar(token, '†');
@@ -172,6 +191,7 @@ void display_roomcode() {
 	removeChar(token, '\n');
 	removeChar(token, '\r');
 	printf("ROOMCODE: %s\n", token);
+	roomCode = token;
 	char border = 'X';
 	char *kiks = "Just for Kiks";
 	char *room_code = "Room Code:";
@@ -244,12 +264,55 @@ void display_choices() {
 }
 
 void press_button() {
-	if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) {
+	if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) &
+			(button_pressed != 1) &
+			(times_pressed < 2)) {
 		printf("Button Pressed\n");
-		current_time = -1;
-	} else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) {
+		button_pressed = 1;
+		times_pressed++;
+		//alt_irq_disable(TIMER_IRQ);
+		//current_time = -1;
+		post_buzzer[11] = 1 + '0';
+		post_buzzer[14] = (question_grab % 10) + '0';
+		post_buzzer[13] = (question_grab / 10) + '0';
+		write_data(post_buzzer);
+		usleep(3000000);
+		read_data(0);
+		usleep(3000000);
+		/*while(1) {
+			write_data(get_question_status);
+			usleep(2000000);
+			read_data(0);
+			usleep(2000000);
+			if() {
+				break;
+			}
+		}*/
+
+	} else if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) &
+			(button_pressed != 2) &
+			(times_pressed < 2)) {
 		printf("Button 2 Pressed\n");
-		current_time = -1;
+		button_pressed = 2;
+		times_pressed++;
+		//alt_irq_disable(TIMER_IRQ);
+		//current_time = -1;
+		post_buzzer[11] = 2 + '0';
+		post_buzzer[14] = (question_grab % 10) + '0';
+		post_buzzer[13] = (question_grab / 10) + '0';
+		write_data(post_buzzer);
+		usleep(3000000);
+		read_data(0);
+		usleep(3000000);
+		/*while(1) {
+			write_data(get_question_status);
+			usleep(2000000);
+			read_data(0);
+			usleep(2000000);
+			if() {
+				break;
+			}
+		}*/
 	}
 }
 
@@ -274,12 +337,7 @@ void generate_question() {
 	used_questions[used_question_index] = question_grab;
 	used_question_index++;
 
-	if(used_question_index % 2 == 0) {
-		question_grab = 19;
-	} else {
-		question_grab = 10;
-	}
-
+	//question_grab = 29;
 	get_question[13] = (question_grab % 10) + '0';
 	get_question[12] = (question_grab / 10) + '0';
 	get_question_choices[20] = (question_grab % 10) + '0';
@@ -313,6 +371,9 @@ void question_countdown() {
 		display_time[0] = current_time + '0';
 		alt_up_char_buffer_string(char_buffer, display_time, 40, 40);
 	}
+	alt_up_char_buffer_string(char_buffer, "Grabbing Next Question...", 28, 50);
+	button_pressed = 0;
+	times_pressed = 0;
 	alt_irq_disable(TIMER_IRQ);
 }
 
@@ -332,15 +393,60 @@ void removeChar(char *str, char remove) {
 
 void wait_for_start() {
 	while(1) {
+		get_start[10] = roomCode[0];
+		get_start[11] = roomCode[1];
+		get_start[12] = roomCode[2];
+		get_start[13] = roomCode[3];
 		write_data(get_start);
-		usleep(2000000);
+		usleep(3000000);
 		read_data(0);
-		usleep(2000000);
+		usleep(3000000);
 		char *token = strtok(output, delim);
-		if(strcmp(token, "START") == 0) {
+		printf("START\n");
+		//printf("%s\n", token);
+		token = strtok(NULL, delim);
+		removeChar(token, '†');
+		removeChar(token, '…');
+		removeChar(token, '\n');
+		removeChar(token, '\r');
+		printf("%s\n", token);
+		if(strcmp(token, "true") == 0) {
 			break;
 		}
 	}
+
+	alt_up_char_buffer_clear(char_buffer);
+	alt_up_char_buffer_string(char_buffer, "Grabbing Questions...", 30, 30);
+
+
+	write_data(get_game_mode);
+	usleep(3000000);
+	read_data(0);
+	usleep(3000000);
+	char *token = strtok(output, delim);
+	gameMode = strtok(NULL, delim);
+	removeChar(gameMode, '†');
+	removeChar(gameMode, '…');
+	removeChar(gameMode, '\n');
+	removeChar(gameMode, '\r');
+	printf("%s\n", gameMode);
+	if(strcmp(gameMode, "Trivia") == 0) {
+		question_increment = 10;
+	} else if(strcmp(gameMode, "Math") == 0) {
+		question_increment = 40;
+	}
+}
+
+int check_game_status() {
+	write_data(get_winner);
+	usleep(2000000);
+	read_data(0);
+	usleep(2000000);
+
+	// Check status and return 0 or 1 to continue game
+
+	return 1;
+
 }
 
 void init_timer_interrupt() {
@@ -355,6 +461,7 @@ void init_timer_interrupt() {
 static void timer_isr(void * context, alt_u32 id) {
 	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_BASE, 0);
 	press_button();
+	//printf("%d\n", count);
 	if(count % 1000 == 0) {
 		if(current_time > -1) {
 			current_time--;

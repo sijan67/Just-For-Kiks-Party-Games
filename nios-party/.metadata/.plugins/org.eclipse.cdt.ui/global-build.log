@@ -8759,3 +8759,1643 @@ Info: Building ../triviasoc_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
 [BSP build complete]
 [triviasoc build complete]
+13:50:13 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:217:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+13:50:23 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:50:40 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+13:51:27 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+13:51:30 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:51:32 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+13:52:56 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+13:52:59 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:53:00 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+13:53:21 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+13:53:24 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:53:26 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+13:54:37 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+13:54:39 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:54:41 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:01:28 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:01:31 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:01:33 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:03:02 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:03:05 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:03:06 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:12:28 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:12:31 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:12:32 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:13:30 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:218:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:13:32 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:13:34 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:17:28 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:18:01 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:18:02 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:18:04 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:29:50 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:30:25 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:30:54 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:31:38 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:33:06 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+10:51:16 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:179:11: error: assignment to expression with array type
+  roomCode = token;
+           ^
+hello_world.c: In function 'display_choices':
+hello_world.c:220:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+make: *** [obj/default/hello_world.o] Error 1
+10:51:35 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:220:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+10:51:42 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+10:51:58 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+10:52:34 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+11:38:28 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: At top level:
+hello_world.c:394:5: error: conflicting types for 'check_game_status'
+ int check_game_status() {
+     ^
+hello_world.c:45:6: note: previous declaration of 'check_game_status' was here
+ void check_game_status();
+      ^
+make: *** [obj/default/hello_world.o] Error 1
+11:39:02 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+11:39:05 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+11:39:12 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+11:42:13 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+11:42:15 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+11:42:18 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+11:49:11 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+11:49:12 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+11:49:15 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+11:54:04 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+11:57:02 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:01:39 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:01:41 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:01:43 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:02:13 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:02:45 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:02:48 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:02:52 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:11:11 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:15:29 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:15:32 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:15:33 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:15:50 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:15:53 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:15:54 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:18:27 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:18:29 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:18:31 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:19:37 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:19:40 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:19:41 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:21:20 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'init_timer_interrupt':
+hello_world.c:407:2: warning: implicit declaration of function 'alt_ic_isr_register' [-Wimplicit-function-declaration]
+  alt_ic_isr_register();
+  ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+obj/default/hello_world.o: In function `init_timer_interrupt':
+C:\Users\kolto\Desktop\CPEN_391\l2a-01-triviasoc\nios-party\software\triviasoc/hello_world.c:407: undefined reference to `alt_ic_isr_register'
+collect2.exe: error: ld returned 1 exit status
+make: *** [triviasoc.elf] Error 1
+12:21:21 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:21:45 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65450 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:21:47 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:21:54 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:23:55 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:25:09 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:26:07 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:26:10 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:26:12 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:28:33 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:28:36 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:28:38 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:53:20 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:53:31 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:54:24 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:54:27 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:54:29 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:56:19 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:56:21 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:56:23 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:57:04 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:58:11 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:58:13 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:58:16 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+12:59:43 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+12:59:46 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+12:59:47 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+13:01:03 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:182:11: error: assignment to expression with array type
+  roomCode = strtok(NULL, delim);
+           ^
+hello_world.c:181:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+make: *** [obj/default/hello_world.o] Error 1
+13:01:04 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:01:06 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:182:11: error: assignment to expression with array type
+  roomCode = strtok(NULL, delim);
+           ^
+hello_world.c:181:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+make: *** [obj/default/hello_world.o] Error 1
+13:01:34 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:181:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+13:01:37 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+13:01:43 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:19:22 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:181:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:20:56 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:181:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:20:59 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:21:02 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:24:00 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:25:18 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:27:20 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:27:23 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:27:24 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:33:36 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_roomcode':
+hello_world.c:181:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:33:39 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:33:41 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:34:45 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:34:48 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:34:50 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:36:21 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:227:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:36:23 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:37:03 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:37:06 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:37:07 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:38:16 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:38:18 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:38:20 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:39:13 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:39:16 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:39:18 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:43:17 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+14:59:40 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:228:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'press_button':
+hello_world.c:269:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:149:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c:289:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:149:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+14:59:42 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+14:59:45 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:00:22 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:25:14 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:231:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'press_button':
+hello_world.c:272:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:152:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c:292:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:152:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:406:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 78 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:25:24 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:25:52 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:31:25 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:232:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'press_button':
+hello_world.c:273:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:153:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c:293:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:153:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:407:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:31:29 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:40:10 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:232:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'press_button':
+hello_world.c:273:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:153:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c:293:13: warning: passing argument 1 of 'read_data' makes integer from pointer without a cast [-Wint-conversion]
+   read_data(output);
+             ^
+hello_world.c:153:6: note: expected 'int' but argument is of type 'char *'
+ void read_data(int text) {
+      ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:408:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:43:29 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:232:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:411:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:43:33 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:43:35 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+15:45:18 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:232:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:411:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+15:45:21 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+15:45:24 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:06:27 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:233:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'press_button':
+hello_world.c:266:48: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0 & (button_pressed != 1)) {
+                                                ^
+hello_world.c:288:55: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  } else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0 & (button_pressed != 2)) {
+                                                       ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:417:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:06:30 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:06:34 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:07:30 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:09:30 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:12:12 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:13:44 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:233:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'press_button':
+hello_world.c:266:48: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0 & (button_pressed != 1)) {
+                                                ^
+hello_world.c:288:55: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+  } else if(IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0 & (button_pressed != 2)) {
+                                                       ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:417:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:13:48 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:18:34 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:233:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:417:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65449 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:18:37 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:22:21 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:233:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:418:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65448 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:22:24 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]
+16:22:28 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+[triviasoc build complete]
+16:26:02 **** Incremental Build of configuration Nios II for project triviasoc ****
+make all 
+Info: Building ../triviasoc_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../triviasoc_bsp/
+[BSP build complete]
+Info: Compiling hello_world.c to obj/default/hello_world.o
+nios2-elf-gcc -xc -MP -MMD -c -I../triviasoc_bsp//HAL/inc -I../triviasoc_bsp/ -I../triviasoc_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world.o hello_world.c
+hello_world.c: In function 'display_choices':
+hello_world.c:234:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(choices, delim);
+        ^
+hello_world.c: In function 'wait_for_start':
+hello_world.c:426:8: warning: unused variable 'token' [-Wunused-variable]
+  char *token = strtok(output, delim);
+        ^
+Info: Linking triviasoc.elf
+nios2-elf-g++  -T'../triviasoc_bsp//linker.x' -msys-crt0='../triviasoc_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../triviasoc_bsp/   -Wl,-Map=triviasoc.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o triviasoc.elf obj/default/hello_world.o -lm -msys-lib=m
+nios2-elf-insert triviasoc.elf --thread_model hal --cpu_name CPU --qsys true --simulation_enabled false --stderr_dev JTAG --stdin_dev JTAG --stdout_dev JTAG --sopc_system_name test --quartus_project_dir "C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party" --jdi ../..//output_files/partyBox.jdi --sopcinfo C:/Users/kolto/Desktop/CPEN_391/l2a-01-triviasoc/nios-party/software/triviasoc_bsp/../../test.sopcinfo
+Info: (triviasoc.elf) 79 KBytes program size (code + initialized data).
+Info:                 65448 KBytes free for stack + heap.
+Info: Creating triviasoc.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source triviasoc.elf >triviasoc.objdump
+[triviasoc build complete]
+16:26:05 **** Incremental Build of configuration Nios II for project triviasoc_bsp ****
+make all 
+[BSP build complete]

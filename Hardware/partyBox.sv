@@ -56,7 +56,7 @@ module partyBox(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, KEY, LEDR, SW,
 
 	always @(posedge CLOCK_50) begin
 	
-		if(GPIO_1[0]) begin
+		if(~GPIO_1[0]) begin
 			on <= 10'b11111_11111;
 		end else begin
 			on <= 10'b00000_00000;

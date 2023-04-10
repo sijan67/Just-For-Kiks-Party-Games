@@ -26,7 +26,7 @@ function getReq(url, callback)
 end
 
 
-function sendAnswerReq(url, teamNum, questionNum, callback)
+function sendBuzzerReq(url, teamNum, questionNum, callback)
     print(url)
     local data = {teamID=teamNum, questionID=questionNum}
     local postData = sjson.encode(data)
@@ -34,7 +34,8 @@ function sendAnswerReq(url, teamNum, questionNum, callback)
 	'Content-Type: application/json\r\n',
 	postData, function(code, body)
 		if(code == 200) then
-			callback(body)
+			--callback(body)
+            print("SENT")
 		else
 			print("FAIL")
 		end
@@ -67,9 +68,17 @@ function getQuestionChoices(number)
         end
         local string = ""
         if(table.getn(array) < 26) then
-            string = "A: " .. array[14] .. "@B: " .. array[20]  
+            string = "A: " .. array[14] .. "@B: " .. array[20] 
+            --print(array[14])
+            --print(array[20])
+            --print(array[26])
+            --print(array[32]) 
         else        
             string = "A: " .. array[14] .. "@B: " .. array[20] .. "@C: " .. array[26] .. "@D: " .. array[32]
+            --print(array[14])
+            --print(array[20])
+            --print(array[26])
+            --print(array[32])
         end
         print("@")
         s = splitByChunk(string)
@@ -81,25 +90,55 @@ function getQuestionChoices(number)
 end
 
 function getRoomCode()
-    getReq(HOST .. "room/main", function(response)
+    getReq(HOST .. "room", function(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
         end
         print("@")
-        print(array[1])
+        print(array[4])
         print("@")
     end)
 end
 
-function getStart()
-    getReq(HOST .. "", function(response)
+function getStart(roomCode)
+    getReq(HOST .. "room/" .. roomCode, function(response)
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+        print("@")
+        print(array[4])
+        print("@")
+    end)
+end
+
+function getGameMode()
+    getReq(HOST .. "teams/game/votes", function(response)
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+        print("@")
+        print(array[2])
+        print("@")
+    end)
+end
+
+function getWinner()
+    getReq(HOST .. " ", function(response)
         print(response)
     end)
 end
 
-function sendAnswer()
-    sendAnswerReq(HOST .. "audio/", 1, 2, function(response)
+function getNextQState()
+    getReq(HOST .. " ", function(response)
+        print(response)
+    end)
+end
+
+function sendBuzzer(teamID, questionID)
+    sendBuzzerReq(HOST .. "teams/buzzer/press", teamID, questionID, function(response)
         print(response)
     end)
 end
