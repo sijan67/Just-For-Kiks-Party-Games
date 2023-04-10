@@ -15,7 +15,8 @@ export default function ScoreScreen({navigation, route}) {
     const [loading, setLoading] = useState(true);
     const [recording, setRecording] = React.useState();
     // const AUDIO_BACKEND = "http://your-flask-ip:5000/audio";
-    const AUDIO_BACKEND = "http://128.189.217.199:4000/audio"
+    const AUDIO_BACKEND = "http://128.189.223.105:4000/audio"
+    // const AUDIO_BACKEND = "http://50.112.215.42/audio"
 
     // https://codesandbox.io/examples/package/react-score-indicator
     const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score

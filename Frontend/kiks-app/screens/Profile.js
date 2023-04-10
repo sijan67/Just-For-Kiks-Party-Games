@@ -19,7 +19,7 @@ export default function TestScreen({navigation,route}){
 
   // const url ="http://50.112.215.42/users/Kevin"
   // const url = `http://50.112.215.42/users/${username}`;
-  const url = `http://50.112.215.42/users/${route.params.username}`;
+  const url = `http://50.112.215.42/teams/username/${route.params.username}`;
 
   useEffect(() => {
   fetch(url)
@@ -47,7 +47,7 @@ export default function TestScreen({navigation,route}){
         <ActivityIndicator />
       ) : (
         <View style={styles.roomCodeContainer} >
-      <Text style={styles.roomCode}>{data.roomcode}</Text>
+      <Text style={styles.roomCode}>{data.roomCode}</Text>
     </View>
 )}
 
@@ -57,13 +57,21 @@ export default function TestScreen({navigation,route}){
         <ActivityIndicator />
       ) : (
         <View style={styles.teamNameContainer} key={data._id}>
-      <Text  style={styles.teamName}>{data.teamname}</Text>
+      <Text  style={styles.teamName}>{data.teamName}</Text>
     </View>
       )}
       
 
-      <Button style={styles.buttonStyle} onPress={() =>
+      {/* <Button style={styles.buttonStyle} onPress={() =>
         navigation.navigate('EnterGameCode')}>
+          <Text style={{color: 'white', fontSize: 20}}>
+                Exit Room
+          </Text>
+            
+        </Button> */}
+
+        <Button style={styles.buttonStyle} onPress={() =>
+        navigation.goBack()}>
           <Text style={{color: 'white', fontSize: 20}}>
                 Exit Room
           </Text>
