@@ -19,7 +19,7 @@ export default function LeaderBoard() {
     const [score, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const url = `http://50.112.215.42/leaderboard`;
+    const url = `http://50.112.215.42/teams/`;
 
     useEffect(() => {
       fetch(url, {mode: 'cors'})
@@ -35,8 +35,8 @@ export default function LeaderBoard() {
         <Leaderboard 
         // data={this.state.data} 
         data = {score}
-        sortBy='teamscore' 
-        labelBy='teamname'
+        sortBy='teamScore' 
+        labelBy='teamName'
         style={{padding: 60}}
         />
         <Text>hi</Text>

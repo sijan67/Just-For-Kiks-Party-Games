@@ -20,6 +20,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack'
 import TriviaScreen from './TriviaScreen'
 import MathScreen from './MathScreen'
 import ScoreScreen from './ScoreScreen'
+import StartGame from './StartGame'
 import NumberOrderingScreen from './NumberOrderingScreen'
 import NumberOrderingScreen2 from './NumberOrderingScreen2'
 import NumberOrderingScreen3 from './NumberOrderingScreen3'
@@ -29,6 +30,32 @@ const Stack = createNativeStackNavigator();
 
 
 function GameScreen({navigation, route}) {
+
+  const handlePress = (teamName) => {
+    console.log(`Joined ${teamName}`);
+    if (teamName) {
+      fetch(`http://50.112.215.42/teams/game/vote/Trivia`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: route.params.name,
+        }),
+      })
+        .then((response) => console.log(response.json()))
+        .then((data) => {
+          console.log(data);
+          navigation.navigate('StartGame', { username: route.params.name });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      console.log('Please enter a team name');
+    }
+  };
+
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
@@ -45,7 +72,11 @@ function GameScreen({navigation, route}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/BBaFnKbM-Trivia-Day--702x336.gif' }} />
           <Card.Actions>
-          <Button onPress={() => navigation.navigate('ScoreScreen', { username: route.params.name })}>
+          {/* <Button onPress={() => navigation.navigate('ScoreScreen', { username: route.params.name })}>
+             Choose This
+          </Button> */}
+
+          <Button onPress={()=>handlePress(route.params.name, "Trivia")}>
              Choose This
           </Button>
           </Card.Actions>
@@ -58,24 +89,16 @@ function GameScreen({navigation, route}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
           <Card.Actions>
-          <Button onPress={() => navigation.navigate('ScoreScreen' , { username: route.params.name })}>
+          {/* <Button onPress={() => navigation.navigate('ScoreScreen' , { username: route.params.name })}>
           Choose This
+          </Button> */}
+
+          <Button onPress={() => handlePress(route.params.name, "Math")}>
+          
           </Button>
           </Card.Actions>
         </Card>
 
-        {/* <Card style={styles.end_card_container}>
-          <Card.Title style= {styles.title_style} title="Number Ordering" left={LeftContentOrdering} />
-          <Card.Content>
-            <Text style= {styles.text_style} variant="titleLarge">Order the numbers in increasing order quickly!</Text>
-          </Card.Content>
-          <Card.Cover source={{ uri: 'https://m.media-amazon.com/images/I/418Iix7JQ1L.png' }} />
-          <Card.Actions>
-          <Button onPress={() => navigation.navigate('NumberOrderingScreen')}>
-            Choose This
-          </Button>
-          </Card.Actions>
-        </Card> */}
 
         <Card style={styles.end_card_container}>
         </Card>
@@ -104,7 +127,7 @@ function GameScreen({navigation, route}) {
             initialParams={{ name: route.params.name }}
             
           />
-          {/* <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} /> */}
+          <Stack.Screen options={{headerShown: false}} name="StartGame" component={StartGame} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen" component={NumberOrderingScreen} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen2" component={NumberOrderingScreen2} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen3" component={NumberOrderingScreen3} />
