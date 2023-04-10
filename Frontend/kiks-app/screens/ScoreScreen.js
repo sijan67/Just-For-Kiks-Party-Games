@@ -15,8 +15,8 @@ export default function ScoreScreen({navigation, route}) {
     const [loading, setLoading] = useState(true);
     const [recording, setRecording] = React.useState();
     // const AUDIO_BACKEND = "http://your-flask-ip:5000/audio";
-    const AUDIO_BACKEND = "http://128.189.223.105:4000/audio"
-    // const AUDIO_BACKEND = "http://50.112.215.42/audio"
+    // const AUDIO_BACKEND = "http://128.189.223.105:4000/audio"
+    const AUDIO_BACKEND = "http://128.189.223.194:4000/audio"
 
     // https://codesandbox.io/examples/package/react-score-indicator
     const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score
@@ -61,31 +61,69 @@ export default function ScoreScreen({navigation, route}) {
         }
       }
 
-
-
       // send recording to the backend 
       // https://www.tderflinger.com/en/react-native-audio-recording-flask 
       
+      // async function stopRecording() {
+      //   setRecording(undefined);
+      //   await recording.stopAndUnloadAsync();
+
+      //   const uri = recording.getURI();
+
+        
+      //   // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
+
+      //   try {
+      //     const response = await FileSystem.uploadAsync(
+      //       AUDIO_BACKEND,
+      //       uri
+      //     );
+      //     const body = JSON.parse(response.body);
+      //     console.log(body.text);
+      //   } catch (err) {
+      //     console.log(err);
+      //   }
+
+      //   console.log('Recording stopped and stored at', uri , ' and sent to backend.');
+      // }
+
       async function stopRecording() {
         setRecording(undefined);
         await recording.stopAndUnloadAsync();
-        const uri = recording.getURI();
-        
-        // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
 
+        const audioFileUri = recording.getURI();
         try {
-          const response = await FileSystem.uploadAsync(
-            AUDIO_BACKEND,
-            uri
-          );
-          const body = JSON.parse(response.body);
-          console.log(body.text);
-        } catch (err) {
-          console.log(err);
-        }
 
-        console.log('Recording stopped and stored at', uri , ' and sent to backend.');
-      }
+          const fileStats = await FileSystem.getInfoAsync(audioFileUri);
+          const formData = new FormData();
+          formData.append('questionID', 1);
+          formData.append('teamID', 1);
+          formData.append('audioFile', {
+            uri: audioFileUri,
+            name: 'audio.mp3',
+            type: 'audio/mpeg',
+          });
+      
+          const response = await fetch('http://50.112.215.42/audio', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'Content-Length': fileStats.size,
+            },
+          });
+      
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+      
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error('Error uploading audio:', error);
+        }
+      }      
+
 
 
     // https://stackoverflow.com/questions/75367279/where-does-expo-av-recorded-file-store-in-mobile-phones
