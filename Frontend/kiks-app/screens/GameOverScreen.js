@@ -17,9 +17,9 @@ const styles = StyleSheet.create({
     },
     textStyle:{
         fontSize: 30, 
-        marginTop: 2,
+        marginTop: 20,
         color: 'white',
-        fontWeight: '500'
+        fontWeight: '20'
     }, 
     buttonStyle:{
       marginTop: 25,
@@ -70,27 +70,27 @@ export default function EnterGameScreen({navigation, route}){
   const handleJoin = (username) => {
     console.log("Join pressed")
     // navigation.navigate('ScoreScreen', { username: username })
-    
+    console.log(username)
    
-      fetch(`http://50.112.215.42/room/0000`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            "code": "0000",
-            "ready": "true"
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        //   navigation.navigate('ScoreScreen');
-            navigation.navigate('ScoreScreen', { username: username })
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    //   fetch(`http://50.112.215.42/room/0000`, {
+    //     method: 'PUT',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify({
+    //         "code": "0000",
+    //         "ready": "true"
+    //     }),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //     //   navigation.navigate('ScoreScreen');
+    //         navigation.navigate('ScoreScreen', { username: username })
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
     
   };
   
@@ -118,15 +118,19 @@ export default function EnterGameScreen({navigation, route}){
         />
       </View>
     </View>
-        <Text style={styles.textStyle}>
-                Most Voted Game : {' '}
-                <Text style={{color: 'red', marginLeft: 10}}>
-                {mostVotedGame}
-                </Text>
+        <Text style={{color: 'red', marginLeft: 10, fontSize: 30, fontWeight: 'bold'}}>
+            GAME OVER
         </Text>
-        <Text style={{color: 'white', marginTop: 40}}>
-           Every one voted for the game ? Start playing ! 
+        
+        <Text style={styles.textStyle}>   
+            Winning Team: 
         </Text>
+
+        <Text style={{color: 'white', marginTop: 20, marginBottom: 20, fontSize: 20}}>   
+            Score: 
+        </Text>
+
+      
         {/* <Button style={styles.buttonStyle} onPress={() =>
        navigation.navigate('ScoreScreen', { username: route.params.username })}>
           <Text style={{color: 'black', fontSize: 16}}>
@@ -135,9 +139,18 @@ export default function EnterGameScreen({navigation, route}){
 
         <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username)}>
           <Text style={{color: 'black', fontSize: 16}}>
-          Start Game
-          </Text>
-            
+           Play again
+          </Text>  
+        </Button>
+
+        <Text style={{color: 'white', fontSize: 16, marginTop: 20}}>
+           OR
+        </Text>  
+
+        <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username)}>
+          <Text style={{color: 'black', fontSize: 16}}>
+           Return to lobby
+          </Text>  
         </Button>
       
       </View>

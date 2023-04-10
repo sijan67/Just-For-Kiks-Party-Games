@@ -24,7 +24,7 @@ import StartGame from './StartGame'
 import NumberOrderingScreen from './NumberOrderingScreen'
 import NumberOrderingScreen2 from './NumberOrderingScreen2'
 import NumberOrderingScreen3 from './NumberOrderingScreen3'
-
+import GameOverScreen from './GameOverScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -94,7 +94,7 @@ function GameScreen({navigation, route}) {
           </Button> */}
 
           <Button onPress={() => handlePress(route.params.name, "Math")}>
-          
+            Choose This
           </Button>
           </Card.Actions>
         </Card>
@@ -132,6 +132,7 @@ function GameScreen({navigation, route}) {
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen2" component={NumberOrderingScreen2} />
           <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen3" component={NumberOrderingScreen3} />
           <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} />
+          <Stack.Screen options={{headerShown: false}} name="GameOverScreen" component={GameOverScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
         </Stack.Navigator>
     );
