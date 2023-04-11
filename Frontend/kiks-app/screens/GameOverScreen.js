@@ -102,7 +102,7 @@ export default function EnterGameScreen({navigation, route}){
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          navigation.navigate('ScoreScreen', { username: username })
+          navigation.navigate('EnterName', { username: username })
         })
         .catch((error) => {
           console.log(error);

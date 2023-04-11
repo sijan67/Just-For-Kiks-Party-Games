@@ -15,6 +15,8 @@ export default function ScoreScreen({navigation, route}) {
     const [winningData, setWinningData] = useState([]);
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
+    const [recordingUploaded, setRecordingUploaded] = useState(false);
+
 
 
     const [loading, setLoading] = useState(true);
@@ -87,12 +89,6 @@ export default function ScoreScreen({navigation, route}) {
       }
   }, [winningData]);
       
-
-    const handlePress = (teamName) => {
-        console.log(`Taking in Audio Input`);
-        
-        // navigation.navigate('NavTab', { username: username });
-    };
     
     // https://javascript.plainenglish.io/how-to-record-audio-using-react-native-expo-74723d2358e3
 
@@ -179,10 +175,17 @@ export default function ScoreScreen({navigation, route}) {
         });
         console.log("Response received.");
         console.log("Response is: ", response.ok)
+        if (response.ok) {
+          setRecordingUploaded(true);
+          return (
+            <Text style={{ color: 'white' }}> Audio sent successfully ! </Text>
+          );
+        }
+        
         if (!response.ok) {
 
           return (
-            <Text style={{ color: 'white' }}>Error uploading audio. Please try again.</Text>
+            <Text style={{ color: 'white' }}>Could not upload audio. Please try again.</Text>
           );
         }
       } catch (error) {
@@ -214,7 +217,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            {teamData.teamName === teamBuzzerData.teamName && (
+            {teamData.teamName === teamBuzzerData.teamName && !recordingUploaded && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
