@@ -68,17 +68,9 @@ function getQuestionChoices(number)
         end
         local string = ""
         if(table.getn(array) < 26) then
-            string = "A: " .. array[14] .. "@B: " .. array[20] 
-            --print(array[14])
-            --print(array[20])
-            --print(array[26])
-            --print(array[32]) 
+            string = "1: " .. array[14] .. "@2: " .. array[20]
         else        
-            string = "A: " .. array[14] .. "@B: " .. array[20] .. "@C: " .. array[26] .. "@D: " .. array[32]
-            --print(array[14])
-            --print(array[20])
-            --print(array[26])
-            --print(array[32])
+            string = "1: " .. array[14] .. "@2: " .. array[20] .. "@3: " .. array[26] .. "@4: " .. array[32]
         end
         print("@")
         s = splitByChunk(string)
@@ -91,18 +83,20 @@ end
 
 function getRoomCode()
     getReq(HOST .. "room", function(response)
+        --print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
         end
         print("@")
-        print(array[4])
+        print(array[1])
         print("@")
     end)
 end
 
 function getStart(roomCode)
     getReq(HOST .. "room/" .. roomCode, function(response)
+        print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
@@ -126,14 +120,56 @@ function getGameMode()
 end
 
 function getWinner()
-    getReq(HOST .. " ", function(response)
+    getReq(HOST .. "teams/game/accumulate/score", function(response)
         print(response)
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+
+        if(array[3] == "In game") then
+            print("@")
+            print(array[3])
+            print("@")
+        else 
+            local string = array[3] .. "@" .. array[5]
+            print("@")
+            s = splitByChunk(string)
+            for i,v in pairs(s) do
+                print(v)
+            end
+            print("@")
+        end
     end)
 end
 
 function getNextQState()
-    getReq(HOST .. " ", function(response)
-        print(response)
+    getReq(HOST .. "audio", function(response)
+        
+        local array = {}
+        for split in response:gmatch('"([^"]+)"') do
+            table.insert(array, split)
+        end
+        if(array[1] == "No answer") then
+            print("@")
+            print(array[1])
+            print("@")
+        else
+            --print(response)
+            local array = {}
+            for split in response:gmatch('"([^"]+)"') do
+                table.insert(array, split)
+            end
+            print("@")
+            print(array[6])
+            print("@")
+        end
+    end)
+end
+
+function getGameEnd() 
+    getReq(HOST .. "", function(response)
+        
     end)
 end
 
