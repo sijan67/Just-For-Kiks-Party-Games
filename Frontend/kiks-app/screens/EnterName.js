@@ -58,6 +58,27 @@ export default function EnterName({navigation, route}){
       setUsername(text);
     };
 
+    const handlePress = () => {
+      // const teamName = Math.random() < 0.5 ? 'cool' : 'cool2';
+      fetch('http://50.112.215.42/users/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: username
+        }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Created User")
+      //   // navigate to NavTab screen with username as a parameter
+        navigation.navigate('EnterGameCode', { username: username });
+      })
+      .catch(error => console.error(error));
+    };
+  
+
 
     return (
       <View style={styles.main}>
@@ -71,12 +92,19 @@ export default function EnterName({navigation, route}){
       />
     </SafeAreaView>
 
-        <Button style={styles.buttonStyle} onPress={() =>
+        {/* <Button style={styles.buttonStyle} onPress={() =>
         navigation.navigate('EnterGameCode', { username: username })}>
           <Text style={{color: 'black', fontSize: 20}}>
                 Confirm
           </Text>
             
+        </Button> */}
+
+        <Button style={styles.buttonStyle} onPress={handlePress}>
+            <Text style={{color: 'black', fontSize: 20}}>
+                  Confirm
+            </Text>
+              
         </Button>
 
       </View>

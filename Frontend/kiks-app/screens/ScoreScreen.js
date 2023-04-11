@@ -12,14 +12,23 @@ export default function ScoreScreen({navigation, route}) {
 
     // API Call Code 
     const [data, setData] = useState([]);
+    const [winningData, setWinningData] = useState([]);
+
+
     const [loading, setLoading] = useState(true);
+    const [winningLoading, setWinningLoading] = useState(true);
     const [recording, setRecording] = React.useState();
     // const AUDIO_BACKEND = "http://your-flask-ip:5000/audio";
     // const AUDIO_BACKEND = "http://128.189.223.105:4000/audio"
     const AUDIO_BACKEND = "http://128.189.223.194:4000/audio"
 
     // https://codesandbox.io/examples/package/react-score-indicator
-    const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score
+    // const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score
+
+    const url = `http://50.112.215.42/teams/username/${route.params.username}`; 
+
+    const winningUrl = 'http://50.112.215.42/teams/game/accumulate/score'
+
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -33,6 +42,40 @@ export default function ScoreScreen({navigation, route}) {
         // cleanup function to clear the interval when the component unmounts
         return () => clearInterval(intervalId);
     }, []);
+
+  //   useEffect(() => {
+  //     const intervalId = setInterval(() => {
+  //         fetch(winningUrl)
+  //             .then((resp) => resp.json())
+  //             .then((json) => setWinningData(json))
+  //             .catch((error) => console.error(error))
+  //             .finally(() => setWinningLoading(false));
+  //     }, 2000); // make the request every 2 seconds
+
+  //     // cleanup function to clear the interval when the component unmounts
+  //     return () => clearInterval(intervalId);
+  // }, []);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+        fetch(winningUrl)
+            .then((resp) => resp.json())
+            .then((json) => setWinningData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setWinningLoading(false));
+    }, 2000); // make the request every 2 seconds
+
+    // cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+}, [navigation]);
+
+  useEffect(() => {
+      if (winningData.status === "Game over") {
+        // should pass the username,  winning team , winning team score 
+          navigation.navigate("GameOverScreen", { username: route.params.username,  winner: winningData.winner, winnerScore: winningData.totalScore });
+      }
+  }, [winningData]);
+      
 
     const handlePress = (teamName) => {
         console.log(`Taking in Audio Input`);
@@ -143,7 +186,7 @@ export default function ScoreScreen({navigation, route}) {
         <View style={{flex:1 , alignItems: 'center', backgroundColor: 'black'}}>
             <Text style = {styles.text}> Your Team's Score , {route.params.username} </Text> 
             <CircularProgress
-                value={data.teamscore}
+                value={data.teamScore}
                 radius={120}
                 progressValueColor={'#ecf0f1'}
                 activeStrokeColor={'#f39c12'}
@@ -174,6 +217,9 @@ export default function ScoreScreen({navigation, route}) {
             <Text style ={{color: 'black', fontStyle: 'bold', fontSize: 16}}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
 
             </TouchableOpacity>
+
+            <Text style = {{color:'white', marginTop: 30, fontSize: 20}}> Game Status :  {winningData.status} </Text> 
+
 
         </View>
     )

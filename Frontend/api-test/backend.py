@@ -22,7 +22,8 @@ def process():
 @app.route('/audio', methods=['POST'])
 def process_audio():
     data = request.get_data()
-    # print("data: ", data)
+    print("data type: ", type(data))
+
     data_length = request.content_length
 
     if (data_length > 1024 * 1024 * 10):
@@ -36,6 +37,15 @@ def process_audio():
 
 
     return json.dumps({ "text": "Audio successfully processed!" }), 200
+
+# @app.route('/audio', methods=['POST'])
+# def process_audio():
+#     if request.method == 'POST':
+#         # Get form data
+#         team_id = request.form.get('teamID')
+#         question_id = request.form.get('questionID')
+#         audio_file = request.files.get('audio')
+#         print(team_id, question_id, audio_file)
 
 
 if __name__ == "__main__":
