@@ -120,7 +120,6 @@ function GameScreen({navigation, route}) {
             name="GameScreen"
             component={GameScreen}
             initialParams={{ name: route.params.name }}
-            
           />
           <Stack.Screen options={{headerShown: false}} name="StartGame" component={StartGame} />
           <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} />

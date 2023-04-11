@@ -60,7 +60,7 @@ export default function EnterGameCode({navigation, route}){
 
   const handlePress = (username, roomCode) => {
     
-    fetch('http://50.112.215.42/users/', { // check if the endpoint is correct
+    fetch(`http://50.112.215.42/room/${roomCode}`, { // check if the endpoint is correct
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -71,12 +71,15 @@ export default function EnterGameCode({navigation, route}){
       }),
     })
     .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      // navigate to NavTab screen with username as a parameter
+  .then(data => {
+    console.log(data);
+    if (data === "Room code is wrong") {
+      alert("Room code is not valid. Please try again.");
+    } else {
       navigation.navigate('ChooseTeam', { username: username, roomcode: roomCode });
-    })
-    .catch(error => console.error(error));
+    }
+  })
+  .catch(error => console.error(error));
   };
 
   return (
