@@ -86,7 +86,7 @@ export default function EnterGameCode({ navigation, route }) {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          navigation.navigate('NavTab', { username: username });
+          navigation.navigate('NavTab', { username: username, roomcode: route.params.roomcode });
         })
         .catch((error) => {
           console.error(error);
@@ -139,7 +139,7 @@ export default function EnterGameCode({ navigation, route }) {
           fontWeight: '500',
         }}
       >
-        Hi {username},
+        Hi {username}, 
       </Text>
 
       {availableTeams.length === 0 && (

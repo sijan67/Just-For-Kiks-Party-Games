@@ -58,27 +58,25 @@ export default function EnterGameCode({navigation, route}){
   const [number, onChangeNumber] = React.useState('');
   const { username } = route.params;
 
-  const handlePress = () => {
-    // const teamName = Math.random() < 0.5 ? 'cool' : 'cool2';
-    // fetch('http://50.112.215.42/users/', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     username: username,
-    //     teamname: teamName,
-    //     teamscore: 0,
-    //     roomcode: 10000000
-    //   }),
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-
-    //   // navigate to NavTab screen with username as a parameter
-      navigation.navigate('ChooseTeam', { username: username });
-    // })
-    // .catch(error => console.error(error));
+  const handlePress = (username, roomCode) => {
+    
+    fetch('http://50.112.215.42/users/', { // check if the endpoint is correct
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username,
+        roomcode: roomCode
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // navigate to NavTab screen with username as a parameter
+      navigation.navigate('ChooseTeam', { username: username, roomcode: roomCode });
+    })
+    .catch(error => console.error(error));
   };
 
   return (
@@ -92,7 +90,7 @@ export default function EnterGameCode({navigation, route}){
           onChangeText={onChangeText}
         />
       </SafeAreaView>
-      <Button style={styles.buttonStyle} onPress={handlePress}>
+      <Button style={styles.buttonStyle} onPress={() => handlePress(username,text)}>
         <Text style={{color: 'black', fontSize: 20}}>
           Confirm
         </Text>

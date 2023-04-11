@@ -180,9 +180,9 @@ export default function ScoreScreen({navigation, route}) {
         console.log("Response received.");
         console.log("Response is: ", response.ok)
         if (!response.ok) {
-          // throw new Error(`HTTP error! status: ${response.status}`);
+
           return (
-            <Text style={{ color: 'red' }}>Error uploading audio. Please try again.</Text>
+            <Text style={{ color: 'white' }}>Error uploading audio. Please try again.</Text>
           );
         }
       } catch (error) {

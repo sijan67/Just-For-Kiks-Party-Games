@@ -68,31 +68,60 @@ export default function EnterGameScreen({navigation, route}){
   }, []);
 
   const handleJoin = (username) => {
-    console.log("Join pressed")
-    // navigation.navigate('ScoreScreen', { username: username })
+    fetch(`http://50.112.215.42/teams/username/${username}`)
+      .then((response) => response.json())
+      .then((data) => {
+        const roomCode = data.roomCode;
+        fetch(`http://50.112.215.42/room/${roomCode}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            code: roomCode,
+            ready: true,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            navigation.navigate('ScoreScreen', { username: username });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error fetching room code:', error);
+      });
+  };
+  
+
+  // const handleJoin = (username) => {
+  //   console.log("Join pressed")
+  //   // navigation.navigate('ScoreScreen', { username: username })
     
    
-      fetch(`http://50.112.215.42/room/0000`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            "code": "0000",
-            "ready": "true"
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        //   navigation.navigate('ScoreScreen');
-            navigation.navigate('ScoreScreen', { username: username })
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+  //     fetch(`http://50.112.215.42/room/0000`, {
+  //       method: 'PUT',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //           "code": "0000",
+  //           "ready": "true"
+  //       }),
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //       //   navigation.navigate('ScoreScreen');
+  //           navigation.navigate('ScoreScreen', { username: username })
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
     
-  };
+  // };
   
     return (
       <View style={styles.main}>

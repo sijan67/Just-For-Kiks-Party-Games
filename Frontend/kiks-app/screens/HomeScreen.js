@@ -17,13 +17,8 @@ const LeftContentOrdering = props => <Avatar.Icon style={styles.icon_style} {...
 // https://callstack.github.io/react-native-paper/card.html
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import TriviaScreen from './TriviaScreen'
-import MathScreen from './MathScreen'
 import ScoreScreen from './ScoreScreen'
 import StartGame from './StartGame'
-import NumberOrderingScreen from './NumberOrderingScreen'
-import NumberOrderingScreen2 from './NumberOrderingScreen2'
-import NumberOrderingScreen3 from './NumberOrderingScreen3'
 import GameOverScreen from './GameOverScreen'
 
 const Stack = createNativeStackNavigator();
@@ -59,7 +54,7 @@ function GameScreen({navigation, route}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
-          Pick a game of your choice , {route.params.name}
+          Pick a game of your choice , {route.params.name}  
         </Text>
         <SafeAreaView style={styles.container}>
         <ScrollView 
@@ -128,9 +123,6 @@ function GameScreen({navigation, route}) {
             
           />
           <Stack.Screen options={{headerShown: false}} name="StartGame" component={StartGame} />
-          <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen" component={NumberOrderingScreen} />
-          <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen2" component={NumberOrderingScreen2} />
-          <Stack.Screen options={{headerShown: false}} name="NumberOrderingScreen3" component={NumberOrderingScreen3} />
           <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} />
           <Stack.Screen options={{headerShown: false}} name="GameOverScreen" component={GameOverScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
