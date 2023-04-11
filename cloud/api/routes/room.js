@@ -23,7 +23,7 @@ router.post("/:roomCode", async (req, res, next) => {
 
     const newRoom = new Room({
         code : roomCode,
-        ready: 'true'
+        ready: 'false'
     });
 
     await newRoom.save();
@@ -33,7 +33,28 @@ router.post("/:roomCode", async (req, res, next) => {
 });
 
 // update a room
-
+router.put("/:roomCode", async (req, res, next) => {
+    const { roomCode } = req.params;
+    const { ready } = req.body;
+  
+    try {
+      const updatedRoom = await Room.findOneAndUpdate(
+        { code: roomCode },
+        { ready: ready },
+      );
+  
+      if (!updatedRoom) {
+        return res.status(404).json({ error: "Room not found" });
+      }
+  
+      console.log(`Room with code ${roomCode} has been updated.`);
+      return res.status(200).json(updatedRoom);
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  });
+  
 
 // check whether game is ready to start
 router.get("/:roomCode", async (req, res) => {

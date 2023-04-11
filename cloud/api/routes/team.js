@@ -6,6 +6,8 @@ const Team = require('../models/Team');
 const User = require('../models/User');
 const Game = require('../models/Game');
 const Room = require('../models/Room');
+const Buzzer = require('../models/Buzzer');
+const Question = require('../models/Question');
 
 function getNextId() {
     return Team.find().sort({ teamID: -1 }).limit(1).then(result => {
@@ -47,41 +49,7 @@ router.get("/:teamID/", (req, res, next) => {
 // GET a team from a username
 
 router.get('/username/:username', async (req, res) => {
-    // const { username } = req.params;
-  
-    // try {
-    //   const user = await User.findOne({ username });
-  
-    //   if (!user) {
-    //     return res.status(404).json({ error: 'User not found' });
-    //   }
-  
-    //   const pipeline = [
-    //     {
-    //       $match: {
-    //         teamID: user.teamID
-    //       }
-    //     },
-    //     {
-    //       $project: {
-    //         "teamName": 1,
-    //         "teamScore": 1,
-    //         "roomCode": 1
-    //       }
-    //     }
-    //   ];
-  
-    //   const team = await Team.aggregate(pipeline);
-  
-    //   if (!team || team.length === 0) {
-    //     return res.status(404).json({ error: 'Team not found' });
-    //   }
-  
-    //   return res.status(200).json(team[0]);
-    // } catch (err) {
-    //   console.error(err);
-    //   return res.status(500).json({ error: 'Internal server error' });
-    // }
+    
     const { username } = req.params;
 
     try {
@@ -133,62 +101,106 @@ router.get("/:username/", async (req, res, next) => {
 
 // GET the game with the most votes
 router.get('/game/votes', async (req, res) => {
-    try {
-      const games = await Game.find({});
-      if (!games || games.length === 0) {
-        return res.status(404).json({ error: 'No games found' });
-      }
-  
-      let triviaCount = 0;
-      let mathCount = 0;
-      games.forEach(game => {
-        if (game.game === 'Trivia') {
-            triviaCount++;
-        } else if (game.game === 'Math') {
-            mathCount++;
-        }
-      });
-  
-      let winningGame = '';
-      if (triviaCount > mathCount) {
-        winningGame = 'Trivia';
-      } else if (mathCount > triviaCount) {
-        winningGame = 'Math';
-      }
-  
-      return res.status(200).json({
-        winningGame
-      });
-    } catch (err) {
-      console.error(err);
-      return res.status(500).json({ error: 'Internal server error' });
+  try {
+    const games = await Game.find({});
+    if (!games || games.length === 0) {
+      return res.status(404).json({ error: 'No games found' });
     }
-  });
+
+    let triviaCount = 0;
+    let mathCount = 0;
+    games.forEach(game => {
+      if (game.game === 'Trivia') {
+          triviaCount++;
+      } else if (game.game === 'Math') {
+          mathCount++;
+      }
+    });
+
+    let winningGame = '';
+    if (triviaCount > mathCount) {
+      winningGame = 'Trivia';
+    } else if (mathCount > triviaCount) {
+      winningGame = 'Math';
+    } else {
+      // Randomly select a game when the counts are the same
+      winningGame = Math.random() < 0.5 ? 'Trivia' : 'Math';
+    }
+
+    return res.status(200).json({
+      winningGame
+    });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 
 // get the accumulated score of a game
 router.get('/game/accumulate/score', (req, res) => {
-    Team.find({}, 'teamScore')
-        .then(score => {
-            if (score === null || score.length === 0) {
-                return res.status(404).json({ error: 'No games yet' });
-            }
-            let totalScore = 0; 
-            let gameStatus = 'In game';
-            score.forEach(score => {
-                totalScore += score.teamScore;
-            });
-            if (totalScore >= 100) {
-                gameStatus = 'Game over';
-            } else {
-                gameStatus = 'In game';
-            }
-            return res.status(200).json({
-                totalScore: totalScore,
-                status: gameStatus
-            });
-        }
-    )  
+  Team.find({}, 'teamName teamScore')
+      .then(teams => {
+          if (teams === null || teams.length === 0) {
+              return res.status(404).json({ error: 'No games yet' });
+          }
+          let totalScore = 0;
+          let gameStatus = 'In game';
+          let winnerTeam = null;
+          let highestScore = 0;
+
+          teams.forEach(team => {
+              totalScore += team.teamScore;
+              if (team.teamScore > highestScore) {
+                  highestScore = team.teamScore;
+                  winnerTeam = team;
+              }
+          });
+
+          if (totalScore >= 1000) {
+              gameStatus = 'Game over';
+          } else {
+              gameStatus = 'In game';
+          }
+
+          return res.status(200).json({
+              totalScore: totalScore,
+              status: gameStatus,
+              winner: gameStatus === 'Game over' ? winnerTeam.teamName : null,
+          });
+      }
+  )
+});
+
+//get which team pressed the buzzer
+router.get("/buzzer/team", async (req, res) => {
+  try {
+    // Find the latest buzzer press record in the database
+    const buzzerPress = await Buzzer.findOne({ pressed: true }).sort({ _id: -1 });
+
+    // Check if a buzzer press record exists
+    if (!buzzerPress) {
+      return res.status(404).json({ error: "No buzzer press found" });
+    }
+
+    // Find the team associated with the buzzer press
+    const team = await Team.findOne({ teamID: buzzerPress.teamID });
+
+    // Check if the team exists
+    if (!team) {
+      return res.status(404).json({ error: "Team not found" });
+    }
+
+    // Return the team information
+    res.status(200).json({
+      teamID: team.teamID,
+      teamName: team.teamName,
+      questionID: buzzerPress.questionID
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal server error");
+  }
 });
 
 /* UPDATE Operations */
@@ -345,7 +357,38 @@ router.post('/game/lobby/:option', async (req, res) => {
       return res.status(500).json({ error: 'Internal server error' });
     }
     
-    
+});
+
+// post to return who is pressing the buzzer
+router.post("/buzzer/press", async (req, res) => {
+  const { teamID, questionID} = req.body;
+
+  // Validate teamID input
+  if (!teamID) {
+    return res.status(400).json({ error: "Invalid input: 'teamID' is required." });
+  }
+
+  // Check if the team exists
+  const team = await Team.findOne({ teamID: teamID });
+  if (!team) {
+    return res.status(404).json({ error: "Team not found" });
+  }
+
+  // Create a new Buzzer state with the teamID
+  const buzzerState = new Buzzer({
+    pressed: true,
+    teamID: teamID,
+    questionID: questionID
+  });
+
+  // Save the buzzer state in the database
+  try {
+    const savedBuzzerState = await buzzerState.save();
+    res.status(200).json(savedBuzzerState);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal server error");
+  }
 });
     
   
