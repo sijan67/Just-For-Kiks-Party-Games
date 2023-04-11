@@ -14,11 +14,7 @@ export default function TestScreen({navigation,route}){
   // API Call Code 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const { username } = route.params.username;
 
-
-  // const url ="http://50.112.215.42/users/Kevin"
-  // const url = `http://50.112.215.42/users/${username}`;
   const url = `http://50.112.215.42/teams/username/${route.params.username}`;
 
   useEffect(() => {
@@ -32,13 +28,12 @@ export default function TestScreen({navigation,route}){
 
   return (
     <View style={styles.mainContainer}>
-    {/* <Text style={styles.name}> Hi Sijan,  </Text> */}
    
     {loading ? (
         <ActivityIndicator />
       ) : (
         <View >
-      <Text style={styles.name}>Hi {route.params.username}  </Text>
+      <Text style={styles.name}>Hi {route.params.username}  {route.params.roomcode} </Text>
     </View>
       )}
 
@@ -47,7 +42,7 @@ export default function TestScreen({navigation,route}){
         <ActivityIndicator />
       ) : (
         <View style={styles.roomCodeContainer} >
-      <Text style={styles.roomCode}>{data.roomCode}</Text>
+      <Text style={styles.roomCode}>{route.params.roomcode}</Text>
     </View>
 )}
 
@@ -62,14 +57,6 @@ export default function TestScreen({navigation,route}){
       )}
       
 
-      {/* <Button style={styles.buttonStyle} onPress={() =>
-        navigation.navigate('EnterGameCode')}>
-          <Text style={{color: 'white', fontSize: 20}}>
-                Exit Room
-          </Text>
-            
-        </Button> */}
-
         <Button style={styles.buttonStyle} onPress={() =>
         navigation.goBack()}>
           <Text style={{color: 'white', fontSize: 20}}>
@@ -79,25 +66,6 @@ export default function TestScreen({navigation,route}){
         </Button>
 
         <View style={{flex: 1, padding: 24}}>
-      {/* <Text style ={{padding: 20, marginBottom: 20, backgroundColor: 'pink',borderWidth: 5,
-    borderBottomLeftRadius: 20, borderBottomRightRadius: 20}}>{'Safewalk Get Request Test'}</Text> */}
-      {/* {loading ? (
-        <ActivityIndicator />
-      ) : (
-        <View>
-      <Text >{data.username}</Text>
-      <Text>{data.teamname}</Text>
-      <Text>{data.roomcode}</Text>
-    </View>
-      )} */}
-
-{/* {loading ? (
-        <ActivityIndicator />
-      ) : (
-        <View key={data._id}>
-      <Text >{data.roomcode}</Text>
-    </View>
-)} */}
 
 
     </View>

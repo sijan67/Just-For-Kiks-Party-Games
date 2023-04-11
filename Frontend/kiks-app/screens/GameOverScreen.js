@@ -68,9 +68,6 @@ export default function EnterGameScreen({navigation, route}){
   }, []);
 
   const handleJoin = (username, status) => {
-    console.log("Join pressed")
-    // navigation.navigate('ScoreScreen', { username: username })
-    console.log(username)
 
     if (status == "restart"){
       fetch(`http://50.112.215.42/teams/game/lobby/restart`, {

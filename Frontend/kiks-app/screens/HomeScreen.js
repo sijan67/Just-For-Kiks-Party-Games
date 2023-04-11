@@ -1,19 +1,11 @@
 import { StyleSheet, Text, View , SafeAreaView, ScrollView, StatusBar,Pressable } from 'react-native';
-import CardView from 'react-native-cardview'
 import { Avatar, Button, Card } from 'react-native-paper';
 
-
-//Navigation import
-// import {createStackNavigator} from '@react-navigation/stack';
-// import {createAppContainer} from 'react-navigation'; 
-// import {createStackNavigator} from 'react-navigation-stack';
 
 // Icons obtained from: https://pictogrammers.com/library/mdi/
 
 const LeftContentTrivia = props => <Avatar.Icon style={styles.icon_style} {...props} icon="comment-question-outline" />
 const LeftContentMath = props => <Avatar.Icon style={styles.icon_style} {...props} icon="android-studio" />
-const LeftContentBox = props => <Avatar.Icon style={styles.icon_style} {...props} icon="cube-outline" />
-const LeftContentOrdering = props => <Avatar.Icon style={styles.icon_style} {...props} icon="numeric" />
 // https://callstack.github.io/react-native-paper/card.html
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
@@ -25,6 +17,8 @@ const Stack = createNativeStackNavigator();
 
 
 function GameScreen({navigation, route}) {
+
+  console.log("In home Screen", route.params)
 
   const handlePress = (teamName) => {
     console.log(`Joined ${teamName}`);
@@ -41,7 +35,7 @@ function GameScreen({navigation, route}) {
         .then((response) => console.log(response.json()))
         .then((data) => {
           console.log(data);
-          navigation.navigate('StartGame', { username: route.params.name });
+          navigation.navigate('StartGame', { username: route.params.name, roomcode: route.params.roomcode });
         })
         .catch((error) => {
           console.log(error);
@@ -54,7 +48,7 @@ function GameScreen({navigation, route}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
-          Pick a game of your choice , {route.params.name}  
+        { route.params.roomcode },  Pick a Game {route.params.name}  
         </Text>
         <SafeAreaView style={styles.container}>
         <ScrollView 
@@ -84,9 +78,7 @@ function GameScreen({navigation, route}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
           <Card.Actions>
-          {/* <Button onPress={() => navigation.navigate('ScoreScreen' , { username: route.params.name })}>
-          Choose This
-          </Button> */}
+
 
           <Button onPress={() => handlePress(route.params.name, "Math")}>
             Choose This
@@ -119,7 +111,7 @@ function GameScreen({navigation, route}) {
           <Stack.Screen
             name="GameScreen"
             component={GameScreen}
-            initialParams={{ name: route.params.name }}
+            initialParams={{ name: route.params.name, roomcode: route.params.roomcode }}
           />
           <Stack.Screen options={{headerShown: false}} name="StartGame" component={StartGame} />
           <Stack.Screen options={{headerShown: false}} name="ScoreScreen" component={ScoreScreen} />

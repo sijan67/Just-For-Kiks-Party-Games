@@ -199,7 +199,6 @@ export default function ScoreScreen({navigation, route}) {
     // https://stackoverflow.com/questions/75367279/where-does-expo-av-recorded-file-store-in-mobile-phones
     // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
 
-    // TO DO: need to set team's score from API call 
     return (
         <View style={{flex:1 , alignItems: 'center', backgroundColor: 'black'}}>
             <Text style = {styles.text}> Your Team's Score , {route.params.username} </Text> 

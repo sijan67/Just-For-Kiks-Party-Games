@@ -65,7 +65,8 @@ const screenOptions = {
 };
 
 export default function NavTab({route}) {
-  const { username } = route.params;
+  // const { username } = route.params;
+  console.log("In NavTab" , route.params)
 
   
   return (
@@ -89,6 +90,7 @@ export default function NavTab({route}) {
           name="Home" 
           component={HomeScreen}
           initialParams={{ name: route.params.username , roomcode: route.params.roomcode}}
+          // props={{ name: route.params.username, roomcode: route.params.roomcode }}
           options={{tabBarIcon: ({focused})=>(
             <View style={{alignItems: 'center', justifyContent:'center', top:10}}>
               <Icon name="home" size={45} 
