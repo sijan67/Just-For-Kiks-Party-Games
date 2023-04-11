@@ -97,8 +97,8 @@ router.get('/username/:username', async (req, res) => {
         return res.status(404).json({ error: 'Team not found' });
       }
       
-      console.log(team.teamName);
-      console.log(user.roomCode);
+      // console.log(team.teamName);
+      // console.log(user.roomCode);
       const result = {
         teamName: team.teamName,
         teamScore: team.teamScore,

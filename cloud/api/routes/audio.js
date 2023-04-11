@@ -1,64 +1,103 @@
 const express = require("express");
-const router = express.Router();
 const mongoose = require("mongoose");
 const Question = require('../models/Question');
 const Team = require('../models/Team');
 
+const router = express.Router();
+
 const { triviaHotWords, DeepSpeechModel } = require("../../ML/deepspeechmodel");
 
-// POST endpoint for receiving audio file
-router.post('/', async (req, res) => {
-    const { questionID, teamID, uri } = req.body;
-    try {
-      const question = await Question.findOne({ questionID }, "questionID description alternatives answer");
+let post_answer = {
+  "questionID" : 0,
+  "teamID" : 0,
+  "result" : false,
+  "updated" : false,
+}
+
+const number_to_letter_map = {
+  "one" : "A",
+  "two" : "B",
+  "three" : "C",
+  "four" : "D"
+}
+
+function findLargestSubstring(str) {
+  // Convert the string to an array of words
+  const words = str.split(" ");
+  let smallestLength = 0;
+  let smallestIndex = 0;
   
-      if (!question) {
-        return res.status(404).send("Question not found");
-      }
-      const answer = question.answer;
-      
-      const deepspeech_model = new DeepSpeechModel();
-      deepspeech_model.SetHotWords(triviaHotWords);
-
-      const dataBuffer = Buffer.from(uri, "hex");
-      const audioData = wav.decode(dataBuffer);
-      fs.writeFileSync('audio.wav', wav.encode(audioData.channelData, { sampleRate: audioData.sampleRate, bitDepth: audioData.bitsPerSample }));
-
-      const filePath = path.join(__dirname, 'audio.wav');
-  
-      const transcript = deepspeech_model.Translate(filePath, True).trim();
-
-      if (transcript == answer) {
-        const team = await Team.findOneAndUpdate({ teamID }, { $inc: { teamScore: 100 } }, { new: true });
-
-        if (!team) {
-          return res.status(404).send('Team not found');
-        }
-    
-        return res.status(200).json(team);
-      }
-      else {
-        return res.status(404).json("answer is not correct");
-      }
-
-      // TESTING
-      // if (transcript == "two") {
-      //   const team = await Team.findOneAndUpdate({ teamID }, { $inc: { teamScore: 100 } }, { new: true });
-  
-      //   if (!team) {
-      //       return res.status(404).send('Team not found');
-      //   }
-    
-      //   return res.status(200).json(team);
-      // }
-      // else {
-      //   return res.status(404).json("answer is not correct");
-      // }
-      
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: 'An error occurred while updating the team score' });
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length > smallestLength) {
+      smallestLength = words[i].length;
+      smallestIndex = i;
     }
-  });
+  }
+
+  return words[smallestIndex];
+}
+
+// POST audio
+router.post('/', async (req, res) => {
+  try {
+    const { questionID, teamID, audioFile } = req.body;
+    post_answer["questionID"] = questionID;
+    post_answer["teamID"] = teamID;
+
+    // Get question
+    const question = await Question.findOne({ questionID }, "questionID description alternatives answer");
+    if (!question) {
+      return res.status(404).send("Question not found");
+    }
+    const answer = question.answer;
+
+    // Convert the Base64-encoded audio data to a WAV buffer
+    const buffer = Buffer.from(audioFile, 'base64');
+    const deepspeech_model = new DeepSpeechModel();
+    deepspeech_model.SetHotWords(triviaHotWords);
+    const transcript = deepspeech_model.Translate(buffer, false).trim();
+    const filtered_transcript = findLargestSubstring(transcript);
+
+    console.log(`Unfiltered transcript is: ${transcript}`);
+    console.log(`Transcripted msg is: ${filtered_transcript}`);
+
+    // If filtered_transcript has noise or incorrectly transcribes, retry
+    if (filtered_transcript.length == 1 || !number_to_letter_map.hasOwnProperty(filtered_transcript)) {
+      return res.send("Retry");
+    }
+
+    const mapped_transcript = number_to_letter_map[filtered_transcript];
+
+    if (mapped_transcript == answer) {
+      post_answer["result"] = true;
+      post_answer["updated"] = true;
+      const team = await Team.findOneAndUpdate({ teamID }, { $inc: { teamScore: 100 } }, { new: true });
+
+      if (!team) {
+        return res.status(404).send('Team not found');
+      }
+  
+      return res.status(200).json(team);
+    }
+    else {
+      post_answer["result"] = false;
+      post_answer["updated"] = true;
+      return res.status(404).json("answer is not correct");
+    }
+  } catch (error) {
+    console.error('Error performing speech-to-text:', error);
+    res.status(500).json({ error: 'Failed to perform speech-to-text' });
+  }
+});
+
+// GET updates to hardware
+router.get('/', async (req, res) => {
+  if (post_answer["updated"] == true) {
+    post_answer["updated"] = false;
+    return res.json({ questionID : post_answer["questionID"], teamID : post_answer["teamID"], result : post_answer["result"]});
+  } else {
+    return res.send("No answer");
+  }
+});
 
 module.exports = router;

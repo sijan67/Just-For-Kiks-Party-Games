@@ -42,89 +42,98 @@ export default function ScoreScreen({navigation, route}) {
     
     // https://javascript.plainenglish.io/how-to-record-audio-using-react-native-expo-74723d2358e3
 
-    async function startRecording() {
-        try {
-          console.log('Requesting permissions..');
-          await Audio.requestPermissionsAsync();
-          await Audio.setAudioModeAsync({
-            allowsRecordingIOS: true,
-            playsInSilentModeIOS: true,
-          }); 
-          console.log('Starting recording..');
-          const recording = new Audio.Recording();
-          await recording.prepareToRecordAsync(Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY);
-          await recording.startAsync(); 
-          setRecording(recording);
-          console.log('Recording started');
-        } catch (err) {
-          console.error('Failed to start recording', err);
-        }
+    async function validateAudioFile(uri) {
+      const fileStats = await FileSystem.getInfoAsync(uri);
+      if (!fileStats.exists) {
+        throw new Error(`File does not exist at URI ${uri}`);
       }
+      if (fileStats.size === 0) {
+        throw new Error(`File is empty at URI ${uri}`);
+      }
+      if (fileStats.size > 1024 * 1024 * 10) {
+        throw new Error('File too large!');
+      }
+      return fileStats;
+    }
 
-      // send recording to the backend 
-      // https://www.tderflinger.com/en/react-native-audio-recording-flask 
-      
-      // async function stopRecording() {
-      //   setRecording(undefined);
-      //   await recording.stopAndUnloadAsync();
-
-      //   const uri = recording.getURI();
-
-        
-      //   // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
-
-      //   try {
-      //     const response = await FileSystem.uploadAsync(
-      //       AUDIO_BACKEND,
-      //       uri
-      //     );
-      //     const body = JSON.parse(response.body);
-      //     console.log(body.text);
-      //   } catch (err) {
-      //     console.log(err);
-      //   }
-
-      //   console.log('Recording stopped and stored at', uri , ' and sent to backend.');
-      // }
-
-      async function stopRecording() {
-        setRecording(undefined);
-        await recording.stopAndUnloadAsync();
-
-        const audioFileUri = recording.getURI();
-        try {
-
-          const fileStats = await FileSystem.getInfoAsync(audioFileUri);
-          const formData = new FormData();
-          formData.append('questionID', 1);
-          formData.append('teamID', 1);
-          formData.append('audioFile', {
-            uri: audioFileUri,
-            name: 'audio.mp3',
-            type: 'audio/mpeg',
-          });
-      
-          const response = await fetch('http://50.112.215.42/audio', {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              'Content-Length': fileStats.size,
-            },
-          });
-      
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-      
-          const data = await response.json();
-          console.log(data);
-        } catch (error) {
-          console.error('Error uploading audio:', error);
+    const recordingOptions = {
+      android: {
+        extension: '.wav',
+        sampleRate: 16000,
+        numberOfChannels: 1,
+        bitRate: 16,
+      },
+      ios: {
+        extension: '.wav',
+        audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_MAX,
+        sampleRate: 16000,
+        numberOfChannels: 1,
+        bitRate: 16,
+        linearPCMBitDepth: 16,
+        linearPCMIsBigEndian: false,
+        linearPCMIsFloat: false,
+      }
+    };
+    
+    async function startRecording() {
+      try {
+        console.log('Requesting permissions..');
+        await Audio.requestPermissionsAsync();
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: true,
+          playsInSilentModeIOS: true,
+        });
+        console.log('Starting recording..');
+        const recording = new Audio.Recording();
+        await recording.prepareToRecordAsync(recordingOptions);
+        await recording.startAsync();
+        setRecording(recording);
+        console.log('Recording started');
+      } catch (err) {
+        console.error('Failed to start recording', err);
+      }
+    }
+    
+    async function stopRecording() {
+      try {
+        if (!recording) {
+          return;
         }
-      }      
-
-
+        console.log('Stopping recording..');
+        await recording.stopAndUnloadAsync();
+        const uri = recording.getURI();
+        const fileStats = await validateAudioFile(uri);
+        console.log(`Recorded audio file size: ${fileStats.size} bytes`);
+        const audioData = await FileSystem.readAsStringAsync(uri, {
+          encoding: FileSystem.EncodingType.Base64,
+        });
+        const headers = {
+          'Content-Type': 'application/json',
+        };
+        const body = JSON.stringify({
+          questionID: '10',
+          teamID: '1',
+          audioFile: audioData,
+          audioFileExtension: 'wav',
+          audioFileType: 'audio/wav',
+        });
+        console.log("awaiting response...");
+        const response = await fetch('http://50.112.215.42/audio/', {
+          method: 'POST',
+          headers,
+          body,
+        });
+        console.log("Response received.");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      } catch (error) {
+        console.error('Error uploading audio:', error);
+      } finally {
+        setRecording(undefined);
+      }
+    }
+    
 
     // https://stackoverflow.com/questions/75367279/where-does-expo-av-recorded-file-store-in-mobile-phones
     // https://docs.expo.dev/versions/latest/sdk/filesystem/#filesystemuploadasyncurl-fileuri-options
