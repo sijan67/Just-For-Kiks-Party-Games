@@ -13,21 +13,43 @@ export default function ScoreScreen({navigation, route}) {
     // API Call Code 
     const [data, setData] = useState([]);
     const [winningData, setWinningData] = useState([]);
+    const [teamData, setTeamData] = useState({});
+    const [teamBuzzerData, setTeamBuzzerData] = useState({});
 
 
     const [loading, setLoading] = useState(true);
     const [winningLoading, setWinningLoading] = useState(true);
     const [recording, setRecording] = React.useState();
-    // const AUDIO_BACKEND = "http://your-flask-ip:5000/audio";
-    // const AUDIO_BACKEND = "http://128.189.223.105:4000/audio"
-    const AUDIO_BACKEND = "http://128.189.223.194:4000/audio"
-
-    // https://codesandbox.io/examples/package/react-score-indicator
-    // const url = `http://50.112.215.42/trivia/${route.params.username}/score`; //check if this is getting user's score
 
     const url = `http://50.112.215.42/teams/username/${route.params.username}`; 
 
     const winningUrl = 'http://50.112.215.42/teams/game/accumulate/score'
+
+    const getTeamData = async () => {
+      try {
+        const response = await fetch(`http://50.112.215.42/teams/username/${route.params.username}`);
+        const json = await response.json();
+        setTeamData(json);
+        setLoading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const getTeamBuzzerData = async () => {
+      try {
+        const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
+        const json = await response.json();
+        setTeamBuzzerData(json);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    useEffect(() => {
+      getTeamData();
+      getTeamBuzzerData();
+    }, []);
 
 
     useEffect(() => {
@@ -43,18 +65,7 @@ export default function ScoreScreen({navigation, route}) {
         return () => clearInterval(intervalId);
     }, []);
 
-  //   useEffect(() => {
-  //     const intervalId = setInterval(() => {
-  //         fetch(winningUrl)
-  //             .then((resp) => resp.json())
-  //             .then((json) => setWinningData(json))
-  //             .catch((error) => console.error(error))
-  //             .finally(() => setWinningLoading(false));
-  //     }, 2000); // make the request every 2 seconds
 
-  //     // cleanup function to clear the interval when the component unmounts
-  //     return () => clearInterval(intervalId);
-  // }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -154,8 +165,8 @@ export default function ScoreScreen({navigation, route}) {
           'Content-Type': 'application/json',
         };
         const body = JSON.stringify({
-          questionID: '10',
-          teamID: '1',
+          questionID: teamBuzzerData.questionID,
+          teamID: teamBuzzerData.teamID,
           audioFile: audioData,
           audioFileExtension: 'wav',
           audioFileType: 'audio/wav',
@@ -167,8 +178,12 @@ export default function ScoreScreen({navigation, route}) {
           body,
         });
         console.log("Response received.");
+        console.log("Response is: ", response.ok)
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          // throw new Error(`HTTP error! status: ${response.status}`);
+          return (
+            <Text style={{ color: 'red' }}>Error uploading audio. Please try again.</Text>
+          );
         }
       } catch (error) {
         console.error('Error uploading audio:', error);
@@ -199,7 +214,8 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-
+            {teamData.teamName === teamBuzzerData.teamName && (
+               <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
                 style={ {
@@ -217,6 +233,8 @@ export default function ScoreScreen({navigation, route}) {
             <Text style ={{color: 'black', fontStyle: 'bold', fontSize: 16}}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
 
             </TouchableOpacity>
+            </>
+          )}
 
             <Text style = {{color:'white', marginTop: 30, fontSize: 20}}> Game Status :  {winningData.status} </Text> 
 
