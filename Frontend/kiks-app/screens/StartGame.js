@@ -65,40 +65,16 @@ export default function EnterGameScreen({navigation, route}){
     };
   }, []);
 
-  // const handleJoin = (username) => {
-  //   fetch(`http://50.112.215.42/teams/username/${username}`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       const roomCode = data.roomCode;
-  //       fetch(`http://50.112.215.42/room/${roomCode}`, {
-  //         method: 'PUT',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify({
-  //           code: roomCode,
-  //           ready: true,
-  //         }),
-  //       })
-  //         .then((response) => response.json())
-  //         .then((data) => {
-  //           navigation.navigate('ScoreScreen', { username: username });
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching room code:', error);
-  //     });
-  // };
-  
 
   const handleJoin = (username) => {
     console.log("Join pressed")
     // navigation.navigate('ScoreScreen', { username: username })
     
       console.log(`http://50.112.215.42/room/${route.params.roomcode}`)
+      console.log(JSON.stringify({
+        "code": route.params.roomcode,
+        "ready": "true"
+    }))
       fetch(`http://50.112.215.42/room/${route.params.roomcode}`, {
         method: 'PUT',
         headers: {

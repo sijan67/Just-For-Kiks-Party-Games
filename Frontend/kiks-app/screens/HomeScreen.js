@@ -48,7 +48,7 @@ function GameScreen({navigation, route}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
-        { route.params.roomcode },  Pick a Game {route.params.name}  
+        Pick a Game {route.params.name}  
         </Text>
         <SafeAreaView style={styles.container}>
         <ScrollView 

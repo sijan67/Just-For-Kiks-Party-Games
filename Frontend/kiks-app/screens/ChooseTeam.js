@@ -164,7 +164,7 @@ export default function EnterGameCode({ navigation, route }) {
           fontWeight: '500',
         }}
       >
-        Hi {route.params.username}, {route.params.roomcode}
+        Hi {route.params.username}, 
       </Text>
 
       {availableTeams.length === 0 && (
