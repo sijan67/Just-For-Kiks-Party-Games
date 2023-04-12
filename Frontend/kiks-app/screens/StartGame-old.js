@@ -67,14 +67,7 @@ export default function EnterGameScreen({navigation, route}){
 
 
   const handleJoin = (username) => {
-    console.log("Join pressed")
-    // navigation.navigate('ScoreScreen', { username: username })
     
-      console.log(`http://50.112.215.42/room/${route.params.roomcode}`)
-      console.log(JSON.stringify({
-        "code": route.params.roomcode,
-        "ready": "true"
-    }))
       fetch(`http://50.112.215.42/room/${route.params.roomcode}`, {
         method: 'PUT',
         headers: {
@@ -87,7 +80,6 @@ export default function EnterGameScreen({navigation, route}){
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
         //   navigation.navigate('ScoreScreen');
             navigation.navigate('ScoreScreen', { username: username })
         })

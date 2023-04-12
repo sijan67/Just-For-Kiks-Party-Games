@@ -81,8 +81,6 @@ export default function EnterGameScreen({navigation, route}){
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-
           navigation.reset({
             index: 0,
             routes: [{ name: 'HomeScreen', params: { name: route.params.username, roomcode: route.params.roomcode } }],
@@ -104,7 +102,7 @@ export default function EnterGameScreen({navigation, route}){
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+       
           navigation.navigate('EnterName', { username: username })
         })
         .catch((error) => {

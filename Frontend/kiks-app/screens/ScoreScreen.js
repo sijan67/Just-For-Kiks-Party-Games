@@ -15,9 +15,10 @@ export default function ScoreScreen({navigation, route}) {
     const [winningData, setWinningData] = useState([]);
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
-    const [recordingUploaded, setRecordingUploaded] = useState(false); //false
-    const [removeRecordButton, setRecordButton] = useState(false); //false
+    const [recordingUploaded, setRecordingUploaded] = useState(true); 
+    const [removeRecordButton, setRemoveRecordButton] = useState(true); 
     const [audioUploadStatus, setAudioUploadStatus] = useState('');
+    const [countdown, setCountdown] = useState(10);
 
 
 
@@ -49,7 +50,10 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
-        setRecordingUploaded(true);
+        if (json.questionID !== teamBuzzerData.questionID) {
+          setRecordingUploaded(true);
+          setCountdown(10)
+      }
       } catch (error) {
         console.error(error);
       }
@@ -59,11 +63,20 @@ export default function ScoreScreen({navigation, route}) {
       const intervalId = setInterval(() => {
         getTeamData();
         getTeamBuzzerData();
-      }, 2000); // request every 2 seconds
+      }, 11000); // request every 11 seconds , because count down is for 10 seconds
     
       // Clear interval when component unmounts
       return () => clearInterval(intervalId);
     }, []);
+
+    useEffect(() => {
+      if (teamData.teamName === teamBuzzerData.teamName && recordingUploaded) {
+        const intervalId = setInterval(() => {
+          setCountdown((prevCountdown) => prevCountdown - 1);
+        }, 1000);
+        return () => clearInterval(intervalId);
+      }
+    }, [teamData.teamName, teamBuzzerData.teamName, recordingUploaded]);
 
 
     useEffect(() => {
@@ -146,10 +159,18 @@ export default function ScoreScreen({navigation, route}) {
           playsInSilentModeIOS: true,
         });
         console.log('Starting recording..');
-        const recording = new Audio.Recording();
-        await recording.prepareToRecordAsync(recordingOptions);
-        await recording.startAsync();
-        setRecording(recording);
+        // const recording = new Audio.Recording();
+        // await recording.prepareToRecordAsync(recordingOptions);
+        // await recording.startAsync();
+        // setRecording(recording);
+        // console.log('Recording started');
+        if (recording) {
+          await recording.stopAndUnloadAsync();
+        }
+        const newRecording = new Audio.Recording();
+        await newRecording.prepareToRecordAsync(recordingOptions);
+        await newRecording.startAsync();
+        setRecording(newRecording);
         console.log('Recording started');
       } catch (err) {
         console.error('Failed to start recording', err);
@@ -187,19 +208,18 @@ export default function ScoreScreen({navigation, route}) {
         });
         console.log("Response received.");
         console.log("Response status is: ", response.status)
-        console.log("Response ok is: ", response.ok)
+       
 
         if (response.status == 200) {
-          setRecordingUploaded(true);
-          setRecordButton(true)
+          setRecordingUploaded(false);
           setAudioUploadStatus('Audio sent successfully !');
           return (
             <Text style={{ color: 'white' }}> Audio sent successfully ! </Text>
           );
-        } 
-        if (response.status == 404) {
+        } else {
           setAudioUploadStatus('Could not transcribe audio. Please try again.');
-
+          setCountdown(10)
+          setRemoveRecordButton(true);
           return (
             <Text style={{ color: 'white' }}>Could not upload audio. Please try again.</Text>
           );
@@ -232,7 +252,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            {teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
+            { countdown > 0 && teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
@@ -249,6 +269,9 @@ export default function ScoreScreen({navigation, route}) {
                 }}
             >
             <Text style ={{color: 'black', fontStyle: 'bold', fontSize: 16}}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
+            {countdown > 0 && (
+            <Text style={styles.countdownText}>Record in {countdown} seconds</Text>
+          )}
 
             </TouchableOpacity>
             </>

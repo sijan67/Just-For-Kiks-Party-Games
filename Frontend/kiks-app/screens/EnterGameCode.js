@@ -71,7 +71,7 @@ export default function EnterGameCode({navigation, route}){
     })
     .then(response => response.json())
   .then(data => {
-    console.log(data);
+    
     if (data === "Room code is wrong") {
       alert("Room code is not valid. Please try again.");
     } else {

@@ -21,7 +21,7 @@ function GameScreen({navigation, route}) {
   console.log("In home Screen", route.params)
 
   const handlePress = (username, gamename) => {
-    console.log(`Joined ${username}, ${gamename}`);
+    console.log(`${username} voted for ${gamename}`);
     if (gamename=="Trivia") {
       fetch(`http://50.112.215.42/teams/game/vote/Trivia`, {
         method: 'POST',
@@ -34,7 +34,6 @@ function GameScreen({navigation, route}) {
       })
         .then((response) => console.log(response.json()))
         .then((data) => {
-          console.log(data);
           navigation.navigate('StartGame', { username: route.params.name, roomcode: route.params.roomcode });
         })
         .catch((error) => {
@@ -53,7 +52,6 @@ function GameScreen({navigation, route}) {
       })
         .then((response) => console.log(response.json()))
         .then((data) => {
-          console.log(data);
           navigation.navigate('StartGame', { username: route.params.name, roomcode: route.params.roomcode });
         })
         .catch((error) => {

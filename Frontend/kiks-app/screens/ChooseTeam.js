@@ -51,25 +51,6 @@ export default function EnterGameCode({ navigation, route }) {
   const [newTeamName, setNewTeamName] = useState('');
 
 
-  // useEffect(() => {
-  //   fetch('http://50.112.215.42/teams')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.length > 0) {
-  //         const newTeams = {};
-  //         data.forEach((team) => {
-  //           newTeams[team.teamName] = team.teamSize;
-  //         });
-  //         setTeams(newTeams);
-  //       } else {
-  //         setTeams({});
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }, []);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       fetch('http://50.112.215.42/teams')
@@ -97,7 +78,7 @@ export default function EnterGameCode({ navigation, route }) {
 
 
   const handlePress = (teamName) => {
-    // console.log(`Joined ${teamName}`);
+    
     if (teamName) {
       fetch(`http://50.112.215.42/teams/username/${route.params.username}/`, {
         method: 'POST',
@@ -118,7 +99,7 @@ export default function EnterGameCode({ navigation, route }) {
           console.error(error);
         });
     } else {
-      // console.log('Please enter a team name');
+    
     }
   };
 
