@@ -15,7 +15,7 @@ export default function ScoreScreen({navigation, route}) {
     const [winningData, setWinningData] = useState([]);
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
-    const [recordingUploaded, setRecordingUploaded] = useState(false);
+    const [recordingUploaded, setRecordingUploaded] = useState(false); //false
 
 
 
@@ -35,7 +35,7 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch(`http://50.112.215.42/teams/username/${route.params.username}`);
         const json = await response.json();
         setTeamData(json);
-        setLoading(false);
+        setLoading(false); //false
       } catch (error) {
         console.error(error);
       }
@@ -229,7 +229,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            {teamData.teamName === teamBuzzerData.teamName && !recordingUploaded && (
+            {teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
