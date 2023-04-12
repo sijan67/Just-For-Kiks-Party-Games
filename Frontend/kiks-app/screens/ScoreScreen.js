@@ -24,6 +24,8 @@ export default function ScoreScreen({navigation, route}) {
     const [recording, setRecording] = React.useState();
     
     // http://50.112.215.42/teams/team/1 // another way to get team score
+    // http://50.112.215.42/users/Sijan
+
     const url = `http://50.112.215.42/teams/username/${route.params.username}`; 
 
     const winningUrl = 'http://50.112.215.42/teams/game/accumulate/score'
@@ -49,20 +51,20 @@ export default function ScoreScreen({navigation, route}) {
       }
     };
 
-    // useEffect(() => {
-    //   const intervalId = setInterval(() => {
-    //     getTeamData();
-    //     getTeamBuzzerData();
-    //   }, 2000); // request every 2 seconds
-    
-    //   // Clear interval when component unmounts
-    //   return () => clearInterval(intervalId);
-    // }, []);
-
     useEffect(() => {
-      getTeamData();
-      getTeamBuzzerData();
+      const intervalId = setInterval(() => {
+        getTeamData();
+        getTeamBuzzerData();
+      }, 2000); // request every 2 seconds
+    
+      // Clear interval when component unmounts
+      return () => clearInterval(intervalId);
     }, []);
+
+    // useEffect(() => {
+    //   getTeamData();
+    //   getTeamBuzzerData();
+    // }, []);
 
 
     useEffect(() => {
