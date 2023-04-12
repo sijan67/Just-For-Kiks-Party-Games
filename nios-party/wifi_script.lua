@@ -96,14 +96,23 @@ end
 
 function getStart(roomCode)
     getReq(HOST .. "room/" .. roomCode, function(response)
-        print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
         end
-        print("@")
-        print(array[4])
-        print("@")
+        if(array[2] == "No rooms found") then
+            print("@")
+            print("No Room")
+            print("@")
+        elseif(array[4] == "false") then
+            print("@")
+            print("waiting")
+            print("@")
+        else
+            print("@")
+            print("ready")
+            print("@") 
+        end
     end)
 end
 
@@ -168,7 +177,7 @@ function getNextQState()
 end
 
 function getGameEnd() 
-    getReq(HOST .. "", function(response)
+    getReq(HOST .. "team", function(response)
         
     end)
 end

@@ -261,14 +261,16 @@ void display_choices() {
 }
 
 void press_button() {
-	if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0) &
+	if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_1_BASE) == 0)) {
+		/* &
 			(button_pressed != 1) &
-			(times_pressed < 2)) {
+			(times_pressed < 2)*/
+		//alt_irq_disable(TIMER_IRQ);
 		printf("Button Pressed\n");
 		button_pressed = 1;
 		times_pressed++;
-		//alt_irq_disable(TIMER_IRQ);
-		//current_time = -1;
+
+		current_time = -1;
 		post_buzzer[11] = 1 + '0';
 		post_buzzer[14] = (question_grab % 10) + '0';
 		post_buzzer[13] = (question_grab / 10) + '0';
@@ -287,24 +289,27 @@ void press_button() {
 			removeChar(token, '…');
 			removeChar(token, '\n');
 			removeChar(token, '\r');
-			if(token != "No answer") {
-				if(token == 'true') {
+			if(strcmp(token, "No answer") != 0) {
+				/*if(strcmp(token,"true") == 0) {
 					current_time = 0;
 				} else {
-					alt_irq_enable(TIMER_IRQ);
-				}
+					//alt_irq_enable(TIMER_IRQ);
+					question_countdown();
+				}*/
 				break;
 			}
 		}
 
-	} else if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) &
-			(button_pressed != 2) &
-			(times_pressed < 2)) {
+	} else if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0)) {
+		 /*&
+					(button_pressed != 2) &
+					(times_pressed < 2)*/
+		//alt_irq_disable(TIMER_IRQ);
 		printf("Button 2 Pressed\n");
 		button_pressed = 2;
 		times_pressed++;
-		//alt_irq_disable(TIMER_IRQ);
-		//current_time = -1;
+
+		current_time = -1;
 		post_buzzer[11] = 2 + '0';
 		post_buzzer[14] = (question_grab % 10) + '0';
 		post_buzzer[13] = (question_grab / 10) + '0';
@@ -323,12 +328,13 @@ void press_button() {
 			removeChar(token, '…');
 			removeChar(token, '\n');
 			removeChar(token, '\r');
-			if(token != "No answer") {
-				if(token == 'true') {
+			if(strcmp(token, "No answer") != 0) {
+				/*if(strcmp(token,"true") == 0) {
+					//question_countdown();
 					current_time = 0;
 				} else {
-					alt_irq_enable(TIMER_IRQ);
-				}
+					question_countdown();
+				}*/
 				break;
 			}
 		}
@@ -356,7 +362,6 @@ void generate_question() {
 	used_questions[used_question_index] = question_grab;
 	used_question_index++;
 
-	question_grab = 28;
 	get_question[13] = (question_grab % 10) + '0';
 	get_question[12] = (question_grab / 10) + '0';
 	get_question_choices[20] = (question_grab % 10) + '0';
@@ -379,8 +384,6 @@ void generate_question() {
 	display_new_question();
 	display_choices();
 	question_countdown();
-
-
 }
 
 void question_countdown() {
@@ -416,11 +419,13 @@ void removeChar(char *str, char remove) {
 }
 
 void wait_for_start() {
+	get_start[10] = roomCode[0];
+	get_start[11] = roomCode[1];
+	get_start[12] = roomCode[2];
+	get_start[13] = roomCode[3];
 	while(1) {
-		get_start[10] = roomCode[0];
-		get_start[11] = roomCode[1];
-		get_start[12] = roomCode[2];
-		get_start[13] = roomCode[3];
+
+		printf("%s\n", get_start);
 		write_data(get_start);
 		usleep(3000000);
 		read_data(0);
@@ -434,7 +439,7 @@ void wait_for_start() {
 		removeChar(token, '\n');
 		removeChar(token, '\r');
 		printf("%s\n", token);
-		if(strcmp(token, "true") == 0) {
+		if(strcmp(token, "ready") == 0) {
 			break;
 		}
 	}
