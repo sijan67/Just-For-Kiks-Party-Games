@@ -74,6 +74,7 @@ char current_question[20] = "Question   :";
 
 char *delim = "@";
 char *gameMode;
+char *winning_team_name;
 int question_increment = 10;
 int used_questions[50] = {-1};
 int used_question_index = 0;
@@ -112,26 +113,27 @@ int main() {
 	usleep(15000000);
 	read_data(0);
 	usleep(5000000);
+
 	display_roomcode();
 	wait_for_start();
 
-	for(int k = 0; k < 10; k++) {
+	/*for(int k = 0; k < 10; k++) {
 		generate_question();
-	}
+	}*/
 
-	/*int status = 1;
+	int status = 1;
 	int k = 0;
 	while(status) {
 		generate_question();
 		if(k > 9) {
-			status = check_game_status;
+			status = check_game_status();
 		}
-	}*/
+	}
+	alt_up_char_buffer_clear(char_buffer);
+	alt_up_char_buffer_string(char_buffer, "Congratulations", 35, 30);
+	alt_up_char_buffer_string(char_buffer, winning_team_name, 40, 30);
 
 
-	printf("\nDONE GET\n");
-
-	printf("CHOICES: %s", choices);
 
 	printf("\nFinished\n");
 
@@ -192,14 +194,9 @@ void display_roomcode() {
 	removeChar(token, '\r');
 	printf("ROOMCODE: %s\n", token);
 	roomCode = token;
-	char border = 'X';
 	char *kiks = "Just for Kiks";
 	char *room_code = "Room Code:";
 	alt_up_char_buffer_clear(char_buffer);
-	alt_up_char_buffer_draw(char_buffer, border, 0, 0);
-	alt_up_char_buffer_draw(char_buffer, border, 0, 59);
-	alt_up_char_buffer_draw(char_buffer, border, 79, 0);
-	alt_up_char_buffer_draw(char_buffer, border, 79, 59);
 
 	alt_up_char_buffer_string(char_buffer, kiks, 33, 20);
 	alt_up_char_buffer_string(char_buffer, room_code, 35, 25);
@@ -279,15 +276,26 @@ void press_button() {
 		usleep(3000000);
 		read_data(0);
 		usleep(3000000);
-		/*while(1) {
+		while(1) {
 			write_data(get_question_status);
 			usleep(2000000);
 			read_data(0);
 			usleep(2000000);
-			if() {
+			char *token = strtok(output, delim);
+			token = strtok(NULL, delim);
+			removeChar(token, '†');
+			removeChar(token, '…');
+			removeChar(token, '\n');
+			removeChar(token, '\r');
+			if(token != "No answer") {
+				if(token == 'true') {
+					current_time = 0;
+				} else {
+					alt_irq_enable(TIMER_IRQ);
+				}
 				break;
 			}
-		}*/
+		}
 
 	} else if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0) &
 			(button_pressed != 2) &
@@ -304,28 +312,39 @@ void press_button() {
 		usleep(3000000);
 		read_data(0);
 		usleep(3000000);
-		/*while(1) {
+		while(1) {
 			write_data(get_question_status);
 			usleep(2000000);
 			read_data(0);
 			usleep(2000000);
-			if() {
+			char *token = strtok(output, delim);
+			token = strtok(NULL, delim);
+			removeChar(token, '†');
+			removeChar(token, '…');
+			removeChar(token, '\n');
+			removeChar(token, '\r');
+			if(token != "No answer") {
+				if(token == 'true') {
+					current_time = 0;
+				} else {
+					alt_irq_enable(TIMER_IRQ);
+				}
 				break;
 			}
-		}*/
+		}
 	}
 }
 
 void generate_question() {
 	int generate = 1;
-	question_grab = (rand() % 10) + 10;
+	question_grab = (rand() % 20) + question_increment;
 	if(used_questions[0] != -1) {
 		while(generate == 1) {
 			generate = 0;
 			for(int i = 0; used_questions[i] > -1; i++) {
 				if(question_grab == used_questions[i]) {
 					generate = 1;
-					question_grab = (rand() % 10) + 10;
+					question_grab = (rand() % 10) + question_increment;
 					break;
 				}
 			}
@@ -337,7 +356,7 @@ void generate_question() {
 	used_questions[used_question_index] = question_grab;
 	used_question_index++;
 
-	//question_grab = 29;
+	question_grab = 28;
 	get_question[13] = (question_grab % 10) + '0';
 	get_question[12] = (question_grab / 10) + '0';
 	get_question_choices[20] = (question_grab % 10) + '0';
@@ -368,7 +387,12 @@ void question_countdown() {
 	alt_irq_enable(TIMER_IRQ);
 	current_time = 9;
 	while(current_time > -1) {
-		display_time[0] = current_time + '0';
+		if(current_time < 0) {
+			display_time[0] = '0';
+		} else {
+			display_time[0] = current_time + '0';
+		}
+
 		alt_up_char_buffer_string(char_buffer, display_time, 40, 40);
 	}
 	alt_up_char_buffer_string(char_buffer, "Grabbing Next Question...", 28, 50);
@@ -442,8 +466,20 @@ int check_game_status() {
 	usleep(2000000);
 	read_data(0);
 	usleep(2000000);
-
-	// Check status and return 0 or 1 to continue game
+	char *token = strtok(output, delim);
+	char *game_status = strtok(NULL, delim);
+	removeChar(game_status, '†');
+	removeChar(game_status, '…');
+	removeChar(game_status, '\n');
+	removeChar(game_status, '\r');
+	if(strcmp(game_status, "Game Over") == 0) {
+		winning_team_name = strtok(NULL, delim);
+		removeChar(winning_team_name, '†');
+		removeChar(winning_team_name, '…');
+		removeChar(winning_team_name, '\n');
+		removeChar(winning_team_name, '\r');
+		return 0;
+	}
 
 	return 1;
 

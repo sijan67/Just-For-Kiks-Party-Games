@@ -9,6 +9,8 @@ const Room = require('../models/Room');
 const Buzzer = require('../models/Buzzer');
 const Question = require('../models/Question');
 
+let option = "";
+
 function getNextId() {
     return Team.find().sort({ teamID: -1 }).limit(1).then(result => {
         if (result.length === 0) {
@@ -201,6 +203,43 @@ router.get("/buzzer/team", async (req, res) => {
   }
 });
 
+// get if the game is ending or restarting
+router.get("/game/lobby/option", (req, res) => {
+    if(option === "") {
+      res.status(200).send("in game");
+    } else if (option === "restart") {
+      res.status(200).send("restart");
+    } else {
+      res.status(200).send("over");
+    }
+})
+
+router.post('/game/lobby/:option', async (req, res) => {
+  const {option} = req.params;
+  try{
+    if (option === 'restart') {
+      option = option;
+      // Delete the team score and accumulated score but don't delete the team and user
+        await Game.deleteMany({}); // Delete all game records
+        // await User.updateMany({}, { $unset: { roomCode: "" } }); // Remove the roomCode field from all user records
+        await Team.updateMany({}, { $set: { teamScore: 0 } }); // Set the teamScore field to 0 for all team records
+        return res.status(200).json({ message: 'Game restarted successfully' });
+      
+  } else {
+      // Delete everything including the team and user
+      option = option;
+      await User.deleteMany({});
+      await Team.deleteMany({});
+      await Game.deleteMany({});
+      return res.status(200).json({ message: 'Game ended successfully' });
+    } 
+  }catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 /* UPDATE Operations */
 
 // join new team
@@ -327,6 +366,7 @@ router.post('/game/lobby/:option', async (req, res) => {
     const {option} = req.params;
     try{
       if (option === 'restart') {
+        option = option;
         // Delete the team score and accumulated score but don't delete the team and user
           await Game.deleteMany({}); // Delete all game records
           // await User.updateMany({}, { $unset: { roomCode: "" } }); // Remove the roomCode field from all user records
@@ -335,10 +375,11 @@ router.post('/game/lobby/:option', async (req, res) => {
         
     } else {
         // Delete everything including the team and user
-          await User.deleteMany({});
-          await Team.deleteMany({});
-          await Game.deleteMany({});
-          return res.status(200).json({ message: 'Game ended successfully' });
+        option = option;
+        await User.deleteMany({});
+        await Team.deleteMany({});
+        await Game.deleteMany({});
+        return res.status(200).json({ message: 'Game ended successfully' });
       } 
     }catch (err) {
       console.error(err);

@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
 export default function EnterGameScreen({navigation, route}){
   const animation = useRef(null);
   useEffect(() => {
-    // You can control the ref programmatically, rather than using autoPlay
-    // animation.current?.play();
   }, []);
   const [mostVotedGame, setMostVotedGame] = useState('');
 
@@ -67,18 +65,23 @@ export default function EnterGameScreen({navigation, route}){
     };
   }, []);
 
+
   const handleJoin = (username) => {
     console.log("Join pressed")
     // navigation.navigate('ScoreScreen', { username: username })
     
-   
-      fetch(`http://50.112.215.42/room/0000`, {
+      console.log(`http://50.112.215.42/room/${route.params.roomcode}`)
+      console.log(JSON.stringify({
+        "code": route.params.roomcode,
+        "ready": "true"
+    }))
+      fetch(`http://50.112.215.42/room/${route.params.roomcode}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            "code": "0000",
+            "code": route.params.roomcode,
             "ready": "true"
         }),
       })

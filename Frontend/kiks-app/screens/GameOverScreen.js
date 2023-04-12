@@ -67,31 +67,46 @@ export default function EnterGameScreen({navigation, route}){
     };
   }, []);
 
-  const handleJoin = (username) => {
-    console.log("Join pressed")
-    // navigation.navigate('ScoreScreen', { username: username })
-    console.log(username)
+  const handleJoin = (username, status) => {
+
+    if (status == "restart"){
+      fetch(`http://50.112.215.42/teams/game/lobby/restart`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+  
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          navigation.navigate('HomeScreen', { username: username })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else{
+      fetch(`http://50.112.215.42/teams/game/lobby/returnlobby`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          navigation.navigate('EnterName', { username: username })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
    
-    //   fetch(`http://50.112.215.42/room/0000`, {
-    //     method: 'PUT',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //         "code": "0000",
-    //         "ready": "true"
-    //     }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //     //   navigation.navigate('ScoreScreen');
-    //         navigation.navigate('ScoreScreen', { username: username })
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    
+
   };
   
     return (
@@ -123,21 +138,14 @@ export default function EnterGameScreen({navigation, route}){
         </Text>
         
         <Text style={styles.textStyle}>   
-            Winning Team: 
+            Winning Team: {route.params.winner}
         </Text>
 
         <Text style={{color: 'white', marginTop: 20, marginBottom: 20, fontSize: 20}}>   
-            Score: 
+            Score: {route.params.winnerScore}
         </Text>
 
-      
-        {/* <Button style={styles.buttonStyle} onPress={() =>
-       navigation.navigate('ScoreScreen', { username: route.params.username })}>
-          <Text style={{color: 'black', fontSize: 16}}>
-          Start Game
-          </Text> */}
-
-        <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username)}>
+        <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username, "restart")}>
           <Text style={{color: 'black', fontSize: 16}}>
            Play again
           </Text>  
@@ -147,7 +155,7 @@ export default function EnterGameScreen({navigation, route}){
            OR
         </Text>  
 
-        <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username)}>
+        <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username, "returnlobby")}>
           <Text style={{color: 'black', fontSize: 16}}>
            Return to lobby
           </Text>  

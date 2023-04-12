@@ -85,7 +85,7 @@ router.get("/:roomCode", async (req, res) => {
         if (room) {
             res.status(200).json({ roomCode: roomCode, ready: room.ready });
         } else {
-            res.status(404).json({ error: "No rooms found" });
+            res.status(200).json({ error: "No rooms found" });
         }
     } catch (err) {
         console.error(err);

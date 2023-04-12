@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
 export default function EnterGameScreen({navigation, route}){
   const animation = useRef(null);
   useEffect(() => {
-    // You can control the ref programmatically, rather than using autoPlay
-    // animation.current?.play();
   }, []);
     return (
       <View style={styles.main}>
