@@ -50,7 +50,7 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
-        if (json.questionID === teamBuzzerData.questionID || tryAgain) {
+        if (json.questionID != teamBuzzerData.questionID || tryAgain) {
           setRecordingUploaded(true);
           setCountdown(10)
       }
