@@ -66,8 +66,7 @@ export default function EnterGameCode({navigation, route}){
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: username,
-        roomcode: roomCode
+        roomCode: roomCode
       }),
     })
     .then(response => response.json())
