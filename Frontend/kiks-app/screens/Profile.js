@@ -33,7 +33,7 @@ export default function TestScreen({navigation,route}){
         <ActivityIndicator />
       ) : (
         <View >
-      <Text style={styles.name}>Hi {route.params.username}  {route.params.roomcode} </Text>
+      <Text style={styles.name}>Hi {route.params.username}   </Text>
     </View>
       )}
 
