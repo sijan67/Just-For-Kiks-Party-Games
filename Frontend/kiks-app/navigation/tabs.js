@@ -65,10 +65,7 @@ const screenOptions = {
 };
 
 export default function NavTab({route}) {
-  // const { username } = route.params;
-  console.log("In NavTab" , route.params)
 
-  
   return (
       <Tab.Navigator 
         initialRouteName="Home" {...{ screenOptions }} >

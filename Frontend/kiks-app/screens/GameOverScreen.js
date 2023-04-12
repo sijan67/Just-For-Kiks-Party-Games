@@ -83,11 +83,6 @@ export default function EnterGameScreen({navigation, route}){
         .then((data) => {
           console.log(data);
 
-          // navigation.reset({
-          //   index: 0,
-          //   routes: [{ name: 'HomeScreen', params: { username: route.params.username, roomcode: route.params.roomcode } }],
-          // });
-
           navigation.reset({
             index: 0,
             routes: [{ name: 'HomeScreen', params: { name: route.params.username, roomcode: route.params.roomcode } }],

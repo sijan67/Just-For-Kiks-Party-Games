@@ -154,7 +154,6 @@ export default function EnterGameCode({ navigation, route }) {
   }
 
   const availableTeams = Object.keys(teams);
-  console.log(availableTeams)
 
   return (
     <View style={styles.main}>

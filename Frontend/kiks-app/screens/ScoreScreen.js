@@ -17,6 +17,7 @@ export default function ScoreScreen({navigation, route}) {
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
     const [recordingUploaded, setRecordingUploaded] = useState(false); //false
     const [removeRecordButton, setRecordButton] = useState(false); //false
+    const [audioUploadStatus, setAudioUploadStatus] = useState('');
 
 
 
@@ -185,16 +186,19 @@ export default function ScoreScreen({navigation, route}) {
           body,
         });
         console.log("Response received.");
-        console.log("Response is: ", response.ok)
-        if (response.ok) {
+        console.log("Response status is: ", response.status)
+        console.log("Response ok is: ", response.ok)
+
+        if (response.status == 200) {
           setRecordingUploaded(true);
           setRecordButton(true)
+          setAudioUploadStatus('Audio sent successfully !');
           return (
             <Text style={{ color: 'white' }}> Audio sent successfully ! </Text>
           );
-        }
-        
-        if (!response.ok) {
+        } 
+        if (response.status == 404) {
+          setAudioUploadStatus('Could not transcribe audio. Please try again.');
 
           return (
             <Text style={{ color: 'white' }}>Could not upload audio. Please try again.</Text>
@@ -250,7 +254,10 @@ export default function ScoreScreen({navigation, route}) {
             </>
           )}
 
-            <Text style = {{color:'white', marginTop: 30, fontSize: 20}}> Game Status :  {winningData.status} </Text> 
+          <Text style = {{color:'white', marginTop: 30, fontSize: 20}}> Game Status :  {winningData.status} </Text> 
+          {audioUploadStatus !== '' && (
+            <Text style={{ color: 'orange', marginTop: 20 }}>{audioUploadStatus}</Text>
+          )}
 
 
         </View>
