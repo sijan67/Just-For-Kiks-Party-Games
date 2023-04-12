@@ -65,8 +65,6 @@ router.get('/username/:username', async (req, res) => {
         return res.status(404).json({ error: 'Team not found' });
       }
       
-      // console.log(team.teamName);
-      // console.log(user.roomCode);
       const result = {
         teamName: team.teamName,
         teamScore: team.teamScore,
@@ -78,7 +76,7 @@ router.get('/username/:username', async (req, res) => {
       console.error(err);
       return res.status(500).json({ error: 'Internal server error' });
     }
-  });
+});
 
 router.get("/:username/", async (req, res, next) => {
 
@@ -242,7 +240,7 @@ router.put("/username/:username", async (req, res, next) => {
 // POST a new team
 router.post("/username/:username/", async (req, res, next) => {
     const {username} = req.params;
-    const {teamName} = req.body;
+    const {teamName, roomCode} = req.body;
 
     const newTeam = new Team({
         // teamID: await getNextId(),
@@ -261,7 +259,7 @@ router.post("/username/:username/", async (req, res, next) => {
     const newUser = new User({
         username: username,
         teamID: newTeam.teamID,
-        roomCode: "0000",
+        roomCode: roomCode,
     });
 
     await newUser.save();
@@ -289,7 +287,7 @@ router.post('/room/:username', async (req, res) => {
       // Update the user's room
       const updatedUser = await User.findOneAndUpdate(
         { username },
-        { $set: { roomcode: "0000"} }
+        { $set: { roomcode: roomCode} }
       );
   
       if (!updatedUser) {
@@ -305,16 +303,6 @@ router.post('/game/vote/:game', async (req, res) => {
     const { username } = req.body;
     const {game} = req.params;
 
-   
-    //   const user = await User.find({ username });
-    //   if (!user) {
-    //     return res.status(404).json({ error: 'User not found' });
-    //   }
-  
-    //   const team = await Team.find({ teamID: user.teamID });
-    //   if (!team) {
-    //     return res.status(404).json({ error: 'Team not found' });
-    //   }
     const user = await User.findOne({ username });
   
       if (!user) {
@@ -341,7 +329,7 @@ router.post('/game/lobby/:option', async (req, res) => {
       if (option === 'restart') {
         // Delete the team score and accumulated score but don't delete the team and user
           await Game.deleteMany({}); // Delete all game records
-          await User.updateMany({}, { $unset: { roomCode: "" } }); // Remove the roomCode field from all user records
+          // await User.updateMany({}, { $unset: { roomCode: "" } }); // Remove the roomCode field from all user records
           await Team.updateMany({}, { $set: { teamScore: 0 } }); // Set the teamScore field to 0 for all team records
           return res.status(200).json({ message: 'Game restarted successfully' });
         
@@ -356,7 +344,6 @@ router.post('/game/lobby/:option', async (req, res) => {
       console.error(err);
       return res.status(500).json({ error: 'Internal server error' });
     }
-    
 });
 
 // post to return who is pressing the buzzer

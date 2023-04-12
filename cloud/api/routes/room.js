@@ -4,32 +4,51 @@ const mongoose = require("mongoose");
 
 const Room = require('../models/Room');
 
-const roomCode = "0000";
+let R = "";
 
-// GET all rooms
+// GET the roomCode
 router.get('/', (req, res, next) => {
-    Room.find()
-        .then(room => {
-            res.status(200).json(room);
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).send("Internal server error");
-        });
+    
+    const roomCode = Math.floor(1000 + Math.random() * 9000).toString();
+    R = roomCode;
+    res.status(200).json(roomCode);
+         
 });
+
+// get the roomCode for frontend
+router.get('/roomCode', (req, res, next) => {
+    Room.find({}, 'code').then(room => {
+        if (room !== null && room.length > 0) {
+            res.status(200).json(room)
+        } else {
+            res.write("No room found");
+        }
+        res.end();
+    });
+})
 
 // POST a new room
 router.post("/:roomCode", async (req, res, next) => {
-
-    const newRoom = new Room({
-        code : roomCode,
-        ready: 'false'
-    });
-
-    await newRoom.save();
-
-    console.log(`A new room has been created with code ${roomCode}.`)
-    return res.status(200).json(roomCode)
+    const {roomCode} = req.params;
+    if (roomCode !== R){
+        res.status(200).json("Room code is wrong");
+    } 
+    else{
+        try{
+            const newRoom = new Room({
+                code : roomCode,
+                ready: 'false'
+            });
+        
+            await newRoom.save();
+        
+            console.log(`A new room has been created with code ${roomCode}.`)
+            return res.status(200).json(roomCode)
+        } catch (err) {
+            console.log("Room already exists");
+            res.status(200).json("Room code exists");
+        }
+    } 
 });
 
 // update a room

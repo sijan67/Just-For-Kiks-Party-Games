@@ -69,7 +69,7 @@ router.post('/', async (req, res) => {
     const mapped_transcript = number_to_letter_map[filtered_transcript];
 
     if (mapped_transcript == answer) {
-      post_answer["result"] = true;
+      post_answer["result"] = 'true';
       post_answer["updated"] = true;
       const team = await Team.findOneAndUpdate({ teamID }, { $inc: { teamScore: 100 } }, { new: true });
 
@@ -80,7 +80,7 @@ router.post('/', async (req, res) => {
       return res.status(200).json(team);
     }
     else {
-      post_answer["result"] = false;
+      post_answer["result"] = 'false';
       post_answer["updated"] = true;
       return res.status(404).json("answer is not correct");
     }
