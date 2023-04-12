@@ -106,6 +106,7 @@ export default function EnterGameCode({ navigation, route }) {
         },
         body: JSON.stringify({
           teamName: teamName,
+          roomCode: route.params.roomcode
         }),
       })
         .then((response) => response.json())
@@ -131,6 +132,7 @@ export default function EnterGameCode({ navigation, route }) {
         },
         body: JSON.stringify({
           teamName: teamName,
+          roomCode: route.params.roomcode
         }),
       })
         .then((response) => response.json())
