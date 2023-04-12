@@ -43,6 +43,7 @@ void question_countdown();
 void wait_for_start();
 void loading_screen();
 int check_game_status();
+void wait_for_audio();
 
 alt_up_rs232_dev *rs232_dev;
 //variable to hold data received from uart
@@ -267,10 +268,11 @@ void press_button() {
 			(times_pressed < 2)*/
 		//alt_irq_disable(TIMER_IRQ);
 		printf("Button Pressed\n");
+		current_time = -1;
 		button_pressed = 1;
 		times_pressed++;
 
-		current_time = -1;
+
 		post_buzzer[11] = 1 + '0';
 		post_buzzer[14] = (question_grab % 10) + '0';
 		post_buzzer[13] = (question_grab / 10) + '0';
@@ -278,38 +280,17 @@ void press_button() {
 		usleep(3000000);
 		read_data(0);
 		usleep(3000000);
-		while(1) {
-			write_data(get_question_status);
-			usleep(2000000);
-			read_data(0);
-			usleep(2000000);
-			char *token = strtok(output, delim);
-			token = strtok(NULL, delim);
-			removeChar(token, '†');
-			removeChar(token, '…');
-			removeChar(token, '\n');
-			removeChar(token, '\r');
-			if(strcmp(token, "No answer") != 0) {
-				/*if(strcmp(token,"true") == 0) {
-					current_time = 0;
-				} else {
-					//alt_irq_enable(TIMER_IRQ);
-					question_countdown();
-				}*/
-				break;
-			}
-		}
-
+		printf("Sent Buzzer\n");
 	} else if((IORD_ALTERA_AVALON_PIO_DATA(BUTTON_2_BASE) == 0)) {
 		 /*&
 					(button_pressed != 2) &
 					(times_pressed < 2)*/
 		//alt_irq_disable(TIMER_IRQ);
 		printf("Button 2 Pressed\n");
+		current_time = -1;
 		button_pressed = 2;
 		times_pressed++;
 
-		current_time = -1;
 		post_buzzer[11] = 2 + '0';
 		post_buzzer[14] = (question_grab % 10) + '0';
 		post_buzzer[13] = (question_grab / 10) + '0';
@@ -317,27 +298,7 @@ void press_button() {
 		usleep(3000000);
 		read_data(0);
 		usleep(3000000);
-		while(1) {
-			write_data(get_question_status);
-			usleep(2000000);
-			read_data(0);
-			usleep(2000000);
-			char *token = strtok(output, delim);
-			token = strtok(NULL, delim);
-			removeChar(token, '†');
-			removeChar(token, '…');
-			removeChar(token, '\n');
-			removeChar(token, '\r');
-			if(strcmp(token, "No answer") != 0) {
-				/*if(strcmp(token,"true") == 0) {
-					//question_countdown();
-					current_time = 0;
-				} else {
-					question_countdown();
-				}*/
-				break;
-			}
-		}
+		printf("Sent Buzzer\n");
 	}
 }
 
@@ -397,6 +358,9 @@ void question_countdown() {
 		}
 
 		alt_up_char_buffer_string(char_buffer, display_time, 40, 40);
+	}
+	if(button_pressed != 0) {
+		wait_for_audio();
 	}
 	alt_up_char_buffer_string(char_buffer, "Grabbing Next Question...", 28, 50);
 	button_pressed = 0;
@@ -497,6 +461,32 @@ void init_timer_interrupt() {
 			ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
 
 	alt_irq_register(TIMER_IRQ, NULL,timer_isr);
+}
+
+void wait_for_audio() {
+	while(1) {
+		write_data(get_question_status);
+		usleep(3000000);
+		read_data(0);
+		usleep(3000000);
+		char *token = strtok(output, delim);
+		token = strtok(NULL, delim);
+		removeChar(token, '†');
+		removeChar(token, '…');
+		removeChar(token, '\n');
+		removeChar(token, '\r');
+		if(strcmp(token, "No answer") != 0) {
+			/*if(strcmp(token,"true") == 0) {
+				//question_countdown();
+				current_time = 0;
+			} else {
+				question_countdown();
+			}*/
+			break;
+		}
+	}
+
+	button_pressed = 0;
 }
 
 static void timer_isr(void * context, alt_u32 id) {
