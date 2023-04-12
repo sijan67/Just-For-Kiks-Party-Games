@@ -3,16 +3,23 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 const Room = require('../models/Room');
+const Team = require('../models/Team');
+const User = require('../models/User');
+const Game = require('../models/Game');
+const Buzzer = require('../models/Buzzer');
 
 let R = "";
 
 // GET the roomCode
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
     
+    await User.deleteMany({});
+    await Team.deleteMany({});
+    await Game.deleteMany({});
+
     const roomCode = Math.floor(1000 + Math.random() * 9000).toString();
     R = roomCode;
     res.status(200).json(roomCode);
-         
 });
 
 // get the roomCode for frontend

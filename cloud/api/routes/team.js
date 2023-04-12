@@ -35,7 +35,7 @@ router.get('/', (req, res, next) => {
 });
 
 // GET team by ID
-router.get("/:teamID/", (req, res, next) => {
+router.get("/team/:teamID/", (req, res, next) => {
     const { teamID } = req.params;
     Team.find({ teamID }, "teamName teamScore teamSize").then(team => {
         if (team !== null && team.length > 0) {
@@ -53,26 +53,26 @@ router.get("/:teamID/", (req, res, next) => {
 router.get('/username/:username', async (req, res) => {
     
     const { username } = req.params;
-
+    console.log(req.params)
     try {
-      const user = await User.findOne({ username });
-  
+      const user = await User.find({ username }).limit(1);
+      console.log(user[0])
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
       }
   
-      const team = await Team.findOne({ teamID: user.teamID });
-  
+      const team = await Team.find({ teamID: user[0].teamID }).limit(1);
+      console.log(team);
       if (!team) {
         return res.status(404).json({ error: 'Team not found' });
       }
       
       const result = {
-        teamName: team.teamName,
-        teamScore: team.teamScore,
-        roomCode: user.roomCode,
+        teamName: team[0].teamName,
+        teamScore: team[0].teamScore,
+        roomCode: user[0].roomCode,
       };
-  
+      console.log(result)
       return res.status(200).json(result);
     } catch (err) {
       console.error(err);
@@ -109,11 +109,14 @@ router.get('/game/votes', async (req, res) => {
 
     let triviaCount = 0;
     let mathCount = 0;
+    let totalCount = 0;
     games.forEach(game => {
       if (game.game === 'Trivia') {
           triviaCount++;
+          totalCount++;
       } else if (game.game === 'Math') {
           mathCount++;
+          totalCount++;
       }
     });
 
@@ -128,7 +131,7 @@ router.get('/game/votes', async (req, res) => {
     }
 
     return res.status(200).json({
-      winningGame
+      winningGame, totalCount
     });
   } catch (err) {
     console.error(err);
@@ -295,13 +298,18 @@ router.post("/username/:username/", async (req, res, next) => {
 
     await newTeam.save();
 
-    const newUser = new User({
-        username: username,
-        teamID: newTeam.teamID,
-        roomCode: roomCode,
-    });
+    // const newUser = new User({
+    //     username: username,
+    //     teamID: newTeam.teamID,
+    //     roomCode: roomCode,
+    // });
 
-    await newUser.save();
+    // await newUser.save();
+
+    const updatedUser = await User.findOneAndUpdate(
+      { username },
+      { $set: { teamID: newTeam.teamID, roomCode: roomCode}} 
+    );
 
     console.log(`${username} has created a new team.`);
     console.log(req.body.teamName);
@@ -326,7 +334,7 @@ router.post('/room/:username', async (req, res) => {
       // Update the user's room
       const updatedUser = await User.findOneAndUpdate(
         { username },
-        { $set: { roomcode: roomCode} }
+        { $set: { roomCode: roomCode} }
       );
   
       if (!updatedUser) {

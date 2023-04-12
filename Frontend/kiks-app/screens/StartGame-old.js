@@ -39,36 +39,10 @@ const styles = StyleSheet.create({
 })
 
 export default function EnterGameScreen({navigation, route}){
-
-    const [teamsData, setTeamsData] = useState([]);
-
-useEffect(() => {
-    const fetchTeamsData = () => {
-    Promise.all([
-        fetch('http://50.112.215.42/teams/team/1'),
-        fetch('http://50.112.215.42/teams/team/2')
-    ]).then((responses) => Promise.all(responses.map((res) => res.json())))
-        .then((data) => {
-        setTeamsData(data);
-        })
-        .catch((error) => {
-        console.log('Error fetching teams data:', error);
-        });
-    };
-    fetchTeamsData(); // Fetch data immediately when the component mounts
-
-    const intervalId = setInterval(fetchTeamsData, 2000); // Fetch data every 2 seconds
-
-    return () => {
-      clearInterval(intervalId); // Clear the interval when the component unmounts
-    };
-  }, []);
-
   const animation = useRef(null);
   useEffect(() => {
   }, []);
   const [mostVotedGame, setMostVotedGame] = useState('');
-  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
     const fetchMostVotedGame = () => {
@@ -76,7 +50,6 @@ useEffect(() => {
         .then((response) => response.json())
         .then((data) => {
           setMostVotedGame(data.winningGame);
-          setTotalCount(data.totalCount)
         })
         .catch((error) => {
           console.error('Error fetching most voted game:', error);
@@ -94,17 +67,14 @@ useEffect(() => {
 
 
   const handleJoin = (username) => {
-
     console.log("Join pressed")
-    const teamSizes = teamsData.map((team) => team.teamSize);
-    const sumTeamSizes = teamSizes.reduce((acc, curr) => acc + curr, 0);
-    console.log("sum of team size: ", sumTeamSizes)
-    console.log("ready is: ", sumTeamSizes === totalCount ? "true" : "false")
-
     // navigation.navigate('ScoreScreen', { username: username })
     
       console.log(`http://50.112.215.42/room/${route.params.roomcode}`)
-      
+      console.log(JSON.stringify({
+        "code": route.params.roomcode,
+        "ready": "true"
+    }))
       fetch(`http://50.112.215.42/room/${route.params.roomcode}`, {
         method: 'PUT',
         headers: {
@@ -112,7 +82,7 @@ useEffect(() => {
         },
         body: JSON.stringify({
             "code": route.params.roomcode,
-            "ready": sumTeamSizes == totalCount ? "true" : "false"
+            "ready": "true"
         }),
       })
         .then((response) => response.json())

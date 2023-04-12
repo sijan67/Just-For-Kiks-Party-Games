@@ -15,13 +15,16 @@ export default function ScoreScreen({navigation, route}) {
     const [winningData, setWinningData] = useState([]);
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
-    const [recordingUploaded, setRecordingUploaded] = useState(false);
+    const [recordingUploaded, setRecordingUploaded] = useState(false); //false
 
 
 
     const [loading, setLoading] = useState(true);
     const [winningLoading, setWinningLoading] = useState(true);
     const [recording, setRecording] = React.useState();
+    
+    // http://50.112.215.42/teams/team/1 // another way to get team score
+    // http://50.112.215.42/users/Sijan
 
     const url = `http://50.112.215.42/teams/username/${route.params.username}`; 
 
@@ -32,7 +35,7 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch(`http://50.112.215.42/teams/username/${route.params.username}`);
         const json = await response.json();
         setTeamData(json);
-        setLoading(false);
+        setLoading(false); //false
       } catch (error) {
         console.error(error);
       }
@@ -43,15 +46,26 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
+        setRecordingUploaded(true);
       } catch (error) {
         console.error(error);
       }
     };
 
     useEffect(() => {
-      getTeamData();
-      getTeamBuzzerData();
+      const intervalId = setInterval(() => {
+        getTeamData();
+        getTeamBuzzerData();
+      }, 2000); // request every 2 seconds
+    
+      // Clear interval when component unmounts
+      return () => clearInterval(intervalId);
     }, []);
+
+    // useEffect(() => {
+    //   getTeamData();
+    //   getTeamBuzzerData();
+    // }, []);
 
 
     useEffect(() => {
@@ -216,7 +230,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            {teamData.teamName === teamBuzzerData.teamName && !recordingUploaded && (
+            {teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
