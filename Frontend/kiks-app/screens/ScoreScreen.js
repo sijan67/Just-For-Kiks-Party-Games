@@ -46,6 +46,7 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
+        setRecordingUploaded(true);
       } catch (error) {
         console.error(error);
       }
