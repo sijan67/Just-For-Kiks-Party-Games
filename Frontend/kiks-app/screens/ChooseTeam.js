@@ -100,7 +100,7 @@ export default function EnterGameCode({ navigation, route }) {
     // console.log(`Joined ${teamName}`);
     if (teamName) {
       fetch(`http://50.112.215.42/teams/username/${route.params.username}/`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
