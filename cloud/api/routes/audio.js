@@ -86,7 +86,7 @@ router.post('/', async (req, res) => {
       post_answer["result"] = "false";
       post_answer["updated"] = true;
       console.log("Answer is incorrect.");
-      return res.status(404).json("answer is not correct");
+      return res.status(200).json("answer is not correct");
     }
   } catch (error) {
     console.error('Error performing speech-to-text:', error);
@@ -100,7 +100,7 @@ router.get('/', async (req, res) => {
     post_answer["updated"] = false;
     return res.json({ questionID : post_answer["questionID"], teamID : post_answer["teamID"], result : post_answer["result"]});
   } else {
-    return res.status(404).send("No answer");
+    return res.send("No answer");
   }
 });
 
