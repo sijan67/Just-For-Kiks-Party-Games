@@ -68,6 +68,7 @@ useEffect(() => {
   useEffect(() => {
   }, []);
   const [mostVotedGame, setMostVotedGame] = useState('');
+  const [totalCount, setTotalCount] = useState(0);
 
   useEffect(() => {
     const fetchMostVotedGame = () => {
@@ -75,6 +76,7 @@ useEffect(() => {
         .then((response) => response.json())
         .then((data) => {
           setMostVotedGame(data.winningGame);
+          setTotalCount(data.totalCount)
         })
         .catch((error) => {
           console.error('Error fetching most voted game:', error);
@@ -97,7 +99,7 @@ useEffect(() => {
     const teamSizes = teamsData.map((team) => team.teamSize);
     const sumTeamSizes = teamSizes.reduce((acc, curr) => acc + curr, 0);
     console.log("sum of team size: ", sumTeamSizes)
-    console.log("ready is: ", sumTeamSizes >= 2 ? "true" : "false")
+    console.log("ready is: ", sumTeamSizes === totalCount ? "true" : "false")
 
     // navigation.navigate('ScoreScreen', { username: username })
     
