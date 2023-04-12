@@ -45,8 +45,8 @@ export default function EnterGameScreen({navigation, route}){
 useEffect(() => {
     const fetchTeamsData = () => {
     Promise.all([
-        fetch('http://50.112.215.42/teams/1'),
-        fetch('http://50.112.215.42/teams/2')
+        fetch('http://50.112.215.42/teams/team/1'),
+        fetch('http://50.112.215.42/teams/team/2')
     ]).then((responses) => Promise.all(responses.map((res) => res.json())))
         .then((data) => {
         setTeamsData(data);
