@@ -112,7 +112,7 @@ useEffect(() => {
         },
         body: JSON.stringify({
             "code": route.params.roomcode,
-            "ready": sumTeamSizes >= 2 ? "true" : "false"
+            "ready": sumTeamSizes == totalCount ? "true" : "false"
         }),
       })
         .then((response) => response.json())
