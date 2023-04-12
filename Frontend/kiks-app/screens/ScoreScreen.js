@@ -16,7 +16,7 @@ export default function ScoreScreen({navigation, route}) {
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
     const [recordingUploaded, setRecordingUploaded] = useState(true); 
-    const [removeRecordButton, setRemoveRecordButton] = useState(true); 
+    const [tryAgain, setTryAgain] = useState(true); 
     const [audioUploadStatus, setAudioUploadStatus] = useState('');
     const [countdown, setCountdown] = useState(10);
 
@@ -50,7 +50,7 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
-        if (json.questionID !== teamBuzzerData.questionID) {
+        if (json.questionID === teamBuzzerData.questionID || tryAgain) {
           setRecordingUploaded(true);
           setCountdown(10)
       }
@@ -178,6 +178,7 @@ export default function ScoreScreen({navigation, route}) {
     }
     
     async function stopRecording() {
+      setCountdown(0)
       try {
         if (!recording) {
           return;
@@ -213,13 +214,15 @@ export default function ScoreScreen({navigation, route}) {
         if (response.status == 200) {
           setRecordingUploaded(false);
           setAudioUploadStatus('Audio sent successfully !');
+          setTryAgain(false)
           return (
             <Text style={{ color: 'white' }}> Audio sent successfully ! </Text>
           );
         } else {
           setAudioUploadStatus('Could not transcribe audio. Please try again.');
           setCountdown(10)
-          setRemoveRecordButton(true);
+          // setRemoveRecordButton(true);
+          setTryAgain(true)
           return (
             <Text style={{ color: 'white' }}>Could not upload audio. Please try again.</Text>
           );
@@ -262,18 +265,19 @@ export default function ScoreScreen({navigation, route}) {
                 opacity: 0.9, 
                 padding: 20,
                 width: 200,
-                marginTop: 90,
+                marginTop: 50,
                 marginLeft: 30,
                 marginBottom: 10,
                 borderRadius: 50, 
                 }}
             >
             <Text style ={{color: 'black', fontStyle: 'bold', fontSize: 16}}>{recording ? 'Stop Recording' : 'Start Recording'}</Text>
-            {countdown > 0 && (
-            <Text style={styles.countdownText}>Record in {countdown} seconds</Text>
-          )}
 
             </TouchableOpacity>
+
+            {countdown > 0 && (
+            <Text style={{color:"white"}}>Record in {countdown} seconds</Text>
+          )}
             </>
           )}
 
