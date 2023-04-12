@@ -52,7 +52,7 @@ useEffect(() => {
         setTeamsData(data);
         })
         .catch((error) => {
-        console.error('Error fetching teams data:', error);
+        console.log('Error fetching teams data:', error);
         });
     };
     fetchTeamsData(); // Fetch data immediately when the component mounts
