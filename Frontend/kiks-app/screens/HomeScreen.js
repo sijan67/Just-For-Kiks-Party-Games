@@ -20,9 +20,9 @@ function GameScreen({navigation, route}) {
 
   console.log("In home Screen", route.params)
 
-  const handlePress = (teamName) => {
-    console.log(`Joined ${teamName}`);
-    if (teamName) {
+  const handlePress = (username, gamename) => {
+    console.log(`Joined ${username}, ${gamename}`);
+    if (gamename=="Trivia") {
       fetch(`http://50.112.215.42/teams/game/vote/Trivia`, {
         method: 'POST',
         headers: {
@@ -40,8 +40,28 @@ function GameScreen({navigation, route}) {
         .catch((error) => {
           console.log(error);
         });
-    } else {
-      console.log('Please enter a team name');
+    } 
+    else if (gamename=="Math"){
+      fetch(`http://50.112.215.42/teams/game/vote/Math`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: route.params.name,
+        }),
+      })
+        .then((response) => console.log(response.json()))
+        .then((data) => {
+          console.log(data);
+          navigation.navigate('StartGame', { username: route.params.name, roomcode: route.params.roomcode });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    else {
+      console.log('Please Vote');
     }
   };
 
@@ -59,11 +79,18 @@ function GameScreen({navigation, route}) {
           <Card.Content>
             <Text style= {styles.text_style} variant="titleLarge">Guess the answer to these tricky questions!</Text>
           </Card.Content>
-          <Card.Cover source={{ uri: 'https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/BBaFnKbM-Trivia-Day--702x336.gif' }} />
+          {/* <Card.Cover source={{ uri: 'https://static.vecteezy.com/system/resources/previews/000/130/103/non_2x/vector-trivia-quiz-logo-illustration.jpg' }} />
+           */}
+          {/* <Card.Cover source={{ uri: 'https://media.baamboozle.com/uploads/images/250242/1641268651_268516_gif-url.gif' }} /> */}
+           
+
+          <Card.Cover source={{ uri: 'https://images.squarespace-cdn.com/content/v1/5a328d66a8b2b051a8d2f017/1567530555218-OF3Y7UYVG767NHSMP46D/trivianight.gif' }} />
+          
+
           <Card.Actions>
 
           <Button onPress={()=>handlePress(route.params.name, "Trivia")}>
-             Choose This
+             Vote This
           </Button>
           </Card.Actions>
         </Card>
@@ -73,12 +100,16 @@ function GameScreen({navigation, route}) {
           <Card.Content>
             <Text style= {styles.text_style} variant="titleLarge">Solve Math Questions quickly!</Text>
           </Card.Content>
-          <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
+          {/* <Card.Cover source={{ uri: 'https://cdn2.vectorstock.com/i/1000x1000/60/81/math-font-with-symbol-and-formula-icon-vector-39626081.jpg' }} />
+           */}
+          
+          <Card.Cover source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/e/e2/Math_-_Idil_Keysan_-_Wikimedia_Giphy_stickers_2019.gif' }} />
+
           <Card.Actions>
 
 
           <Button onPress={() => handlePress(route.params.name, "Math")}>
-            Choose This
+            Vote This
           </Button>
           </Card.Actions>
         </Card>

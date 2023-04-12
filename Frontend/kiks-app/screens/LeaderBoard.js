@@ -30,7 +30,7 @@ export default function LeaderBoard() {
         labelBy='teamName'
         style={{padding: 60}}
         />
-        <Text>hi</Text>
+        <Text></Text>
       </View>
     );
   }
