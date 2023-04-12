@@ -16,6 +16,8 @@ export default function ScoreScreen({navigation, route}) {
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
     const [recordingUploaded, setRecordingUploaded] = useState(false); //false
+    const [removeRecordButton, setRecordButton] = useState(false); //false
+
 
 
 
@@ -62,11 +64,6 @@ export default function ScoreScreen({navigation, route}) {
       return () => clearInterval(intervalId);
     }, []);
 
-    // useEffect(() => {
-    //   getTeamData();
-    //   getTeamBuzzerData();
-    // }, []);
-
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -99,7 +96,7 @@ export default function ScoreScreen({navigation, route}) {
   useEffect(() => {
       if (winningData.status === "Game over") {
         // should pass the username,  winning team , winning team score 
-          navigation.navigate("GameOverScreen", { username: route.params.username,  winner: winningData.winner, winnerScore: winningData.totalScore });
+          navigation.navigate("GameOverScreen", { username: route.params.username,  winner: winningData.winner, winnerScore: winningData.totalScore, roomcode: route.params.roomcode });
       }
   }, [winningData]);
       
@@ -191,6 +188,7 @@ export default function ScoreScreen({navigation, route}) {
         console.log("Response is: ", response.ok)
         if (response.ok) {
           setRecordingUploaded(true);
+          setRecordButton(true)
           return (
             <Text style={{ color: 'white' }}> Audio sent successfully ! </Text>
           );

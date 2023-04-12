@@ -48,7 +48,7 @@ function GameScreen({navigation, route}) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Text style={{marginTop: 20, fontSize: 22, color: '#d15732', fontWeight: '600'}}>
-        Pick a Game {route.params.name}  
+        Pick a Game , {route.params.name}  
         </Text>
         <SafeAreaView style={styles.container}>
         <ScrollView 
@@ -61,9 +61,6 @@ function GameScreen({navigation, route}) {
           </Card.Content>
           <Card.Cover source={{ uri: 'https://princewilliamlivingweb.s3-accelerate.amazonaws.com/2022/01/BBaFnKbM-Trivia-Day--702x336.gif' }} />
           <Card.Actions>
-          {/* <Button onPress={() => navigation.navigate('ScoreScreen', { username: route.params.name })}>
-             Choose This
-          </Button> */}
 
           <Button onPress={()=>handlePress(route.params.name, "Trivia")}>
              Choose This

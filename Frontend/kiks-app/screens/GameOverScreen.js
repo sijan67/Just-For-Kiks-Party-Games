@@ -82,7 +82,18 @@ export default function EnterGameScreen({navigation, route}){
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          navigation.navigate('HomeScreen', { username: username })
+
+          // navigation.reset({
+          //   index: 0,
+          //   routes: [{ name: 'HomeScreen', params: { username: route.params.username, roomcode: route.params.roomcode } }],
+          // });
+
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'HomeScreen', params: { name: route.params.username, roomcode: route.params.roomcode } }],
+          });
+          
+          
         })
         .catch((error) => {
           console.log(error);
@@ -134,7 +145,7 @@ export default function EnterGameScreen({navigation, route}){
       </View>
     </View>
         <Text style={{color: 'red', marginLeft: 10, fontSize: 30, fontWeight: 'bold'}}>
-            GAME OVER
+            GAME OVER {route.params.username}
         </Text>
         
         <Text style={styles.textStyle}>   

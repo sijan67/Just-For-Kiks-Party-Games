@@ -119,7 +119,7 @@ useEffect(() => {
         .then((data) => {
           console.log(data);
         //   navigation.navigate('ScoreScreen');
-            navigation.navigate('ScoreScreen', { username: username })
+            navigation.navigate('ScoreScreen', { username: route.params.username, roomcode: route.params.roomcode  })
         })
         .catch((error) => {
           console.log(error);
