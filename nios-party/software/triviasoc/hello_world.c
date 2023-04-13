@@ -61,7 +61,9 @@ char post_buzzer[] = "sendBuzzer( ,  )";
 char get_winner[] = "getWinner()";
 char get_question_status[] = "getNextQState()";
 char get_game_mode[] = "getGameMode()";
+char get_game_end[] = "getGameEnd()";
 char output[512] = "Question 1:";
+char countdown[] = "Countdown:  ";
 char choices[512] = "";
 char question[512] = "";
 int question_count = 1;
@@ -81,6 +83,7 @@ int used_questions[50] = {-1};
 int used_question_index = 0;
 int button_pressed = 0;
 int times_pressed = 0;
+int game_over = 1;
 
 alt_u32 write_FIFO_space;
 alt_u16 read_FIFO_used;
@@ -114,26 +117,52 @@ int main() {
 	usleep(15000000);
 	read_data(0);
 	usleep(5000000);
+	while(game_over) {
+		game_over = 0;
+		display_roomcode();
+		wait_for_start();
 
-	display_roomcode();
-	wait_for_start();
+		/*for(int k = 0; k < 10; k++) {
+			generate_question();
+		}*/
 
-	/*for(int k = 0; k < 10; k++) {
-		generate_question();
-	}*/
-
-	int status = 1;
-	int k = 0;
-	while(status) {
-		generate_question();
-		if(k > 9) {
+		int status = 1;
+		int k = 0;
+		while(status) {
+			generate_question();
+		//		if(k > 9) {
 			status = check_game_status();
+		//		}
+		//		k++;
+		}
+		alt_up_char_buffer_clear(char_buffer);
+		alt_up_char_buffer_string(char_buffer, "Congratulations", 35, 30);
+		alt_up_char_buffer_string(char_buffer, winning_team_name, 40, 35);
+
+		int t = 1;
+		while(t) {
+			write_data(get_game_end);
+			usleep(3000000);
+			read_data(0);
+			usleep(3000000);
+			char *token = strtok(output, delim);
+			token = strtok(NULL, delim);
+			removeChar(token, '†');
+			removeChar(token, '…');
+			removeChar(token, '\n');
+			removeChar(token, '\r');
+			if(strcmp(token, "in game") != 0) {
+				if(strcmp(token, "over") == 0) {
+					game_over = 1;
+					t = 0;
+					question_count = 1;
+					question_grab = 1;
+					count = 0;
+					current_time = 0;
+				}
+			}
 		}
 	}
-	alt_up_char_buffer_clear(char_buffer);
-	alt_up_char_buffer_string(char_buffer, "Congratulations", 35, 30);
-	alt_up_char_buffer_string(char_buffer, winning_team_name, 40, 30);
-
 
 
 	printf("\nFinished\n");
@@ -271,8 +300,6 @@ void press_button() {
 		current_time = -1;
 		button_pressed = 1;
 		times_pressed++;
-
-
 		post_buzzer[11] = 1 + '0';
 		post_buzzer[14] = (question_grab % 10) + '0';
 		post_buzzer[13] = (question_grab / 10) + '0';
@@ -352,12 +379,13 @@ void question_countdown() {
 	current_time = 9;
 	while(current_time > -1) {
 		if(current_time < 0) {
-			display_time[0] = '0';
+			countdown[11] = '0';
+			//display_time[0] = '0';
 		} else {
-			display_time[0] = current_time + '0';
+			countdown[11] = current_time + '0';
 		}
 
-		alt_up_char_buffer_string(char_buffer, display_time, 40, 40);
+		alt_up_char_buffer_string(char_buffer, countdown, 34, 40);
 	}
 	if(button_pressed != 0) {
 		wait_for_audio();
@@ -388,7 +416,6 @@ void wait_for_start() {
 	get_start[12] = roomCode[2];
 	get_start[13] = roomCode[3];
 	while(1) {
-
 		printf("%s\n", get_start);
 		write_data(get_start);
 		usleep(3000000);
@@ -432,16 +459,16 @@ void wait_for_start() {
 
 int check_game_status() {
 	write_data(get_winner);
-	usleep(2000000);
+	usleep(3000000);
 	read_data(0);
-	usleep(2000000);
+	usleep(3000000);
 	char *token = strtok(output, delim);
 	char *game_status = strtok(NULL, delim);
 	removeChar(game_status, '†');
 	removeChar(game_status, '…');
 	removeChar(game_status, '\n');
 	removeChar(game_status, '\r');
-	if(strcmp(game_status, "Game Over") == 0) {
+	if(strcmp(game_status, "Game over") == 0) {
 		winning_team_name = strtok(NULL, delim);
 		removeChar(winning_team_name, '†');
 		removeChar(winning_team_name, '…');
@@ -475,13 +502,14 @@ void wait_for_audio() {
 		removeChar(token, '…');
 		removeChar(token, '\n');
 		removeChar(token, '\r');
+		printf("%s\n", token);
 		if(strcmp(token, "No answer") != 0) {
-			/*if(strcmp(token,"true") == 0) {
+			if(strcmp(token,"true") == 0) {
 				//question_countdown();
-				current_time = 0;
+				alt_up_char_buffer_string(char_buffer, "Correct", 35, 45);
 			} else {
-				question_countdown();
-			}*/
+				alt_up_char_buffer_string(char_buffer, "Wrong", 35, 45);
+			}
 			break;
 		}
 	}

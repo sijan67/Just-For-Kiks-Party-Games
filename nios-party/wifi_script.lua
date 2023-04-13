@@ -28,7 +28,7 @@ end
 
 function sendBuzzerReq(url, teamNum, questionNum, callback)
     print(url)
-    local data = {teamID=teamNum, questionID=questionNum}
+    local data = {teamID=teamNum, questionID=questionNum, display="true"}
     local postData = sjson.encode(data)
 	http.post(url, 
 	'Content-Type: application/json\r\n',
@@ -130,7 +130,7 @@ end
 
 function getWinner()
     getReq(HOST .. "teams/game/accumulate/score", function(response)
-        print(response)
+        --print(response)
         local array = {}
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
@@ -159,6 +159,7 @@ function getNextQState()
         for split in response:gmatch('"([^"]+)"') do
             table.insert(array, split)
         end
+        print(array[1])
         if(array[1] == "No answer") then
             print("@")
             print(array[1])
@@ -170,15 +171,22 @@ function getNextQState()
                 table.insert(array, split)
             end
             print("@")
-            print(array[6])
+            if(array[4] == "true") then
+                print("true")
+            else
+                print("false")
+            end
             print("@")
         end
     end)
 end
 
 function getGameEnd() 
-    getReq(HOST .. "team", function(response)
-        
+    getReq(HOST .. "teams/game/lobby/status/option", function(response)
+        -- in game, restart, over
+        print("@")
+        print(response)
+        print("@")
     end)
 end
 
