@@ -48,8 +48,7 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
-        // console.log("json.error is" , json.error=== "No buzzer press found")
-        // console.log("json is ", json)
+        
         if (json.error === "No buzzer press found"){
           setCountdown(0)
           setRecordingUploaded(false);
@@ -169,11 +168,7 @@ export default function ScoreScreen({navigation, route}) {
           playsInSilentModeIOS: true,
         });
         console.log('Starting recording..');
-        // const recording = new Audio.Recording();
-        // await recording.prepareToRecordAsync(recordingOptions);
-        // await recording.startAsync();
-        // setRecording(recording);
-        // console.log('Recording started');
+        
         if (recording) {
           await recording.stopAndUnloadAsync();
         }
@@ -218,9 +213,7 @@ export default function ScoreScreen({navigation, route}) {
           body,
         });
         console.log("Response received.");
-        // console.log(response)
         console.log("Response status is: ", response.status)
-        // console.log("Response  is: ", response)
 
       
       if (response.status == 404 || response.status == 413){

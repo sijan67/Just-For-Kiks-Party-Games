@@ -18,8 +18,6 @@ const Stack = createNativeStackNavigator();
 
 function GameScreen({navigation, route}) {
 
-  console.log("In home Screen", route.params)
-
   const handlePress = (username, gamename) => {
     console.log(`${username} voted for ${gamename}`);
     if (gamename=="Trivia") {
