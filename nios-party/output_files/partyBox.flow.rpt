@@ -1,5 +1,5 @@
 Flow report for partyBox
-Wed Apr 12 17:06:51 2023
+Thu Apr 13 08:15:04 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Wed Apr 12 17:06:26 2023       ;
+; Flow Status                     ; Successful - Thu Apr 13 08:14:15 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; partyBox                                    ;
 ; Top-level Entity Name           ; partyBox                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 2,484 / 32,070 ( 8 % )                      ;
-; Total registers                 ; 3895                                        ;
+; Logic utilization (in ALMs)     ; 2,483 / 32,070 ( 8 % )                      ;
+; Total registers                 ; 3893                                        ;
 ; Total pins                      ; 234 / 457 ( 51 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 952,768 / 4,065,280 ( 23 % )                ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/12/2023 17:03:23 ;
+; Start date & time ; 04/13/2023 08:07:58 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; partyBox            ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 1098077516288.168134420215308                          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 1098077516288.168139847701404                          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                      ; --            ; --          ; --         ;
 ; MISC_FILE                           ; test/synthesis/../test.cmp                             ; --            ; --          ; --         ;
@@ -105,11 +105,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:04     ; 1.0                     ; 5118 MB             ; 00:01:23                           ;
-; Fitter               ; 00:01:40     ; 1.2                     ; 7060 MB             ; 00:03:34                           ;
-; Assembler            ; 00:00:10     ; 1.0                     ; 4912 MB             ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:24     ; 1.9                     ; 5418 MB             ; 00:00:39                           ;
-; Total                ; 00:03:18     ; --                      ; --                  ; 00:05:45                           ;
+; Analysis & Synthesis ; 00:02:18     ; 1.0                     ; 5121 MB             ; 00:02:45                           ;
+; Fitter               ; 00:03:13     ; 1.1                     ; 7094 MB             ; 00:05:43                           ;
+; Assembler            ; 00:00:20     ; 1.0                     ; 4912 MB             ; 00:00:14                           ;
+; Timing Analyzer      ; 00:00:45     ; 1.7                     ; 5429 MB             ; 00:00:56                           ;
+; Total                ; 00:06:36     ; --                      ; --                  ; 00:09:38                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

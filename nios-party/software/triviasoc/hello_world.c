@@ -110,6 +110,7 @@ int main() {
 		printf("Opened Wifi device\n");
 	}
 	loading_screen();
+
 	init_timer_interrupt();
 	alt_irq_disable(TIMER_IRQ);
 	alt_up_rs232_enable_read_interrupt(rs232_dev);

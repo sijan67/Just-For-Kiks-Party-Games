@@ -1125,6 +1125,7 @@ int main() {
 	}
 	loading_screen();
  4000308:	400071c0 	call	400071c <loading_screen>
+
 	init_timer_interrupt();
  400030c:	40015d00 	call	40015d0 <init_timer_interrupt>
  4000310:	00800184 	movi	r2,6

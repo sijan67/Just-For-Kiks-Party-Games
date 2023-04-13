@@ -82,10 +82,10 @@ module partyBox(
 		.audio_BCLK									(AUD_BCLK),
 		.audio_DACDAT								(AUD_DACDAT),
 		.audio_DACLRCK								(AUD_DACLRCK),
-		.button_1_export							(KEY[3]),//(GPIO_1[0]),
-		.button_2_export							(KEY[2]),//(GPIO_1[1]),
-		//.button_1_export							(GPIO_1[4]),
-		//.button_2_export							(GPIO_1[5]),
+		//.button_1_export							(KEY[3]),//(GPIO_1[0]),
+		//.button_2_export							(KEY[2]),//(GPIO_1[1]),
+		.button_1_export							(GPIO_1[4]),
+		.button_2_export							(GPIO_1[5]),
 		.rs232_RXD       							(GPIO_1[33]),       //     rs232.RXD
 		.rs232_TXD       							(GPIO_1[35])
 		/*.io_acknowledge  (IO_acknowledge),  //        io.acknowledge
