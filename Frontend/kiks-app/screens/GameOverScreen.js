@@ -152,9 +152,9 @@ export default function EnterGameScreen({navigation, route}){
             Winning Team: {route.params.winner}
         </Text>
 
-        <Text style={{color: 'white', marginTop: 20, marginBottom: 20, fontSize: 20}}>   
+        {/* <Text style={{color: 'white', marginTop: 20, marginBottom: 20, fontSize: 20}}>   
             Score: {route.params.winnerScore}
-        </Text>
+        </Text> */}
 
         {/* <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username, "restart")}>
           <Text style={{color: 'black', fontSize: 16}}>
