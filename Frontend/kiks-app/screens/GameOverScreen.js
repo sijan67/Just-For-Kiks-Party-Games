@@ -81,10 +81,17 @@ export default function EnterGameScreen({navigation, route}){
       })
         .then((response) => response.json())
         .then((data) => {
+          // navigation.reset({
+          //   index: 0,
+          //   routes: [{ name: 'HomeScreen', params: { name: route.params.username, roomcode: route.params.roomcode } }],
+          // });
+
+          //need to check this
           navigation.reset({
             index: 0,
-            routes: [{ name: 'HomeScreen', params: { name: route.params.username, roomcode: route.params.roomcode } }],
+            routes: [{ name: 'LeaderBoard', params: { name: route.params.username, roomcode: route.params.roomcode } }],
           });
+          
           
           
         })
