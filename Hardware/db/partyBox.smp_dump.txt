@@ -1,9 +1,0 @@
-
-State Machine - |partyBox|display_count
-Name display_count.1111001 display_count.1000000 display_count.0110000 display_count.0011001 display_count.0100100 display_count.0010010 
-display_count.0010010 0 0 0 0 0 0 
-display_count.0011001 0 0 0 1 0 1 
-display_count.0100100 0 0 0 0 1 1 
-display_count.0110000 0 0 1 0 0 1 
-display_count.1000000 0 1 0 0 0 1 
-display_count.1111001 1 0 0 0 0 1 
