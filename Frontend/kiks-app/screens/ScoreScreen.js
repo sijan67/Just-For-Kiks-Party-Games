@@ -15,7 +15,7 @@ export default function ScoreScreen({navigation, route}) {
     const [winningData, setWinningData] = useState([]);
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
-    const [recordingUploaded, setRecordingUploaded] = useState(true); 
+    const [recordingUploaded, setRecordingUploaded] = useState(false); 
     const [tryAgain, setTryAgain] = useState(true); 
     const [audioUploadStatus, setAudioUploadStatus] = useState('');
     const [countdown, setCountdown] = useState(10);
@@ -50,7 +50,12 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
-        if (json.questionID != teamBuzzerData.questionID || tryAgain) {
+        console.log("json.error isss" , json.error=== "No buzzer press found")
+        if (json.error === "No buzzer press found"){
+          setCountdown(0)
+          setRecordingUploaded(false);
+        }
+        else if ((json.questionID != teamBuzzerData.questionID )) { //debug
           setRecordingUploaded(true);
           setCountdown(10)
       }
@@ -209,23 +214,23 @@ export default function ScoreScreen({navigation, route}) {
         });
         console.log("Response received.");
         console.log("Response status is: ", response.status)
-       
+        // console.log("Response  is: ", response)
 
+      
         if (response.status == 200) {
+          setCountdown(0)
           setRecordingUploaded(false);
-          setAudioUploadStatus('Audio sent successfully !');
+          setAudioUploadStatus('');
           setTryAgain(false)
-          return (
-            <Text style={{ color: 'white' }}> Audio sent successfully ! </Text>
-          );
-        } else {
+        } else if (response.status == 404){
+          setRecordingUploaded(true);
           setAudioUploadStatus('Could not transcribe audio. Please try again.');
-          setCountdown(10)
-          // setRemoveRecordButton(true);
           setTryAgain(true)
-          return (
-            <Text style={{ color: 'white' }}>Could not upload audio. Please try again.</Text>
-          );
+          if (tryAgain){
+            setCountdown(10)
+          }
+        } else{
+          setAudioUploadStatus('');
         }
       } catch (error) {
         console.error('Error uploading audio:', error);
@@ -255,7 +260,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            { countdown > 0 && teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
+            {countdown > 0 &&   teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
