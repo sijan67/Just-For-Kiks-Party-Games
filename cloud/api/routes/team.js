@@ -53,16 +53,14 @@ router.get("/team/:teamID/", (req, res, next) => {
 router.get('/username/:username', async (req, res) => {
     
     const { username } = req.params;
-    console.log(req.params)
+
     try {
       const user = await User.find({ username }).limit(1);
-      console.log(user[0])
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
       }
   
       const team = await Team.find({ teamID: user[0].teamID }).limit(1);
-      console.log(team);
       if (!team) {
         return res.status(404).json({ error: 'Team not found' });
       }
@@ -72,7 +70,6 @@ router.get('/username/:username', async (req, res) => {
         teamScore: team[0].teamScore,
         roomCode: user[0].roomCode,
       };
-      console.log(result)
       return res.status(200).json(result);
     } catch (err) {
       console.error(err);
@@ -160,10 +157,16 @@ router.get('/game/accumulate/score', (req, res) => {
               }
           });
 
-          if (totalScore >= 1000) {
+          if (totalScore >= 200) {
               gameStatus = 'Game over';
           } else {
               gameStatus = 'In game';
+          }
+          
+          if(option === "restart") {
+              totalScore = 0;
+              highestScore = 0;
+              gameStatus = 'In game'
           }
 
           return res.status(200).json({
@@ -195,11 +198,14 @@ router.get("/buzzer/team", async (req, res) => {
     }
 
     // Return the team information
-    res.status(200).json({
-      teamID: team.teamID,
-      teamName: team.teamName,
-      questionID: buzzerPress.questionID
-    });
+      res.status(200).json({
+        teamID: team.teamID,
+        teamName: team.teamName,
+        questionID: buzzerPress.questionID, 
+        display: buzzerPress.display
+      });
+    
+    
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal server error");
@@ -207,7 +213,7 @@ router.get("/buzzer/team", async (req, res) => {
 });
 
 // get if the game is ending or restarting
-router.get("/game/lobby/option", (req, res) => {
+router.get("/game/lobby/status/option", (req, res) => {
     if(option === "") {
       res.status(200).send("in game");
     } else if (option === "restart") {
@@ -217,11 +223,10 @@ router.get("/game/lobby/option", (req, res) => {
     }
 })
 
-router.post('/game/lobby/:option', async (req, res) => {
-  const {option} = req.params;
-  try{
-    if (option === 'restart') {
-      option = option;
+router.post('/game/lobby/:choice', async (req, res) => {
+  const {choice} = req.params;
+    if (choice === 'restart') {
+      option = choice;
       // Delete the team score and accumulated score but don't delete the team and user
         await Game.deleteMany({}); // Delete all game records
         // await User.updateMany({}, { $unset: { roomCode: "" } }); // Remove the roomCode field from all user records
@@ -230,15 +235,50 @@ router.post('/game/lobby/:option', async (req, res) => {
       
   } else {
       // Delete everything including the team and user
-      option = option;
+      option = choice;
       await User.deleteMany({});
       await Team.deleteMany({});
       await Game.deleteMany({});
       return res.status(200).json({ message: 'Game ended successfully' });
     } 
-  }catch (err) {
+
+});
+
+router.post("/buzzer/team", async (req, res) => {
+  const {questionID, display} = req.body;
+  try {
+    // Find the latest buzzer press record in the database
+
+    const buzzerPress = await Buzzer.findOneAndUpdate(
+      { questionID },
+      { $set: { display: display}} 
+    );
+
+    // Check if a buzzer press record exists
+    if (!buzzerPress) {
+      return res.status(404).json({ error: "No buzzer related to question is found" });
+    }
+
+    // Find the team associated with the buzzer press
+    const team = await Team.findOne({ teamID: buzzerPress.teamID });
+
+    // Check if the team exists
+    if (!team) {
+      return res.status(404).json({ error: "Team not found" });
+    }
+
+    // Return the team information
+      res.status(200).json({
+        teamID: null,
+        teamName: "",
+        questionID: null, 
+        display: display
+      });
+    
+    
+  } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: 'Internal server error' });
+    res.status(500).send("Internal server error");
   }
 });
 
@@ -312,7 +352,7 @@ router.post("/username/:username/", async (req, res, next) => {
     );
 
     console.log(`${username} has created a new team.`);
-    console.log(req.body.teamName);
+
     return res.status(200).json({ message: `${username} has created a new team.` });
     }
 );
@@ -387,6 +427,7 @@ router.post('/game/lobby/:option', async (req, res) => {
         await User.deleteMany({});
         await Team.deleteMany({});
         await Game.deleteMany({});
+        await Buzzer.deleteMany({});
         return res.status(200).json({ message: 'Game ended successfully' });
       } 
     }catch (err) {
@@ -397,7 +438,7 @@ router.post('/game/lobby/:option', async (req, res) => {
 
 // post to return who is pressing the buzzer
 router.post("/buzzer/press", async (req, res) => {
-  const { teamID, questionID} = req.body;
+  const { teamID, questionID, display} = req.body;
 
   // Validate teamID input
   if (!teamID) {
@@ -414,7 +455,8 @@ router.post("/buzzer/press", async (req, res) => {
   const buzzerState = new Buzzer({
     pressed: true,
     teamID: teamID,
-    questionID: questionID
+    questionID: questionID,
+    display: display
   });
 
   // Save the buzzer state in the database

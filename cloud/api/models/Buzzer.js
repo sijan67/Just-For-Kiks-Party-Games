@@ -9,7 +9,8 @@ const BuzzerSchema = new mongoose.Schema({
     type: String,
     default: null
   },
-  questionID: Number
+  questionID: Number,
+  display: String
 });
 
 module.exports = mongoose.model("Buzzer", BuzzerSchema);
