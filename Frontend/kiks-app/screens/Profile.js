@@ -60,7 +60,7 @@ export default function TestScreen({navigation,route}){
         <Button style={styles.buttonStyle} onPress={() =>
         navigation.goBack()}>
           <Text style={{color: 'white', fontSize: 20}}>
-                Exit Room
+                Exit Team
           </Text>
             
         </Button>

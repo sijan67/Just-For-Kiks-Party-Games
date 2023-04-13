@@ -14,11 +14,19 @@ export default function LeaderBoard() {
     const url = `http://50.112.215.42/teams/`;
 
     useEffect(() => {
-      fetch(url, {mode: 'cors'})
-        .then((resp) => resp.json())
-        .then((json) => setData(json))
-        .catch((error) => console.error(error))
-        .finally(() => setLoading(false));
+      const intervalId = setInterval(() => {
+        fetch(url)
+          .then((response) => response.json())
+          .then((json) => {
+            setData(json)
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, 2000);
+      
+      // cleanup function to clear the interval when the component unmounts
+      return () => clearInterval(intervalId);
     }, []);
 
 
