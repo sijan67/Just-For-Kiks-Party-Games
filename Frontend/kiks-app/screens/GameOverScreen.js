@@ -151,7 +151,7 @@ export default function EnterGameScreen({navigation, route}){
 
         <Button style={styles.buttonStyle} onPress={() => handleJoin(route.params.username, "restart")}>
           <Text style={{color: 'black', fontSize: 16}}>
-           Play again
+           Show Leaderboard
           </Text>  
         </Button>
 

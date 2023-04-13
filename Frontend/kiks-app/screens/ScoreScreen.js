@@ -16,12 +16,10 @@ export default function ScoreScreen({navigation, route}) {
     const [teamData, setTeamData] = useState({});
     const [teamBuzzerData, setTeamBuzzerData] = useState({});
     const [recordingUploaded, setRecordingUploaded] = useState(false); 
+    const [displayButton, setDisplayButton] = useState(false); 
     const [tryAgain, setTryAgain] = useState(true); 
     const [audioUploadStatus, setAudioUploadStatus] = useState('');
     const [countdown, setCountdown] = useState(10);
-
-
-
 
     const [loading, setLoading] = useState(true);
     const [winningLoading, setWinningLoading] = useState(true);
@@ -54,11 +52,14 @@ export default function ScoreScreen({navigation, route}) {
         if (json.error === "No buzzer press found"){
           setCountdown(0)
           setRecordingUploaded(false);
+          setAudioUploadStatus('');
         }
-        else if ((json.questionID != teamBuzzerData.questionID )) { //debug
-          setRecordingUploaded(true);
-          setCountdown(10)
-      }
+
+      //   else if ((json.questionID != teamBuzzerData.questionID )) { //debug
+      //     setAudioUploadStatus('');
+      //     setRecordingUploaded(true);
+      //     setCountdown(10);
+      // }
       } catch (error) {
         console.error(error);
       }
@@ -217,20 +218,29 @@ export default function ScoreScreen({navigation, route}) {
         // console.log("Response  is: ", response)
 
       
-        if (response.status == 200) {
+      if (response.status == 404){
+          setRecordingUploaded(true);
+          setAudioUploadStatus('Could not transcribe audio. Please try again.');
+          setTryAgain(true)
+          setCountdown(10)
+          
+        } else{
           setCountdown(0)
           setRecordingUploaded(false);
           setAudioUploadStatus('');
           setTryAgain(false)
-        } else if (response.status == 404){
-          setRecordingUploaded(true);
-          setAudioUploadStatus('Could not transcribe audio. Please try again.');
-          setTryAgain(true)
-          if (tryAgain){
-            setCountdown(10)
-          }
-        } else{
-          setAudioUploadStatus('');
+
+          // if audio is sent , set display to false 
+          await fetch('http://50.112.215.42/teams/buzzer/team/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              questionID: teamBuzzerData.questionID,
+              display: "false",
+            }),
+          });
         }
       } catch (error) {
         console.error('Error uploading audio:', error);
@@ -260,7 +270,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            {countdown > 0 &&   teamData.teamName === teamBuzzerData.teamName && recordingUploaded && (
+            {countdown > 0 &&  teamData.teamName === teamBuzzerData.teamName && teamBuzzerData.display ==="true" && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
