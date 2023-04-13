@@ -48,11 +48,14 @@ export default function ScoreScreen({navigation, route}) {
         const response = await fetch('http://50.112.215.42/teams/buzzer/team/');
         const json = await response.json();
         setTeamBuzzerData(json);
-        console.log("json.error isss" , json.error=== "No buzzer press found")
+        
         if (json.error === "No buzzer press found"){
           setCountdown(0)
           setRecordingUploaded(false);
           setAudioUploadStatus('');
+        }
+        else{
+          // setCountdown(10)
         }
 
       //   else if ((json.questionID != teamBuzzerData.questionID )) { //debug
@@ -69,7 +72,7 @@ export default function ScoreScreen({navigation, route}) {
       const intervalId = setInterval(() => {
         getTeamData();
         getTeamBuzzerData();
-      }, 11000); // request every 11 seconds , because count down is for 10 seconds
+      }, 1000); // request every 11 seconds , because count down is for 10 seconds
     
       // Clear interval when component unmounts
       return () => clearInterval(intervalId);
@@ -165,11 +168,7 @@ export default function ScoreScreen({navigation, route}) {
           playsInSilentModeIOS: true,
         });
         console.log('Starting recording..');
-        // const recording = new Audio.Recording();
-        // await recording.prepareToRecordAsync(recordingOptions);
-        // await recording.startAsync();
-        // setRecording(recording);
-        // console.log('Recording started');
+        
         if (recording) {
           await recording.stopAndUnloadAsync();
         }
@@ -215,10 +214,9 @@ export default function ScoreScreen({navigation, route}) {
         });
         console.log("Response received.");
         console.log("Response status is: ", response.status)
-        // console.log("Response  is: ", response)
 
       
-      if (response.status == 404){
+      if (response.status == 404 || response.status == 413){
           setRecordingUploaded(true);
           setAudioUploadStatus('Could not transcribe audio. Please try again.');
           setTryAgain(true)
@@ -270,7 +268,7 @@ export default function ScoreScreen({navigation, route}) {
             />
             <StatusBar style = "auto"/>
 
-            {countdown > 0 &&  teamData.teamName === teamBuzzerData.teamName && teamBuzzerData.display ==="true" && (
+            {teamData.teamName === teamBuzzerData.teamName && teamBuzzerData.display ==="true" && (
                <>
             <TouchableOpacity
                 onPress={recording ? stopRecording : startRecording}
@@ -290,9 +288,9 @@ export default function ScoreScreen({navigation, route}) {
 
             </TouchableOpacity>
 
-            {countdown > 0 && (
+            {/* {countdown > 0 && (
             <Text style={{color:"white"}}>Record in {countdown} seconds</Text>
-          )}
+          )} */}
             </>
           )}
 

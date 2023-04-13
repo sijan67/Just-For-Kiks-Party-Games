@@ -16,6 +16,9 @@ router.get('/', async (req, res, next) => {
     await User.deleteMany({});
     await Team.deleteMany({});
     await Game.deleteMany({});
+    await Buzzer.deleteMany({});
+    await Room.deleteMany({});
+    await Game.deleteMany({});
 
     const roomCode = Math.floor(1000 + Math.random() * 9000).toString();
     R = roomCode;

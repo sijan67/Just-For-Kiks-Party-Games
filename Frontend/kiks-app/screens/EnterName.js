@@ -71,7 +71,7 @@ export default function EnterName({navigation, route}){
       })
       .then(response => response.json())
       .then(data => {
-        console.log("Created User")
+      
       //   // navigate to NavTab screen with username as a parameter
         navigation.navigate('EnterGameCode', { username: username });
       })
