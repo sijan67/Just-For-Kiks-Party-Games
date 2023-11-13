@@ -3,7 +3,7 @@
 ## 1. PROJECT TITLE
 Just For Kiks Party Games
 
-[![DEMO VIDEO]](https://youtu.be/pO975KE3FyM)
+[![VIDEO](https://img.youtube.com/vi/pO975KE3FyM/0.jpg)](https://youtu.be/pO975KE3FyM)
 
 ## 2. GENERAL PROJECT DESCRIPTION
 WHAT: This project is to build a Party Game where users can enter their names, be randomly split up into two teams, can play 4 different games through their phones and a VGA monitor attached to the DE1-SoC board, which would be connected via Wifi to the cloud server and a mobile application. The VGA monitor acts as a shared display for the players of the game. The DE1-SoC also has two trigger buttons attached that act as speed buzzers to select which team goes first during trivia games. A room verification code is displayed on the VGA display to allow users to join the party room though the same code. Players can join the party room by putting the verification code through their mobile app, and select a game of their preference. Mini-games will be selected every round, with a random option. Trivia games will be played through a speed buzzer and the microphone attached to the DE1, whereas other mini-games will be played through the mobile application. The winning team in this case will be measured through mini-game finishing time. Each round, which allows a different mini-game to be picked, awards the winning team 100 points, and the first team to achieve 1000 points wins the entire game.
